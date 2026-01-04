@@ -22,6 +22,7 @@ By the end, your child will be able to:
 **The basics:** Two alliances (2 robots each) compete on a 12' × 12' field. The goal is to push colored blocks into scoring goals while defending your zones.
 
 **Match structure:**
+
 | Phase | Duration | What Happens |
 |-------|----------|--------------|
 | Autonomous | 15 seconds | Robot runs pre-programmed code (no human control) |
