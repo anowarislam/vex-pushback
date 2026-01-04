@@ -1,0 +1,3241 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../03-skills-autonomous/">
+      
+      
+        <link rel="next" href="../../appendix/quick-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Review Q&A - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-topics-qa-self-assessment-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review Q&A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-pid-control-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: PID Control (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1: PID Control (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q1-q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q1-Q6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q7-q12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q7-Q12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q13-q18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q13-Q18)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-sensor-integration-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Sensor Integration (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Sensor Integration (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q19-q24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q19-Q24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q25-q30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q25-Q30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q31-q36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q31-Q36)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-skills-autonomous-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Skills Autonomous (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: Skills Autonomous (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q37-q42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q37-Q42)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q43-q48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q43-Q48)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q49-q54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q49-Q54)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer Key
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Answer Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-1-pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: PID Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-2-sensor-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Sensor Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-3-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Skills Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#study-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Study Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Study Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For PID Control:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-sensor-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Sensor Integration:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Skills Autonomous:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-pid-control-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: PID Control (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1: PID Control (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q1-q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q1-Q6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q7-q12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q7-Q12)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q13-q18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q13-Q18)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-sensor-integration-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Sensor Integration (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Sensor Integration (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q19-q24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q19-Q24)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q25-q30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q25-Q30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q31-q36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q31-Q36)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-skills-autonomous-18-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Skills Autonomous (18 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 3: Skills Autonomous (18 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceptual-questions-q37-q42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceptual Questions (Q37-Q42)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-reading-questions-q43-q48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Reading Questions (Q43-Q48)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-application-questions-q49-q54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Application Questions (Q49-Q54)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer Key
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Answer Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#section-1-pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: PID Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-2-sensor-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Sensor Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-3-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Skills Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#study-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Study Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Study Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For PID Control:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-sensor-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Sensor Integration:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Skills Autonomous:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="advanced-topics-qa-self-assessment-guide">Advanced Topics Q&amp;A: Self-Assessment Guide<a class="headerlink" href="#advanced-topics-qa-self-assessment-guide" title="Permanent link">&para;</a></h1>
+<p><strong>For:</strong> VEX V5 Push Back Competition
+<strong>Level:</strong> Advanced (Tutorials 7.1-7.3)</p>
+<p>Use this guide to test your understanding of PID control, sensor integration, and skills autonomous programming. Each section has 18 questions covering conceptual understanding, code reading, and Push Back application.</p>
+<hr />
+<h2 id="section-1-pid-control-18-questions">Section 1: PID Control (18 Questions)<a class="headerlink" href="#section-1-pid-control-18-questions" title="Permanent link">&para;</a></h2>
+<h3 id="conceptual-questions-q1-q6">Conceptual Questions (Q1-Q6)<a class="headerlink" href="#conceptual-questions-q1-q6" title="Permanent link">&para;</a></h3>
+<p><strong>Q1:</strong> What does PID stand for, and what is its purpose in robotics?</p>
+<p><strong>Q2:</strong> Why is "bang-bang" control (on/off at 100%) a problem for accurate movements?</p>
+<p><strong>Q3:</strong> In PID, what does the "P" (Proportional) term do? How does it respond to error?</p>
+<p><strong>Q4:</strong> What is the role of the "I" (Integral) term? When is it most useful?</p>
+<p><strong>Q5:</strong> What does the "D" (Derivative) term predict, and how does it help?</p>
+<p><strong>Q6:</strong> If your robot overshoots the target and oscillates back and forth, which tuning constant should you adjust first?</p>
+<hr />
+<h3 id="code-reading-questions-q7-q12">Code Reading Questions (Q7-Q12)<a class="headerlink" href="#code-reading-questions-q7-q12" title="Permanent link">&para;</a></h3>
+<p><strong>Q7:</strong> Trace through this P controller. What will <code>correction</code> be when <code>current = 30</code> and <code>target = 90</code>?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">target</span> <span class="o">=</span> <span class="mi">90</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">current</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+</code></pre></div>
+<p><strong>Q8:</strong> What's wrong with this PID code? (Hint: think about stop conditions)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.8</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Q9:</strong> Why do we need heading wraparound handling? What problem does this code solve?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">elif</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+</code></pre></div>
+<p><strong>Q10:</strong> In this PI controller, what happens to <code>integral</code> over time if <code>error</code> stays at 2?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">integral</span> <span class="o">+=</span> <span class="n">error</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">correction</span> <span class="o">=</span> <span class="p">(</span><span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ki</span> <span class="o">*</span> <span class="n">integral</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Q11:</strong> What does this line do and why limit the correction value?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">correction</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">correction</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Q12:</strong> When should you use P-only control vs. PI control vs. full PID?</p>
+<hr />
+<h3 id="push-back-application-questions-q13-q18">Push Back Application Questions (Q13-Q18)<a class="headerlink" href="#push-back-application-questions-q13-q18" title="Permanent link">&para;</a></h3>
+<p><strong>Q13:</strong> During Push Back autonomous, you need to turn exactly 45° to face a goal. Which controller type would you use and why?</p>
+<p><strong>Q14:</strong> Your robot keeps stopping 3° short of the target heading. The P controller shows <code>error = 3</code> but <code>correction = 1.5%</code> isn't enough to overcome friction. What should you add?</p>
+<p><strong>Q15:</strong> Design a P controller for Push Back that makes the robot push blocks in a straight line. What sensor would you use, and what would be your target value?</p>
+<p><strong>Q16:</strong> For parking at the end of a Push Back match, would you prefer aggressive PID (high Kp) or gentle PID (low Kp)? Explain your reasoning.</p>
+<p><strong>Q17:</strong> What Kp value range would you start with for a VEX V5 turning P controller? What symptoms would tell you it's too high or too low?</p>
+<p><strong>Q18:</strong> How could PID help your robot align with a goal before pushing blocks during the 15-second autonomous period?</p>
+<hr />
+<h2 id="section-2-sensor-integration-18-questions">Section 2: Sensor Integration (18 Questions)<a class="headerlink" href="#section-2-sensor-integration-18-questions" title="Permanent link">&para;</a></h2>
+<h3 id="conceptual-questions-q19-q24">Conceptual Questions (Q19-Q24)<a class="headerlink" href="#conceptual-questions-q19-q24" title="Permanent link">&para;</a></h3>
+<p><strong>Q19:</strong> What's the difference between a robot using <code>drivetrain.drive_for(500, MM)</code> vs. using a distance sensor to drive until reaching a target?</p>
+<p><strong>Q20:</strong> Why must you call <code>inertial_sensor.calibrate()</code> and wait 3 seconds before using the inertial sensor?</p>
+<p><strong>Q21:</strong> What's the difference between <code>inertial_sensor.heading()</code> (0-360°) and <code>inertial_sensor.rotation()</code> (unbounded)?</p>
+<p><strong>Q22:</strong> Name the four main sensors discussed and what each one measures.</p>
+<p><strong>Q23:</strong> Why does the optical sensor need its LED turned on before detecting colors?</p>
+<p><strong>Q24:</strong> What does the GPS sensor measure, and why is it called "knowing your position" rather than "guessing"?</p>
+<hr />
+<h3 id="code-reading-questions-q25-q30">Code Reading Questions (Q25-Q30)<a class="headerlink" href="#code-reading-questions-q25-q30" title="Permanent link">&para;</a></h3>
+<p><strong>Q25:</strong> Trace through this code. If <code>current_heading = 85</code> and <code>start_heading = 90</code>, what is <code>correction</code> when <code>Kp = 0.5</code>?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">start_heading</span> <span class="o">=</span> <span class="mi">90</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">current_heading</span> <span class="o">=</span> <span class="mi">85</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current_heading</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+</code></pre></div>
+<p><strong>Q26:</strong> What's the purpose of <code>wait=False</code> in this code?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">MM</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">while</span> <span class="n">drivetrain</span><span class="o">.</span><span class="n">is_moving</span><span class="p">():</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="c1"># Check for timeout</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Q27:</strong> What does this distance sensor code do? What happens when the robot is far from a wall?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Q28:</strong> In this optical sensor code, what happens if the sensor detects a BLUE block but our alliance is RED?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">detected_color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">if</span> <span class="n">detected_color</span> <span class="o">==</span> <span class="n">our_alliance_color</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">)</span>  <span class="c1"># Eject!</span>
+</code></pre></div>
+<p><strong>Q29:</strong> What does this GPS navigation code calculate? What's the purpose of <code>math.atan2</code>?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">dx</span> <span class="o">=</span> <span class="n">target_x</span> <span class="o">-</span> <span class="n">current_x</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">dy</span> <span class="o">=</span> <span class="n">target_y</span> <span class="o">-</span> <span class="n">current_y</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">target_angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Q30:</strong> Why do we apply correction to both left and right motors but with opposite signs?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">left_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">right_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="push-back-application-questions-q31-q36">Push Back Application Questions (Q31-Q36)<a class="headerlink" href="#push-back-application-questions-q31-q36" title="Permanent link">&para;</a></h3>
+<p><strong>Q31:</strong> You're building a Push Back autonomous that needs to drive forward until the robot is 100mm from the goal. Which sensor would you use and how?</p>
+<p><strong>Q32:</strong> During autonomous, how could you use the inertial sensor to ensure your robot drives straight while pushing blocks?</p>
+<p><strong>Q33:</strong> In Push Back, teams have red and blue blocks. How would you use the optical sensor to pick up only your alliance color's blocks?</p>
+<p><strong>Q34:</strong> Your robot needs to return to its starting position after scoring to get in position for the next action. Which sensor would give you the most accurate return path?</p>
+<p><strong>Q35:</strong> Design a sensor-based autonomous for Push Back that:
+   - Drives forward until 150mm from wall
+   - Turns 90° using inertial sensor
+   - Drives forward until 200mm from next wall
+   What sensors do you need?</p>
+<p><strong>Q36:</strong> How would you combine the inertial sensor and distance sensor to create a "smart push" function that drives straight toward a goal and stops at the right distance?</p>
+<hr />
+<h2 id="section-3-skills-autonomous-18-questions">Section 3: Skills Autonomous (18 Questions)<a class="headerlink" href="#section-3-skills-autonomous-18-questions" title="Permanent link">&para;</a></h2>
+<h3 id="conceptual-questions-q37-q42">Conceptual Questions (Q37-Q42)<a class="headerlink" href="#conceptual-questions-q37-q42" title="Permanent link">&para;</a></h3>
+<p><strong>Q37:</strong> What's the main difference between Match Autonomous (15 seconds) and Skills Autonomous (60 seconds)?</p>
+<p><strong>Q38:</strong> What is a "state machine" and why is it useful for 60-second routines?</p>
+<p><strong>Q39:</strong> Why is the parking phase (final 5-8 seconds) so critical in Skills? What points are at stake?</p>
+<p><strong>Q40:</strong> What does "error recovery" mean in Skills autonomous? Why is it more important than in Match autonomous?</p>
+<p><strong>Q41:</strong> How do you use a Timer in VEX V5 Python? What methods are available?</p>
+<p><strong>Q42:</strong> Explain the concept of "time budgeting" for a 60-second Skills run.</p>
+<hr />
+<h3 id="code-reading-questions-q43-q48">Code Reading Questions (Q43-Q48)<a class="headerlink" href="#code-reading-questions-q43-q48" title="Permanent link">&para;</a></h3>
+<p><strong>Q43:</strong> In this state machine, what causes the transition from STATE_PHASE1 to STATE_PHASE2?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">STATE_PHASE1</span><span class="p">:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">phase1_scoring</span><span class="p">()</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="k">if</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">SECONDS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="n">state</span> <span class="o">=</span> <span class="n">STATE_PHASE2</span>
+</code></pre></div>
+<p><strong>Q44:</strong> What's the purpose of <code>wait=False</code> in this timeout protection code?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">safe_drive_for</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">timer</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">MM</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="k">while</span> <span class="n">drivetrain</span><span class="o">.</span><span class="n">is_moving</span><span class="p">():</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>        <span class="k">if</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">SECONDS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>            <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p><strong>Q45:</strong> Why does the Skills template check <code>if timer.time(SECONDS) &lt; 36:</code> before starting Phase 2?</p>
+<p><strong>Q46:</strong> What happens if Phase 1 fails (returns False) in this recovery code?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">phase1_scoring</span><span class="p">():</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="n">brain</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Phase 1 timeout!&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Phase 2 continues...</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">phase2_scoring</span><span class="p">():</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="n">brain</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Phase 2 timeout!&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># Always try to park</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">drive_to_park</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Q47:</strong> Trace through this state machine. If the timer shows 55 seconds, what state should the robot be in?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">STATE_INIT</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">STATE_PHASE1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 0-20 sec</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">STATE_PHASE2</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># 20-40 sec</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">STATE_PHASE3</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># 40-55 sec</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">STATE_PARK</span> <span class="o">=</span> <span class="mi">4</span>    <span class="c1"># 55-60 sec</span>
+</code></pre></div>
+<p><strong>Q48:</strong> Why do we use <code>wait(20, MSEC)</code> at the end of our while loops in autonomous code?</p>
+<hr />
+<h3 id="push-back-application-questions-q49-q54">Push Back Application Questions (Q49-Q54)<a class="headerlink" href="#push-back-application-questions-q49-q54" title="Permanent link">&para;</a></h3>
+<p><strong>Q49:</strong> Design a 4-phase time budget for a 60-second Push Back Skills run. Include specific goals for each phase.</p>
+<p><strong>Q50:</strong> In Push Back Skills, there are three goal areas. How would you plan your robot's path to score in all three areas within 60 seconds?</p>
+<p><strong>Q51:</strong> You're programming a Skills autonomous for Push Back. The robot gets stuck on a block at 25 seconds. How would your error recovery handle this?</p>
+<p><strong>Q52:</strong> Why should your Skills routine always include a parking phase, even if you haven't finished scoring? Calculate the point difference.</p>
+<p><strong>Q53:</strong> How would you use state variables to track your scoring progress during a Push Back Skills run?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">blocks_scored_phase1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">blocks_scored_phase2</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">current_phase</span> <span class="o">=</span> <span class="n">STATE_INIT</span>
+</code></pre></div>
+<p><strong>Q54:</strong> Design a Skills strategy that maximizes points in Push Back. Consider:
+   - Block scoring (3 points each)
+   - Zone control bonuses (6-10 points)
+   - Parking bonus (8 or 30 points)</p>
+<hr />
+<h2 id="answer-key">Answer Key<a class="headerlink" href="#answer-key" title="Permanent link">&para;</a></h2>
+<h3 id="section-1-pid-control">Section 1: PID Control<a class="headerlink" href="#section-1-pid-control" title="Permanent link">&para;</a></h3>
+<p><strong>A1:</strong> PID stands for <strong>Proportional-Integral-Derivative</strong>. It's a control algorithm that helps robots move more accurately by adjusting motor power based on how far away they are from the target (P), how long they've been off target (I), and how fast they're approaching the target (D).</p>
+<p><strong>A2:</strong> Bang-bang control causes <strong>overshoot and oscillation</strong>. When motors run at 100% until the exact target, the robot has too much momentum to stop precisely. It overshoots, reverses at 100%, undershoots, and keeps oscillating around the target instead of stopping smoothly.</p>
+<p><strong>A3:</strong> The P term provides correction <strong>proportional to the error</strong>. If you're far from target, you get a big correction. As you get closer, the correction automatically decreases. Formula: <code>correction = Kp × error</code>. This creates smooth approaches to targets.</p>
+<p><strong>A4:</strong> The I term <strong>accumulates error over time</strong>. It's most useful when the P controller can't overcome static friction. If the robot is stuck 2° from target and P gives only 1% power (not enough to move), the I term adds up that error until the correction is strong enough to move.</p>
+<p><strong>A5:</strong> The D term <strong>predicts future error</strong> based on how fast the error is changing. If error is decreasing quickly (you're approaching target fast), D reduces the correction to prevent overshoot. If error is increasing, D adds more correction. It acts like a "damper" to smooth out movements.</p>
+<p><strong>A6:</strong> You should <strong>decrease Kp</strong> first. Oscillation means the proportional response is too aggressive. A lower Kp will make the robot slow down more gradually as it approaches the target, reducing overshoot.</p>
+<p><strong>A7:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>error = 90 - 30 = 60
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>correction = 0.5 × 60 = 30
+</code></pre></div>
+The correction will be <strong>30%</strong> motor power.</p>
+<p><strong>A8:</strong> The code is missing a <strong>stop condition</strong>! The <code>while True</code> loop never breaks, so even when the robot reaches the target, it keeps trying to correct. It needs:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># Tolerance of 2 degrees</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="k">break</span>
+</code></pre></div></p>
+<p><strong>A9:</strong> Heading wraparound handles the <strong>0-360 degree boundary problem</strong>. Example: If current heading is 350° and target is 10°, the simple calculation gives error = 10 - 350 = -340°. But the shortest turn is actually +20°! The wraparound code fixes this by converting -340° to +20° (adding 360).</p>
+<p><strong>A10:</strong> The <code>integral</code> grows by 2 each loop iteration:
+- Cycle 1: integral = 0 + 2 = 2
+- Cycle 2: integral = 2 + 2 = 4
+- Cycle 3: integral = 4 + 2 = 6
+- And so on...</p>
+<p>This accumulation eventually provides enough correction to overcome friction or steady-state error.</p>
+<p><strong>A11:</strong> This line <strong>clamps the correction</strong> to a maximum of ±50%. It prevents the motors from going too fast, which could cause:
+- Wheel slippage
+- Loss of traction
+- Dangerous robot speeds
+- Mechanical stress</p>
+<p><strong>A12:</strong>
+- <strong>P-only:</strong> Good for simple movements where you don't need perfect precision (90% of cases)
+- <strong>PI:</strong> When the robot consistently stops short of target due to friction
+- <strong>Full PID:</strong> When you need both precision AND smooth stopping without oscillation (advanced use)</p>
+<p><strong>A13:</strong> Use <strong>P-only control</strong> with the inertial sensor. For a 45° turn, P control provides smooth deceleration as you approach the target. Formula: <code>error = 45 - current_heading</code>, <code>correction = Kp * error</code>. Start with Kp = 0.5-1.0.</p>
+<p><strong>A14:</strong> Add the <strong>I (Integral) term</strong>. The I term accumulates the small error over time: 3 + 3 + 3... until the correction is strong enough to overcome friction. Use a small Ki like 0.01 to prevent overshooting.</p>
+<p><strong>A15:</strong> Use the <strong>inertial sensor</strong> with target = starting heading:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>  <span class="c1"># Save at start</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1"># In driving loop:</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current_heading</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">left_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">right_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>A16:</strong> <strong>Gentle PID (low Kp)</strong> is better for parking because:
+- You don't need to rush (just get there before time runs out)
+- Smooth movements reduce the chance of overshooting the park zone
+- Lower speeds prevent momentum from carrying you out of the zone
+- More controlled = more reliable parking</p>
+<p><strong>A17:</strong> Start with <strong>Kp = 0.5 to 1.0</strong> for VEX V5 turning.
+- <strong>Too high:</strong> Robot oscillates around target, overshoots, jerky movements
+- <strong>Too low:</strong> Robot turns slowly, may not reach target (especially with friction), sluggish response
+- <strong>Just right:</strong> Quick turn that slows smoothly as it approaches target, minimal overshoot</p>
+<p><strong>A18:</strong> PID helps with goal alignment by:
+1. Using inertial sensor to measure current heading
+2. Calculating error = desired heading toward goal - current heading
+3. Applying smooth correction: as robot gets closer to facing the goal, correction decreases
+4. Stopping precisely when aligned (error &lt; 2°)</p>
+<p>This ensures you're facing the goal accurately before pushing blocks.</p>
+<hr />
+<h3 id="section-2-sensor-integration">Section 2: Sensor Integration<a class="headerlink" href="#section-2-sensor-integration" title="Permanent link">&para;</a></h3>
+<p><strong>A19:</strong> <code>drive_for(500, MM)</code> is <strong>open-loop</strong> - it calculates distance from motor rotations and hopes it's accurate. Wheel slip, battery changes, and friction affect it. Using a distance sensor is <strong>closed-loop</strong> - it continuously measures actual distance to target and stops when you're actually there, regardless of wheel slip.</p>
+<p><strong>A20:</strong> Calibration is necessary because the inertial sensor (IMU) needs to:
+1. Find its zero point (level position)
+2. Compensate for any sensor drift
+3. Set up internal reference for accurate heading readings
+The 3-second wait ensures calibration completes. Moving during calibration causes bad readings!</p>
+<p><strong>A21:</strong>
+- <strong>heading()</strong> returns 0-360° and resets at 360° (like a compass, good for absolute directions)
+- <strong>rotation()</strong> is unbounded (-∞ to +∞) and tracks total rotation (good for counting turns: 720° = 2 full rotations)</p>
+<p>Use heading for "turn to face north," use rotation for "turn exactly 2 full circles."</p>
+<p><strong>A22:</strong>
+| Sensor | Measures |
+|--------|----------|
+| <strong>Inertial (IMU)</strong> | Heading (direction), rotation, acceleration |
+| <strong>Distance</strong> | Distance to objects in millimeters |
+| <strong>Optical</strong> | Color, light intensity, proximity |
+| <strong>GPS</strong> | X/Y position on field, heading |</p>
+<p><strong>A23:</strong> The optical sensor uses an LED to illuminate objects and measures reflected light to detect color. Without the LED on, the sensor relies on ambient light, which varies and gives inconsistent readings. The LED provides controlled, consistent lighting for accurate color detection.</p>
+<p><strong>A24:</strong> GPS measures your <strong>exact X and Y coordinates</strong> on the field (in mm from center) plus heading. It "knows" position because it uses external reference (the field strip code) rather than calculating from wheel rotations. It's like using a real GPS vs. counting your steps - the GPS directly measures where you are.</p>
+<p><strong>A25:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>error = 90 - 85 = 5
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>correction = 0.5 × 5 = 2.5
+</code></pre></div>
+The correction is <strong>2.5%</strong> - meaning the left motors get 52.5% and right motors get 47.5% to correct the drift to the left.</p>
+<p><strong>A26:</strong> <code>wait=False</code> makes the command <strong>non-blocking</strong> - it starts the movement but immediately returns so your code can continue. This allows you to:
+- Monitor sensors while moving
+- Check for timeout conditions
+- React to obstacles mid-movement
+Without it, the code waits until movement finishes before continuing.</p>
+<p><strong>A27:</strong> The code <strong>drives forward until the wall is 150mm away</strong>, then stops. When far from a wall (distance &gt; 150mm), it keeps driving at 50% speed. The <code>wait(20, MSEC)</code> prevents CPU overload. This is useful for approaching goals or walls without crashing.</p>
+<p><strong>A28:</strong> If the sensor detects BLUE but alliance is RED:
+- <code>detected_color == our_alliance_color</code> evaluates to <code>False</code>
+- The <code>else</code> branch executes: <code>intake_motor.spin(REVERSE)</code>
+- The block is <strong>ejected</strong> instead of picked up</p>
+<p>This prevents scoring opponent blocks in your goal, which would help the other team!</p>
+<p><strong>A29:</strong> The code calculates:
+1. <code>dx, dy</code> = horizontal and vertical distance to target
+2. <code>distance</code> = straight-line distance using Pythagorean theorem (√(dx² + dy²))
+3. <code>target_angle</code> = direction to face the target using <code>atan2</code> (arctangent that handles all quadrants correctly)</p>
+<p><code>atan2(dy, dx)</code> is better than <code>atan(dy/dx)</code> because it handles all four quadrants and avoids division by zero.</p>
+<p><strong>A30:</strong> Opposite signs create <strong>differential steering</strong>:
+- To turn <strong>right</strong>: left motors faster (+correction), right motors slower (-correction)
+- To turn <strong>left</strong>: left motors slower (-correction), right motors faster (+correction)</p>
+<p>If the robot drifts left of target (positive error), the correction makes left motors spin faster, turning the robot right back toward the target.</p>
+<p><strong>A31:</strong> Use the <strong>distance sensor</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+This drives until exactly 100mm from the goal, perfect for pushing blocks without ramming the wall.</p>
+<p><strong>A32:</strong> Use inertial sensor for <strong>heading correction</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">while</span> <span class="n">pushing</span><span class="p">:</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="n">current_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current_heading</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    <span class="c1"># Apply correction to keep heading constant</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    <span class="n">left_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="n">right_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+</code></pre></div>
+This keeps the robot driving straight even if it bumps blocks.</p>
+<p><strong>A33:</strong> Use the optical sensor:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">our_alliance_color</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span>  <span class="c1"># Set at match start</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">optical_sensor</span><span class="o">.</span><span class="n">set_light</span><span class="p">(</span><span class="n">LedStateType</span><span class="o">.</span><span class="n">ON</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">our_alliance_color</span><span class="p">:</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>        <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>  <span class="c1"># Pick up!</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>        <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">)</span>  <span class="c1"># Eject opponent&#39;s block!</span>
+</code></pre></div></p>
+<p><strong>A34:</strong> The <strong>GPS sensor</strong> gives the most accurate return path because:
+- It provides absolute X/Y position on the field
+- Not affected by wheel slip during the scoring run
+- Can navigate back to exact starting coordinates
+- More reliable than dead reckoning from motor encoders</p>
+<p><strong>A35:</strong> You need <strong>two sensors</strong>:
+1. <strong>Distance sensor</strong> (front-mounted) - for detecting walls
+2. <strong>Inertial sensor</strong> - for accurate 90° turn</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Phase 1: Drive to first wall</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">:</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">drive_straight</span><span class="p">()</span>  <span class="c1"># Uses inertial for correction</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c1"># Phase 2: Turn 90°</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">turn_to_heading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>  <span class="c1"># Using inertial sensor</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="c1"># Phase 3: Drive to second wall</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>    <span class="n">drive_straight</span><span class="p">()</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>A36:</strong> Combine both sensors:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">smart_push</span><span class="p">(</span><span class="n">target_distance</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">target_distance</span><span class="p">:</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>        <span class="c1"># Heading correction for straight driving</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>        <span class="c1"># Handle wraparound</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span> <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>        <span class="k">elif</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span> <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div></p>
+<hr />
+<h3 id="section-3-skills-autonomous">Section 3: Skills Autonomous<a class="headerlink" href="#section-3-skills-autonomous" title="Permanent link">&para;</a></h3>
+<p><strong>A37:</strong> Key differences:
+| Aspect | Match Autonomous | Skills Autonomous |
+|--------|------------------|-------------------|
+| <strong>Time</strong> | 15 seconds | 60 seconds |
+| <strong>Complexity</strong> | Simple, linear | Complex, multi-phase |
+| <strong>Field Coverage</strong> | One area | Entire field |
+| <strong>Partner</strong> | Alliance partner helps | Solo - you're alone! |
+| <strong>Scoring Impact</strong> | Sets up driver period | Affects tournament ranking |</p>
+<p><strong>A38:</strong> A state machine is a programming pattern where the robot can be in different "states" (like PHASE1, PHASE2, PARK) and transitions between them based on conditions (like time or completion). It's useful for 60-second routines because:
+- Keeps code organized
+- Easy to skip phases if running late
+- Clear transitions between tasks
+- Easier to debug (you know which state failed)</p>
+<p><strong>A39:</strong> Parking is critical because it's <strong>guaranteed points</strong>:
+- One robot parked: <strong>8 points</strong>
+- Both robots parked: <strong>30 points</strong></p>
+<p>Even if you score 5 blocks (15 points) but don't park, an opponent who scores 3 blocks (9 points) and parks both robots (30 points) beats you 39-15! Always budget 5-8 seconds for parking.</p>
+<p><strong>A40:</strong> Error recovery means having a <strong>backup plan when something goes wrong</strong>. In Skills (60 seconds), there's time to recover:
+- If Phase 1 takes too long → skip to Phase 2
+- If robot gets stuck → timeout and try next action
+- If scoring fails → proceed to parking anyway</p>
+<p>In Match (15 seconds), there's no time to recover, so routines are simpler.</p>
+<p><strong>A41:</strong> VEX V5 Timer usage:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>      <span class="c1"># Create timer</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">timer</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>        <span class="c1"># Start/restart timer at 0</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">time</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">SECONDS</span><span class="p">)</span>   <span class="c1"># Read time in seconds</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="n">time</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">MSEC</span><span class="p">)</span>      <span class="c1"># Read time in milliseconds</span>
+</code></pre></div>
+Use it for phase transitions, timeouts, and tracking total elapsed time.</p>
+<p><strong>A42:</strong> Time budgeting means <strong>planning how long each phase should take</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>60 seconds total:
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>├── Phase 1 (0-18 sec):  First goal area
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>├── Phase 2 (18-36 sec): Center area
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>├── Phase 3 (36-52 sec): Third goal area
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>└── Phase 4 (52-60 sec): PARKING!
+</code></pre></div>
+Always budget from the end (parking first), then allocate remaining time.</p>
+<p><strong>A43:</strong> The transition happens when <code>timer.time(SECONDS) &gt; 20</code> - meaning <strong>20 seconds have passed</strong> since the timer was reset. The phase1_scoring() function runs repeatedly until time exceeds 20 seconds, then state changes to STATE_PHASE2.</p>
+<p><strong>A44:</strong> <code>wait=False</code> makes drive_for <strong>non-blocking</strong>, meaning the code continues to the while loop immediately instead of waiting for the drive to complete. This allows checking for timeout while the robot is still moving. Without it, you couldn't implement timeout protection.</p>
+<p><strong>A45:</strong> The check <code>timer.time(SECONDS) &lt; 36</code> ensures Phase 2 <strong>only runs if there's time left</strong>. If Phase 1 took too long (used up all the time until second 36), Phase 2 is skipped to save time for parking. It's part of error recovery - better to skip a phase than miss parking.</p>
+<p><strong>A46:</strong> If Phase 1 fails (returns False):
+1. "Phase 1 timeout!" is printed to the Brain screen
+2. Code continues to Phase 2 (no crash or halt)
+3. If Phase 2 also fails, another message is printed
+4. <strong>drive_to_park() always runs</strong> - parking is never skipped</p>
+<p>This is graceful degradation - even if scoring fails, we guarantee the parking points.</p>
+<p><strong>A47:</strong> At 55 seconds, the robot should be in <strong>STATE_PARK</strong> (Phase 4). According to the time budget:
+- STATE_PHASE1: 0-20 sec
+- STATE_PHASE2: 20-40 sec
+- STATE_PHASE3: 40-55 sec
+- STATE_PARK: 55-60 sec</p>
+<p>At exactly 55 seconds, the transition from PHASE3 to PARK should occur.</p>
+<p><strong>A48:</strong> <code>wait(20, MSEC)</code> serves multiple purposes:
+1. <strong>Prevents CPU overload</strong> - without it, the loop runs millions of times per second
+2. <strong>Matches motor update rate</strong> - VEX motors update every ~20ms anyway
+3. <strong>Allows other code to run</strong> - gives the VEX OS time for background tasks
+4. <strong>Consistent loop timing</strong> - makes PID calculations predictable</p>
+<p>20ms = 50 loops per second, which is plenty fast for smooth control.</p>
+<p><strong>A49:</strong> Push Back Skills 60-second time budget:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Phase 1 (0-18 sec): LONG GOAL
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>  - Drive to first block cluster
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>  - Push 3-4 blocks into long goal
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>  - Back up to get next blocks
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>  Goal: 9-12 points + zone control (10 points)
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>Phase 2 (18-36 sec): CENTER GOALS
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>  - Navigate to center field
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>  - Score in center upper or lower goal
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>  - Clear blocks toward goal zones
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>  Goal: 9-12 points + zone control (6-8 points)
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>Phase 3 (36-52 sec): OPPOSITE GOAL
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>  - Cross to far side of field
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>  - Push remaining blocks
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>  - Position for parking
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>  Goal: 6-9 points
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>Phase 4 (52-60 sec): PARKING
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>  - Navigate to park zone
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>  - Ensure fully inside zone
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>  - Stop and wait
+<a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>  Goal: 8-30 points guaranteed
+</code></pre></div></p>
+<p><strong>A50:</strong> Field path strategy:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>START → LONG GOAL → CENTER → FAR GOAL → PARK
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a> ┌─────────────────────────────────────┐
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a> │   [GOAL 1]    [CENTER]    [GOAL 2] │
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a> │      ↑           ↑           ↑     │
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a> │      1st         2nd         3rd   │
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a> │   (0-18s)     (18-36s)    (36-52s) │
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a> │                                     │
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a> │              [PARK]                 │
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a> │                 ↑                   │
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a> │              4th (52-60s)           │
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a> └─────────────────────────────────────┘
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>Key: Work in sequence across field, end near parking zone.
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>Plan return path before Phase 3 ends!
+</code></pre></div></p>
+<p><strong>A51:</strong> Error recovery for stuck robot at 25 seconds:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">phase2_scoring</span><span class="p">():</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    <span class="n">timer</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="c1"># Try to push blocks</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">safe_drive_for</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>        <span class="c1"># Stuck! Try backing up</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>        <span class="c1"># Try alternate route</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>        <span class="n">safe_drive_for</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>    <span class="c1"># If still stuck after 8 seconds, give up and move on</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>    <span class="k">if</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">SECONDS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Signal to skip to next phase</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div></p>
+<p>At 25 seconds, Phase 2 should be almost done. The timeout protection ensures we don't waste all remaining time on one stuck action.</p>
+<p><strong>A52:</strong> Parking point analysis:
+- Without parking: 0 points from parking
+- With 1 robot parked: 8 points guaranteed
+- With 2 robots parked: 30 points guaranteed</p>
+<p><strong>Scenario comparison:</strong>
+- Score 8 blocks (24 points) + no parking = 24 points
+- Score 5 blocks (15 points) + solo parking = 23 points
+- Score 5 blocks (15 points) + both park = 45 points!</p>
+<p>Even missing 3 blocks of scoring is worth it for the parking bonus. <strong>Always include parking phase!</strong></p>
+<p><strong>A53:</strong> State variables track progress:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Initialize at start</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">blocks_scored_phase1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">blocks_scored_phase2</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="n">blocks_scored_phase3</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="n">current_phase</span> <span class="o">=</span> <span class="n">STATE_INIT</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="n">total_blocks</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="c1"># Update during phases</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">phase1_scoring</span><span class="p">():</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>    <span class="k">global</span> <span class="n">blocks_scored_phase1</span><span class="p">,</span> <span class="n">total_blocks</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>    <span class="n">push_blocks_to_goal</span><span class="p">()</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>    <span class="n">blocks_scored_phase1</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Estimate or count</span>
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>    <span class="n">total_blocks</span> <span class="o">+=</span> <span class="n">blocks_scored_phase1</span>
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>    <span class="n">brain</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase 1: </span><span class="si">{</span><span class="n">blocks_scored_phase1</span><span class="si">}</span><span class="s2"> blocks&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>    <span class="n">brain</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total: </span><span class="si">{</span><span class="n">total_blocks</span><span class="si">}</span><span class="s2"> blocks&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>
+<a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="c1"># At end</span>
+<a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a><span class="n">estimated_score</span> <span class="o">=</span> <span class="n">total_blocks</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">parking_bonus</span>
+<a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="n">brain</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated: </span><span class="si">{</span><span class="n">estimated_score</span><span class="si">}</span><span class="s2"> points&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>A54:</strong> Maximum points Skills strategy for Push Back:</p>
+<p><strong>Target Score Calculation:</strong>
+- Blocks: 15 blocks × 3 points = 45 points
+- Zone control: 1 long goal (10) + 1 center (6-8) = 16-18 points
+- Parking: 8-30 points</p>
+<p><strong>Maximum realistic score:</strong> ~60-90 points solo</p>
+<p><strong>Strategy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>1. START: Long goal side (easier to control one goal)
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>2. PHASE 1 (0-18 sec): Secure long goal zone control
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>   - Push 4-5 blocks into long goal
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>   - Establish zone control = 10 bonus points
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>   - Total: ~25 points
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>3. PHASE 2 (18-36 sec): Center field cleanup
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>   - Push blocks toward center goal
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>   - Score 3-4 blocks = 9-12 points
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>   - Aim for center zone control = 6-8 points
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>   - Total: ~40 points
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>4. PHASE 3 (36-52 sec): Far goal + positioning
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>   - Score 2-3 more blocks = 6-9 points
+<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>   - Position near parking zone
+<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>   - Total: ~52 points
+<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>
+<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>5. PHASE 4 (52-60 sec): GUARANTEED PARKING
+<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>   - Navigate to park zone
+<a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>   - Solo parking = 8 points
+<a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>   - Total: ~60 points
+<a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>
+<a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>Key Insight: Don&#39;t chase the last few blocks if it risks
+<a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>missing parking. The 8-30 point swing is huge!
+</code></pre></div></p>
+<hr />
+<h2 id="study-tips">Study Tips<a class="headerlink" href="#study-tips" title="Permanent link">&para;</a></h2>
+<h3 id="for-pid-control">For PID Control:<a class="headerlink" href="#for-pid-control" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Start with P-only control - it works for most cases</li>
+<li>Add I only when robot consistently stops short</li>
+<li>Add D only when you see oscillation that Kp reduction doesn't fix</li>
+<li>Test tuning with your actual robot - every robot is different!</li>
+</ol>
+<h3 id="for-sensor-integration">For Sensor Integration:<a class="headerlink" href="#for-sensor-integration" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Always calibrate inertial sensor before each run</li>
+<li>Test sensors individually before combining them</li>
+<li>Use <code>wait=False</code> for movements you want to monitor</li>
+<li>Remember wraparound for heading calculations</li>
+</ol>
+<h3 id="for-skills-autonomous">For Skills Autonomous:<a class="headerlink" href="#for-skills-autonomous" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Time budget from the END (parking first)</li>
+<li>Use a state machine for complex routines</li>
+<li>Add timeout protection to every movement</li>
+<li>Test each phase individually before combining</li>
+<li>ALWAYS include parking phase!</li>
+</ol>
+<hr />
+<p><strong>Good luck with your VEX V5 Push Back competition!</strong></p>
+<hr />
+<p><strong><a href="../03-skills-autonomous/">← Previous: Skills Autonomous</a></strong> | <strong><a href="../../appendix/quick-reference/">Next: Appendix →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

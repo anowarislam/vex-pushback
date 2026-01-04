@@ -1,0 +1,3485 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../00-flowchart/">
+      
+      
+        <link rel="next" href="../02-functions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Variables and Types - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-31-variables-and-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Variables and Types
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Variable?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-assignment-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Assignment Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers-integers-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers: Integers (int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbers-decimals-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers: Decimals (float)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-strings-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text: Strings (str)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truefalse-booleans-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        True/False: Booleans (bool)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Comparison Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Comparison Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-type-decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Type Decision Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-connection-variables-in-robot_configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Connection: Variables in robot_config.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Connection: Variables in robot_config.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all_caps-variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALL_CAPS Variable Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-variable-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Variable Values
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing Variable Values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-update-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Update Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-math-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Math Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Math Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#math-in-robot-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Math in Robot Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-scoring-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Scoring Math
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#converting-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-connection-variables-in-utilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Connection: Variables in utils.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-back-variables-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Variables in Action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-using-the-wrong-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Using the Wrong Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-forgetting-to-convert-for-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Forgetting to Convert for Print
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-using-instead-of-in-comparisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Using = Instead of == in Comparisons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-invalid-variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Invalid Variable Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-variables-connect-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Variables Connect to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Variables Connect to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-variables-matter-in-robot-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Variables Matter in Robot Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-create-robot-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise: Create Robot Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Answers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Variable?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-assignment-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Assignment Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbers-integers-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers: Integers (int)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbers-decimals-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numbers: Decimals (float)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-strings-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text: Strings (str)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truefalse-booleans-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        True/False: Booleans (bool)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Comparison Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Comparison Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-type-decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Type Decision Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-connection-variables-in-robot_configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Connection: Variables in robot_config.py
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Connection: Variables in robot_config.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all_caps-variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ALL_CAPS Variable Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-variable-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Variable Values
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing Variable Values">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-update-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Update Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-math-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Math Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Math Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#math-in-robot-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Math in Robot Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-back-scoring-math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Scoring Math
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#converting-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Converting Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-connection-variables-in-utilspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Connection: Variables in utils.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-back-variables-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Variables in Action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-using-the-wrong-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Using the Wrong Data Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-forgetting-to-convert-for-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Forgetting to Convert for Print
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-using-instead-of-in-comparisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Using = Instead of == in Comparisons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-invalid-variable-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Invalid Variable Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-variables-connect-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Variables Connect to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Variables Connect to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-variables-matter-in-robot-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Variables Matter in Robot Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-create-robot-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise: Create Robot Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Answers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-31-variables-and-types">Tutorial 3.1: Variables and Types<a class="headerlink" href="#tutorial-31-variables-and-types" title="Permanent link">&para;</a></h1>
+<p><strong>Time:</strong> ~15 minutes
+<strong>Prerequisites:</strong> Tutorial 3.0: Thinking with Flowcharts</p>
+<hr />
+<h2 id="what-is-a-variable">What is a Variable?<a class="headerlink" href="#what-is-a-variable" title="Permanent link">&para;</a></h2>
+<p>A <strong>variable</strong> is like a labeled box that holds information. You give it a name and put something inside.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    Real World:                  In Code:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ┌─────────────┐             speed = 50
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │   SPEED     │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │     50      │             &quot;speed&quot; is the label
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    └─────────────┘             50 is what&#39;s inside
+</code></pre></div>
+<p>Think of it like labeling containers in your kitchen:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    ┌───────┐  ┌───────┐  ┌───────┐
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    │ SUGAR │  │ FLOUR │  │ SALT  │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    │  2kg  │  │  1kg  │  │ 0.5kg │
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    └───────┘  └───────┘  └───────┘
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    In Python:
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    sugar = 2
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    flour = 1
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    salt = 0.5
+</code></pre></div>
+<h2 id="creating-variables">Creating Variables<a class="headerlink" href="#creating-variables" title="Permanent link">&para;</a></h2>
+<p>In Python, you create a variable by writing <code>name = value</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create a variable called &#39;speed&#39; with value 50</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">speed</span> <span class="o">=</span> <span class="mi">50</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create a variable called &#39;robot_name&#39; with value &quot;VEX Bot&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">robot_name</span> <span class="o">=</span> <span class="s2">&quot;VEX Bot&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Create a variable called &#39;is_running&#39; with value True</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">is_running</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<p>The <code>=</code> sign doesn't mean "equals" here - it means "store this value in this box."</p>
+<h3 id="variable-assignment-flowchart">Variable Assignment Flowchart<a class="headerlink" href="#variable-assignment-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["Value: 50"] --&gt; B["= \n(assignment)"]
+    B --&gt; C["Variable Box\n'speed'"]
+
+    style A fill:#e8f5e9,stroke:#2e7d32
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e3f2fd,stroke:#1565c0</code></pre>
+<p>This shows the flow: the <strong>value</strong> (50) is <strong>assigned</strong> (<code>=</code>) to the <strong>variable</strong> (speed).</p>
+<h2 id="types-of-data">Types of Data<a class="headerlink" href="#types-of-data" title="Permanent link">&para;</a></h2>
+<p>Python has different types of data that variables can hold:</p>
+<h3 id="numbers-integers-int">Numbers: Integers (int)<a class="headerlink" href="#numbers-integers-int" title="Permanent link">&para;</a></h3>
+<p>Whole numbers without decimal points:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">motor_port</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1"># Port number</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">team_number</span> <span class="o">=</span> <span class="mi">12345</span>     <span class="c1"># Your team</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">score</span> <span class="o">=</span> <span class="mi">42</span>              <span class="c1"># Points scored</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">negative</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>         <span class="c1"># Negative numbers work too</span>
+</code></pre></div>
+<h3 id="numbers-decimals-float">Numbers: Decimals (float)<a class="headerlink" href="#numbers-decimals-float" title="Permanent link">&para;</a></h3>
+<p>Numbers with decimal points:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">wheel_circumference</span> <span class="o">=</span> <span class="mf">319.19</span>   <span class="c1"># Wheel size in mm</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>                   <span class="c1"># Mathematical pi</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">half</span> <span class="o">=</span> <span class="mf">0.5</span>                     <span class="c1"># Half of something</span>
+</code></pre></div>
+<h3 id="text-strings-str">Text: Strings (str)<a class="headerlink" href="#text-strings-str" title="Permanent link">&para;</a></h3>
+<p>Words and sentences - always in quotes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">robot_name</span> <span class="o">=</span> <span class="s2">&quot;VEX Bot&quot;</span>         <span class="c1"># Double quotes work</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">team_name</span> <span class="o">=</span> <span class="s1">&#39;Lightning&#39;</span>        <span class="c1"># Single quotes work too</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>      <span class="c1"># Your first program tradition!</span>
+</code></pre></div>
+<h3 id="truefalse-booleans-bool">True/False: Booleans (bool)<a class="headerlink" href="#truefalse-booleans-bool" title="Permanent link">&para;</a></h3>
+<p>Only two possible values: <code>True</code> or <code>False</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">is_running</span> <span class="o">=</span> <span class="kc">True</span>      <span class="c1"># Motor is running</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">button_pressed</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Button not pressed</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">sensor_active</span> <span class="o">=</span> <span class="kc">True</span>   <span class="c1"># Sensor is working</span>
+</code></pre></div>
+<h2 id="type-comparison-table">Type Comparison Table<a class="headerlink" href="#type-comparison-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>What It's For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td><code>42</code>, <code>-7</code>, <code>0</code></td>
+<td>Counting, port numbers</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>3.14</code>, <code>0.5</code>, <code>-2.7</code></td>
+<td>Measurements, percentages</td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td><code>"Hello"</code>, <code>'VEX'</code></td>
+<td>Text, messages</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td><code>True</code>, <code>False</code></td>
+<td>Yes/no decisions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-type-decision-flowchart">Data Type Decision Flowchart<a class="headerlink" href="#data-type-decision-flowchart" title="Permanent link">&para;</a></h3>
+<p>How do you know what type a value is? Follow this decision tree:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["What kind of data?"] --&gt; B{"Is it in quotes?"}
+    B --&gt;|Yes| C["str\n'Hello', 'VEX'"]
+    B --&gt;|No| D{"Is it True or False?"}
+    D --&gt;|Yes| E["bool\nTrue, False"]
+    D --&gt;|No| F{"Does it have\na decimal point?"}
+    F --&gt;|Yes| G["float\n3.14, 0.5"]
+    F --&gt;|No| H["int\n42, -7"]
+
+    style C fill:#c8e6c9,stroke:#2e7d32
+    style E fill:#f8bbd9,stroke:#c2185b
+    style G fill:#fff3e0,stroke:#ef6c00
+    style H fill:#bbdefb,stroke:#1565c0</code></pre>
+<p><strong>Quick Tips:</strong>
+- See quotes? It's a <strong>string</strong>
+- See <code>True</code> or <code>False</code>? It's a <strong>bool</strong>
+- See a decimal point? It's a <strong>float</strong>
+- Just a number? It's an <strong>int</strong></p>
+<h2 id="code-connection-variables-in-robot_configpy">Code Connection: Variables in robot_config.py<a class="headerlink" href="#code-connection-variables-in-robot_configpy" title="Permanent link">&para;</a></h2>
+<p>Look at <code>src/robot_config.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># These are all variables!</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Integer variables (port numbers)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># (hidden inside Motor constructor, but conceptually)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Float variables (measurements)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">WHEEL_TRAVEL_MM</span> <span class="o">=</span> <span class="mf">319.19</span>      <span class="c1"># float</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">TRACK_WIDTH_MM</span> <span class="o">=</span> <span class="mi">295</span>          <span class="c1"># int (but could be float)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">WHEEL_BASE_MM</span> <span class="o">=</span> <span class="mi">200</span>           <span class="c1"># int</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">EXTERNAL_GEAR_RATIO</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># int</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># The drivetrain uses these variables:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">drivetrain</span> <span class="o">=</span> <span class="n">DriveTrain</span><span class="p">(</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">left_motors</span><span class="p">,</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">right_motors</span><span class="p">,</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">WHEEL_TRAVEL_MM</span><span class="p">,</span>           <span class="c1"># Using the variable here!</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">TRACK_WIDTH_MM</span><span class="p">,</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="n">WHEEL_BASE_MM</span><span class="p">,</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">MM</span><span class="p">,</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="n">EXTERNAL_GEAR_RATIO</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">)</span>
+</code></pre></div>
+<h3 id="all_caps-variable-names">ALL_CAPS Variable Names<a class="headerlink" href="#all_caps-variable-names" title="Permanent link">&para;</a></h3>
+<p>Notice <code>WHEEL_TRAVEL_MM</code> is in ALL CAPS? This is a Python convention:
+- <strong>ALL_CAPS</strong> = constant (value shouldn't change)
+- <strong>lowercase</strong> = regular variable</p>
+<h2 id="changing-variable-values">Changing Variable Values<a class="headerlink" href="#changing-variable-values" title="Permanent link">&para;</a></h2>
+<p>Variables can change! That's why they're called "variables":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">speed</span> <span class="o">=</span> <span class="mi">50</span>          <span class="c1"># Start at 50</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>        <span class="c1"># Output: 50</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">speed</span> <span class="o">=</span> <span class="mi">75</span>          <span class="c1"># Change to 75</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>        <span class="c1"># Output: 75</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">+</span> <span class="mi">10</span>  <span class="c1"># Add 10 to current value</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>        <span class="c1"># Output: 85</span>
+</code></pre></div>
+<h3 id="variable-update-flowchart">Variable Update Flowchart<a class="headerlink" href="#variable-update-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["speed = 50\n(initial)"] --&gt; B["speed = 75\n(reassign)"]
+    B --&gt; C["speed = speed + 10\n(calculate &amp; store)"]
+    C --&gt; D["speed = 85\n(final value)"]
+
+    style A fill:#e3f2fd,stroke:#1565c0
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#fff3e0,stroke:#ef6c00
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p>Each arrow shows the variable being <strong>updated</strong> - the old value is replaced by the new one.</p>
+<h2 id="basic-math-operations">Basic Math Operations<a class="headerlink" href="#basic-math-operations" title="Permanent link">&para;</a></h2>
+<p>Python can do math with numbers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Addition: 13</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Subtraction: 7</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Multiplication: 30</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Division: 3.333...</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Integer division: 3 (no decimal)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># Remainder: 1 (10 ÷ 3 = 3 remainder 1)</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Power: 1000 (10^3)</span>
+</code></pre></div>
+<h3 id="math-in-robot-code">Math in Robot Code<a class="headerlink" href="#math-in-robot-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Calculate wheel circumference</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">diameter</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># inches</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">circumference</span> <span class="o">=</span> <span class="n">diameter</span> <span class="o">*</span> <span class="n">pi</span>  <span class="c1"># 12.566...</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Convert joystick percentage to motor velocity</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">joystick_value</span> <span class="o">=</span> <span class="mi">75</span>  <span class="c1"># 75% forward</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">max_velocity</span> <span class="o">=</span> <span class="mi">200</span>   <span class="c1"># RPM</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">motor_velocity</span> <span class="o">=</span> <span class="p">(</span><span class="n">joystick_value</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="n">max_velocity</span>  <span class="c1"># 150 RPM</span>
+</code></pre></div>
+<h3 id="push-back-scoring-math">Push Back Scoring Math<a class="headerlink" href="#push-back-scoring-math" title="Permanent link">&para;</a></h3>
+<p>In the Push Back competition, you use math to calculate your score:</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Block Score Calculation"
+        A["blocks_scored = 5"] --&gt; B["points_per_block = 3"]
+        B --&gt; C["total = 5 * 3"]
+        C --&gt; D["total = 15 points"]
+    end
+
+    style A fill:#e3f2fd,stroke:#1565c0
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Push Back scoring example</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">blocks_scored</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">points_per_block</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">block_points</span> <span class="o">=</span> <span class="n">blocks_scored</span> <span class="o">*</span> <span class="n">points_per_block</span>  <span class="c1"># 15 points</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Zone control bonus (if you have more blocks in a goal)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">long_goal_bonus</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">center_goal_bonus</span> <span class="o">=</span> <span class="mi">6</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Total score calculation</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">total_score</span> <span class="o">=</span> <span class="n">block_points</span> <span class="o">+</span> <span class="n">long_goal_bonus</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total_score</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; points&quot;</span><span class="p">)</span>  <span class="c1"># Total: 25 points</span>
+</code></pre></div>
+<h2 id="string-operations">String Operations<a class="headerlink" href="#string-operations" title="Permanent link">&para;</a></h2>
+<p>You can combine strings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">first_name</span> <span class="o">=</span> <span class="s2">&quot;VEX&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">last_name</span> <span class="o">=</span> <span class="s2">&quot;Bot&quot;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Concatenation (joining strings)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>  <span class="c1"># Output: &quot;VEX Bot&quot;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Repetition</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">cheer</span> <span class="o">=</span> <span class="s2">&quot;Go! &quot;</span> <span class="o">*</span> <span class="mi">3</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">cheer</span><span class="p">)</span>  <span class="c1"># Output: &quot;Go! Go! Go! &quot;</span>
+</code></pre></div>
+<h3 id="converting-types">Converting Types<a class="headerlink" href="#converting-types" title="Permanent link">&para;</a></h3>
+<p>Sometimes you need to convert between types:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">speed</span> <span class="o">=</span> <span class="mi">50</span>                    <span class="c1"># This is an int</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Speed: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>  <span class="c1"># Convert to string</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>                <span class="c1"># Output: &quot;Speed: 50&quot;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">text_number</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>            <span class="c1"># This is a string</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">actual_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">text_number</span><span class="p">)</span>  <span class="c1"># Convert to int</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">actual_number</span> <span class="o">+</span> <span class="mi">8</span><span class="p">)</span>      <span class="c1"># Output: 50</span>
+</code></pre></div>
+<p><strong>Common Conversions:</strong>
+| Function | Does What | Example |
+|----------|-----------|---------|
+| <code>str()</code> | → string | <code>str(42)</code> → <code>"42"</code> |
+| <code>int()</code> | → integer | <code>int("42")</code> → <code>42</code> |
+| <code>float()</code> | → decimal | <code>float("3.14")</code> → <code>3.14</code> |</p>
+<h2 id="code-connection-variables-in-utilspy">Code Connection: Variables in utils.py<a class="headerlink" href="#code-connection-variables-in-utilspy" title="Permanent link">&para;</a></h2>
+<p>Look at <code>src/utils.py</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">clamp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="sd">    Clamp a value between minimum and maximum bounds.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">max_val</span><span class="p">))</span>
+</code></pre></div>
+<p>Here, <code>value</code>, <code>min_val</code>, and <code>max_val</code> are variables that get their values when the function is called:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># value=150, min_val=0, max_val=100</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># result is 100 (clamped to maximum)</span>
+</code></pre></div>
+<hr />
+<h2 id="push-back-variables-in-action">Push Back Variables in Action<a class="headerlink" href="#push-back-variables-in-action" title="Permanent link">&para;</a></h2>
+<p>Here's how variables are used throughout a Push Back match:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># ═══════════════════════════════════════════════════════════════</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1"># PUSH BACK GAME VARIABLES</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># ═══════════════════════════════════════════════════════════════</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Match timing</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">AUTONOMOUS_TIME</span> <span class="o">=</span> <span class="mi">15</span>      <span class="c1"># int - seconds for autonomous</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="n">DRIVER_TIME</span> <span class="o">=</span> <span class="mi">105</span>         <span class="c1"># int - 1 minute 45 seconds</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">TOTAL_MATCH_TIME</span> <span class="o">=</span> <span class="mi">120</span>    <span class="c1"># int - 2 minutes total</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1"># Scoring values</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="n">POINTS_PER_BLOCK</span> <span class="o">=</span> <span class="mi">3</span>      <span class="c1"># int - each block scored</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="n">LONG_GOAL_BONUS</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1"># int - controlling long goal zone</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">CENTER_UPPER_BONUS</span> <span class="o">=</span> <span class="mi">8</span>    <span class="c1"># int - center upper zone</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="n">CENTER_LOWER_BONUS</span> <span class="o">=</span> <span class="mi">6</span>    <span class="c1"># int - center lower zone</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="n">ONE_ROBOT_PARK</span> <span class="o">=</span> <span class="mi">8</span>        <span class="c1"># int - one robot parked</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="n">TWO_ROBOT_PARK</span> <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># int - both robots parked</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1"># Game tracking (these change during the match)</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="n">blocks_scored</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1"># int - starts at zero</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="n">is_parked</span> <span class="o">=</span> <span class="kc">False</span>         <span class="c1"># bool - not parked yet</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="n">has_zone_control</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># bool - no control yet</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="n">match_phase</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span>      <span class="c1"># str - current phase</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="c1"># Robot configuration (from robot_config.py)</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="n">wheel_diameter_mm</span> <span class="o">=</span> <span class="mf">101.6</span>   <span class="c1"># float - 4 inches = 101.6mm</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="n">wheel_circumference</span> <span class="o">=</span> <span class="mf">319.19</span>  <span class="c1"># float - distance per rotation</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="n">track_width_mm</span> <span class="o">=</span> <span class="mf">295.0</span>      <span class="c1"># float - distance between wheels</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="c1"># Alliance information</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="n">alliance_color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>      <span class="c1"># str - &quot;red&quot; or &quot;blue&quot;</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="n">starting_position</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span>  <span class="c1"># str - &quot;left&quot; or &quot;right&quot;</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="c1"># ═══════════════════════════════════════════════════════════════</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="c1"># CALCULATING FINAL SCORE</span>
+<a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a><span class="c1"># ═══════════════════════════════════════════════════════════════</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>
+<a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a><span class="c1"># During autonomous, you score blocks</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a><span class="n">blocks_scored</span> <span class="o">=</span> <span class="mi">4</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a><span class="n">block_points</span> <span class="o">=</span> <span class="n">blocks_scored</span> <span class="o">*</span> <span class="n">POINTS_PER_BLOCK</span>  <span class="c1"># 12 points</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>
+<a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a><span class="c1"># Check zone control</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="n">red_blocks_in_long_goal</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="n">blue_blocks_in_long_goal</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a><span class="n">has_zone_control</span> <span class="o">=</span> <span class="n">red_blocks_in_long_goal</span> <span class="o">&gt;</span> <span class="n">blue_blocks_in_long_goal</span>  <span class="c1"># True</span>
+<a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a>
+<a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a><span class="c1"># Add bonus if we control the zone</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a><span class="k">if</span> <span class="n">has_zone_control</span><span class="p">:</span>
+<a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a>    <span class="n">zone_bonus</span> <span class="o">=</span> <span class="n">LONG_GOAL_BONUS</span>  <span class="c1"># 10 points</span>
+<a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a>    <span class="n">zone_bonus</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a>
+<a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a><span class="c1"># Parking bonus</span>
+<a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a><span class="n">robots_parked</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a><span class="k">if</span> <span class="n">robots_parked</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a>    <span class="n">park_bonus</span> <span class="o">=</span> <span class="n">TWO_ROBOT_PARK</span>  <span class="c1"># 30 points</span>
+<a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a><span class="k">elif</span> <span class="n">robots_parked</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a>    <span class="n">park_bonus</span> <span class="o">=</span> <span class="n">ONE_ROBOT_PARK</span>  <span class="c1"># 8 points</span>
+<a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a>    <span class="n">park_bonus</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a>
+<a id="__codelineno-16-61" name="__codelineno-16-61" href="#__codelineno-16-61"></a><span class="c1"># Total score</span>
+<a id="__codelineno-16-62" name="__codelineno-16-62" href="#__codelineno-16-62"></a><span class="n">total_score</span> <span class="o">=</span> <span class="n">block_points</span> <span class="o">+</span> <span class="n">zone_bonus</span> <span class="o">+</span> <span class="n">park_bonus</span>
+<a id="__codelineno-16-63" name="__codelineno-16-63" href="#__codelineno-16-63"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Match Score: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total_score</span><span class="p">))</span>  <span class="c1"># Match Score: 52</span>
+</code></pre></div>
+<hr />
+<h2 id="common-mistakes-with-variables">Common Mistakes with Variables<a class="headerlink" href="#common-mistakes-with-variables" title="Permanent link">&para;</a></h2>
+<h3 id="mistake-1-using-the-wrong-data-type">Mistake 1: Using the Wrong Data Type<a class="headerlink" href="#mistake-1-using-the-wrong-data-type" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># WRONG: Trying to add a string and an integer</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">motor_port</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>         <span class="c1"># This is a string!</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">next_port</span> <span class="o">=</span> <span class="n">motor_port</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># ERROR: can&#39;t add str + int</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1"># RIGHT: Keep consistent types</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">motor_port</span> <span class="o">=</span> <span class="mi">1</span>           <span class="c1"># This is an integer</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="n">next_port</span> <span class="o">=</span> <span class="n">motor_port</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># Works: 2</span>
+</code></pre></div>
+<h3 id="mistake-2-forgetting-to-convert-for-print">Mistake 2: Forgetting to Convert for Print<a class="headerlink" href="#mistake-2-forgetting-to-convert-for-print" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># WRONG: Can&#39;t concatenate string and int</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">score</span> <span class="o">=</span> <span class="mi">42</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score: &quot;</span> <span class="o">+</span> <span class="n">score</span><span class="p">)</span>     <span class="c1"># ERROR!</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1"># RIGHT: Convert to string first</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>  <span class="c1"># Works: &quot;Score: 42&quot;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># ALSO RIGHT: Use comma (prints with space)</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>         <span class="c1"># Works: &quot;Score: 42&quot;</span>
+</code></pre></div>
+<h3 id="mistake-3-using-instead-of-in-comparisons">Mistake 3: Using = Instead of == in Comparisons<a class="headerlink" href="#mistake-3-using-instead-of-in-comparisons" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># WRONG: This is assignment, not comparison!</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">if</span> <span class="n">speed</span> <span class="o">=</span> <span class="mi">50</span><span class="p">:</span>    <span class="c1"># SyntaxError!</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Half speed&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># RIGHT: Use == to compare</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">if</span> <span class="n">speed</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>   <span class="c1"># This checks if speed equals 50</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Half speed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="mistake-4-invalid-variable-names">Mistake 4: Invalid Variable Names<a class="headerlink" href="#mistake-4-invalid-variable-names" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># WRONG: These names are not allowed</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">my</span><span class="o">-</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># Hyphens look like subtraction</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="mi">2</span><span class="n">fast</span> <span class="o">=</span> <span class="mi">100</span>       <span class="c1"># Can&#39;t start with a number</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="k">class</span><span class="w"> </span><span class="err">= &quot;</span><span class="nc">A</span><span class="s2">&quot;       # &quot;</span><span class="n">class</span><span class="s2">&quot; is a reserved word</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1"># RIGHT: Valid variable names</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">my_speed</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># Underscores are OK</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="n">fast_2</span> <span class="o">=</span> <span class="mi">100</span>      <span class="c1"># Numbers OK after first character</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="n">class_name</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>  <span class="c1"># Add suffix to avoid reserved words</span>
+</code></pre></div>
+<hr />
+<h2 id="how-variables-connect-to-push-back">How Variables Connect to Push Back<a class="headerlink" href="#how-variables-connect-to-push-back" title="Permanent link">&para;</a></h2>
+<p>In the Push Back competition, variables track everything about your match:</p>
+<table>
+<thead>
+<tr>
+<th>What You Track</th>
+<th>Variable Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blocks scored</td>
+<td><code>int</code></td>
+<td><code>blocks = 8</code></td>
+</tr>
+<tr>
+<td>Zone control status</td>
+<td><code>bool</code></td>
+<td><code>has_control = True</code></td>
+</tr>
+<tr>
+<td>Wheel circumference</td>
+<td><code>float</code></td>
+<td><code>circumference = 319.19</code></td>
+</tr>
+<tr>
+<td>Alliance color</td>
+<td><code>str</code></td>
+<td><code>alliance = "red"</code></td>
+</tr>
+<tr>
+<td>Match phase</td>
+<td><code>str</code></td>
+<td><code>phase = "driver"</code></td>
+</tr>
+<tr>
+<td>Parking status</td>
+<td><code>bool</code></td>
+<td><code>is_parked = False</code></td>
+</tr>
+<tr>
+<td>Score calculation</td>
+<td><code>int</code></td>
+<td><code>score = blocks * 3</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-variables-matter-in-robot-code">Why Variables Matter in Robot Code<a class="headerlink" href="#why-variables-matter-in-robot-code" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Configuration:</strong> <code>WHEEL_TRAVEL_MM</code> stores your wheel size once, use it everywhere</li>
+<li><strong>Calculations:</strong> Math with motor speeds, distances, and angles</li>
+<li><strong>Decisions:</strong> Boolean variables track what's happening</li>
+<li><strong>Display:</strong> String messages on the Brain screen</li>
+<li><strong>Scoring:</strong> Track points throughout the match</li>
+</ol>
+<p>Every line of robot code uses variables - they're the foundation of programming!</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What It Means</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Variable</strong></td>
+<td>Named storage</td>
+<td><code>speed = 50</code></td>
+</tr>
+<tr>
+<td><strong>int</strong></td>
+<td>Whole number</td>
+<td><code>42</code>, <code>-7</code></td>
+</tr>
+<tr>
+<td><strong>float</strong></td>
+<td>Decimal number</td>
+<td><code>3.14</code>, <code>0.5</code></td>
+</tr>
+<tr>
+<td><strong>str</strong></td>
+<td>Text in quotes</td>
+<td><code>"Hello"</code></td>
+</tr>
+<tr>
+<td><strong>bool</strong></td>
+<td>True or False</td>
+<td><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td><strong>Assignment</strong></td>
+<td>Store value</td>
+<td><code>x = 10</code></td>
+</tr>
+<tr>
+<td><strong>Operations</strong></td>
+<td>Math and combining</td>
+<td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exercise-create-robot-variables">Exercise: Create Robot Variables<a class="headerlink" href="#exercise-create-robot-variables" title="Permanent link">&para;</a></h2>
+<p><strong>Goal:</strong> Create variables that describe your robot.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Fill in these variables with appropriate values:</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># What&#39;s your team number? (int)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">team_number</span> <span class="o">=</span> <span class="n">_____</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c1"># What&#39;s your robot&#39;s name? (str)</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="n">robot_name</span> <span class="o">=</span> <span class="s2">&quot;_____&quot;</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="c1"># How many motors does your robot have? (int)</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="n">motor_count</span> <span class="o">=</span> <span class="n">_____</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="c1"># What&#39;s your wheel diameter in inches? (float)</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="n">wheel_diameter</span> <span class="o">=</span> <span class="n">_____</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="c1"># Is your robot competition ready? (bool)</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="n">is_ready</span> <span class="o">=</span> <span class="n">_____</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="c1"># BONUS: Calculate your wheel circumference</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="n">wheel_circumference</span> <span class="o">=</span> <span class="n">wheel_diameter</span> <span class="o">*</span> <span class="n">_____</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Team &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">team_number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">robot_name</span><span class="p">)</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wheel circumference: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wheel_circumference</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; inches&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="sample-answers">Sample Answers<a class="headerlink" href="#sample-answers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">team_number</span> <span class="o">=</span> <span class="mi">12345</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">robot_name</span> <span class="o">=</span> <span class="s2">&quot;Push Bot&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">motor_count</span> <span class="o">=</span> <span class="mi">4</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">wheel_diameter</span> <span class="o">=</span> <span class="mf">4.0</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">is_ready</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="n">wheel_circumference</span> <span class="o">=</span> <span class="n">wheel_diameter</span> <span class="o">*</span> <span class="n">pi</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Team &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">team_number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">robot_name</span><span class="p">)</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wheel circumference: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wheel_circumference</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; inches&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Team 12345: Push Bot
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Wheel circumference: 12.56636 inches
+</code></pre></div></p>
+<hr />
+<p><strong><a href="../00-flowchart/">← Previous: Thinking with Flowcharts</a></strong> | <strong><a href="../02-functions/">Next: Functions →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4087 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../../02-robot-anatomy/04-review-qa/">
+      
+      
+        <link rel="next" href="../01-variables-and-types/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Thinking with Flowcharts - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-30-thinking-with-flowcharts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Thinking with Flowcharts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-start-with-flowcharts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Start with Flowcharts?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Flowchart?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Flowchart?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-example-making-toast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Example: Making Toast
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowchart Symbols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flowchart Symbols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symbol-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-sequential-flow-steps-in-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Sequential Flow (Steps in Order)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Sequential Flow (Steps in Order)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-robot-moves-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Robot Moves Forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-1-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #1 (Easy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-decision-making-ifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Decision Making (If/Else)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Decision Making (If/Else)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-2-should-i-bring-an-umbrella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Should I Bring an Umbrella?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-robot-button-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Robot Button Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-multiple-decisions-ifelifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Multiple Decisions (If/Elif/Else)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-2-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #2 (Easy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-3-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #3 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-loops-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Loops (Repetition)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Loops (Repetition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-5-count-to-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Count to 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-driver-control-loop-forever-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Driver Control Loop (Forever Loop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-4-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #4 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-5-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #5 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-combining-decisions-and-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Combining Decisions and Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Combining Decisions and Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-7-push-back-turbo-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Push Back Turbo Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-6-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #6 (Hard)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-problem-solving-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Problem-Solving Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Problem-Solving Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-robot-avoids-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: "Robot Avoids Wall"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-7-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #7 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-8-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #8 (Hard)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-coding-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Coding Challenges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Coding Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-easy-morning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 1 (Easy): Morning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-easy-even-or-odd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 2 (Easy): Even or Odd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-medium-grade-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3 (Medium): Grade Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-medium-password-with-3-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4 (Medium): Password with 3 Attempts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-5-hard-vex-autonomous-timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 5 (Hard): VEX Autonomous Timer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-hard-zone-control-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 6 (Hard): Zone Control Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart-to-code-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowchart to Code Translation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenge-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge Answers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenge Answers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-morning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 1: Morning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-even-or-odd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 2: Even or Odd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-grade-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3: Grade Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-password-with-3-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4: Password with 3 Attempts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-5-vex-autonomous-timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 5: VEX Autonomous Timer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-zone-control-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 6: Zone Control Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-start-with-flowcharts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Start with Flowcharts?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Flowchart?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Flowchart?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-example-making-toast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Example: Making Toast
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowchart Symbols
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flowchart Symbols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#symbol-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-sequential-flow-steps-in-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Sequential Flow (Steps in Order)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Sequential Flow (Steps in Order)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-robot-moves-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Robot Moves Forward
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-1-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #1 (Easy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-decision-making-ifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Decision Making (If/Else)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Decision Making (If/Else)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-2-should-i-bring-an-umbrella" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Should I Bring an Umbrella?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-robot-button-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Robot Button Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-multiple-decisions-ifelifelse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Multiple Decisions (If/Elif/Else)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-2-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #2 (Easy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-3-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #3 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-loops-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Loops (Repetition)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Loops (Repetition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-5-count-to-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Count to 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-6-driver-control-loop-forever-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 6: Driver Control Loop (Forever Loop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code-it-becomes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Code It Becomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-4-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #4 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-5-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #5 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-combining-decisions-and-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Combining Decisions and Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Combining Decisions and Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-7-push-back-turbo-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 7: Push Back Turbo Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-6-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #6 (Hard)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-problem-solving-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Problem-Solving Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Problem-Solving Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-robot-avoids-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: "Robot Avoids Wall"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-7-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #7 (Medium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-question-8-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding Question #8 (Hard)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-coding-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Coding Challenges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Coding Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-easy-morning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 1 (Easy): Morning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-easy-even-or-odd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 2 (Easy): Even or Odd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-medium-grade-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3 (Medium): Grade Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-medium-password-with-3-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4 (Medium): Password with 3 Attempts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-5-hard-vex-autonomous-timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 5 (Hard): VEX Autonomous Timer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-hard-zone-control-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 6 (Hard): Zone Control Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart-to-code-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowchart to Code Translation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenge-answers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge Answers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenge Answers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-morning-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 1: Morning Routine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-even-or-odd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 2: Even or Odd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-grade-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3: Grade Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-password-with-3-attempts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4: Password with 3 Attempts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-5-vex-autonomous-timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 5: VEX Autonomous Timer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-6-zone-control-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 6: Zone Control Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Next?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-30-thinking-with-flowcharts">Tutorial 3.0: Thinking with Flowcharts<a class="headerlink" href="#tutorial-30-thinking-with-flowcharts" title="Permanent link">&para;</a></h1>
+<p><strong>Time:</strong> ~20 minutes
+<strong>Prerequisites:</strong> None - this is where your programming journey begins!</p>
+<hr />
+<h2 id="why-start-with-flowcharts">Why Start with Flowcharts?<a class="headerlink" href="#why-start-with-flowcharts" title="Permanent link">&para;</a></h2>
+<p>Before you write a single line of code, you need to <strong>think like a programmer</strong>. Programmers don't just type - they plan, visualize, and break problems into steps.</p>
+<p>A <strong>flowchart</strong> is a visual map that shows:
+- What steps to take
+- What order to take them
+- What decisions to make along the way</p>
+<p>Think of it like GPS directions for solving problems!</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Problem"] --&gt; B["Flowchart"]
+    B --&gt; C["Code"]
+    C --&gt; D["Working Robot!"]
+
+    style A fill:#ffcdd2,stroke:#c62828
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<hr />
+<h2 id="what-is-a-flowchart">What is a Flowchart?<a class="headerlink" href="#what-is-a-flowchart" title="Permanent link">&para;</a></h2>
+<p>A flowchart is a diagram that shows the <strong>steps</strong> to solve a problem, connected by <strong>arrows</strong> that show the order.</p>
+<h3 id="real-world-example-making-toast">Real-World Example: Making Toast<a class="headerlink" href="#real-world-example-making-toast" title="Permanent link">&para;</a></h3>
+<p>You do this without thinking, but there ARE steps:</p>
+<pre class="mermaid"><code>flowchart LR
+    A([Start]) --&gt; B[Get bread]
+    B --&gt; C[Put in toaster]
+    C --&gt; D[Wait for toast]
+    D --&gt; E[Remove toast]
+    E --&gt; F([End])
+
+    style A fill:#e8f5e9,stroke:#2e7d32
+    style F fill:#ffcdd2,stroke:#c62828</code></pre>
+<p>See? Even making toast is a <strong>sequence of steps</strong>. Programming is the same - just with different steps!</p>
+<hr />
+<h2 id="flowchart-symbols">Flowchart Symbols<a class="headerlink" href="#flowchart-symbols" title="Permanent link">&para;</a></h2>
+<p>Every shape in a flowchart has a meaning:</p>
+<pre class="mermaid"><code>flowchart TD
+    A([Oval: Start or End]) --&gt; B[Rectangle: Do Something]
+    B --&gt; C{Diamond: Ask a Question}
+    C --&gt;|Yes| D[/Parallelogram: Input or Output/]
+    C --&gt;|No| E[Another Action]
+
+    style A fill:#e8f5e9,stroke:#2e7d32
+    style C fill:#fff9c4,stroke:#f57f17</code></pre>
+<h3 id="symbol-reference">Symbol Reference<a class="headerlink" href="#symbol-reference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Name</th>
+<th>What It Means</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oval <code>([...])</code></td>
+<td>Terminal</td>
+<td>Start or End of program</td>
+<td><code>([Start])</code>, <code>([End])</code></td>
+</tr>
+<tr>
+<td>Rectangle <code>[...]</code></td>
+<td>Process</td>
+<td>An action or step</td>
+<td><code>[Set motor speed]</code></td>
+</tr>
+<tr>
+<td>Diamond <code>{...}</code></td>
+<td>Decision</td>
+<td>Yes/No question</td>
+<td><code>{Is button pressed?}</code></td>
+</tr>
+<tr>
+<td>Parallelogram <code>[/.../]</code></td>
+<td>Input/Output</td>
+<td>Get or show data</td>
+<td><code>[/Read joystick/]</code></td>
+</tr>
+<tr>
+<td>Arrow <code>--&gt;</code></td>
+<td>Flow</td>
+<td>Order of steps</td>
+<td>Shows what comes next</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-1-sequential-flow-steps-in-order">Part 1: Sequential Flow (Steps in Order)<a class="headerlink" href="#part-1-sequential-flow-steps-in-order" title="Permanent link">&para;</a></h2>
+<p>The simplest flowcharts are <strong>sequential</strong> - one step after another, like following a recipe.</p>
+<h3 id="example-1-robot-moves-forward">Example 1: Robot Moves Forward<a class="headerlink" href="#example-1-robot-moves-forward" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[Set speed to 50%]
+    B --&gt; C[Drive forward 500mm]
+    C --&gt; D[Stop motors]
+    D --&gt; E([End])
+
+    style A fill:#e8f5e9,stroke:#2e7d32
+    style E fill:#ffcdd2,stroke:#c62828</code></pre>
+<p>This is exactly how autonomous robot code works - do this, then this, then this!</p>
+<h3 id="the-code-it-becomes">The Code It Becomes<a class="headerlink" href="#the-code-it-becomes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Sequential steps - just like the flowchart!</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">simple_autonomous</span><span class="p">():</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>    <span class="c1"># Set speed to 50%</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>  <span class="c1"># Drive forward 500mm</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>                        <span class="c1"># Stop motors</span>
+</code></pre></div>
+<hr />
+<h2 id="coding-question-1-easy">Coding Question #1 (Easy)<a class="headerlink" href="#coding-question-1-easy" title="Permanent link">&para;</a></h2>
+<p><strong>Convert this flowchart to English steps:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[Turn on LED]
+    B --&gt; C[Wait 2 seconds]
+    C --&gt; D[Turn off LED]
+    D --&gt; E([End])</code></pre>
+<details>
+<summary>Click to see answer</summary>
+
+**English Steps:**
+1. Start the program
+2. Turn on the LED
+3. Wait for 2 seconds
+4. Turn off the LED
+5. End the program
+
+</details>
+
+<hr />
+<h2 id="part-2-decision-making-ifelse">Part 2: Decision Making (If/Else)<a class="headerlink" href="#part-2-decision-making-ifelse" title="Permanent link">&para;</a></h2>
+<p>Real programs make <strong>decisions</strong>. The diamond shape asks a Yes/No question, and the answer determines which path to take.</p>
+<h3 id="example-2-should-i-bring-an-umbrella">Example 2: Should I Bring an Umbrella?<a class="headerlink" href="#example-2-should-i-bring-an-umbrella" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{Is it raining?}
+    B --&gt;|Yes| C[Bring umbrella]
+    B --&gt;|No| D[Leave umbrella home]
+    C --&gt; E([Go outside])
+    D --&gt; E
+
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#bbdefb,stroke:#1565c0
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p>The diamond asks a question. <strong>Yes</strong> goes one way, <strong>No</strong> goes another.</p>
+<h3 id="example-3-robot-button-detection">Example 3: Robot Button Detection<a class="headerlink" href="#example-3-robot-button-detection" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{Is button pressed?}
+    B --&gt;|Yes| C[Move forward]
+    B --&gt;|No| D[Stop motors]
+    C --&gt; E([End])
+    D --&gt; E
+
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#c8e6c9,stroke:#2e7d32
+    style D fill:#ffcdd2,stroke:#c62828</code></pre>
+<h3 id="the-code-it-becomes_1">The Code It Becomes<a class="headerlink" href="#the-code-it-becomes_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="n">controller</span><span class="o">.</span><span class="n">buttonA</span><span class="o">.</span><span class="n">pressing</span><span class="p">():</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>   <span class="c1"># Button pressed - move!</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>           <span class="c1"># No button - stop!</span>
+</code></pre></div>
+<hr />
+<h3 id="example-4-multiple-decisions-ifelifelse">Example 4: Multiple Decisions (If/Elif/Else)<a class="headerlink" href="#example-4-multiple-decisions-ifelifelse" title="Permanent link">&para;</a></h3>
+<p>Sometimes you need to check multiple conditions. This is called <strong>if/elif/else</strong>:</p>
+<pre class="mermaid"><code>flowchart TD
+    A{speed &gt; 75?} --&gt;|Yes| B["Print 'Fast!'"]
+    A --&gt;|No| C{speed &gt; 25?}
+    C --&gt;|Yes| D["Print 'Medium'"]
+    C --&gt;|No| E["Print 'Slow'"]
+
+    style A fill:#fff9c4,stroke:#f57f17
+    style C fill:#fff9c4,stroke:#f57f17
+    style B fill:#ffcdd2,stroke:#c62828
+    style D fill:#fff3e0,stroke:#ef6c00
+    style E fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="the-code-it-becomes_2">The Code It Becomes<a class="headerlink" href="#the-code-it-becomes_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fast!&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">elif</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Medium&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Slow&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="coding-question-2-easy">Coding Question #2 (Easy)<a class="headerlink" href="#coding-question-2-easy" title="Permanent link">&para;</a></h2>
+<p><strong>Draw a flowchart for this problem:</strong></p>
+<p>"If score &gt; 80, print 'You win!', else print 'Try again'"</p>
+<details>
+<summary>Click to see answer</summary>
+
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{score &gt; 80?}
+    B --&gt;|Yes| C["Print 'You win!'"]
+    B --&gt;|No| D["Print 'Try again'"]
+    C --&gt; E([End])
+    D --&gt; E
+
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#c8e6c9,stroke:#2e7d32
+    style D fill:#ffcdd2,stroke:#c62828</code></pre>
+
+</details>
+
+<hr />
+<h2 id="coding-question-3-medium">Coding Question #3 (Medium)<a class="headerlink" href="#coding-question-3-medium" title="Permanent link">&para;</a></h2>
+<p><strong>Convert this flowchart to Python if/elif/else:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    A{temperature &gt; 30?} --&gt;|Yes| B["Print 'Hot!'"]
+    A --&gt;|No| C{temperature &gt; 15?}
+    C --&gt;|Yes| D["Print 'Nice'"]
+    C --&gt;|No| E["Print 'Cold'"]</code></pre>
+<details>
+<summary>Click to see answer</summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hot!&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nice&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cold&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="part-3-loops-repetition">Part 3: Loops (Repetition)<a class="headerlink" href="#part-3-loops-repetition" title="Permanent link">&para;</a></h2>
+<p>Sometimes you need to repeat steps. In flowcharts, we show this with <strong>arrows that loop back</strong>.</p>
+<h3 id="example-5-count-to-5">Example 5: Count to 5<a class="headerlink" href="#example-5-count-to-5" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[count = 0]
+    B --&gt; C{count &lt; 5?}
+    C --&gt;|No| D([End])
+    C --&gt;|Yes| E["print(count)"]
+    E --&gt; F[count = count + 1]
+    F --&gt; C
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style F fill:#e3f2fd,stroke:#1565c0</code></pre>
+<p>Notice how the arrow from F goes <strong>back up</strong> to C? That's the loop!</p>
+<h3 id="the-code-it-becomes_3">The Code It Becomes<a class="headerlink" href="#the-code-it-becomes_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Output: 0, 1, 2, 3, 4</span>
+</code></pre></div>
+<hr />
+<h3 id="example-6-driver-control-loop-forever-loop">Example 6: Driver Control Loop (Forever Loop)<a class="headerlink" href="#example-6-driver-control-loop-forever-loop" title="Permanent link">&para;</a></h3>
+<p>Robot driver control runs <strong>forever</strong> during a match:</p>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{Match running?}
+    B --&gt;|No| C([End])
+    B --&gt;|Yes| D[Read joystick]
+    D --&gt; E[Set motor speed]
+    E --&gt; F[Wait 20ms]
+    F --&gt; B
+
+    style B fill:#fff9c4,stroke:#f57f17
+    style D fill:#e3f2fd,stroke:#1565c0
+    style E fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="the-code-it-becomes_4">The Code It Becomes<a class="headerlink" href="#the-code-it-becomes_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Forever loop!</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">left_speed</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">axis3</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">right_speed</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">axis2</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="coding-question-4-medium">Coding Question #4 (Medium)<a class="headerlink" href="#coding-question-4-medium" title="Permanent link">&para;</a></h2>
+<p><strong>Write the Python code for this "count to 5" flowchart:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[count = 0]
+    B --&gt; C{count &lt; 5?}
+    C --&gt;|No| D([End])
+    C --&gt;|Yes| E["print(count)"]
+    E --&gt; F[count = count + 1]
+    F --&gt; C</code></pre>
+<details>
+<summary>Click to see answer</summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+
+**Output:**
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>0
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>1
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>3
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>4
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="coding-question-5-medium">Coding Question #5 (Medium)<a class="headerlink" href="#coding-question-5-medium" title="Permanent link">&para;</a></h2>
+<p><strong>Draw a flowchart for:</strong></p>
+<p>"Keep asking for a password until it equals 'secret'"</p>
+<details>
+<summary>Click to see answer</summary>
+
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[password = '']
+    B --&gt; C{password == 'secret'?}
+    C --&gt;|Yes| D["Print 'Access granted!'"]
+    D --&gt; E([End])
+    C --&gt;|No| F["Ask user for password"]
+    F --&gt; G[Store user input in password]
+    G --&gt; C
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+
+**The Python code:**
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">while</span> <span class="n">password</span> <span class="o">!=</span> <span class="s2">&quot;secret&quot;</span><span class="p">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter password: &quot;</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Access granted!&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="part-4-combining-decisions-and-loops">Part 4: Combining Decisions and Loops<a class="headerlink" href="#part-4-combining-decisions-and-loops" title="Permanent link">&para;</a></h2>
+<p>Real robot programs use <strong>BOTH</strong> decisions and loops together!</p>
+<h3 id="example-7-push-back-turbo-mode">Example 7: Push Back Turbo Mode<a class="headerlink" href="#example-7-push-back-turbo-mode" title="Permanent link">&para;</a></h3>
+<p>During driver control, check if the turbo button is pressed:</p>
+<pre class="mermaid"><code>flowchart TD
+    A([Start: Driver Control]) --&gt; B{Match running?}
+    B --&gt;|No| C([End])
+    B --&gt;|Yes| D[Read joystick]
+    D --&gt; E{R1 pressed?}
+    E --&gt;|Yes| F["speed = joystick × 1.5"]
+    E --&gt;|No| G["speed = joystick × 1.0"]
+    F --&gt; H[Set motors to speed]
+    G --&gt; H
+    H --&gt; I[Wait 20ms]
+    I --&gt; B
+
+    style B fill:#fff9c4,stroke:#f57f17
+    style E fill:#fff9c4,stroke:#f57f17
+    style F fill:#fff3e0,stroke:#ef6c00
+    style G fill:#e3f2fd,stroke:#1565c0</code></pre>
+<p><strong>Key insight:</strong> The decision (R1 pressed?) happens <strong>inside</strong> the loop!</p>
+<hr />
+<h2 id="coding-question-6-hard">Coding Question #6 (Hard)<a class="headerlink" href="#coding-question-6-hard" title="Permanent link">&para;</a></h2>
+<p><strong>Convert the Push Back turbo mode flowchart to Python:</strong></p>
+<details>
+<summary>Click to see answer</summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">driver_control_with_turbo</span><span class="p">():</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Match running loop</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="c1"># Read joystick</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="n">left_joy</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">axis3</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="n">right_joy</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">axis2</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="c1"># Check for turbo button</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>        <span class="k">if</span> <span class="n">controller</span><span class="o">.</span><span class="n">buttonR1</span><span class="o">.</span><span class="n">pressing</span><span class="p">():</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="n">left_speed</span> <span class="o">=</span> <span class="n">left_joy</span> <span class="o">*</span> <span class="mf">1.5</span>   <span class="c1"># Turbo mode</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>            <span class="n">right_speed</span> <span class="o">=</span> <span class="n">right_joy</span> <span class="o">*</span> <span class="mf">1.5</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>            <span class="n">left_speed</span> <span class="o">=</span> <span class="n">left_joy</span> <span class="o">*</span> <span class="mf">1.0</span>   <span class="c1"># Normal mode</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>            <span class="n">right_speed</span> <span class="o">=</span> <span class="n">right_joy</span> <span class="o">*</span> <span class="mf">1.0</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="c1"># Clamp to valid range</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>        <span class="n">left_speed</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="n">left_speed</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>        <span class="n">right_speed</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="n">right_speed</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>        <span class="c1"># Set motors</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="part-5-problem-solving-process">Part 5: Problem-Solving Process<a class="headerlink" href="#part-5-problem-solving-process" title="Permanent link">&para;</a></h2>
+<p>When you face a programming problem, follow these steps:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["1. Understand the problem"] --&gt; B["2. Identify inputs &amp; outputs"]
+    B --&gt; C["3. Break into small steps"]
+    C --&gt; D["4. Add decisions if needed"]
+    D --&gt; E["5. Add loops if repeating"]
+    E --&gt; F["6. Draw the flowchart"]
+    F --&gt; G["7. Write the code"]
+
+    style A fill:#e3f2fd,stroke:#1565c0
+    style F fill:#fff9c4,stroke:#f57f17
+    style G fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="example-robot-avoids-wall">Example: "Robot Avoids Wall"<a class="headerlink" href="#example-robot-avoids-wall" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Robot drives forward. If distance sensor sees something closer than 200mm, turn right. Otherwise, keep going.</p>
+<p><strong>Step 1:</strong> Understand - Robot should avoid walls
+<strong>Step 2:</strong> Inputs: distance sensor. Outputs: motor commands
+<strong>Step 3:</strong> Steps: read sensor, decide, move/turn
+<strong>Step 4:</strong> Decision: is distance &lt; 200mm?
+<strong>Step 5:</strong> Loop: keep checking forever</p>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{Match running?}
+    B --&gt;|No| C([End])
+    B --&gt;|Yes| D[Read distance sensor]
+    D --&gt; E{distance &lt; 200mm?}
+    E --&gt;|Yes| F[Turn right 90 degrees]
+    E --&gt;|No| G[Drive forward]
+    F --&gt; H[Wait 100ms]
+    G --&gt; H
+    H --&gt; B
+
+    style E fill:#fff9c4,stroke:#f57f17
+    style F fill:#ffcdd2,stroke:#c62828
+    style G fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<hr />
+<h2 id="coding-question-7-medium">Coding Question #7 (Medium)<a class="headerlink" href="#coding-question-7-medium" title="Permanent link">&para;</a></h2>
+<p><strong>Create a flowchart for:</strong></p>
+<p>"Robot follows a line. If sensor sees black, go straight. If sensor sees white, turn right."</p>
+<details>
+<summary>Click to see answer</summary>
+
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B{Match running?}
+    B --&gt;|No| C([End])
+    B --&gt;|Yes| D[Read line sensor]
+    D --&gt; E{Sees black?}
+    E --&gt;|Yes| F[Drive straight]
+    E --&gt;|No| G[Turn right]
+    F --&gt; H[Wait 20ms]
+    G --&gt; H
+    H --&gt; B
+
+    style E fill:#fff9c4,stroke:#f57f17
+    style F fill:#c8e6c9,stroke:#2e7d32
+    style G fill:#fff3e0,stroke:#ef6c00</code></pre>
+
+</details>
+
+<hr />
+<h2 id="coding-question-8-hard">Coding Question #8 (Hard)<a class="headerlink" href="#coding-question-8-hard" title="Permanent link">&para;</a></h2>
+<p><strong>Create a flowchart for:</strong></p>
+<p>"During autonomous, score 3 blocks. For each block: drive forward, push block into goal, back up. After 3 blocks, park."</p>
+<details>
+<summary>Click to see answer</summary>
+
+<pre class="mermaid"><code>flowchart TD
+    A([Start Autonomous]) --&gt; B[blocks_scored = 0]
+    B --&gt; C{blocks_scored &lt; 3?}
+    C --&gt;|No| D[Drive to park zone]
+    D --&gt; E[Stop motors]
+    E --&gt; F([End])
+    C --&gt;|Yes| G[Drive forward to block]
+    G --&gt; H[Push block into goal]
+    H --&gt; I[Back up]
+    I --&gt; J[blocks_scored = blocks_scored + 1]
+    J --&gt; C
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style D fill:#bbdefb,stroke:#1565c0
+    style J fill:#e3f2fd,stroke:#1565c0</code></pre>
+
+**The Python code:**
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_routine</span><span class="p">():</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">blocks_scored</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">while</span> <span class="n">blocks_scored</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>   <span class="c1"># Drive to block</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>   <span class="c1"># Push into goal</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>   <span class="c1"># Back up</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">blocks_scored</span> <span class="o">=</span> <span class="n">blocks_scored</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="c1"># After 3 blocks, park</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="part-6-coding-challenges">Part 6: Coding Challenges<a class="headerlink" href="#part-6-coding-challenges" title="Permanent link">&para;</a></h2>
+<p>Practice makes perfect! Try these challenges (answers at the end).</p>
+<h3 id="challenge-1-easy-morning-routine">Challenge 1 (Easy): Morning Routine<a class="headerlink" href="#challenge-1-easy-morning-routine" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart for:
+"Wake up. Check time. If late, skip breakfast and go straight to getting dressed. Otherwise, eat breakfast first, then get dressed. Finally, go to school."</p>
+<h3 id="challenge-2-easy-even-or-odd">Challenge 2 (Easy): Even or Odd<a class="headerlink" href="#challenge-2-easy-even-or-odd" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart and write Python code for:
+"Input a number. If number % 2 equals 0, print 'Even'. Otherwise, print 'Odd'."</p>
+<h3 id="challenge-3-medium-grade-calculator">Challenge 3 (Medium): Grade Calculator<a class="headerlink" href="#challenge-3-medium-grade-calculator" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart for:
+"Input a score. Print 'A' if 90+, 'B' if 80+, 'C' if 70+, 'D' if 60+, 'F' if below 60."</p>
+<h3 id="challenge-4-medium-password-with-3-attempts">Challenge 4 (Medium): Password with 3 Attempts<a class="headerlink" href="#challenge-4-medium-password-with-3-attempts" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart for:
+"Allow 3 password attempts. If correct, print 'Access granted'. If 3 fails, print 'Locked out'."</p>
+<h3 id="challenge-5-hard-vex-autonomous-timer">Challenge 5 (Hard): VEX Autonomous Timer<a class="headerlink" href="#challenge-5-hard-vex-autonomous-timer" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart for:
+"Start a 15-second timer. Score blocks while time &gt; 3 seconds. When time &lt;= 3 seconds, drive to park zone."</p>
+<h3 id="challenge-6-hard-zone-control-calculator">Challenge 6 (Hard): Zone Control Calculator<a class="headerlink" href="#challenge-6-hard-zone-control-calculator" title="Permanent link">&para;</a></h3>
+<p>Draw a flowchart for:
+"Count blocks in a goal (our_blocks and their_blocks). If our_blocks &gt; their_blocks, print 'We control!' and add 10 points. Otherwise, print 'No control'."</p>
+<hr />
+<h2 id="flowchart-to-code-translation">Flowchart to Code Translation<a class="headerlink" href="#flowchart-to-code-translation" title="Permanent link">&para;</a></h2>
+<p>Use this table when converting flowcharts to Python:</p>
+<table>
+<thead>
+<tr>
+<th>Flowchart Element</th>
+<th>Python Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>([Start])</code></td>
+<td>First line of your function</td>
+</tr>
+<tr>
+<td><code>([End])</code></td>
+<td>Last line, or <code>return</code></td>
+</tr>
+<tr>
+<td><code>[Action]</code></td>
+<td>Regular code line</td>
+</tr>
+<tr>
+<td><code>{Question?}</code> with 2 paths</td>
+<td><code>if condition:</code> and <code>else:</code></td>
+</tr>
+<tr>
+<td><code>{Question?}</code> with 3+ paths</td>
+<td><code>if/elif/else</code></td>
+</tr>
+<tr>
+<td>Arrow looping back</td>
+<td><code>while condition:</code></td>
+</tr>
+<tr>
+<td>Arrow looping forever</td>
+<td><code>while True:</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="challenge-answers">Challenge Answers<a class="headerlink" href="#challenge-answers" title="Permanent link">&para;</a></h2>
+<h3 id="challenge-1-morning-routine">Challenge 1: Morning Routine<a class="headerlink" href="#challenge-1-morning-routine" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Wake up]) --&gt; B{Am I late?}
+    B --&gt;|Yes| C[Skip breakfast]
+    B --&gt;|No| D[Eat breakfast]
+    C --&gt; E[Get dressed]
+    D --&gt; E
+    E --&gt; F([Go to school])
+
+    style B fill:#fff9c4,stroke:#f57f17</code></pre>
+<h3 id="challenge-2-even-or-odd">Challenge 2: Even or Odd<a class="headerlink" href="#challenge-2-even-or-odd" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[/Input number/]
+    B --&gt; C{number % 2 == 0?}
+    C --&gt;|Yes| D["Print 'Even'"]
+    C --&gt;|No| E["Print 'Odd'"]
+    D --&gt; F([End])
+    E --&gt; F
+
+    style C fill:#fff9c4,stroke:#f57f17</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Even&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Odd&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="challenge-3-grade-calculator">Challenge 3: Grade Calculator<a class="headerlink" href="#challenge-3-grade-calculator" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[/Input score/]
+    B --&gt; C{score &gt;= 90?}
+    C --&gt;|Yes| D["Print 'A'"]
+    C --&gt;|No| E{score &gt;= 80?}
+    E --&gt;|Yes| F["Print 'B'"]
+    E --&gt;|No| G{score &gt;= 70?}
+    G --&gt;|Yes| H["Print 'C'"]
+    G --&gt;|No| I{score &gt;= 60?}
+    I --&gt;|Yes| J["Print 'D'"]
+    I --&gt;|No| K["Print 'F'"]
+    D --&gt; L([End])
+    F --&gt; L
+    H --&gt; L
+    J --&gt; L
+    K --&gt; L
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style E fill:#fff9c4,stroke:#f57f17
+    style G fill:#fff9c4,stroke:#f57f17
+    style I fill:#fff9c4,stroke:#f57f17</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter score: &quot;</span><span class="p">))</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="challenge-4-password-with-3-attempts">Challenge 4: Password with 3 Attempts<a class="headerlink" href="#challenge-4-password-with-3-attempts" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[attempts = 0]
+    B --&gt; C{attempts &lt; 3?}
+    C --&gt;|No| D["Print 'Locked out'"]
+    D --&gt; E([End])
+    C --&gt;|Yes| F[/Ask for password/]
+    F --&gt; G{password == 'secret'?}
+    G --&gt;|Yes| H["Print 'Access granted'"]
+    H --&gt; E
+    G --&gt;|No| I[attempts = attempts + 1]
+    I --&gt; C
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style G fill:#fff9c4,stroke:#f57f17
+    style D fill:#ffcdd2,stroke:#c62828
+    style H fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter password: &quot;</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="s2">&quot;secret&quot;</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Access granted&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="k">break</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Locked out&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="challenge-5-vex-autonomous-timer">Challenge 5: VEX Autonomous Timer<a class="headerlink" href="#challenge-5-vex-autonomous-timer" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start Autonomous]) --&gt; B[time_remaining = 15]
+    B --&gt; C{time_remaining &gt; 3?}
+    C --&gt;|Yes| D[Score a block]
+    D --&gt; E[time_remaining = time_remaining - 2.5]
+    E --&gt; C
+    C --&gt;|No| F[Drive to park zone]
+    F --&gt; G[Stop]
+    G --&gt; H([End])
+
+    style C fill:#fff9c4,stroke:#f57f17
+    style F fill:#bbdefb,stroke:#1565c0</code></pre>
+<h3 id="challenge-6-zone-control-calculator">Challenge 6: Zone Control Calculator<a class="headerlink" href="#challenge-6-zone-control-calculator" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A([Start]) --&gt; B[/Input our_blocks/]
+    B --&gt; C[/Input their_blocks/]
+    C --&gt; D{our_blocks &gt; their_blocks?}
+    D --&gt;|Yes| E["Print 'We control!'"]
+    E --&gt; F[points = points + 10]
+    F --&gt; G([End])
+    D --&gt;|No| H["Print 'No control'"]
+    H --&gt; G
+
+    style D fill:#fff9c4,stroke:#f57f17
+    style E fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">our_blocks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Our blocks: &quot;</span><span class="p">))</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">their_blocks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Their blocks: &quot;</span><span class="p">))</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">if</span> <span class="n">our_blocks</span> <span class="o">&gt;</span> <span class="n">their_blocks</span><span class="p">:</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We control!&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span> <span class="o">+</span> <span class="mi">10</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No control&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Points:&quot;</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Flowchart Symbol</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start/End</strong></td>
+<td>Oval <code>([...])</code></td>
+<td>First/last line</td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td>Rectangle <code>[...]</code></td>
+<td>Regular code</td>
+</tr>
+<tr>
+<td><strong>Decision</strong></td>
+<td>Diamond <code>{...}</code></td>
+<td><code>if/elif/else</code></td>
+</tr>
+<tr>
+<td><strong>Input/Output</strong></td>
+<td>Parallelogram <code>[/.../]</code></td>
+<td><code>input()</code> / <code>print()</code></td>
+</tr>
+<tr>
+<td><strong>Loop</strong></td>
+<td>Arrow back</td>
+<td><code>while</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Plan before coding</strong> - Draw a flowchart first!</li>
+<li><strong>Break problems into steps</strong> - One rectangle per action</li>
+<li><strong>Identify decisions</strong> - These become <code>if</code> statements</li>
+<li><strong>Find repetition</strong> - These become <code>while</code> loops</li>
+<li><strong>Practice both ways</strong> - Flowchart → Code AND Code → Flowchart</li>
+</ol>
+<hr />
+<h2 id="whats-next">What's Next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
+<p>Now that you can think with flowcharts, you're ready to learn <strong>real Python code</strong>!</p>
+<p>In the next tutorial, you'll learn about <strong>variables</strong> - the building blocks that store information in your programs.</p>
+<hr />
+<p><strong><a href="../../02-robot-anatomy/03-sensors-overview/">← Previous: Sensors Overview</a></strong> | <strong><a href="../01-variables-and-types/">Next: Variables and Types →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

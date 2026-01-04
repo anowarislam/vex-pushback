@@ -1,0 +1,3947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../../06-competition-strategy/04-review-qa/">
+      
+      
+        <link rel="next" href="../02-sensor-integration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>PID Control - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-71-pid-control-advanced" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PID Control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is PID?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is PID?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Analogies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Analogies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermostat-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermostat Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-video-game-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Video Game Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-basketball-shot-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Basketball Shot Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-driving-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Driving Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid-overview-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID Overview Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-we-need-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Do We Need PID?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Do We Need PID?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bang-bang-vs-pid-control-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bang-Bang vs PID Control Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-key-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Key Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-p-in-pid-proportional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The P in PID: Proportional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The P in PID: Proportional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-calculation-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Calculation Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-p-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The P Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-p-controller-for-turning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: P Controller for Turning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-kp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuning Kp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-each-symptom-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Symptom Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-i-in-pid-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The I in PID: Integral
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The I in PID: Integral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-friction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Friction Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-i-term-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The I Term Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PI Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-d-in-pid-derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The D in PID: Derivative
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The D in PID: Derivative">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-pid-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full PID (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-tuning-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID Tuning Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID Tuning Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-tuning-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Tuning Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-starting-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Starting Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-in-push-back-competition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID in Push Back Competition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID in Push Back Competition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accurate-autonomous-turns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accurate Autonomous Turns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#straight-line-block-pushing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Straight-Line Block Pushing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precise-parking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precise Parking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginner-p-only-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beginner: P-Only Turn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intermediate-add-wraparound-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate: Add Wraparound Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-pi-control-for-accurate-parking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge: PI Control for Accurate Parking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with PID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with PID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-wrong-kp-sign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Wrong Kp Sign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-missing-wraparound-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Missing Wraparound Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-no-stop-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: No Stop Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-correction-too-powerful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Correction Too Powerful
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-starting-with-full-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Starting with Full PID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-pid-connects-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How PID Connects to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How PID Connects to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-back-points-gained-with-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Points Gained with PID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is PID?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is PID?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Analogies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Analogies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-thermostat-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Thermostat Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-video-game-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Video Game Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-basketball-shot-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Basketball Shot Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-driving-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Driving Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid-overview-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID Overview Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-we-need-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Do We Need PID?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Do We Need PID?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bang-bang-vs-pid-control-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bang-Bang vs PID Control Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-key-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Key Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-p-in-pid-proportional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The P in PID: Proportional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The P in PID: Proportional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-calculation-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Calculation Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-p-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The P Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-p-controller-for-turning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: P Controller for Turning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning-kp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuning Kp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-each-symptom-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Symptom Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-i-in-pid-integral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The I in PID: Integral
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The I in PID: Integral">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-friction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Friction Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-i-term-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The I Term Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PI Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-d-in-pid-derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The D in PID: Derivative
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The D in PID: Derivative">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-pid-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full PID (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-tuning-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID Tuning Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID Tuning Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-tuning-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Tuning Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-starting-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Starting Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-in-push-back-competition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID in Push Back Competition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PID in Push Back Competition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accurate-autonomous-turns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accurate Autonomous Turns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#straight-line-block-pushing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Straight-Line Block Pushing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precise-parking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Precise Parking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginner-p-only-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beginner: P-Only Turn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intermediate-add-wraparound-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate: Add Wraparound Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-pi-control-for-accurate-parking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge: PI Control for Accurate Parking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with PID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with PID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-wrong-kp-sign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Wrong Kp Sign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-missing-wraparound-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Missing Wraparound Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-no-stop-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: No Stop Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-correction-too-powerful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Correction Too Powerful
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-starting-with-full-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Starting with Full PID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-pid-connects-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How PID Connects to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How PID Connects to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-back-points-gained-with-pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Back Points Gained with PID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-71-pid-control-advanced">Tutorial 7.1: PID Control (Advanced)<a class="headerlink" href="#tutorial-71-pid-control-advanced" title="Permanent link">&para;</a></h1>
+<p><strong>Time:</strong> ~25 minutes
+<strong>Prerequisites:</strong> All previous tutorials
+<strong>Level:</strong> Bonus/Advanced</p>
+<hr />
+<h2 id="what-is-pid">What is PID?<a class="headerlink" href="#what-is-pid" title="Permanent link">&para;</a></h2>
+<p><strong>PID</strong> stands for <strong>Proportional-Integral-Derivative</strong>. It's a control algorithm that helps robots move more accurately by adjusting power based on how far you are from your target.</p>
+<h3 id="real-world-analogies">Real-World Analogies<a class="headerlink" href="#real-world-analogies" title="Permanent link">&para;</a></h3>
+<h4 id="the-thermostat-analogy">The Thermostat Analogy<a class="headerlink" href="#the-thermostat-analogy" title="Permanent link">&para;</a></h4>
+<p>Your home thermostat is a simple controller:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    SET TEMPERATURE: 70°F
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    Room is 60°F     → Heater ON (big correction)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Room is 68°F     → Heater ON (small correction)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    Room is 70°F     → Heater OFF (at target!)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    Room is 72°F     → AC ON (overshoot correction)
+</code></pre></div>
+<p>PID does the same thing, but smarter!</p>
+<h4 id="the-video-game-analogy">The Video Game Analogy<a class="headerlink" href="#the-video-game-analogy" title="Permanent link">&para;</a></h4>
+<p>In racing games, when you approach a checkpoint:
+- <strong>Far away:</strong> Full speed ahead!
+- <strong>Getting closer:</strong> Start slowing down
+- <strong>Almost there:</strong> Gentle tap on brakes
+- <strong>At checkpoint:</strong> Perfect stop</p>
+<p>That's exactly what PID does for your robot!</p>
+<h4 id="the-basketball-shot-analogy">The Basketball Shot Analogy<a class="headerlink" href="#the-basketball-shot-analogy" title="Permanent link">&para;</a></h4>
+<p>When shooting free throws:
+- <strong>Miss by 2 feet short:</strong> Add LOTS more power next shot
+- <strong>Miss by 6 inches short:</strong> Add a little more power
+- <strong>Perfect shot:</strong> Same power!
+- <strong>Overshoot by 6 inches:</strong> Reduce power slightly</p>
+<p>PID adjusts motor power the same way you adjust your shot!</p>
+<h4 id="the-driving-analogy">The Driving Analogy<a class="headerlink" href="#the-driving-analogy" title="Permanent link">&para;</a></h4>
+<p>When approaching a stop sign:
+- <strong>100 feet away:</strong> Full speed
+- <strong>50 feet away:</strong> Start braking
+- <strong>10 feet away:</strong> Light brake
+- <strong>At line:</strong> Stopped perfectly</p>
+<p>If you only knew "GO" and "STOP" (bang-bang), you'd either stop too early or slam into the intersection!</p>
+<h3 id="pid-overview-flowchart">PID Overview Flowchart<a class="headerlink" href="#pid-overview-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "PID Controller"
+        A["Target\n(90°)"] --&gt; B["Calculate\nError"]
+        C["Current\n(85°)"] --&gt; B
+        B --&gt; D["Error\n= 5°"]
+        D --&gt; E["P Term\nKp × Error"]
+        D --&gt; F["I Term\nKi × Sum"]
+        D --&gt; G["D Term\nKd × Change"]
+        E --&gt; H["Add\nTerms"]
+        F --&gt; H
+        G --&gt; H
+        H --&gt; I["Motor\nPower"]
+    end
+
+    style A fill:#c8e6c9,stroke:#2e7d32
+    style C fill:#bbdefb,stroke:#1565c0
+    style D fill:#fff3e0,stroke:#ef6c00
+    style I fill:#f8bbd9,stroke:#c2185b</code></pre>
+<h2 id="why-do-we-need-pid">Why Do We Need PID?<a class="headerlink" href="#why-do-we-need-pid" title="Permanent link">&para;</a></h2>
+<h3 id="bang-bang-vs-pid-control-comparison">Bang-Bang vs PID Control Comparison<a class="headerlink" href="#bang-bang-vs-pid-control-comparison" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "Bang-Bang Control (Bad)"
+        A1["Heading: 0°"] --&gt; A2["Motors ON\n100%"]
+        A2 --&gt; A3["Heading: 85°"]
+        A3 --&gt; A4["Motors ON\n100%"]
+        A4 --&gt; A5["Heading: 90°"]
+        A5 --&gt; A6["Motors OFF"]
+        A6 --&gt; A7["OVERSHOOT!\n95°"]
+        A7 --&gt; A8["Turn back..."]
+        A8 --&gt; A9["UNDERSHOOT!\n88°"]
+        A9 --&gt; A10["Oscillates\nforever"]
+    end
+
+    style A7 fill:#ffcdd2,stroke:#c62828
+    style A9 fill:#ffcdd2,stroke:#c62828
+    style A10 fill:#ffcdd2,stroke:#c62828</code></pre>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "PID Control (Good)"
+        B1["Heading: 0°"] --&gt; B2["Motors at\n80%"]
+        B2 --&gt; B3["Heading: 50°"]
+        B3 --&gt; B4["Motors at\n40%"]
+        B4 --&gt; B5["Heading: 85°"]
+        B5 --&gt; B6["Motors at\n5%"]
+        B6 --&gt; B7["Heading: 90°"]
+        B7 --&gt; B8["Motors at\n0%"]
+        B8 --&gt; B9["Smooth stop!"]
+    end
+
+    style B9 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="the-key-difference">The Key Difference<a class="headerlink" href="#the-key-difference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Control Type</th>
+<th>Behavior</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bang-Bang</strong></td>
+<td>Full power until target</td>
+<td>Overshoot, oscillate</td>
+</tr>
+<tr>
+<td><strong>PID</strong></td>
+<td>Power proportional to distance</td>
+<td>Smooth, accurate stop</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-p-in-pid-proportional">The P in PID: Proportional<a class="headerlink" href="#the-p-in-pid-proportional" title="Permanent link">&para;</a></h2>
+<p><strong>Proportional</strong> means the correction is proportional to the error. The farther you are from the target, the bigger the correction!</p>
+<h3 id="error-calculation-flowchart">Error Calculation Flowchart<a class="headerlink" href="#error-calculation-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["Target\n90°"] --&gt; C{"-"}
+    B["Current\n30°"] --&gt; C
+    C --&gt; D["Error\n= 60°"]
+    D --&gt; E["× Kp\n(0.5)"]
+    E --&gt; F["Correction\n= 30%"]
+
+    style A fill:#c8e6c9,stroke:#2e7d32
+    style B fill:#bbdefb,stroke:#1565c0
+    style D fill:#fff3e0,stroke:#ef6c00
+    style F fill:#f8bbd9,stroke:#c2185b</code></pre>
+<h3 id="the-p-formula">The P Formula<a class="headerlink" href="#the-p-formula" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Error = Target - Current
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Correction = Kp × Error
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Where Kp is a tuning constant (like 0.5)
+</code></pre></div>
+<p><strong>Think of Kp as a "sensitivity dial":</strong>
+- <strong>Kp = 0.1</strong> → Very gentle, slow response
+- <strong>Kp = 0.5</strong> → Balanced response
+- <strong>Kp = 2.0</strong> → Very aggressive, may overshoot</p>
+<h3 id="example-p-controller-for-turning">Example: P Controller for Turning<a class="headerlink" href="#example-p-controller-for-turning" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading</span><span class="p">(</span><span class="n">target_heading</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Turn to a specific heading using P control.&quot;&quot;&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Tuning constant</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target_heading</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># Handle wraparound (0-360)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="c1"># If close enough, stop</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="k">break</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="c1"># Calculate correction</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        <span class="c1"># Apply to motors (turn in place)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="tuning-kp">Tuning Kp<a class="headerlink" href="#tuning-kp" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "Kp Effects Comparison"
+        direction TB
+
+        A["Kp = 0.1\n(Too Low)"]
+        A1["❌ Slow response"]
+        A2["❌ May not reach target"]
+        A3["❌ Friction wins"]
+
+        B["Kp = 0.5-1.0\n(Just Right)"]
+        B1["✅ Quick response"]
+        B2["✅ Minimal overshoot"]
+        B3["✅ Accurate stop"]
+
+        C["Kp = 2.0\n(Too High)"]
+        C1["❌ Fast but overshoots"]
+        C2["❌ Oscillates"]
+        C3["❌ Jerky movement"]
+
+        A --&gt; A1 --&gt; A2 --&gt; A3
+        B --&gt; B1 --&gt; B2 --&gt; B3
+        C --&gt; C1 --&gt; C2 --&gt; C3
+    end
+
+    style A fill:#ffcdd2,stroke:#c62828
+    style A1 fill:#ffcdd2,stroke:#c62828
+    style A2 fill:#ffcdd2,stroke:#c62828
+    style A3 fill:#ffcdd2,stroke:#c62828
+    style B fill:#c8e6c9,stroke:#2e7d32
+    style B1 fill:#c8e6c9,stroke:#2e7d32
+    style B2 fill:#c8e6c9,stroke:#2e7d32
+    style B3 fill:#c8e6c9,stroke:#2e7d32
+    style C fill:#ffcdd2,stroke:#c62828
+    style C1 fill:#ffcdd2,stroke:#c62828
+    style C2 fill:#ffcdd2,stroke:#c62828
+    style C3 fill:#ffcdd2,stroke:#c62828</code></pre>
+<h3 id="what-each-symptom-means">What Each Symptom Means<a class="headerlink" href="#what-each-symptom-means" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robot never reaches target</td>
+<td>Kp too low</td>
+<td>Increase Kp</td>
+</tr>
+<tr>
+<td>Robot oscillates around target</td>
+<td>Kp too high</td>
+<td>Decrease Kp</td>
+</tr>
+<tr>
+<td>Robot stops perfectly</td>
+<td>Kp just right</td>
+<td>Keep it!</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-i-in-pid-integral">The I in PID: Integral<a class="headerlink" href="#the-i-in-pid-integral" title="Permanent link">&para;</a></h2>
+<p><strong>Integral</strong> accumulates error over time. It fixes <strong>steady-state error</strong> - when the robot gets close but can't quite reach the target.</p>
+<h3 id="the-friction-problem">The Friction Problem<a class="headerlink" href="#the-friction-problem" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "P-Only Problem"
+        A["Target: 90°\nCurrent: 88°"] --&gt; B["Error = 2°"]
+        B --&gt; C["Correction =\n0.5 × 2 = 1%"]
+        C --&gt; D["1% power\ncan't overcome\nfriction!"]
+    end
+
+    style D fill:#ffcdd2,stroke:#c62828</code></pre>
+<h3 id="the-i-term-solution">The I Term Solution<a class="headerlink" href="#the-i-term-solution" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "Integral Accumulation"
+        A["Error = 2°\nCycle 1"] --&gt; B["integral = 2"]
+        B --&gt; C["Error = 2°\nCycle 2"]
+        C --&gt; D["integral = 4"]
+        D --&gt; E["Error = 2°\nCycle 3"]
+        E --&gt; F["integral = 6"]
+        F --&gt; G["..."]
+        G --&gt; H["Error = 2°\nCycle 10"]
+        H --&gt; I["integral = 20"]
+        I --&gt; J["Now Ki × 20\nOVERCOMES\nfriction!"]
+    end
+
+    style J fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p><strong>Think of it like pushing a heavy box:</strong>
+- One small push (P) isn't enough
+- But 10 small pushes adding up (I) finally moves it!</p>
+<h3 id="pi-controller">PI Controller<a class="headerlink" href="#pi-controller" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading_pi</span><span class="p">(</span><span class="n">target_heading</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Turn using PI control.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Small integral gain</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target_heading</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="c1"># Handle wraparound</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="c1"># Accumulate error</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">integral</span> <span class="o">+=</span> <span class="n">error</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="c1"># Stop condition</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>            <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>            <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>            <span class="k">break</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="c1"># PI calculation</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="p">(</span><span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ki</span> <span class="o">*</span> <span class="n">integral</span><span class="p">)</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p><strong>For beginners:</strong> Skip the I term at first! P-only often works well enough.</p>
+</blockquote>
+<h2 id="the-d-in-pid-derivative">The D in PID: Derivative<a class="headerlink" href="#the-d-in-pid-derivative" title="Permanent link">&para;</a></h2>
+<p><strong>Derivative</strong> predicts future error based on rate of change.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    Error is decreasing rapidly?
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    → Don&#39;t overcorrect, you&#39;re about to reach target!
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    Error is increasing?
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    → Something&#39;s wrong, add more correction!
+</code></pre></div>
+<h3 id="full-pid-optional">Full PID (Optional)<a class="headerlink" href="#full-pid-optional" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading_pid</span><span class="p">(</span><span class="n">target_heading</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Full PID control (advanced).&quot;&quot;&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.01</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">Kd</span> <span class="o">=</span> <span class="mf">0.1</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">previous_error</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target_heading</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="c1"># Handle wraparound</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>            <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>            <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>        <span class="c1"># Calculate I and D terms</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>        <span class="n">integral</span> <span class="o">+=</span> <span class="n">error</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>        <span class="n">derivative</span> <span class="o">=</span> <span class="n">error</span> <span class="o">-</span> <span class="n">previous_error</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>        <span class="n">previous_error</span> <span class="o">=</span> <span class="n">error</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="c1"># Stop condition</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>            <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>            <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>            <span class="k">break</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        <span class="c1"># Full PID</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="p">(</span><span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Ki</span> <span class="o">*</span> <span class="n">integral</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">Kd</span> <span class="o">*</span> <span class="n">derivative</span><span class="p">)</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="pid-tuning-guide">PID Tuning Guide<a class="headerlink" href="#pid-tuning-guide" title="Permanent link">&para;</a></h2>
+<h3 id="step-by-step-tuning-flowchart">Step-by-Step Tuning Flowchart<a class="headerlink" href="#step-by-step-tuning-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    START["START HERE\nKp = 0.5, Ki = 0, Kd = 0\n(P-only control)"]
+    START --&gt; TEST1
+
+    TEST1{"Does robot\nOVERSHOOT?"}
+    TEST1 --&gt;|"YES"| FIX1["Decrease Kp\n(try 0.3)"]
+    TEST1 --&gt;|"NO"| TEST2
+    FIX1 --&gt; TEST1
+
+    TEST2{"Is robot\nTOO SLOW?"}
+    TEST2 --&gt;|"YES"| FIX2["Increase Kp\n(try 0.7)"]
+    TEST2 --&gt;|"NO"| TEST3
+    FIX2 --&gt; TEST1
+
+    TEST3{"Does robot\nNOT REACH target?\n(steady-state error)"}
+    TEST3 --&gt;|"YES"| FIX3["Add small Ki\n(try 0.01)"]
+    TEST3 --&gt;|"NO"| DONE1["P-only works!\nYou're done!"]
+    FIX3 --&gt; TEST4
+
+    TEST4{"Does robot now\nOVERSHOOT more?"}
+    TEST4 --&gt;|"YES"| FIX4["Decrease Ki\n(try 0.005)"]
+    TEST4 --&gt;|"NO"| DONE2["PI works!\nYou're done!"]
+    FIX4 --&gt; TEST4
+
+    style START fill:#e3f2fd,stroke:#1565c0
+    style DONE1 fill:#c8e6c9,stroke:#2e7d32
+    style DONE2 fill:#c8e6c9,stroke:#2e7d32
+    style FIX1 fill:#fff3e0,stroke:#ef6c00
+    style FIX2 fill:#fff3e0,stroke:#ef6c00
+    style FIX3 fill:#fff3e0,stroke:#ef6c00
+    style FIX4 fill:#fff3e0,stroke:#ef6c00</code></pre>
+<h3 id="quick-reference-starting-values">Quick Reference Starting Values<a class="headerlink" href="#quick-reference-starting-values" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Robot Type</th>
+<th>Kp Start</th>
+<th>Ki Start</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Turning in place</td>
+<td>0.5-1.0</td>
+<td>0.01</td>
+<td>Most common</td>
+</tr>
+<tr>
+<td>Driving straight</td>
+<td>0.3-0.5</td>
+<td>0.005</td>
+<td>Less aggressive</td>
+</tr>
+<tr>
+<td>Arm movement</td>
+<td>0.2-0.4</td>
+<td>0.01</td>
+<td>Avoid jerky motion</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What It Does</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P</strong></td>
+<td>Correction proportional to error</td>
+<td>Always (start here)</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>Fixes steady-state error</td>
+<td>If robot can't reach target</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>Dampens oscillation</td>
+<td>If robot overshoots</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="pid-in-push-back-competition">PID in Push Back Competition<a class="headerlink" href="#pid-in-push-back-competition" title="Permanent link">&para;</a></h2>
+<p>PID control is essential for competitive Push Back robots. Here's how each use case helps you score more points:</p>
+<h3 id="accurate-autonomous-turns">Accurate Autonomous Turns<a class="headerlink" href="#accurate-autonomous-turns" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">push_back_autonomous</span><span class="p">():</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="sd">    Use PID for precise turns to line up with goals.</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="sd">    Accurate turns = More blocks in the goal!</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="c1"># Turn exactly 45° to face the long goal</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">turn_to_heading_p</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># P controller</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="c1"># Drive forward and push blocks</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="c1"># Turn exactly 90° to face center goal</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">turn_to_heading_p</span><span class="p">(</span><span class="mi">135</span><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="c1"># More accurate turns = More points!</span>
+</code></pre></div>
+<h3 id="straight-line-block-pushing">Straight-Line Block Pushing<a class="headerlink" href="#straight-line-block-pushing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">push_blocks_straight</span><span class="p">():</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="sd">    Use PID to drive STRAIGHT while pushing blocks.</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="sd">    Without PID, blocks push you off course!</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="k">while</span> <span class="n">distance_to_goal</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="c1"># Calculate heading error</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="c1"># Handle wraparound</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span> <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span> <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>        <span class="c1"># Apply correction to stay straight</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="precise-parking">Precise Parking<a class="headerlink" href="#precise-parking" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["Far from\npark zone"] --&gt; B["Fast\napproach"]
+    B --&gt; C["Getting\nclose"]
+    C --&gt; D["Slow\ndown"]
+    D --&gt; E["Almost\nthere"]
+    E --&gt; F["Gentle\nstop"]
+    F --&gt; G["PARKED!\n8-30 pts 🎯"]
+
+    style G fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">pid_park</span><span class="p">():</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="sd">    Use PID to park smoothly in the zone.</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="sd">    Smooth parking = No rolling out of zone!</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">target_distance</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Stop 50mm from back wall</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># Gentle for parking</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">-</span> <span class="n">target_distance</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Within 10mm</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>            <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Parked!</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>        <span class="n">speed</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>        <span class="n">speed</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>  <span class="c1"># Slow for parking</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="progressive-exercises">Progressive Exercises<a class="headerlink" href="#progressive-exercises" title="Permanent link">&para;</a></h2>
+<h3 id="beginner-p-only-turn">Beginner: P-Only Turn<a class="headerlink" href="#beginner-p-only-turn" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Make the robot turn to exactly 90° using P control.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_90</span><span class="p">():</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">target</span> <span class="o">=</span> <span class="mi">90</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>            <span class="k">break</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>        <span class="c1"># YOUR CODE: Apply correction to motors</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>        <span class="c1"># Hint: left_motors.spin(FORWARD, correction, PERCENT)</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        <span class="c1"># Hint: right_motors.spin(FORWARD, -correction, PERCENT)</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>    <span class="c1"># YOUR CODE: Stop the motors</span>
+</code></pre></div>
+<p><strong>Success criteria:</strong> Robot turns smoothly and stops at 90° ±2°</p>
+<hr />
+<h3 id="intermediate-add-wraparound-handling">Intermediate: Add Wraparound Handling<a class="headerlink" href="#intermediate-add-wraparound-handling" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Handle the 0-360° boundary problem.</p>
+<p><strong>Problem:</strong> What if current = 350° and target = 10°?
+- Simple math: error = 10 - 350 = -340° (wrong!)
+- Correct: The shortest turn is +20° (right!)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="c1"># YOUR CODE: Add wraparound handling</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="c1"># If error &gt; 180, subtract 360</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="c1"># If error &lt; -180, add 360</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>            <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>            <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>            <span class="k">break</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Test cases:</strong>
+- Turn from 10° to 350° (should turn left 20°, not right 340°)
+- Turn from 350° to 10° (should turn right 20°, not left 340°)</p>
+<hr />
+<h3 id="challenge-pi-control-for-accurate-parking">Challenge: PI Control for Accurate Parking<a class="headerlink" href="#challenge-pi-control-for-accurate-parking" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Use PI control to overcome friction and park accurately.</p>
+<p><strong>Scenario:</strong> Your robot needs to park exactly 100mm from the back wall. P-only control stops 5mm short because of friction.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">pi_park</span><span class="p">(</span><span class="n">target_distance</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.3</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.01</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">tolerance</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># mm</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">current</span> <span class="o">-</span> <span class="n">target_distance</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        <span class="c1"># YOUR CODE: Accumulate integral</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="c1"># integral += error</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>        <span class="c1"># YOUR CODE: Calculate PI correction</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>        <span class="c1"># correction = (Kp * error) + (Ki * integral)</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        <span class="c1"># Limit speed for parking</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">correction</span><span class="p">))</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Bonus challenge:</strong> Add "integral windup protection" - reset integral when error changes sign!</p>
+<hr />
+<h2 id="common-mistakes-with-pid">Common Mistakes with PID<a class="headerlink" href="#common-mistakes-with-pid" title="Permanent link">&para;</a></h2>
+<h3 id="mistake-1-wrong-kp-sign">Mistake 1: Wrong Kp Sign<a class="headerlink" href="#mistake-1-wrong-kp-sign" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># WRONG: Negative Kp causes wrong direction!</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">correction</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">error</span>  <span class="c1"># Robot turns away from target!</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># RIGHT: Positive Kp</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">correction</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">error</span>   <span class="c1"># Robot turns toward target</span>
+</code></pre></div>
+<h3 id="mistake-2-missing-wraparound-handling">Mistake 2: Missing Wraparound Handling<a class="headerlink" href="#mistake-2-missing-wraparound-handling" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># WRONG: No wraparound - robot spins 340° instead of 20°</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># RIGHT: Handle 0-360 boundary</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">elif</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+</code></pre></div>
+<h3 id="mistake-3-no-stop-condition">Mistake 3: No Stop Condition<a class="headerlink" href="#mistake-3-no-stop-condition" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># WRONG: Loop never ends!</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="c1"># No break condition! Robot vibrates forever!</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># RIGHT: Stop when close enough</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># Tolerance of 2°</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="k">break</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="c1"># ... rest of code</span>
+</code></pre></div>
+<h3 id="mistake-4-correction-too-powerful">Mistake 4: Correction Too Powerful<a class="headerlink" href="#mistake-4-correction-too-powerful" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># WRONG: No speed limiting - motors max out</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>  <span class="c1"># Could be 100%+ !</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># RIGHT: Clamp correction to safe range</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">correction</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">correction</span><span class="p">))</span>  <span class="c1"># Limit to ±50%</span>
+</code></pre></div>
+<h3 id="mistake-5-starting-with-full-pid">Mistake 5: Starting with Full PID<a class="headerlink" href="#mistake-5-starting-with-full-pid" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># WRONG: Start with all three terms</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">Ki</span> <span class="o">=</span> <span class="mf">0.1</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">Kd</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Too complex to tune!</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># RIGHT: Start P-only, add terms as needed</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">Ki</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Add later if needed</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="n">Kd</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Rarely needed for VEX</span>
+</code></pre></div>
+<hr />
+<h2 id="how-pid-connects-to-push-back">How PID Connects to Push Back<a class="headerlink" href="#how-pid-connects-to-push-back" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Push Back Task</th>
+<th>PID Use</th>
+<th>Why It Helps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autonomous turns</strong></td>
+<td>P control for heading</td>
+<td>Accurate alignment with goals</td>
+</tr>
+<tr>
+<td><strong>Straight driving</strong></td>
+<td>P control for heading correction</td>
+<td>Blocks don't push you off course</td>
+</tr>
+<tr>
+<td><strong>Goal approach</strong></td>
+<td>P control for distance</td>
+<td>Stop at right distance to push</td>
+</tr>
+<tr>
+<td><strong>Parking</strong></td>
+<td>PI control for precision</td>
+<td>Guarantee those 8-30 points!</td>
+</tr>
+<tr>
+<td><strong>Block pushing</strong></td>
+<td>P control while driving</td>
+<td>Maintain heading under load</td>
+</tr>
+</tbody>
+</table>
+<h3 id="push-back-points-gained-with-pid">Push Back Points Gained with PID<a class="headerlink" href="#push-back-points-gained-with-pid" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Without PID"
+        A1["Miss 2 goals\n-6 points"] --&gt; B1["Overshoot park\n-8 points"]
+        B1 --&gt; C1["Push blocks\ncrooked"] --&gt; D1["Lose zone\ncontrol"]
+    end
+
+    subgraph "With PID"
+        A2["Hit all goals\n+6 points"] --&gt; B2["Perfect park\n+8 points"]
+        B2 --&gt; C2["Straight\npushing"] --&gt; D2["Win zone\ncontrol!"]
+    end
+
+    style A1 fill:#ffcdd2,stroke:#c62828
+    style B1 fill:#ffcdd2,stroke:#c62828
+    style A2 fill:#c8e6c9,stroke:#2e7d32
+    style B2 fill:#c8e6c9,stroke:#2e7d32
+    style D2 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p><strong>Bottom line:</strong> PID can easily add 15-20 points to your match score through:
+- More accurate autonomous routines
+- Reliable parking
+- Better zone control</p>
+<hr />
+<p><strong><a href="../../06-competition-strategy/03-alliance-coordination/">← Previous: Alliance Coordination</a></strong> | <strong><a href="../02-sensor-integration/">Next: Sensor Integration →</a></strong> | <strong><a href="../04-review-qa/">Review Q&amp;A</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

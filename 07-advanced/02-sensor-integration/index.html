@@ -1,0 +1,4447 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../01-pid-control/">
+      
+      
+        <link rel="next" href="../03-skills-autonomous/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Sensor Integration - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-72-sensor-integration-advanced" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sensor Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use Sensors?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Use Sensors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Analogies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Analogies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eyes-and-ears-for-your-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eyes and Ears for Your Robot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#car-sensors-you-already-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Car Sensors You Already Know
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-game-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Game Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-vs-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-Loop vs Closed-Loop Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inertial-sensor-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inertial Sensor (IMU)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inertial Sensor (IMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-inertial-sensor-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Inertial Sensor Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading-vs-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heading vs Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accurate-turning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accurate Turning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#straight-line-driving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Straight-Line Driving
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distance Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parking-sensor-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Parking Sensor Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-sensor-decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor Decision Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-before-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Before Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wall-following" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wall Following
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optical-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optical Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mm-sorting-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The M&amp;M Sorting Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-color-sorting-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Color Sorting Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gps-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPS Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPS Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-gps-works-in-vex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How GPS Works in VEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-phone-gps-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Phone GPS Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Coordinate System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-to-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return to Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining Sensors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combining Sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor-fusion-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Fusion Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-sensor-for-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which Sensor for What?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-autonomous-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart Autonomous Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-combination-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Combination Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-in-push-back-competition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors in Push Back Competition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensors in Push Back Competition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inertial-sensor-for-accurate-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inertial Sensor for Accurate Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-sensor-for-goal-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor for Goal Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optical-sensor-for-block-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Sensor for Block Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gps-for-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPS for Skills Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginner-stop-before-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beginner: Stop Before Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intermediate-drive-straight-with-inertial-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate: Drive Straight with Inertial Correction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-block-color-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge: Block Color Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with Sensors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with Sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-forgetting-to-calibrate-inertial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Forgetting to Calibrate Inertial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-moving-during-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Moving During Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-not-waiting-enough-for-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Not Waiting Enough for Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-forgetting-to-turn-on-optical-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Forgetting to Turn On Optical LED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-wrong-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Wrong Units
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-sensors-connect-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Sensors Connect to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Sensors Connect to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensors-consistent-scores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors = Consistent Scores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use Sensors?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Use Sensors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-world-analogies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Analogies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Analogies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eyes-and-ears-for-your-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eyes and Ears for Your Robot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#car-sensors-you-already-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Car Sensors You Already Know
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-game-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Game Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-vs-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-Loop vs Closed-Loop Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inertial-sensor-imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inertial Sensor (IMU)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inertial Sensor (IMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-inertial-sensor-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Inertial Sensor Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calibration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading-vs-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heading vs Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accurate-turning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accurate Turning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#straight-line-driving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Straight-Line Driving
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distance Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-parking-sensor-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Parking Sensor Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-sensor-decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor Decision Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-before-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Before Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wall-following" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wall Following
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optical-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optical Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mm-sorting-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The M&amp;M Sorting Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-color-sorting-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Color Sorting Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gps-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPS Sensor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPS Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-gps-works-in-vex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How GPS Works in VEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-phone-gps-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Phone GPS Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Coordinate System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-to-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return to Position
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combining-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combining Sensors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combining Sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor-fusion-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Fusion Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-sensor-for-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which Sensor for What?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-autonomous-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart Autonomous Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sensor-combination-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensor Combination Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensors-in-push-back-competition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors in Push Back Competition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensors in Push Back Competition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inertial-sensor-for-accurate-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inertial Sensor for Accurate Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-sensor-for-goal-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance Sensor for Goal Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optical-sensor-for-block-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Sensor for Block Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gps-for-skills-autonomous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPS for Skills Autonomous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Exercises
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beginner-stop-before-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beginner: Stop Before Wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intermediate-drive-straight-with-inertial-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate: Drive Straight with Inertial Correction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-block-color-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge: Block Color Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-with-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes with Sensors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes with Sensors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-forgetting-to-calibrate-inertial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Forgetting to Calibrate Inertial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-moving-during-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Moving During Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-not-waiting-enough-for-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Not Waiting Enough for Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-forgetting-to-turn-on-optical-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Forgetting to Turn On Optical LED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-wrong-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Wrong Units
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-sensors-connect-to-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Sensors Connect to Push Back
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Sensors Connect to Push Back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensors-consistent-scores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensors = Consistent Scores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="tutorial-72-sensor-integration-advanced">Tutorial 7.2: Sensor Integration (Advanced)<a class="headerlink" href="#tutorial-72-sensor-integration-advanced" title="Permanent link">&para;</a></h1>
+<p><strong>Time:</strong> ~20 minutes
+<strong>Prerequisites:</strong> Tutorial 7.1: PID Control
+<strong>Level:</strong> Bonus/Advanced</p>
+<hr />
+<h2 id="why-use-sensors">Why Use Sensors?<a class="headerlink" href="#why-use-sensors" title="Permanent link">&para;</a></h2>
+<p>Sensors are your robot's <strong>eyes, ears, and sense of direction</strong>. Without them, your robot is guessing. With them, it <em>knows</em>.</p>
+<h3 id="real-world-analogies">Real-World Analogies<a class="headerlink" href="#real-world-analogies" title="Permanent link">&para;</a></h3>
+<h4 id="eyes-and-ears-for-your-robot">Eyes and Ears for Your Robot<a class="headerlink" href="#eyes-and-ears-for-your-robot" title="Permanent link">&para;</a></h4>
+<p>Just like you use your senses to navigate:
+- <strong>Eyes</strong> → Distance sensor, Optical sensor (see obstacles and colors)
+- <strong>Ears</strong> → Not applicable, but sensors "listen" to the world
+- <strong>Balance</strong> → Inertial sensor (like your inner ear for orientation)
+- <strong>GPS in phone</strong> → GPS sensor (knows exact position)</p>
+<h4 id="car-sensors-you-already-know">Car Sensors You Already Know<a class="headerlink" href="#car-sensors-you-already-know" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Car Feature</th>
+<th>Robot Equivalent</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backup camera beeps</td>
+<td>Distance sensor</td>
+<td>Detects how far from objects</td>
+</tr>
+<tr>
+<td>Dashboard compass</td>
+<td>Inertial sensor</td>
+<td>Tracks which direction you're facing</td>
+</tr>
+<tr>
+<td>Phone GPS</td>
+<td>GPS sensor</td>
+<td>Knows exact position on field</td>
+</tr>
+<tr>
+<td>Color-sorting machine</td>
+<td>Optical sensor</td>
+<td>Identifies block colors</td>
+</tr>
+</tbody>
+</table>
+<h4 id="video-game-comparison">Video Game Comparison<a class="headerlink" href="#video-game-comparison" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>WITHOUT SENSORS (like playing blindfolded):
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;I pressed forward for 2 seconds... I think I&#39;m near the goal?&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>WITH SENSORS (like playing with eyes open):
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    &quot;I can SEE the goal is 100mm away. I&#39;ll stop when I reach it!&quot;
+</code></pre></div>
+<h3 id="open-loop-vs-closed-loop-control">Open-Loop vs Closed-Loop Control<a class="headerlink" href="#open-loop-vs-closed-loop-control" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Open-Loop (Guessing)"
+        A1["Command:\ndrive 500mm"] --&gt; B1["Robot moves"]
+        B1 --&gt; C1["Hope it\nworked?"]
+    end
+
+    subgraph "Closed-Loop (Sensors)"
+        A2["Command:\ndrive until\n500mm"] --&gt; B2["Robot moves"]
+        B2 --&gt; C2["Sensor:\n487mm..."]
+        C2 --&gt; D2["Keep going"]
+        D2 --&gt; E2["Sensor:\n500mm"]
+        E2 --&gt; F2["STOP!"]
+        C2 -.-&gt; B2
+    end
+
+    style C1 fill:#ffcdd2,stroke:#c62828
+    style F2 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h2 id="inertial-sensor-imu">Inertial Sensor (IMU)<a class="headerlink" href="#inertial-sensor-imu" title="Permanent link">&para;</a></h2>
+<p>The most useful sensor for competition robots! It's like your robot's <strong>inner ear</strong> - it knows which way it's facing even if the wheels slip.</p>
+<h3 id="how-the-inertial-sensor-works">How the Inertial Sensor Works<a class="headerlink" href="#how-the-inertial-sensor-works" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "Inertial Sensor (IMU)"
+        A["3-Axis Gyroscope"] --&gt; D["Tracks Rotation"]
+        B["3-Axis Accelerometer"] --&gt; E["Tracks Movement"]
+        D --&gt; F["Heading: 0-360°"]
+        E --&gt; G["Tilt Detection"]
+    end
+
+    style F fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="calibration-process">Calibration Process<a class="headerlink" href="#calibration-process" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["Call\ncalibrate()"] --&gt; B["Robot must\nbe STILL!"]
+    B --&gt; C["Wait 3\nseconds"]
+    C --&gt; D["Sensor\nready ✅"]
+
+    style B fill:#fff3e0,stroke:#ef6c00
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># In robot_config.py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">inertial_sensor</span> <span class="o">=</span> <span class="n">Inertial</span><span class="p">(</span><span class="n">Ports</span><span class="o">.</span><span class="n">PORT5</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Before using (in autonomous) - CRITICAL!</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>  <span class="c1"># Wait for calibration! Robot must be STILL!</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Important:</strong> If the robot moves during calibration, all readings will be wrong!</p>
+</blockquote>
+<h3 id="heading-vs-rotation">Heading vs Rotation<a class="headerlink" href="#heading-vs-rotation" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "heading() - Compass Style"
+        H1["0°"] --&gt; H2["90°"] --&gt; H3["180°"] --&gt; H4["270°"] --&gt; H5["359°"]
+        H5 --&gt; H6["0° (resets!)"]
+    end
+
+    subgraph "rotation() - Total Turns"
+        R1["0°"] --&gt; R2["90°"] --&gt; R3["180°"] --&gt; R4["360°"]
+        R4 --&gt; R5["720° (2 full turns)"]
+        R5 --&gt; R6["Keeps counting..."]
+    end
+
+    style H6 fill:#fff3e0,stroke:#ef6c00
+    style R6 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Heading: 0-360 degrees (resets at 360) - like a compass</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Rotation: Continuous (-∞ to +∞) - counts total rotation</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">rotation</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">rotation</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>When to use which:</strong>
+- <code>heading()</code> → "Face north" (absolute direction)
+- <code>rotation()</code> → "Turn exactly 720°" (2 full spins)</p>
+<h3 id="accurate-turning">Accurate Turning<a class="headerlink" href="#accurate-turning" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">turn_to_heading</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Turn to exact heading using inertial sensor.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.8</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">current</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="c1"># Handle 0-360 wraparound</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">elif</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="k">return</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">speed</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">speed</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">speed</span><span class="p">))</span>  <span class="c1"># Limit speed</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="o">-</span><span class="n">speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="straight-line-driving">Straight-Line Driving<a class="headerlink" href="#straight-line-driving" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_straight</span><span class="p">(</span><span class="n">distance_mm</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Drive straight using inertial sensor for correction.&quot;&quot;&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">start_position</span> <span class="o">=</span> <span class="n">left_motor_front</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">target_degrees</span> <span class="o">=</span> <span class="n">distance_mm</span> <span class="o">/</span> <span class="n">WHEEL_TRAVEL_MM</span> <span class="o">*</span> <span class="mi">360</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="c1"># Check distance</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="n">current_position</span> <span class="o">=</span> <span class="n">left_motor_front</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="k">if</span> <span class="n">current_position</span> <span class="o">-</span> <span class="n">start_position</span> <span class="o">&gt;=</span> <span class="n">target_degrees</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>            <span class="k">return</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>        <span class="c1"># Heading correction</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>        <span class="n">current_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current_heading</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="k">if</span> <span class="n">error</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>            <span class="n">error</span> <span class="o">-=</span> <span class="mi">360</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        <span class="k">elif</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>            <span class="n">error</span> <span class="o">+=</span> <span class="mi">360</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">set_velocity</span><span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="distance-sensor">Distance Sensor<a class="headerlink" href="#distance-sensor" title="Permanent link">&para;</a></h2>
+<p>Detects objects in front of the robot - like a <strong>bat using echolocation</strong> or a <strong>car's parking sensors</strong>!</p>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Distance Sensor"
+        A["Sends laser\nbeam"] --&gt; B["Beam bounces\noff object"]
+        B --&gt; C["Sensor measures\ntime"]
+        C --&gt; D["Calculates\ndistance"]
+    end
+
+    E["Object"] -.-&gt; B
+
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="the-parking-sensor-analogy">The Parking Sensor Analogy<a class="headerlink" href="#the-parking-sensor-analogy" title="Permanent link">&para;</a></h3>
+<p>Just like your car beeps faster as you get closer to an obstacle:</p>
+<table>
+<thead>
+<tr>
+<th>Distance</th>
+<th>Car Beeping</th>
+<th>Robot Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt; 500mm</td>
+<td>No beeps</td>
+<td>Drive fast</td>
+</tr>
+<tr>
+<td>300-500mm</td>
+<td>Slow beeps</td>
+<td>Slow down</td>
+</tr>
+<tr>
+<td>100-300mm</td>
+<td>Fast beeps</td>
+<td>Drive carefully</td>
+</tr>
+<tr>
+<td>&lt; 100mm</td>
+<td>Constant beep!</td>
+<td>STOP!</td>
+</tr>
+</tbody>
+</table>
+<h3 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># In robot_config.py</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">distance_sensor</span> <span class="o">=</span> <span class="n">Distance</span><span class="p">(</span><span class="n">Ports</span><span class="o">.</span><span class="n">PORT6</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Read distance in millimeters</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Check if object is present</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">if</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">is_object_detected</span><span class="p">():</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is there!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="distance-sensor-decision-flowchart">Distance Sensor Decision Flowchart<a class="headerlink" href="#distance-sensor-decision-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["Read distance"] --&gt; B{"dist &gt; 500mm?"}
+    B --&gt;|"YES"| C["Drive fast\n(80%)"]
+    B --&gt;|"NO"| D{"dist &gt; 200mm?"}
+    D --&gt;|"YES"| E["Medium speed\n(50%)"]
+    D --&gt;|"NO"| F{"dist &gt; 100mm?"}
+    F --&gt;|"YES"| G["Slow speed\n(30%)"]
+    F --&gt;|"NO"| H["STOP!"]
+
+    C --&gt; A
+    E --&gt; A
+    G --&gt; A
+
+    style H fill:#ffcdd2,stroke:#c62828</code></pre>
+<h3 id="stop-before-wall">Stop Before Wall<a class="headerlink" href="#stop-before-wall" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_until_wall</span><span class="p">(</span><span class="n">stop_distance</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Drive forward until wall is detected.&quot;&quot;&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="n">stop_distance</span><span class="p">:</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>            <span class="k">return</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="wall-following">Wall Following<a class="headerlink" href="#wall-following" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">follow_wall</span><span class="p">(</span><span class="n">target_distance</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Follow wall at constant distance.&quot;&quot;&quot;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.2</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">target_distance</span> <span class="o">-</span> <span class="n">dist</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="c1"># Adjust steering</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        <span class="n">left_speed</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">correction</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="n">right_speed</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">-</span> <span class="n">correction</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="optical-sensor">Optical Sensor<a class="headerlink" href="#optical-sensor" title="Permanent link">&para;</a></h2>
+<p>Detects colors - useful for block detection! Think of it like <strong>sorting M&amp;Ms by color</strong> - the sensor can tell red from blue!</p>
+<h3 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Optical Sensor"
+        A["LED shines\nlight"] --&gt; B["Light reflects\noff object"]
+        B --&gt; C["Sensor reads\ncolor wavelength"]
+        C --&gt; D["Returns\ncolor!"]
+    end
+
+    style A fill:#fff3e0,stroke:#ef6c00
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="the-mm-sorting-analogy">The M&amp;M Sorting Analogy<a class="headerlink" href="#the-mm-sorting-analogy" title="Permanent link">&para;</a></h3>
+<p>Imagine sorting candy by color:
+1. Shine a light on the candy
+2. Look at what color bounces back
+3. Put red in one pile, blue in another
+4. Reject any other colors</p>
+<p>That's exactly what your robot does with blocks!</p>
+<h3 id="setup_2">Setup<a class="headerlink" href="#setup_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># In robot_config.py</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">optical_sensor</span> <span class="o">=</span> <span class="n">Optical</span><span class="p">(</span><span class="n">Ports</span><span class="o">.</span><span class="n">PORT7</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="basic-usage_1">Basic Usage<a class="headerlink" href="#basic-usage_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Turn on LED for color detection - REQUIRED!</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">optical_sensor</span><span class="o">.</span><span class="n">set_light_power</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">optical_sensor</span><span class="o">.</span><span class="n">set_light</span><span class="p">(</span><span class="n">LedStateType</span><span class="o">.</span><span class="n">ON</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Check for nearby object</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">:</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Red block!&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="k">elif</span> <span class="n">color</span> <span class="o">==</span> <span class="n">Color</span><span class="o">.</span><span class="n">BLUE</span><span class="p">:</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blue block!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="block-color-sorting-flowchart">Block Color Sorting Flowchart<a class="headerlink" href="#block-color-sorting-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["Object near\nsensor?"] --&gt;|"YES"| B["Read color"]
+    A --&gt;|"NO"| A
+
+    B --&gt; C{"color ==\nour alliance?"}
+    C --&gt;|"YES (RED)"| D["Intake\nFORWARD"]
+    C --&gt;|"NO (BLUE)"| E["Intake\nREVERSE"]
+
+    D --&gt; F["Block\ncollected!"]
+    E --&gt; G["Block\nejected!"]
+
+    style D fill:#c8e6c9,stroke:#2e7d32
+    style E fill:#ffcdd2,stroke:#c62828</code></pre>
+<h3 id="block-sorting">Block Sorting<a class="headerlink" href="#block-sorting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">grab_our_blocks_only</span><span class="p">(</span><span class="n">our_color</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Only intake blocks of our alliance color.&quot;&quot;&quot;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>            <span class="n">detected_color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            <span class="k">if</span> <span class="n">detected_color</span> <span class="o">==</span> <span class="n">our_color</span><span class="p">:</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>                <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>                <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>                <span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>                <span class="c1"># Wrong color - eject!</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>                <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">)</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>                <span class="n">wait</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>                <span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="gps-sensor">GPS Sensor<a class="headerlink" href="#gps-sensor" title="Permanent link">&para;</a></h2>
+<p>Knows exact field position! It's like <strong>Google Maps for your robot</strong> - it knows exactly where on the field it is!</p>
+<h3 id="how-gps-works-in-vex">How GPS Works in VEX<a class="headerlink" href="#how-gps-works-in-vex" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "GPS System"
+        A["Field strips\n(bar code)"] --&gt; B["Camera on\nrobot"]
+        B --&gt; C["Reads position\nfrom strips"]
+        C --&gt; D["Reports X, Y\ncoordinates"]
+    end
+
+    style D fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p>The GPS sensor uses special <strong>field strips</strong> around the arena. It's like reading a QR code to know exactly where you are!</p>
+<h3 id="the-phone-gps-analogy">The Phone GPS Analogy<a class="headerlink" href="#the-phone-gps-analogy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Phone GPS</th>
+<th>VEX GPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"You are on Main Street"</td>
+<td>"You are at X=500, Y=-300"</td>
+</tr>
+<tr>
+<td>"Turn left in 100 feet"</td>
+<td>"Turn 45° and drive 200mm"</td>
+</tr>
+<tr>
+<td>"You have arrived"</td>
+<td>"X=0, Y=0 (center of field)"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-coordinate-system">Field Coordinate System<a class="headerlink" href="#field-coordinate-system" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "VEX Field (1800mm × 1800mm)"
+        A["(-900, 900)\nTop Left"] --- B["(0, 900)\nTop Center"] --- C["(900, 900)\nTop Right"]
+        A --- D["(-900, 0)\nLeft"]
+        B --- E["(0, 0)\nCENTER"]
+        C --- F["(900, 0)\nRight"]
+        D --- G["(-900, -900)\nBottom Left"]
+        E --- H["(0, -900)\nBottom Center"]
+        F --- I["(900, -900)\nBottom Right"]
+    end
+
+    style E fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="setup_3">Setup<a class="headerlink" href="#setup_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># In robot_config.py</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">gps_sensor</span> <span class="o">=</span> <span class="n">Gps</span><span class="p">(</span><span class="n">Ports</span><span class="o">.</span><span class="n">PORT8</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="reading-position">Reading Position<a class="headerlink" href="#reading-position" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># X and Y position on field (in mm from center)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">x</span> <span class="o">=</span> <span class="n">gps_sensor</span><span class="o">.</span><span class="n">x_position</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">y</span> <span class="o">=</span> <span class="n">gps_sensor</span><span class="o">.</span><span class="n">y_position</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Heading from GPS (also available!)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">heading</span> <span class="o">=</span> <span class="n">gps_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Robot at: (</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">) facing </span><span class="si">{</span><span class="n">heading</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="return-to-position">Return to Position<a class="headerlink" href="#return-to-position" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">go_to_position</span><span class="p">(</span><span class="n">target_x</span><span class="p">,</span> <span class="n">target_y</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Navigate to specific field coordinates.&quot;&quot;&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="n">current_x</span> <span class="o">=</span> <span class="n">gps_sensor</span><span class="o">.</span><span class="n">x_position</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="n">current_y</span> <span class="o">=</span> <span class="n">gps_sensor</span><span class="o">.</span><span class="n">y_position</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>        <span class="c1"># Calculate distance to target</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="n">target_x</span> <span class="o">-</span> <span class="n">current_x</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        <span class="n">dy</span> <span class="o">=</span> <span class="n">target_y</span> <span class="o">-</span> <span class="n">current_y</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>  <span class="c1"># Within 50mm</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>            <span class="k">return</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>        <span class="c1"># Calculate angle to target</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>        <span class="n">target_angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">))</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>        <span class="c1"># Turn toward target</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>        <span class="n">turn_to_heading</span><span class="p">(</span><span class="n">target_angle</span><span class="p">)</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>        <span class="c1"># Drive toward target</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span> <span class="n">MM</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="combining-sensors">Combining Sensors<a class="headerlink" href="#combining-sensors" title="Permanent link">&para;</a></h2>
+<p>The real power of sensors comes from <strong>using them together</strong>! Each sensor has strengths - combine them for a smarter robot.</p>
+<h3 id="sensor-fusion-flowchart">Sensor Fusion Flowchart<a class="headerlink" href="#sensor-fusion-flowchart" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    subgraph "Multi-Sensor Autonomous"
+        A["Start"] --&gt; B["Calibrate\nInertial"]
+        B --&gt; C["Drive forward"]
+        C --&gt; D{"Distance sensor:\nobject &lt; 200mm?"}
+        D --&gt;|"NO"| C
+        D --&gt;|"YES"| E["Optical:\ncheck color"]
+        E --&gt; F{"Our alliance\ncolor?"}
+        F --&gt;|"YES"| G["Intake: grab block"]
+        F --&gt;|"NO"| H["Back away"]
+        G --&gt; I["GPS: return\nto start"]
+        H --&gt; I
+        I --&gt; J["Done!"]
+    end
+
+    style G fill:#c8e6c9,stroke:#2e7d32
+    style H fill:#fff3e0,stroke:#ef6c00</code></pre>
+<h3 id="which-sensor-for-what">Which Sensor for What?<a class="headerlink" href="#which-sensor-for-what" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    Q["What do you need?"] --&gt; A{"Need to know\nHEADING?"}
+    A --&gt;|"YES"| A1["Inertial Sensor"]
+    A --&gt;|"NO"| B{"Need to know\nDISTANCE to object?"}
+    B --&gt;|"YES"| B1["Distance Sensor"]
+    B --&gt;|"NO"| C{"Need to know\nCOLOR?"}
+    C --&gt;|"YES"| C1["Optical Sensor"]
+    C --&gt;|"NO"| D{"Need to know\nPOSITION on field?"}
+    D --&gt;|"YES"| D1["GPS Sensor"]
+    D --&gt;|"NO"| E["Maybe you don't\nneed a sensor?"]
+
+    style A1 fill:#e3f2fd,stroke:#1565c0
+    style B1 fill:#fff3e0,stroke:#ef6c00
+    style C1 fill:#f8bbd9,stroke:#c2185b
+    style D1 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<h3 id="smart-autonomous-example">Smart Autonomous Example<a class="headerlink" href="#smart-autonomous-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">smart_autonomous</span><span class="p">():</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Autonomous using multiple sensors.&quot;&quot;&quot;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="c1"># 1. Calibrate inertial (required first!)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="c1"># 2. Drive until we see a goal (Distance sensor)</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        <span class="n">drive_straight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># Uses Inertial for correction</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="c1"># 3. Check block color before scoring (Optical sensor)</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>        <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span> <span class="o">==</span> <span class="n">our_alliance_color</span><span class="p">:</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>            <span class="c1"># Score it!</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>            <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>            <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>            <span class="c1"># Wrong color, back away</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>            <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>    <span class="c1"># 4. Return to starting position (GPS sensor)</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>    <span class="n">go_to_position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">500</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="sensor-combination-examples">Sensor Combination Examples<a class="headerlink" href="#sensor-combination-examples" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sensors Combined</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inertial + Distance</td>
+<td>Drive straight until reaching wall</td>
+</tr>
+<tr>
+<td>Inertial + GPS</td>
+<td>Navigate to coordinates accurately</td>
+</tr>
+<tr>
+<td>Distance + Optical</td>
+<td>Approach block and check color</td>
+</tr>
+<tr>
+<td>All four</td>
+<td>Full autonomous navigation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Measures</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inertial</strong></td>
+<td>Heading, rotation</td>
+<td>Accurate turns, straight driving</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>Distance to objects</td>
+<td>Wall detection, stopping</td>
+</tr>
+<tr>
+<td><strong>Optical</strong></td>
+<td>Color, proximity</td>
+<td>Block sorting, line following</td>
+</tr>
+<tr>
+<td><strong>GPS</strong></td>
+<td>Field position</td>
+<td>Navigation, return-to-position</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sensors-in-push-back-competition">Sensors in Push Back Competition<a class="headerlink" href="#sensors-in-push-back-competition" title="Permanent link">&para;</a></h2>
+<p>Each sensor helps you score more points in the Push Back game!</p>
+<h3 id="inertial-sensor-for-accurate-autonomous">Inertial Sensor for Accurate Autonomous<a class="headerlink" href="#inertial-sensor-for-accurate-autonomous" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">push_back_auto_with_inertial</span><span class="p">():</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="sd">    Autonomous that uses inertial for precise movements.</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd">    Accurate turns = More blocks in goals!</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="c1"># Drive straight toward first block cluster</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="n">drive_straight_with_correction</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    <span class="c1"># Turn exactly 45° to face long goal</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="n">turn_to_heading</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    <span class="c1"># Push blocks into goal</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="c1"># Back up and turn to face center</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>    <span class="n">turn_to_heading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>    <span class="c1"># Continue to next goal...</span>
+</code></pre></div>
+<h3 id="distance-sensor-for-goal-approach">Distance Sensor for Goal Approach<a class="headerlink" href="#distance-sensor-for-goal-approach" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">approach_goal_safely</span><span class="p">():</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="sd">    Use distance sensor to stop at perfect pushing distance.</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="sd">    Too close = can&#39;t push effectively</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="sd">    Too far = blocks don&#39;t reach goal</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="n">OPTIMAL_PUSH_DISTANCE</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># mm</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    <span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">OPTIMAL_PUSH_DISTANCE</span><span class="p">:</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Ready to push!</span>
+</code></pre></div>
+<h3 id="optical-sensor-for-block-selection">Optical Sensor for Block Selection<a class="headerlink" href="#optical-sensor-for-block-selection" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    A["Block\napproaches"] --&gt; B{"Optical:\nWhat color?"}
+    B --&gt;|"RED"| C{"Our alliance\n= RED?"}
+    B --&gt;|"BLUE"| D{"Our alliance\n= BLUE?"}
+    C --&gt;|"YES"| E["Grab it!"]
+    C --&gt;|"NO"| F["Eject!"]
+    D --&gt;|"YES"| E
+    D --&gt;|"NO"| F
+
+    style E fill:#c8e6c9,stroke:#2e7d32
+    style F fill:#ffcdd2,stroke:#c62828</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">smart_intake</span><span class="p">(</span><span class="n">our_alliance_color</span><span class="p">):</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="sd">    Only intake blocks of our alliance color!</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="sd">    Scoring opponent&#39;s blocks helps THEM!</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>        <span class="n">block_color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        <span class="k">if</span> <span class="n">block_color</span> <span class="o">==</span> <span class="n">our_alliance_color</span><span class="p">:</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>            <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>            <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>            <span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>            <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># Got our block!</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>            <span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">)</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>            <span class="n">wait</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>            <span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Rejected opponent&#39;s block</span>
+</code></pre></div>
+<h3 id="gps-for-skills-autonomous">GPS for Skills Autonomous<a class="headerlink" href="#gps-for-skills-autonomous" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">skills_with_gps</span><span class="p">():</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="sd">    Use GPS to navigate efficiently across entire field.</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="sd">    Skills = 60 seconds to cover whole field!</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="c1"># Phase 1: Score at long goal</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="n">go_to_position</span><span class="p">(</span><span class="o">-</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    <span class="n">push_blocks_into_goal</span><span class="p">()</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="c1"># Phase 2: Score at center</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="n">go_to_position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    <span class="n">push_blocks_into_goal</span><span class="p">()</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    <span class="c1"># Phase 3: Score at far goal</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    <span class="n">go_to_position</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    <span class="n">push_blocks_into_goal</span><span class="p">()</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>    <span class="c1"># Phase 4: PARK! (GPS ensures we hit the zone)</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>    <span class="n">go_to_position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">700</span><span class="p">)</span>  <span class="c1"># Park zone coordinates</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h2 id="progressive-exercises">Progressive Exercises<a class="headerlink" href="#progressive-exercises" title="Permanent link">&para;</a></h2>
+<h3 id="beginner-stop-before-wall">Beginner: Stop Before Wall<a class="headerlink" href="#beginner-stop-before-wall" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Use distance sensor to stop before hitting a wall.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_until_wall</span><span class="p">():</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Drive forward and stop 150mm from wall.&quot;&quot;&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="k">while</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">:</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopped at:&quot;</span><span class="p">,</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">),</span> <span class="s2">&quot;mm&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Success criteria:</strong> Robot stops consistently at 150mm ±20mm</p>
+<hr />
+<h3 id="intermediate-drive-straight-with-inertial-correction">Intermediate: Drive Straight with Inertial Correction<a class="headerlink" href="#intermediate-drive-straight-with-inertial-correction" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Drive in a straight line using inertial sensor for heading correction.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_straight_500mm</span><span class="p">():</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Drive 500mm in a straight line using heading correction.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="n">Kp</span> <span class="o">=</span> <span class="mf">0.5</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="n">start_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    <span class="c1"># Calculate target based on wheel rotations</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="n">start_position</span> <span class="o">=</span> <span class="n">left_motor_front</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    <span class="n">target_degrees</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">/</span> <span class="n">WHEEL_TRAVEL_MM</span> <span class="o">*</span> <span class="mi">360</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    <span class="k">while</span> <span class="n">left_motor_front</span><span class="o">.</span><span class="n">position</span><span class="p">(</span><span class="n">DEGREES</span><span class="p">)</span> <span class="o">-</span> <span class="n">start_position</span> <span class="o">&lt;</span> <span class="n">target_degrees</span><span class="p">:</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>        <span class="n">current_heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>        <span class="n">error</span> <span class="o">=</span> <span class="n">start_heading</span> <span class="o">-</span> <span class="n">current_heading</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>        <span class="c1"># YOUR CODE: Handle wraparound</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>        <span class="c1"># if error &gt; 180: error -= 360</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>        <span class="c1"># if error &lt; -180: error += 360</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>        <span class="n">correction</span> <span class="o">=</span> <span class="n">Kp</span> <span class="o">*</span> <span class="n">error</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>        <span class="c1"># YOUR CODE: Apply correction to motors</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>        <span class="c1"># left_motors.set_velocity(50 + correction, PERCENT)</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>        <span class="c1"># right_motors.set_velocity(50 - correction, PERCENT)</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>        <span class="n">left_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>        <span class="n">right_motors</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Test:</strong> Push the robot sideways while it's driving - it should correct itself!</p>
+<hr />
+<h3 id="challenge-block-color-sorting">Challenge: Block Color Sorting<a class="headerlink" href="#challenge-block-color-sorting" title="Permanent link">&para;</a></h3>
+<p><strong>Goal:</strong> Create a system that only picks up blocks of your alliance color.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">color_sorting_intake</span><span class="p">():</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="sd">    Complete intake system that:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="sd">    1. Detects when a block is near</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="sd">    2. Checks the color</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="sd">    3. Grabs our color, ejects opponent&#39;s color</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    <span class="n">OUR_ALLIANCE</span> <span class="o">=</span> <span class="n">Color</span><span class="o">.</span><span class="n">RED</span>  <span class="c1"># Change for your alliance</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>    <span class="c1"># YOUR CODE: Turn on optical sensor LED</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>    <span class="c1"># optical_sensor.set_light_power(100)</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    <span class="c1"># optical_sensor.set_light(LedStateType.ON)</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>        <span class="k">if</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">is_near_object</span><span class="p">():</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>            <span class="n">detected_color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>            <span class="c1"># YOUR CODE: Compare to alliance color</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>            <span class="c1"># If match: intake FORWARD</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>            <span class="c1"># If no match: intake REVERSE (eject)</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>            <span class="c1"># YOUR CODE: Run motor for appropriate time</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>            <span class="c1"># wait() and then stop motor</span>
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>        <span class="n">wait</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Bonus:</strong> Display the color on the Brain screen when detected!</p>
+<hr />
+<h2 id="common-mistakes-with-sensors">Common Mistakes with Sensors<a class="headerlink" href="#common-mistakes-with-sensors" title="Permanent link">&para;</a></h2>
+<h3 id="mistake-1-forgetting-to-calibrate-inertial">Mistake 1: Forgetting to Calibrate Inertial<a class="headerlink" href="#mistake-1-forgetting-to-calibrate-inertial" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># WRONG: Use inertial without calibrating</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">bad_autonomous</span><span class="p">():</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>  <span class="c1"># Random garbage value!</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="c1"># RIGHT: Always calibrate first</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">good_autonomous</span><span class="p">():</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>  <span class="c1"># MUST wait!</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    <span class="n">heading</span> <span class="o">=</span> <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>  <span class="c1"># Accurate!</span>
+</code></pre></div>
+<h3 id="mistake-2-moving-during-calibration">Mistake 2: Moving During Calibration<a class="headerlink" href="#mistake-2-moving-during-calibration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># WRONG: Robot moves during calibration</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">bad_calibration</span><span class="p">():</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">)</span>  <span class="c1"># Moving while calibrating!</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># RIGHT: Stay perfectly still</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">good_calibration</span><span class="p">():</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># Ensure stopped</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>    <span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>  <span class="c1"># Robot is still</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    <span class="c1"># NOW safe to move</span>
+</code></pre></div>
+<h3 id="mistake-3-not-waiting-enough-for-calibration">Mistake 3: Not Waiting Enough for Calibration<a class="headerlink" href="#mistake-3-not-waiting-enough-for-calibration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># WRONG: Not enough wait time</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>  <span class="c1"># Too short!</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="c1"># RIGHT: Full 3 seconds</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="n">inertial_sensor</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>  <span class="c1"># Proper calibration time</span>
+</code></pre></div>
+<h3 id="mistake-4-forgetting-to-turn-on-optical-led">Mistake 4: Forgetting to Turn On Optical LED<a class="headerlink" href="#mistake-4-forgetting-to-turn-on-optical-led" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># WRONG: Optical sensor doesn&#39;t work reliably</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>  <span class="c1"># Depends on room lighting!</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="c1"># RIGHT: Turn on LED for consistent lighting</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="n">optical_sensor</span><span class="o">.</span><span class="n">set_light_power</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="n">optical_sensor</span><span class="o">.</span><span class="n">set_light</span><span class="p">(</span><span class="n">LedStateType</span><span class="o">.</span><span class="n">ON</span><span class="p">)</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="n">color</span> <span class="o">=</span> <span class="n">optical_sensor</span><span class="o">.</span><span class="n">color</span><span class="p">()</span>  <span class="c1"># Consistent!</span>
+</code></pre></div>
+<h3 id="mistake-5-wrong-units">Mistake 5: Wrong Units<a class="headerlink" href="#mistake-5-wrong-units" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># WRONG: Mixing up units</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">INCHES</span><span class="p">)</span>  <span class="c1"># Oops, wanted MM!</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">:</span>  <span class="c1"># This is 150 inches, not 150mm!</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1"># RIGHT: Be consistent with units</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">dist</span> <span class="o">=</span> <span class="n">distance_sensor</span><span class="o">.</span><span class="n">object_distance</span><span class="p">(</span><span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;</span> <span class="mi">150</span><span class="p">:</span>  <span class="c1"># 150mm as intended</span>
+</code></pre></div>
+<hr />
+<h2 id="how-sensors-connect-to-push-back">How Sensors Connect to Push Back<a class="headerlink" href="#how-sensors-connect-to-push-back" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Push Back Use</th>
+<th>Points Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inertial</strong></td>
+<td>Accurate turns to face goals</td>
+<td>More blocks in goals (+3 each)</td>
+</tr>
+<tr>
+<td><strong>Inertial</strong></td>
+<td>Straight line block pushing</td>
+<td>Blocks reach goal, not walls</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>Stop at optimal pushing distance</td>
+<td>Efficient pushing</td>
+</tr>
+<tr>
+<td><strong>Distance</strong></td>
+<td>Detect goals and walls</td>
+<td>Avoid collisions</td>
+</tr>
+<tr>
+<td><strong>Optical</strong></td>
+<td>Identify alliance blocks</td>
+<td>Don't score opponent's blocks!</td>
+</tr>
+<tr>
+<td><strong>GPS</strong></td>
+<td>Navigate entire field in Skills</td>
+<td>Cover all 3 goal areas</td>
+</tr>
+<tr>
+<td><strong>GPS</strong></td>
+<td>Return to park zone</td>
+<td>Guarantee 8-30 points</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sensors-consistent-scores">Sensors = Consistent Scores<a class="headerlink" href="#sensors-consistent-scores" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Without Sensors"
+        A1["Match 1:\n45 points"] --&gt; B1["Match 2:\n28 points"]
+        B1 --&gt; C1["Match 3:\n52 points"]
+        C1 --&gt; D1["INCONSISTENT"]
+    end
+
+    subgraph "With Sensors"
+        A2["Match 1:\n58 points"] --&gt; B2["Match 2:\n55 points"]
+        B2 --&gt; C2["Match 3:\n60 points"]
+        C2 --&gt; D2["CONSISTENT!"]
+    end
+
+    style D1 fill:#ffcdd2,stroke:#c62828
+    style D2 fill:#c8e6c9,stroke:#2e7d32</code></pre>
+<p><strong>Bottom line:</strong> Sensors make your robot <strong>reliable</strong>. Reliable robots win tournaments!</p>
+<hr />
+<p><strong><a href="../01-pid-control/">← Previous: PID Control</a></strong> | <strong><a href="../03-skills-autonomous/">Next: Skills Autonomous →</a></strong> | <strong><a href="../04-review-qa/">Review Q&amp;A</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

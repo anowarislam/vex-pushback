@@ -1,0 +1,3216 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../03-alliance-coordination/">
+      
+      
+        <link rel="next" href="../../07-advanced/01-pid-control/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Review Q&A - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#competition-strategy-qa-review" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review Q&A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Review
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Review
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="competition-strategy-qa-review">Competition Strategy: Q&amp;A Review<a class="headerlink" href="#competition-strategy-qa-review" title="Permanent link">&para;</a></h1>
+<p><strong>Time:</strong> ~20 minutes
+<strong>Purpose:</strong> Test your understanding of Push Back game rules, scoring strategies, and alliance coordination</p>
+<hr />
+<h2 id="how-to-use-this-review">How to Use This Review<a class="headerlink" href="#how-to-use-this-review" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Try each section without looking at answers</li>
+<li>Check your answers at the end</li>
+<li>Review tutorials for any topics you missed</li>
+<li>Aim for 80%+ before moving to advanced topics</li>
+</ol>
+<hr />
+<h1 id="section-1-true-or-false-15-questions">Section 1: True or False (15 Questions)<a class="headerlink" href="#section-1-true-or-false-15-questions" title="Permanent link">&para;</a></h1>
+<p>Write <strong>T</strong> (True) or <strong>F</strong> (False) for each statement.</p>
+<ol>
+<li>
+<p>Push Back is played on a 10' x 10' field.</p>
+</li>
+<li>
+<p>A match consists of 15 seconds of autonomous and 1 minute 45 seconds of driver control.</p>
+</li>
+<li>
+<p>Each block scored in a goal is worth 5 points.</p>
+</li>
+<li>
+<p>There are 88 blocks on the field, with 44 for each alliance.</p>
+</li>
+<li>
+<p>Descoring (removing opponent blocks from goals) is NOT allowed in Push Back.</p>
+</li>
+<li>
+<p>To control a zone, you need a majority of blocks (more than opponent).</p>
+</li>
+<li>
+<p>If both robots park in your alliance's zone, you earn 30 points.</p>
+</li>
+<li>
+<p>The autonomous bonus is worth 10 points.</p>
+</li>
+<li>
+<p>To earn the Autonomous Win Point, you only need to score 5 blocks.</p>
+</li>
+<li>
+<p>The center goal has two sections: upper (8 pts) and lower (6 pts).</p>
+</li>
+<li>
+<p>Each long goal can hold up to 14 blocks.</p>
+</li>
+<li>
+<p>If a zone has a tie (equal blocks from each alliance), both teams get zone points.</p>
+</li>
+<li>
+<p>You should stop scoring and head to park with about 10 seconds remaining.</p>
+</li>
+<li>
+<p>During autonomous, you can use hand signals to communicate with your partner.</p>
+</li>
+<li>
+<p>Scouting other teams before a match can help you plan your strategy.</p>
+</li>
+</ol>
+<hr />
+<h1 id="section-2-multiple-choice-20-questions">Section 2: Multiple Choice (20 Questions)<a class="headerlink" href="#section-2-multiple-choice-20-questions" title="Permanent link">&para;</a></h1>
+<p>Circle the best answer for each question.</p>
+<p><strong>16. What is the total match time in Push Back?</strong>
+- A) 1 minute
+- B) 1 minute 30 seconds
+- C) 2 minutes
+- D) 3 minutes</p>
+<p><strong>17. How many points is each block worth when scored in a goal?</strong>
+- A) 1 point
+- B) 2 points
+- C) 3 points
+- D) 5 points</p>
+<p><strong>18. What is the point value for controlling a Long Goal zone?</strong>
+- A) 6 points
+- B) 8 points
+- C) 10 points
+- D) 12 points</p>
+<p><strong>19. What is the parking bonus when ONLY ONE robot parks?</strong>
+- A) 5 points
+- B) 8 points
+- C) 15 points
+- D) 30 points</p>
+<p><strong>20. What are the four requirements for the Autonomous Win Point?</strong>
+- A) Score 7+ blocks, 3+ goals, clear 3+ loader blocks, don't touch park barrier
+- B) Score 10+ blocks, 4+ goals, park both robots
+- C) Score 5+ blocks, 2+ goals, clear loader
+- D) Score all blocks, control all zones</p>
+<p><strong>21. Which strategy focuses on pushing many blocks at once into goals?</strong>
+- A) Zone Control
+- B) Volume Scoring
+- C) Descoring
+- D) Defense</p>
+<p><strong>22. What does "descoring" mean in Push Back?</strong>
+- A) Scoring blocks quickly
+- B) Removing opponent blocks from goals
+- C) Parking both robots
+- D) Winning autonomous</p>
+<p><strong>23. In the "10-second rule," what should you do with 10 seconds left?</strong>
+- A) Score as many blocks as possible
+- B) Descore opponent blocks
+- C) Stop scoring and head to park zone
+- D) Block the opponent's robot</p>
+<p><strong>24. What is the point value for controlling the Center Goal Upper section?</strong>
+- A) 6 points
+- B) 8 points
+- C) 10 points
+- D) 12 points</p>
+<p><strong>25. In an Offense + Defense role strategy, what does the defending robot focus on?</strong>
+- A) Scoring blocks quickly
+- B) Defending goals and descoring
+- C) Only parking
+- D) Staying still</p>
+<p><strong>26. What communication method works best in a noisy venue?</strong>
+- A) Verbal commands
+- B) Hand signals
+- C) Whistle codes
+- D) Shouting louder</p>
+<p><strong>27. When should the slower robot typically park in end-game?</strong>
+- A) Never
+- B) First (to have more time)
+- C) Last
+- D) Both robots park at exactly the same time</p>
+<p><strong>28. How many goals are on the Push Back field?</strong>
+- A) 2 (one long goal and one center goal)
+- B) 3 (two long goals and one center goal)
+- C) 4 (two long goals and two center goals)
+- D) 4 (four long goals)</p>
+<p><strong>29. What does zone division help prevent during driver control?</strong>
+- A) Scoring blocks
+- B) Robots colliding with each other
+- C) Parking
+- D) Winning</p>
+<p><strong>30. What is the CENTER GOAL LOWER zone worth?</strong>
+- A) 4 points
+- B) 6 points
+- C) 8 points
+- D) 10 points</p>
+<p><strong>31. Which of these is NOT on a scouting checklist?</strong>
+- A) Robot speed
+- B) Driver skill
+- C) Favorite color
+- D) Common strategies</p>
+<p><strong>32. When using the "Split Strategy," what happens in Phase 3 (1:50-2:00)?</strong>
+- A) Both robots score aggressively
+- B) One defends, one scores
+- C) Both robots park
+- D) Robots switch zones</p>
+<p><strong>33. What makes a volume scoring strategy risky?</strong>
+- A) It takes too long
+- B) Blocks scatter easily and can be descored
+- C) It requires complex programming
+- D) It doesn't earn any points</p>
+<p><strong>34. How many blocks does the Center Goal hold (upper + lower)?</strong>
+- A) 7 blocks
+- B) 10 blocks
+- C) 14 blocks
+- D) 21 blocks</p>
+<p><strong>35. If a zone has 5 blocks and your alliance has 3 of them, who controls the zone?</strong>
+- A) No one (tie)
+- B) Your alliance (3 &gt; 2 = majority)
+- C) Opponent
+- D) Both alliances split points</p>
+<hr />
+<h1 id="section-3-fill-in-the-blank-10-questions">Section 3: Fill in the Blank (10 Questions)<a class="headerlink" href="#section-3-fill-in-the-blank-10-questions" title="Permanent link">&para;</a></h1>
+<p>Complete each statement with the correct word or number.</p>
+<ol>
+<li>
+<p>The Push Back field measures <strong><em>_</em></strong> feet by <strong><em>_</em></strong> feet.</p>
+</li>
+<li>
+<p>A complete match lasts <strong><em>_</em></strong> minutes total.</p>
+</li>
+<li>
+<p>The autonomous period lasts <strong><em>_</em></strong> seconds.</p>
+</li>
+<li>
+<p>Each block scored is worth <strong><em>_</em></strong> points.</p>
+</li>
+<li>
+<p>If both robots park, you earn <strong><em>_</em></strong> points (instead of 8 for one robot).</p>
+</li>
+<li>
+<p>The autonomous bonus is worth <strong><em>_</em></strong> points.</p>
+</li>
+<li>
+<p>To control a zone, you need a <strong><em>_</em></strong> of blocks (more than opponent).</p>
+</li>
+<li>
+<p>In an alliance, <strong><em>_</em></strong> teams work together with <strong><em>_</em></strong> robots total.</p>
+</li>
+<li>
+<p>The Long Goal zone is worth <strong><em>_</em></strong> points if you control it.</p>
+</li>
+<li>
+<p>You should head to park zone with about <strong><em>_</em></strong> seconds remaining.</p>
+</li>
+</ol>
+<hr />
+<h1 id="section-4-calculation-problems-10-questions">Section 4: Calculation Problems (10 Questions)<a class="headerlink" href="#section-4-calculation-problems-10-questions" title="Permanent link">&para;</a></h1>
+<p><strong>Show your work!</strong></p>
+<p><strong>46. Block Scoring:</strong>
+Your alliance scored 12 blocks in various goals. How many points is this worth?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Calculation: ___ blocks × ___ pts = ___ points
+</code></pre></div></p>
+<p><strong>47. Zone Control Calculation:</strong>
+Your alliance controls:
+- 1 Long Goal (10 pts)
+- Center Goal Upper (8 pts)</p>
+<p>How many zone points does your alliance have?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Calculation: ___ + ___ = ___ zone points
+</code></pre></div></p>
+<p><strong>48. Parking Decision:</strong>
+Your alliance has 1 robot parked (8 pts). Getting the second robot to park would add how many ADDITIONAL points?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Current: 8 points (1 robot)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>If 2 robots park: 30 points
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Additional points gained: ___ - ___ = ___ points
+</code></pre></div></p>
+<p><strong>49. Descoring Math:</strong>
+A zone has 5 blocks: 3 Blue, 2 Red.
+- Blue currently controls the zone (+10 pts Blue)</p>
+<p>You descore 2 Blue blocks. Now it's: 1 Blue, 2 Red.
+- Red now controls (+10 pts Red)</p>
+<p>What is the TOTAL point swing for your Red alliance?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Blue loses: ___ zone points
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Red gains: ___ zone points
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Total swing: ___ points
+</code></pre></div></p>
+<p><strong>50. Match Score Calculation:</strong>
+Calculate your alliance's total score:
+- Blocks scored: 18
+- Long Goal zones controlled: 2
+- Center Upper zone: Yes (controlled)
+- Center Lower zone: No
+- Robots parked: 2
+- Autonomous bonus: Yes</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Blocks: ___ × 3 = ___
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Long goals: ___ × 10 = ___
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Center upper: ___ × 8 = ___
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Center lower: ___
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Parking: ___
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Autonomous: ___
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>TOTAL: ___ points
+</code></pre></div>
+<p><strong>51. Points Per Second:</strong>
+You have 5 seconds left. You can either:
+- A) Score 1 block (3 pts)
+- B) Help partner park (30 pts total - you already have 1 parked for 8 pts)</p>
+<p>Which option gives more points?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Option A: ___ points
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Option B additional: ___ - ___ = ___ points
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Better option: ___
+</code></pre></div></p>
+<p><strong>52. Zone Control Majority:</strong>
+A Long Goal has 10 blocks: 6 Red, 4 Blue.
+How many blocks does Blue need to ADD to tie? To win control?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Current: Red 6, Blue 4
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>To tie: Blue needs ___ blocks (equal to Red)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>To win: Blue needs ___ blocks (more than Red)
+</code></pre></div></p>
+<p><strong>53. Autonomous Win Point:</strong>
+Your alliance must meet ALL these requirements:
+- ☑ Score 7+ blocks (you scored 8)
+- ☑ Score in 3+ goals (you scored in 2)
+- ☑ Clear 3+ loader blocks (you cleared 4)
+- ☐ Not touching park barrier (you're clear)</p>
+<p>Did you earn the Autonomous Win Point?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Answer: ___ (Yes/No)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Reason: _______________
+</code></pre></div></p>
+<p><strong>54. Strategy Comparison:</strong>
+In 20 seconds, your robot can either:
+- Score 5 blocks (at 3 pts each)
+- Get to park zone (ensuring both robots park: 30 pts vs 8 pts)</p>
+<p>Calculate which is better:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Option A (scoring): ___ × ___ = ___ points
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Option B (double park bonus): ___ - ___ = ___ additional points
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Better choice: ___
+</code></pre></div></p>
+<p><strong>55. Maximum Score Theory:</strong>
+What's the theoretical maximum score for an alliance?
+- All 44 blocks in goals: ___ × 3 = ___
+- Control all zones (2 Long + Upper + Lower): ___ + ___ + ___ + ___ = ___
+- Both robots parked: ___
+- Autonomous bonus: ___
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>MAXIMUM POSSIBLE: ___ points
+</code></pre></div></p>
+<hr />
+<h1 id="section-5-scenario-based-questions-8-questions">Section 5: Scenario-Based Questions (8 Questions)<a class="headerlink" href="#section-5-scenario-based-questions-8-questions" title="Permanent link">&para;</a></h1>
+<p><strong>Read each scenario and answer the question.</strong></p>
+<p><strong>56. Autonomous Collision:</strong>
+Your partner's autonomous routine goes to the center of the field. Your routine also goes to the center. What should you do?</p>
+<p>A) Keep both routines the same
+B) Change one routine to go left or right instead
+C) Skip autonomous entirely
+D) Both robots should stop immediately</p>
+<p><strong>57. Zone Defense:</strong>
+Your alliance controls a Long Goal with 4 Red blocks and 1 Blue block. The opponent is approaching to descore. What should the defending robot do?</p>
+<p>A) Ignore them and score more blocks elsewhere
+B) Defend the goal and block the opponent
+C) Leave and go park
+D) Descore their blocks first</p>
+<p><strong>58. End-Game Decision:</strong>
+There are 15 seconds left. One robot is parked (8 pts). The other robot is far from the park zone with 3 blocks it could score (9 pts). What should it do?</p>
+<p>A) Score all 3 blocks for 9 points
+B) Head to park zone (total would be 30 pts instead of 8)
+C) Descore opponent blocks
+D) Stop moving</p>
+<p><strong>59. Partner Evaluation:</strong>
+You're matched with a partner team. Their robot is slow but has a strong pusher. Your robot is fast but weak at pushing. How should you divide roles?</p>
+<p>A) Both robots try to score quickly
+B) Your fast robot scores, partner's strong robot defends
+C) Your robot defends, partner scores
+D) Both robots park immediately</p>
+<p><strong>60. Descoring Opportunity:</strong>
+A Long Goal has 4 Blue blocks, 0 Red blocks. Blue controls it (+10 pts). You have time to either score 3 Red blocks there OR descore 3 Blue blocks.</p>
+<p>Which gives your alliance the BIGGER advantage and why?</p>
+<p><strong>61. Scouting Information:</strong>
+You scouted an opponent team and noticed they ALWAYS forget to park at the end. How can you use this information?</p>
+<p>A) Ignore it - it doesn't affect your strategy
+B) Make sure your alliance parks to gain a 30-point advantage
+C) Tell them they should park
+D) Forget to park too</p>
+<p><strong>62. Communication Breakdown:</strong>
+During a match, the venue is very loud and your partner can't hear you. You need to signal that it's time to park. What should you do?</p>
+<p>A) Shout louder
+B) Use a pre-planned hand signal (like open palm)
+C) Keep scoring and hope they figure it out
+D) Stop your robot and wait</p>
+<p><strong>63. Tie-Breaker Zone:</strong>
+A center lower zone has 4 blocks: 2 Red, 2 Blue (tie - no one controls). You have time to add 1 block. Is it worth it?</p>
+<p>A) No, one block doesn't matter
+B) Yes, adding 1 Red block gives Red control (+6 pts)
+C) No, it only adds 3 points
+D) Yes, but only if it's a Blue block</p>
+<hr />
+<h1 id="section-6-match-the-terms-16-pairs">Section 6: Match the Terms (16 Pairs)<a class="headerlink" href="#section-6-match-the-terms-16-pairs" title="Permanent link">&para;</a></h1>
+<p><strong>Match each term (1-16) with its correct definition (A-P).</strong></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Term</th>
+<th></th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Autonomous</td>
+<td></td>
+<td>A. Removing opponent blocks from goals</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Driver Control</td>
+<td></td>
+<td>B. Working with another team for a match</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Descoring</td>
+<td></td>
+<td>C. The 15-second pre-programmed period</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Zone Control</td>
+<td></td>
+<td>D. Fast scoring of many blocks</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Alliance</td>
+<td></td>
+<td>E. The 1:45 human-controlled period</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Volume Scoring</td>
+<td></td>
+<td>F. Having majority of blocks in a zone</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Parking</td>
+<td></td>
+<td>G. Both robots in park zone for 30 pts</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Double Park</td>
+<td></td>
+<td>H. Watching other teams to learn strengths/weaknesses</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Long Goal</td>
+<td></td>
+<td>I. Placing robot in alliance park zone</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Center Goal</td>
+<td></td>
+<td>J. Worth 10 pts for zone control</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Scouting</td>
+<td></td>
+<td>K. Has upper (8 pts) and lower (6 pts) sections</td>
+</tr>
+<tr>
+<td>12</td>
+<td>End Game</td>
+<td></td>
+<td>L. The last 10-15 seconds of a match</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Role Specialization</td>
+<td></td>
+<td>M. Signals like open palm for "parking"</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Hand Signals</td>
+<td></td>
+<td>N. One robot scores, one defends</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Zone Division</td>
+<td></td>
+<td>O. Splitting field into left/right for each robot</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Autonomous Bonus</td>
+<td></td>
+<td>P. 10 points for winning autonomous period</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your Answers:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1: ___  2: ___  3: ___  4: ___
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>5: ___  6: ___  7: ___  8: ___
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>9: ___  10: ___ 11: ___ 12: ___
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>13: ___ 14: ___ 15: ___ 16: ___
+</code></pre></div></p>
+<hr />
+<h1 id="section-7-field-diagram-challenges-3-diagrams">Section 7: Field Diagram Challenges (3 Diagrams)<a class="headerlink" href="#section-7-field-diagram-challenges-3-diagrams" title="Permanent link">&para;</a></h1>
+<h2 id="diagram-1-field-layout">Diagram 1: Field Layout<a class="headerlink" href="#diagram-1-field-layout" title="Permanent link">&para;</a></h2>
+<p><strong>Label the following on the field diagram:</strong>
+- A. Park Zone (Red)
+- B. Park Zone (Blue)
+- C. Long Goal (Left)
+- D. Long Goal (Right)
+- E. Center Goal
+- F. Loader (Red)
+- G. Loader (Blue)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>    ════════════════════════════════════════════════════════════════
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    ║                                                              ║
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    ║  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   ║
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    ║  │              │    │              │    │              │   ║
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    ║  │   [___]      │    │    [___]     │    │    [___]     │   ║
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    ║  │              │    │              │    │              │   ║
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    ║  └──────────────┘    └──────────────┘    └──────────────┘   ║
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    ║                                                              ║
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    ║         ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓                ║
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    ║                     (88 blocks)                              ║
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    ║                                                              ║
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    ║  ┌────────┐                                  ┌────────┐     ║
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    ║  │ [___]  │                                  │ [___]  │     ║
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    ║  └────────┘                                  └────────┘     ║
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    ║                                                              ║
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    ║  ╔════════════╗                          ╔════════════╗     ║
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    ║  ║   [___]    ║                          ║   [___]    ║     ║
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    ║  ╚════════════╝                          ╚════════════╝     ║
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>    ║                                                              ║
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    ║  [RED ALLIANCE]                          [BLUE ALLIANCE]    ║
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>    ════════════════════════════════════════════════════════════════
+</code></pre></div>
+<h2 id="diagram-2-zone-control">Diagram 2: Zone Control<a class="headerlink" href="#diagram-2-zone-control" title="Permanent link">&para;</a></h2>
+<p><strong>Look at this goal and answer:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>    ┌──────────────────────┐
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    │ 🔴 🔴 🔴 🔵 🔵 🔵 🔵  │  LONG GOAL
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    │                      │
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    └──────────────────────┘
+</code></pre></div>
+<ul>
+<li>How many Red blocks? ___</li>
+<li>How many Blue blocks? ___</li>
+<li>Who controls this zone? ___</li>
+<li>What is this worth to the controlling alliance? ___ points</li>
+</ul>
+<h2 id="diagram-3-match-timeline">Diagram 3: Match Timeline<a class="headerlink" href="#diagram-3-match-timeline" title="Permanent link">&para;</a></h2>
+<p><strong>Fill in the missing information:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>    ┌───────────────────────────────────────────────────────────┐
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    │                      MATCH TIMELINE                        │
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    ├──────────────────┬────────────────────────────────────────┤
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    │   AUTONOMOUS     │          DRIVER CONTROL                 │
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    │   ___ seconds    │         ___ min ___ seconds             │
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    ├──────────────────┼────────────────────────────────────────┤
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    │ ____________     │  Drivers control robots                 │
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    │ No human control │  Full control of robot                  │
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    │ ___ pt bonus     │  Main scoring period                    │
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    │ available        │                                         │
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    └──────────────────┴────────────────────────────────────────┘
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    Total Match Time: ___ minutes
+</code></pre></div>
+<hr />
+<h1 id="answer-key">Answer Key<a class="headerlink" href="#answer-key" title="Permanent link">&para;</a></h1>
+<h2 id="section-1-true-or-false">Section 1: True or False<a class="headerlink" href="#section-1-true-or-false" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>F</strong></td>
+<td>Field is 12' × 12', not 10' × 10'</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>T</strong></td>
+<td>Correct: 15 sec autonomous + 1:45 driver = 2:00 total</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>F</strong></td>
+<td>Each block is worth 3 points, not 5</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>T</strong></td>
+<td>88 blocks total, 44 per alliance (red and blue)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>F</strong></td>
+<td>Descoring IS allowed in Push Back!</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>T</strong></td>
+<td>Majority (more than opponent) = zone control</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>T</strong></td>
+<td>Double park = 30 points (vs 8 for single)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>T</strong></td>
+<td>Autonomous bonus = 10 points</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>F</strong></td>
+<td>Need 7+ blocks (plus other requirements) for AWP</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>T</strong></td>
+<td>Upper = 8 pts, Lower = 6 pts</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>T</strong></td>
+<td>Long goals hold up to 14 blocks each</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>F</strong></td>
+<td>Ties mean NO ONE gets zone points</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>T</strong></td>
+<td>10-second rule: head to park!</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>F</strong></td>
+<td>NO human communication during autonomous</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>T</strong></td>
+<td>Scouting helps plan strategy</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score: ___ / 15</strong></p>
+<hr />
+<h2 id="section-2-multiple-choice">Section 2: Multiple Choice<a class="headerlink" href="#section-2-multiple-choice" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td><strong>C</strong></td>
+<td>2 minutes (15 sec + 1:45)</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>C</strong></td>
+<td>3 points per block</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>C</strong></td>
+<td>Long Goal zone = 10 points</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>B</strong></td>
+<td>Single robot park = 8 points</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>A</strong></td>
+<td>7+ blocks, 3+ goals, 3+ loader, no barrier</td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>B</strong></td>
+<td>Volume Scoring = push many blocks at once</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>B</strong></td>
+<td>Descoring = removing opponent blocks from goals</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>C</strong></td>
+<td>Stop scoring and park with 10 seconds left</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>B</strong></td>
+<td>Center Upper = 8 points</td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong>B</strong></td>
+<td>Defender focuses on goal defense and descoring</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>B</strong></td>
+<td>Hand signals work in noisy environments</td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong>B</strong></td>
+<td>Slower robot parks first to have more time</td>
+</tr>
+<tr>
+<td>28</td>
+<td><strong>B</strong></td>
+<td>3 goals: 2 long + 1 center (with upper/lower)</td>
+</tr>
+<tr>
+<td>29</td>
+<td><strong>B</strong></td>
+<td>Zone division prevents robot collisions</td>
+</tr>
+<tr>
+<td>30</td>
+<td><strong>B</strong></td>
+<td>Center Lower = 6 points</td>
+</tr>
+<tr>
+<td>31</td>
+<td><strong>C</strong></td>
+<td>Favorite color is irrelevant to scouting</td>
+</tr>
+<tr>
+<td>32</td>
+<td><strong>C</strong></td>
+<td>Phase 3 (1:50-2:00) = both robots park</td>
+</tr>
+<tr>
+<td>33</td>
+<td><strong>B</strong></td>
+<td>Blocks scatter easily and can be descored</td>
+</tr>
+<tr>
+<td>34</td>
+<td><strong>C</strong></td>
+<td>Center Goal = 7 upper + 7 lower = 14 blocks</td>
+</tr>
+<tr>
+<td>35</td>
+<td><strong>B</strong></td>
+<td>Your alliance (3 &gt; 2 = majority = control)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score: ___ / 20</strong></p>
+<hr />
+<h2 id="section-3-fill-in-the-blank">Section 3: Fill in the Blank<a class="headerlink" href="#section-3-fill-in-the-blank" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>36</td>
+<td><strong>12</strong> feet by <strong>12</strong> feet</td>
+</tr>
+<tr>
+<td>37</td>
+<td><strong>2</strong> minutes</td>
+</tr>
+<tr>
+<td>38</td>
+<td><strong>15</strong> seconds</td>
+</tr>
+<tr>
+<td>39</td>
+<td><strong>3</strong> points</td>
+</tr>
+<tr>
+<td>40</td>
+<td><strong>30</strong> points</td>
+</tr>
+<tr>
+<td>41</td>
+<td><strong>10</strong> points</td>
+</tr>
+<tr>
+<td>42</td>
+<td><strong>majority</strong></td>
+</tr>
+<tr>
+<td>43</td>
+<td><strong>2</strong> teams, <strong>2</strong> robots</td>
+</tr>
+<tr>
+<td>44</td>
+<td><strong>10</strong> points</td>
+</tr>
+<tr>
+<td>45</td>
+<td><strong>10</strong> seconds</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score: ___ / 10</strong></p>
+<hr />
+<h2 id="section-4-calculation-problems">Section 4: Calculation Problems<a class="headerlink" href="#section-4-calculation-problems" title="Permanent link">&para;</a></h2>
+<p><strong>46.</strong> 12 blocks × 3 pts = <strong>36 points</strong></p>
+<p><strong>47.</strong> 10 + 8 = <strong>18 zone points</strong></p>
+<p><strong>48.</strong> 30 - 8 = <strong>22 additional points</strong></p>
+<p><strong>49.</strong> Blue loses 10 + Red gains 10 = <strong>20 point swing</strong></p>
+<p><strong>50.</strong>
+- Blocks: 18 × 3 = 54
+- Long goals: 2 × 10 = 20
+- Center upper: 1 × 8 = 8
+- Center lower: 0
+- Parking: 30
+- Autonomous: 10
+- <strong>TOTAL: 122 points</strong></p>
+<p><strong>51.</strong>
+- Option A: 3 points
+- Option B: 30 - 8 = 22 additional points
+- <strong>Better: Option B (park)</strong></p>
+<p><strong>52.</strong>
+- To tie: Blue needs 2 blocks (6-6)
+- To win: Blue needs 3 blocks (7-6)</p>
+<p><strong>53.</strong> <strong>No</strong> - Only scored in 2 goals (need 3+)</p>
+<p><strong>54.</strong>
+- Option A: 5 × 3 = 15 points
+- Option B: 30 - 8 = 22 additional points
+- <strong>Better: Option B (park)</strong></p>
+<p><strong>55.</strong>
+- 44 × 3 = 132 (blocks)
+- 10 + 10 + 8 + 6 = 34 (zones)
+- Parking: 30
+- Autonomous: 10
+- <strong>MAXIMUM: 206 points</strong></p>
+<p><strong>Score: ___ / 10</strong></p>
+<hr />
+<h2 id="section-5-scenario-based">Section 5: Scenario-Based<a class="headerlink" href="#section-5-scenario-based" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Answer</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>56</td>
+<td><strong>B</strong></td>
+<td>Change one routine to avoid collision</td>
+</tr>
+<tr>
+<td>57</td>
+<td><strong>B</strong></td>
+<td>Defend the goal to protect your zone control</td>
+</tr>
+<tr>
+<td>58</td>
+<td><strong>B</strong></td>
+<td>Park! Double park (30) &gt; single (8) + 9 = 17</td>
+</tr>
+<tr>
+<td>59</td>
+<td><strong>B</strong></td>
+<td>Use each robot's strengths: fast scores, strong defends</td>
+</tr>
+<tr>
+<td>60</td>
+<td><strong>Scoring is better</strong> - Adding 3 Red blocks creates control (3-4 = no control, but 3-4 means Blue still has majority). Actually, descoring is better: removing 3 Blue leaves 1-0, AND denies them 10 pts. Point swing = 20 pts vs scoring 9 pts. <strong>Descoring = bigger advantage</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td><strong>B</strong></td>
+<td>Your alliance gains 30 pts by double parking while they get 0</td>
+</tr>
+<tr>
+<td>62</td>
+<td><strong>B</strong></td>
+<td>Pre-planned hand signals work in noisy venues</td>
+</tr>
+<tr>
+<td>63</td>
+<td><strong>B</strong></td>
+<td>Adding 1 block breaks the tie, giving 6 pts zone control</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score: ___ / 8</strong></p>
+<hr />
+<h2 id="section-6-match-the-terms">Section 6: Match the Terms<a class="headerlink" href="#section-6-match-the-terms" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>1: C   (Autonomous = 15-sec pre-programmed)
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>2: E   (Driver Control = 1:45 human-controlled)
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>3: A   (Descoring = removing opponent blocks)
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>4: F   (Zone Control = majority of blocks)
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>5: B   (Alliance = working with another team)
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>6: D   (Volume Scoring = fast, many blocks)
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>7: I   (Parking = placing robot in park zone)
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>8: G   (Double Park = both robots, 30 pts)
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>9: J   (Long Goal = worth 10 pts zone control)
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>10: K  (Center Goal = upper 8, lower 6)
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>11: H  (Scouting = watching other teams)
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>12: L  (End Game = last 10-15 seconds)
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>13: N  (Role Specialization = scorer/defender)
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>14: M  (Hand Signals = visual communication)
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>15: O  (Zone Division = left/right split)
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>16: P  (Autonomous Bonus = 10 pts for winning)
+</code></pre></div>
+<p><strong>Score: ___ / 16</strong></p>
+<hr />
+<h2 id="section-7-diagrams">Section 7: Diagrams<a class="headerlink" href="#section-7-diagrams" title="Permanent link">&para;</a></h2>
+<h3 id="diagram-1-field-layout_1">Diagram 1: Field Layout<a class="headerlink" href="#diagram-1-field-layout_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>C = Long Goal (Left) - top left</li>
+<li>E = Center Goal - top center</li>
+<li>D = Long Goal (Right) - top right</li>
+<li>F = Loader (Red) - left side</li>
+<li>G = Loader (Blue) - right side</li>
+<li>A = Park Zone (Red) - bottom left</li>
+<li>B = Park Zone (Blue) - bottom right</li>
+</ul>
+<h3 id="diagram-2-zone-control_1">Diagram 2: Zone Control<a class="headerlink" href="#diagram-2-zone-control_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Red blocks: <strong>3</strong></li>
+<li>Blue blocks: <strong>4</strong></li>
+<li>Control: <strong>Blue</strong> (4 &gt; 3)</li>
+<li>Worth: <strong>10 points</strong> (Long Goal zone)</li>
+</ul>
+<h3 id="diagram-3-match-timeline_1">Diagram 3: Match Timeline<a class="headerlink" href="#diagram-3-match-timeline_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Autonomous: <strong>15</strong> seconds</li>
+<li>Driver Control: <strong>1</strong> min <strong>45</strong> seconds</li>
+<li>Pre-programmed (no human control)</li>
+<li><strong>10</strong> pt bonus available</li>
+<li>Total: <strong>2</strong> minutes</li>
+</ul>
+<p><strong>Score: ___ / 3 diagrams</strong></p>
+<hr />
+<h2 id="score-yourself">Score Yourself<a class="headerlink" href="#score-yourself" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Your Score</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True/False</td>
+<td>___</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Multiple Choice</td>
+<td>___</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Fill in Blank</td>
+<td>___</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Calculations</td>
+<td>___</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Scenarios</td>
+<td>___</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Match Terms</td>
+<td>___</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Diagrams</td>
+<td>___</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td>___</td>
+<td><strong>82</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="score-guide">Score Guide<a class="headerlink" href="#score-guide" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Percentage</th>
+<th>Rating</th>
+<th>Next Steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90-100%</td>
+<td><strong>Excellent!</strong></td>
+<td>Ready for competition!</td>
+</tr>
+<tr>
+<td>80-89%</td>
+<td><strong>Good</strong></td>
+<td>Review missed concepts, then proceed</td>
+</tr>
+<tr>
+<td>70-79%</td>
+<td><strong>Needs Work</strong></td>
+<td>Re-read tutorials, focus on weak areas</td>
+</tr>
+<tr>
+<td>Below 70%</td>
+<td><strong>Study More</strong></td>
+<td>Go through all three tutorials again</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-concepts-summary">Key Concepts Summary<a class="headerlink" href="#key-concepts-summary" title="Permanent link">&para;</a></h2>
+<h3 id="essential-numbers-to-remember">Essential Numbers to Remember<a class="headerlink" href="#essential-numbers-to-remember" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Field: <strong>12' × 12'</strong></li>
+<li>Blocks: <strong>88 total</strong> (44 each)</li>
+<li>Match: <strong>2 minutes</strong> (15 sec auto + 1:45 driver)</li>
+<li>Block scored: <strong>3 points</strong></li>
+<li>Long Goal zone: <strong>10 points</strong></li>
+<li>Center Upper zone: <strong>8 points</strong></li>
+<li>Center Lower zone: <strong>6 points</strong></li>
+<li>Single park: <strong>8 points</strong></li>
+<li>Double park: <strong>30 points</strong></li>
+<li>Autonomous bonus: <strong>10 points</strong></li>
+</ul>
+<h3 id="critical-strategy-points">Critical Strategy Points<a class="headerlink" href="#critical-strategy-points" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Descoring is allowed</strong> - removing opponent blocks is legal</li>
+<li><strong>Zone control requires MAJORITY</strong> - ties give no points</li>
+<li><strong>Double park is huge</strong> - 30 pts is almost always worth it</li>
+<li><strong>10-second rule</strong> - stop scoring and park at 1:50</li>
+<li><strong>AWP needs ALL 4 requirements</strong> - 7+ blocks, 3+ goals, 3+ loader, no barrier</li>
+</ol>
+<h3 id="alliance-coordination-essentials">Alliance Coordination Essentials<a class="headerlink" href="#alliance-coordination-essentials" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Pre-match:</strong> Discuss autonomous, roles, zones, end-game</li>
+<li><strong>During match:</strong> Use hand signals in noisy venues</li>
+<li><strong>Zone division:</strong> Each robot owns left or right</li>
+<li><strong>End game:</strong> Both robots MUST park for 30 pts</li>
+</ol>
+<hr />
+<p><strong><a href="../03-alliance-coordination/">← Previous: Alliance Coordination</a></strong> | <strong><a href="../../07-advanced/01-pid-control/">Next: Advanced Topics →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

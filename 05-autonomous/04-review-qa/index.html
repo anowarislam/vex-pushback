@@ -1,0 +1,3427 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../03-push-back-autonomous/">
+      
+      
+        <link rel="next" href="../../06-competition-strategy/01-game-overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Review Q&A - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-5-autonomous-programming-review-qa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review Q&A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Document
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Use This Document">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difficulty-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficulty Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Use This Document
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Use This Document">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difficulty-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficulty Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="module-5-autonomous-programming-review-qa">Module 5: Autonomous Programming - Review Q&amp;A<a class="headerlink" href="#module-5-autonomous-programming-review-qa" title="Permanent link">&para;</a></h1>
+<p><strong>Total Questions:</strong> 60
+<strong>Estimated Time:</strong> 45-60 minutes
+<strong>Difficulty:</strong> Mixed (Starter to Champion)</p>
+<hr />
+<h2 id="how-to-use-this-document">How to Use This Document<a class="headerlink" href="#how-to-use-this-document" title="Permanent link">&para;</a></h2>
+<p>This Q&amp;A document covers all concepts from Module 5: Autonomous Programming. Use it for:
+- <strong>Self-study review</strong> before competitions
+- <strong>Classroom quizzes</strong> (all answers at end)
+- <strong>Pre-competition preparation</strong></p>
+<h3 id="difficulty-levels">Difficulty Levels<a class="headerlink" href="#difficulty-levels" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[STARTER]</td>
+<td>Basic recall - you remember this!</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[LEARNER]</td>
+<td>Understanding concepts - explain it!</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[BUILDER]</td>
+<td>Apply knowledge - use it!</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[THINKER]</td>
+<td>Analyze relationships - connect ideas!</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[CHAMPION]</td>
+<td>Competition scenarios - win matches!</td>
+</tr>
+</tbody>
+</table>
+<h3 id="question-types">Question Types<a class="headerlink" href="#question-types" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Symbol</th>
+<th>What To Do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple Choice</td>
+<td>(A)(B)(C)(D)</td>
+<td>Pick the best answer</td>
+</tr>
+<tr>
+<td>True/False</td>
+<td>T/F</td>
+<td>Decide if statement is correct</td>
+</tr>
+<tr>
+<td>Fill-in-Blank</td>
+<td>_____</td>
+<td>Complete the code or sentence</td>
+</tr>
+<tr>
+<td>Short Answer</td>
+<td>SA</td>
+<td>Write 1-3 sentences</td>
+</tr>
+<tr>
+<td>Code Analysis</td>
+<td>CODE</td>
+<td>Read code and answer</td>
+</tr>
+<tr>
+<td>Diagram</td>
+<td>DIAGRAM</td>
+<td>Interpret visual information</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="part-1-basic-autonomous-movements">Part 1: Basic Autonomous Movements<a class="headerlink" href="#part-1-basic-autonomous-movements" title="Permanent link">&para;</a></h1>
+<p><em>Questions 1-20</em></p>
+<hr />
+<h3 id="question-1-starter-multiple-choice">Question 1 [STARTER] - Multiple Choice<a class="headerlink" href="#question-1-starter-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>How long is the autonomous period in a VEX competition match?</p>
+<p>(A) 30 seconds
+(B) 15 seconds
+(C) 60 seconds
+(D) 45 seconds</p>
+<hr />
+<h3 id="question-2-starter-truefalse">Question 2 [STARTER] - True/False<a class="headerlink" href="#question-2-starter-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: During the autonomous period, the driver can control the robot using the controller.</p>
+<hr />
+<h3 id="question-3-learner-multiple-choice">Question 3 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-3-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What does <code>drive_for(FORWARD, 500, MM)</code> do?</p>
+<p>(A) Spins the motors forward at 500% speed
+(B) Drives the robot forward 500 millimeters
+(C) Sets the drive velocity to 500
+(D) Drives forward for 500 milliseconds</p>
+<hr />
+<h3 id="question-4-starter-fill-in-blank">Question 4 [STARTER] - Fill-in-Blank<a class="headerlink" href="#question-4-starter-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Complete the code to turn the robot left by 90 degrees:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-5-learner-multiple-choice">Question 5 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-5-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>Which command makes the robot rotate in place?</p>
+<p>(A) <code>drive_for()</code>
+(B) <code>spin()</code>
+(C) <code>turn_for()</code>
+(D) <code>rotate_for()</code></p>
+<hr />
+<h3 id="question-6-builder-code-analysis">Question 6 [BUILDER] - Code Analysis<a class="headerlink" href="#question-6-builder-code-analysis" title="Permanent link">&para;</a></h3>
+<p>What path does this code create?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div>
+<p>(A) A straight line
+(B) An L-shape
+(C) Half of a square
+(D) A triangle</p>
+<hr />
+<h3 id="question-7-starter-multiple-choice">Question 7 [STARTER] - Multiple Choice<a class="headerlink" href="#question-7-starter-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What units can be used with <code>drive_for()</code> for distance?</p>
+<p>(A) MM only
+(B) INCHES only
+(C) MM or INCHES
+(D) PERCENT</p>
+<hr />
+<h3 id="question-8-learner-short-answer">Question 8 [LEARNER] - Short Answer<a class="headerlink" href="#question-8-learner-short-answer" title="Permanent link">&para;</a></h3>
+<p>Why do we call <code>setup_autonomous()</code> at the beginning of an autonomous routine?</p>
+<hr />
+<h3 id="question-9-builder-fill-in-blank">Question 9 [BUILDER] - Fill-in-Blank<a class="headerlink" href="#question-9-builder-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Complete the setup code to make the robot stop immediately when a movement ends:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">setup_autonomous</span><span class="p">():</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_turn_velocity</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_stopping</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-10-learner-multiple-choice">Question 10 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-10-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What does <code>set_timeout(3, SECONDS)</code> prevent?</p>
+<p>(A) The robot from going too fast
+(B) The robot from waiting forever if stuck
+(C) The robot from overheating
+(D) The robot from turning too sharply</p>
+<hr />
+<h3 id="question-11-starter-diagram">Question 11 [STARTER] - Diagram<a class="headerlink" href="#question-11-starter-diagram" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    MATCH TIMELINE:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    0:00                   0:15                   2:00
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    |━━━━━━━━━━━━━━━━━━━━━━|━━━━━━━━━━━━━━━━━━━━━━|
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    ←       A            → ←         B           →
+</code></pre></div>
+<p>What do A and B represent in this match timeline?</p>
+<hr />
+<h3 id="question-12-learner-truefalse">Question 12 [LEARNER] - True/False<a class="headerlink" href="#question-12-learner-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: <code>set_stopping(COAST)</code> makes the robot stop immediately and hold its position firmly.</p>
+<hr />
+<h3 id="question-13-builder-multiple-choice">Question 13 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-13-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>You want your robot to stop quickly but not actively hold position. Which stopping mode should you use?</p>
+<p>(A) COAST
+(B) BRAKE
+(C) HOLD
+(D) STOP</p>
+<hr />
+<h3 id="question-14-thinker-short-answer">Question 14 [THINKER] - Short Answer<a class="headerlink" href="#question-14-thinker-short-answer" title="Permanent link">&para;</a></h3>
+<p>Explain the difference between BRAKE and HOLD stopping modes. When would you choose each one?</p>
+<hr />
+<h3 id="question-15-builder-code-analysis">Question 15 [BUILDER] - Code Analysis<a class="headerlink" href="#question-15-builder-code-analysis" title="Permanent link">&para;</a></h3>
+<p>What shape does this code draw?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p>(A) Triangle
+(B) Square
+(C) Pentagon
+(D) Circle</p>
+<hr />
+<h3 id="question-16-thinker-fill-in-blank">Question 16 [THINKER] - Fill-in-Blank<a class="headerlink" href="#question-16-thinker-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>To drive a triangle pattern, each turn must be <strong><em>_</em> degrees because 360 ÷ 3 = </strong>___.</p>
+<hr />
+<h3 id="question-17-learner-short-answer">Question 17 [LEARNER] - Short Answer<a class="headerlink" href="#question-17-learner-short-answer" title="Permanent link">&para;</a></h3>
+<p>Why do we add <code>wait(200, MSEC)</code> between movements in autonomous code?</p>
+<hr />
+<h3 id="question-18-builder-multiple-choice">Question 18 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-18-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What is the trade-off of using a higher drive velocity (like 80%)?</p>
+<p>(A) More accurate but slower
+(B) Faster but may overshoot
+(C) Uses less battery
+(D) Better for tight turns</p>
+<hr />
+<h3 id="question-19-champion-code-analysis">Question 19 [CHAMPION] - Code Analysis<a class="headerlink" href="#question-19-champion-code-analysis" title="Permanent link">&para;</a></h3>
+<p>This code doesn't work as expected. What's wrong?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_routine</span><span class="p">():</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>  <span class="c1"># Robot drifts during turn!</span>
+</code></pre></div>
+<p>(A) Missing <code>setup_autonomous()</code> call
+(B) Missing <code>wait()</code> between movements
+(C) Wrong turn direction
+(D) Distance is too long</p>
+<hr />
+<h3 id="question-20-starter-multiple-choice">Question 20 [STARTER] - Multiple Choice<a class="headerlink" href="#question-20-starter-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>In <code>drive_for(REVERSE, 300, MM)</code>, what does REVERSE mean?</p>
+<p>(A) Turn around 180 degrees
+(B) Drive backward
+(C) Spin in reverse circles
+(D) Reset position</p>
+<hr />
+<h1 id="part-2-timing-and-sequences">Part 2: Timing and Sequences<a class="headerlink" href="#part-2-timing-and-sequences" title="Permanent link">&para;</a></h1>
+<p><em>Questions 21-40</em></p>
+<hr />
+<h3 id="question-21-starter-truefalse">Question 21 [STARTER] - True/False<a class="headerlink" href="#question-21-starter-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: You have unlimited time during the autonomous period to complete your routine.</p>
+<hr />
+<h3 id="question-22-learner-fill-in-blank">Question 22 [LEARNER] - Fill-in-Blank<a class="headerlink" href="#question-22-learner-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>If your robot drives at 50% velocity (about 500 mm/s), driving 1000mm takes approximately _____ seconds.</p>
+<hr />
+<h3 id="question-23-builder-multiple-choice">Question 23 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-23-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>Which <code>wait()</code> call is a 0.5 second pause?</p>
+<p>(A) <code>wait(5, SECONDS)</code>
+(B) <code>wait(500, SECONDS)</code>
+(C) <code>wait(500, MSEC)</code>
+(D) <code>wait(50, MSEC)</code></p>
+<hr />
+<h3 id="question-24-learner-short-answer">Question 24 [LEARNER] - Short Answer<a class="headerlink" href="#question-24-learner-short-answer" title="Permanent link">&para;</a></h3>
+<p>What is the difference between <code>MSEC</code> and <code>SECONDS</code> in the wait() function?</p>
+<hr />
+<h3 id="question-25-thinker-multiple-choice">Question 25 [THINKER] - Multiple Choice<a class="headerlink" href="#question-25-thinker-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>Which method is BLOCKING (waits until complete before continuing)?</p>
+<p>(A) <code>motor.spin(FORWARD)</code>
+(B) <code>drivetrain.drive_for(FORWARD, 500, MM)</code>
+(C) Both are blocking
+(D) Neither is blocking</p>
+<hr />
+<h3 id="question-26-builder-code-analysis">Question 26 [BUILDER] - Code Analysis<a class="headerlink" href="#question-26-builder-code-analysis" title="Permanent link">&para;</a></h3>
+<p>What happens in this code?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p>(A) Intake spins, then robot drives, then intake stops
+(B) Robot drives while intake is spinning, then intake stops
+(C) Intake and drive start together, intake stops first
+(D) Code errors - can't do two things</p>
+<hr />
+<h3 id="question-27-champion-diagram">Question 27 [CHAMPION] - Diagram<a class="headerlink" href="#question-27-champion-diagram" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>    Timeline:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    Intake:  [━━━━━━━ SPINNING ━━━━━━━][stop]
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    Drive:   [━━━━━━━ FORWARD ━━━━━━━━]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>             0                        1.0 sec
+</code></pre></div>
+<p>What does this timeline diagram demonstrate?</p>
+<p>(A) Sequential actions - one after another
+(B) Overlapping actions - running simultaneously
+(C) A broken sequence
+(D) Two separate routines</p>
+<hr />
+<h3 id="question-28-learner-truefalse">Question 28 [LEARNER] - True/False<a class="headerlink" href="#question-28-learner-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: <code>motor.spin_for()</code> is a blocking command that waits until the rotation is complete.</p>
+<hr />
+<h3 id="question-29-builder-fill-in-blank">Question 29 [BUILDER] - Fill-in-Blank<a class="headerlink" href="#question-29-builder-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Complete this optimized code to use shorter waits:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fast_routine</span><span class="p">():</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">wait</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>  <span class="c1"># Use 150ms instead of 500ms</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-30-thinker-multiple-choice">Question 30 [THINKER] - Multiple Choice<a class="headerlink" href="#question-30-thinker-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>Why is the slow_routine() below inefficient?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">slow_routine</span><span class="p">():</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p>(A) Velocity is too low
+(B) Wait times are too long
+(C) Not enough movements
+(D) Wrong direction</p>
+<hr />
+<h3 id="question-31-builder-short-answer">Question 31 [BUILDER] - Short Answer<a class="headerlink" href="#question-31-builder-short-answer" title="Permanent link">&para;</a></h3>
+<p>What are two ways to optimize an autonomous routine to complete faster?</p>
+<hr />
+<h3 id="question-32-champion-code-analysis">Question 32 [CHAMPION] - Code Analysis<a class="headerlink" href="#question-32-champion-code-analysis" title="Permanent link">&para;</a></h3>
+<p>Estimate the total time for this routine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># At 50% velocity (~500 mm/s, ~0.8s per 90° turn)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>   <span class="c1"># ~1.0s</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>                           <span class="c1"># 0.2s</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>   <span class="c1"># ~0.8s</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>                           <span class="c1"># 0.2s</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>   <span class="c1"># ~0.6s</span>
+</code></pre></div>
+<p>(A) About 1.5 seconds
+(B) About 2.8 seconds
+(C) About 5 seconds
+(D) About 10 seconds</p>
+<hr />
+<h3 id="question-33-learner-multiple-choice">Question 33 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-33-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What does a "sequence" in autonomous programming mean?</p>
+<p>(A) A random set of movements
+(B) Multiple actions executed in a specific order
+(C) A single movement repeated
+(D) Moving in a circle</p>
+<hr />
+<h3 id="question-34-builder-fill-in-blank">Question 34 [BUILDER] - Fill-in-Blank<a class="headerlink" href="#question-34-builder-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Create a reusable function that drives and waits automatically:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_and_wait</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-35-thinker-short-answer">Question 35 [THINKER] - Short Answer<a class="headerlink" href="#question-35-thinker-short-answer" title="Permanent link">&para;</a></h3>
+<p>Why is it useful to create helper functions like <code>drive_and_wait()</code> and <code>turn_and_wait()</code>?</p>
+<hr />
+<h3 id="question-36-starter-truefalse">Question 36 [STARTER] - True/False<a class="headerlink" href="#question-36-starter-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: At the end of an autonomous routine, you still need a wait() call after the last movement.</p>
+<hr />
+<h3 id="question-37-builder-multiple-choice">Question 37 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-37-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>In this timing table, what's the total time?</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Time</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Drive forward</td>
+<td>1.0s</td>
+<td>1.0s</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Wait</td>
+<td>0.2s</td>
+<td>1.2s</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Turn right</td>
+<td>0.8s</td>
+<td>2.0s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wait</td>
+<td>0.2s</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p>(A) 2.0 seconds
+(B) 2.2 seconds
+(C) 3.0 seconds
+(D) 2.4 seconds</p>
+<hr />
+<h3 id="question-38-champion-code-analysis">Question 38 [CHAMPION] - Code Analysis<a class="headerlink" href="#question-38-champion-code-analysis" title="Permanent link">&para;</a></h3>
+<p>This routine is too slow (~15 seconds). How would you fix it?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">slow_auto</span><span class="p">():</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_turn_velocity</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+</code></pre></div>
+<p>Write down 2 specific changes you would make.</p>
+<hr />
+<h3 id="question-39-learner-multiple-choice">Question 39 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-39-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What's the purpose of breaking autonomous code into phases like "PHASE 1: SCORE FIRST BLOCK"?</p>
+<p>(A) Makes code look longer
+(B) Organizes code and makes it easier to debug
+(C) Required by VEX competition rules
+(D) Makes robot move faster</p>
+<hr />
+<h3 id="question-40-thinker-short-answer">Question 40 [THINKER] - Short Answer<a class="headerlink" href="#question-40-thinker-short-answer" title="Permanent link">&para;</a></h3>
+<p>Explain the difference between <code>motor.spin()</code> and <code>motor.spin_for()</code> in terms of blocking behavior.</p>
+<hr />
+<h1 id="part-3-push-back-autonomous-strategy">Part 3: Push Back Autonomous Strategy<a class="headerlink" href="#part-3-push-back-autonomous-strategy" title="Permanent link">&para;</a></h1>
+<p><em>Questions 41-60</em></p>
+<hr />
+<h3 id="question-41-starter-multiple-choice">Question 41 [STARTER] - Multiple Choice<a class="headerlink" href="#question-41-starter-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>How many blocks of your alliance color must be scored to help earn the Autonomous Win Point?</p>
+<p>(A) 3 or more
+(B) 5 or more
+(C) 7 or more
+(D) 10 or more</p>
+<hr />
+<h3 id="question-42-learner-fill-in-blank">Question 42 [LEARNER] - Fill-in-Blank<a class="headerlink" href="#question-42-learner-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>To earn the Autonomous Win Point, blocks must be scored in at least _____ different goals.</p>
+<hr />
+<h3 id="question-43-starter-truefalse">Question 43 [STARTER] - True/False<a class="headerlink" href="#question-43-starter-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: To earn the Autonomous Win Point, your robot CAN be touching the park zone barrier at the end of autonomous.</p>
+<hr />
+<h3 id="question-44-builder-short-answer">Question 44 [BUILDER] - Short Answer<a class="headerlink" href="#question-44-builder-short-answer" title="Permanent link">&para;</a></h3>
+<p>Name all 4 requirements to earn the Autonomous Win Point in Push Back.</p>
+<hr />
+<h3 id="question-45-learner-multiple-choice">Question 45 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-45-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What is the size of the Push Back competition field?</p>
+<p>(A) 8' x 8'
+(B) 10' x 10'
+(C) 12' x 12'
+(D) 6' x 6'</p>
+<hr />
+<h3 id="question-46-builder-diagram">Question 46 [BUILDER] - Diagram<a class="headerlink" href="#question-46-builder-diagram" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>    PUSH BACK FIELD (simplified):
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    [LONG GOAL]    [CENTER GOAL]    [LONG GOAL]
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>                 ▓▓ ▓▓ ▓▓ (blocks)
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    [LOADER]                        [LOADER]
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>      RED                            BLUE
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    [PARK RED]                      [PARK BLUE]
+</code></pre></div>
+<p>If you're the RED alliance starting on the left, which loader would be closest to you?</p>
+<p>(A) RED loader
+(B) BLUE loader
+(C) Neither - loaders are in the center
+(D) Both are equidistant</p>
+<hr />
+<h3 id="question-47-thinker-multiple-choice">Question 47 [THINKER] - Multiple Choice<a class="headerlink" href="#question-47-thinker-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>Why might you want different autonomous routines for left and right starting positions?</p>
+<p>(A) The rules are different for each side
+(B) The field layout is mirrored, so paths need to mirror too
+(C) One side is easier than the other
+(D) The robot drives differently on each side</p>
+<hr />
+<h3 id="question-48-builder-code-analysis">Question 48 [BUILDER] - Code Analysis<a class="headerlink" href="#question-48-builder-code-analysis" title="Permanent link">&para;</a></h3>
+<p>What's different between <code>autonomous_left()</code> and <code>autonomous_right()</code>?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_left</span><span class="p">():</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>  <span class="c1"># Turn RIGHT</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_right</span><span class="p">():</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>   <span class="c1"># Turn LEFT</span>
+</code></pre></div>
+<p>(A) They drive different distances
+(B) Turn directions are mirrored
+(C) Different velocities
+(D) Different timeout values</p>
+<hr />
+<h3 id="question-49-builder-fill-in-blank">Question 49 [BUILDER] - Fill-in-Blank<a class="headerlink" href="#question-49-builder-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Complete this code to push blocks slowly for better control:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">push_blocks_to_goal</span><span class="p">():</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>  <span class="c1"># Slow for control</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-50-champion-short-answer">Question 50 [CHAMPION] - Short Answer<a class="headerlink" href="#question-50-champion-short-answer" title="Permanent link">&para;</a></h3>
+<p>In the Push Back game, why might you push groups of blocks rather than individual blocks?</p>
+<hr />
+<h3 id="question-51-thinker-code-analysis">Question 51 [THINKER] - Code Analysis<a class="headerlink" href="#question-51-thinker-code-analysis" title="Permanent link">&para;</a></h3>
+<p>What does this code accomplish?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">intake_motor</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">wait</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">intake_motor</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p>(A) Drives forward then activates intake
+(B) Drives forward while intake grabs a block
+(C) Spins intake then waits
+(D) Does nothing - code is broken</p>
+<hr />
+<h3 id="question-52-builder-multiple-choice">Question 52 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-52-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>To release a grabbed block, what should the intake motor do?</p>
+<p>(A) <code>intake_motor.spin(FORWARD)</code>
+(B) <code>intake_motor.spin(REVERSE)</code>
+(C) <code>intake_motor.stop()</code>
+(D) <code>intake_motor.coast()</code></p>
+<hr />
+<h3 id="question-53-champion-fill-in-blank">Question 53 [CHAMPION] - Fill-in-Blank<a class="headerlink" href="#question-53-champion-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>Complete this 15-second routine template with proper phases:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_routine</span><span class="p">():</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">setup_autonomous</span><span class="p">()</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="c1"># === PHASE 1: _____ (0-5 sec) ===</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="c1"># === PHASE 2: _____ (5-10 sec) ===</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>    <span class="c1"># === PHASE 3: _____ (10-15 sec) ===</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="question-54-learner-multiple-choice">Question 54 [LEARNER] - Multiple Choice<a class="headerlink" href="#question-54-learner-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What is a "loader" zone in Push Back?</p>
+<p>(A) Where you park your robot
+(B) Area with pre-stacked blocks to remove
+(C) The scoring goal
+(D) The starting position</p>
+<hr />
+<h3 id="question-55-starter-truefalse">Question 55 [STARTER] - True/False<a class="headerlink" href="#question-55-starter-truefalse" title="Permanent link">&para;</a></h3>
+<p>T/F: In Push Back, removing blocks from loaders counts toward the Autonomous Win Point requirements.</p>
+<hr />
+<h3 id="question-56-thinker-short-answer">Question 56 [THINKER] - Short Answer<a class="headerlink" href="#question-56-thinker-short-answer" title="Permanent link">&para;</a></h3>
+<p>Before coding your autonomous, why should you sketch your robot's path on paper first?</p>
+<hr />
+<h3 id="question-57-builder-multiple-choice">Question 57 [BUILDER] - Multiple Choice<a class="headerlink" href="#question-57-builder-multiple-choice" title="Permanent link">&para;</a></h3>
+<p>What's the first step in the autonomous testing process?</p>
+<p>(A) Run the full routine
+(B) Measure all distances
+(C) Draw your path on paper
+(D) Add wait() statements</p>
+<hr />
+<h3 id="question-58-champion-code-analysis">Question 58 [CHAMPION] - Code Analysis<a class="headerlink" href="#question-58-champion-code-analysis" title="Permanent link">&para;</a></h3>
+<p>This autonomous routine has a problem. What's wrong?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">autonomous_routine</span><span class="p">():</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>  <span class="c1"># 2 meters forward!</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div>
+<p>(A) No setup_autonomous() call
+(B) Likely takes more than 15 seconds
+(C) Turn angles don't add up
+(D) Both A and B</p>
+<hr />
+<h3 id="question-59-builder-fill-in-blank">Question 59 [BUILDER] - Fill-in-Blank<a class="headerlink" href="#question-59-builder-fill-in-blank" title="Permanent link">&para;</a></h3>
+<p>To test your autonomous incrementally, start with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_auto</span><span class="p">():</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="n">setup_autonomous</span><span class="p">()</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">_____</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="c1"># Test this first, then add more</span>
+</code></pre></div>
+<hr />
+<h3 id="question-60-champion-short-answer">Question 60 [CHAMPION] - Short Answer<a class="headerlink" href="#question-60-champion-short-answer" title="Permanent link">&para;</a></h3>
+<p>Describe the 4-step iterative testing process for developing autonomous routines.</p>
+<hr />
+<h1 id="answer-key">Answer Key<a class="headerlink" href="#answer-key" title="Permanent link">&para;</a></h1>
+<p>All answers with explanations, common mistakes, and tutorial references.</p>
+<hr />
+<h2 id="part-1-basic-autonomous-movements-questions-1-20">Part 1: Basic Autonomous Movements (Questions 1-20)<a class="headerlink" href="#part-1-basic-autonomous-movements-questions-1-20" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="answer-1">Answer 1<a class="headerlink" href="#answer-1" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) 15 seconds</strong></p>
+<p>The autonomous period is exactly 15 seconds at the start of every VEX match. During this time, your robot must operate entirely on pre-programmed code.</p>
+<p><em>Common Mistake:</em> Confusing with skills autonomous (60 seconds) or thinking all of driver control is autonomous.</p>
+<p><em>Reference:</em> Tutorial 5.1, "What is Autonomous?" section</p>
+<hr />
+<h3 id="answer-2">Answer 2<a class="headerlink" href="#answer-2" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: False</strong></p>
+<p>During autonomous, NO human control is allowed. The driver cannot touch the controller or influence the robot in any way. That's why it's called "autonomous" - the robot must act on its own.</p>
+<p><em>Common Mistake:</em> Thinking the driver can make small adjustments.</p>
+<p><em>Reference:</em> Tutorial 5.1, match timeline diagram</p>
+<hr />
+<h3 id="answer-3">Answer 3<a class="headerlink" href="#answer-3" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Drives the robot forward 500 millimeters</strong></p>
+<p><code>drive_for(direction, distance, units)</code> moves the robot a specific distance. The 500 represents millimeters (about half a meter).</p>
+<p><em>Common Mistake:</em> Confusing distance with velocity or time.</p>
+<p><em>Reference:</em> Tutorial 5.1, "drive_for() - Move Forward/Backward"</p>
+<hr />
+<h3 id="answer-4">Answer 4<a class="headerlink" href="#answer-4" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: <code>LEFT</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div>
+<p>The first parameter is the turn direction (LEFT or RIGHT).</p>
+<p><em>Reference:</em> Tutorial 5.1, "turn_for() - Rotate in Place"</p>
+<hr />
+<h3 id="answer-5">Answer 5<a class="headerlink" href="#answer-5" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) <code>turn_for()</code></strong></p>
+<p><code>turn_for()</code> rotates the robot in place by spinning the left and right wheels in opposite directions. <code>drive_for()</code> moves the whole robot forward/backward.</p>
+<p><em>Common Mistake:</em> Using <code>spin()</code> which is for individual motors, not the drivetrain.</p>
+<p><em>Reference:</em> Tutorial 5.1, "turn_for() - Rotate in Place"</p>
+<hr />
+<h3 id="answer-6">Answer 6<a class="headerlink" href="#answer-6" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) Half of a square</strong></p>
+<p>The code drives forward, turns 90°, drives forward again, and turns 90°. This creates an L-shape or half of a square (2 sides and 2 corners).</p>
+<p><em>Common Mistake:</em> Thinking any turn creates a complete shape.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Driving a Square Pattern"</p>
+<hr />
+<h3 id="answer-7">Answer 7<a class="headerlink" href="#answer-7" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) MM or INCHES</strong></p>
+<p>Both millimeters (MM) and INCHES are valid distance units for <code>drive_for()</code>. Example: <code>drive_for(FORWARD, 12, INCHES)</code> is equivalent to about <code>drive_for(FORWARD, 305, MM)</code>.</p>
+<p><em>Reference:</em> Tutorial 5.1, Parameters table for drive_for()</p>
+<hr />
+<h3 id="answer-8">Answer 8<a class="headerlink" href="#answer-8" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p><code>setup_autonomous()</code> configures the drivetrain with proper velocity, turn speed, stopping mode, and timeout settings before executing movements. Without it, the robot might use default settings that aren't optimized for your routine.</p>
+<p><em>Key Points:</em>
+- Sets drive velocity (50%)
+- Sets turn velocity (30%)
+- Sets stopping mode (BRAKE)
+- Sets timeout (3 seconds)</p>
+<p><em>Reference:</em> Tutorial 5.1, "Code Walkthrough: autonomous.py"</p>
+<hr />
+<h3 id="answer-9">Answer 9<a class="headerlink" href="#answer-9" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: <code>BRAKE</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_stopping</span><span class="p">(</span><span class="n">BRAKE</span><span class="p">)</span>
+</code></pre></div>
+<p>BRAKE stops the robot quickly with active braking. COAST would let it drift, and HOLD would actively resist movement.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Stopping Modes"</p>
+<hr />
+<h3 id="answer-10">Answer 10<a class="headerlink" href="#answer-10" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) The robot from waiting forever if stuck</strong></p>
+<p><code>set_timeout()</code> creates a maximum time limit for each movement. If the robot gets stuck (blocked by an obstacle), it will give up after the timeout and continue to the next command instead of waiting forever.</p>
+<p><em>Common Mistake:</em> Thinking timeout relates to speed or temperature.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Understanding set_timeout()"</p>
+<hr />
+<h3 id="answer-11">Answer 11<a class="headerlink" href="#answer-11" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong>
+- <strong>A = Autonomous (15 seconds)</strong> - Robot runs programmed code
+- <strong>B = Driver Control (1:45)</strong> - Human driver takes over</p>
+<p><em>Reference:</em> Tutorial 5.1, "What is Autonomous?"</p>
+<hr />
+<h3 id="answer-12">Answer 12<a class="headerlink" href="#answer-12" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: False</strong></p>
+<p>COAST does the opposite - it lets the robot slowly coast to a stop like a car in neutral. HOLD is what makes the robot hold its position firmly.</p>
+<p><em>Common Mistake:</em> Confusing COAST, BRAKE, and HOLD.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Stopping Modes" comparison</p>
+<hr />
+<h3 id="answer-13">Answer 13<a class="headerlink" href="#answer-13" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) BRAKE</strong></p>
+<ul>
+<li>COAST: Slow drift to stop (free-spin)</li>
+<li>BRAKE: Quick stop with active braking</li>
+<li>HOLD: Actively resists any movement</li>
+</ul>
+<p>BRAKE is the recommended default for most autonomous routines.</p>
+<p><em>Reference:</em> Tutorial 5.1, stopping modes diagram</p>
+<hr />
+<h3 id="answer-14">Answer 14<a class="headerlink" href="#answer-14" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p><strong>BRAKE:</strong> Quickly stops the robot and releases the motors. Good for general movements where you want accurate stopping but don't need to hold position.</p>
+<p><strong>HOLD:</strong> Stops AND actively resists any movement after stopping. Motors stay engaged to maintain position. Good when you need the robot to stay exactly where it stopped (like before scoring).</p>
+<p><em>Example:</em> Use BRAKE when driving between positions. Use HOLD when positioning precisely before an intake grabs a block.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Stopping Modes"</p>
+<hr />
+<h3 id="answer-15">Answer 15<a class="headerlink" href="#answer-15" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Square</strong></p>
+<p>The <code>for i in range(4)</code> loop repeats 4 times. Each iteration:
+1. Drives forward 500mm (one side)
+2. Turns right 90° (one corner)</p>
+<p>4 sides × 90° turns = 360° total = closed square.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Driving a Square Pattern"</p>
+<hr />
+<h3 id="answer-16">Answer 16<a class="headerlink" href="#answer-16" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: 120 degrees, 120</strong></p>
+<p>A triangle has 3 corners. To make a closed shape, total turning must be 360°.
+360° ÷ 3 corners = 120° per turn.</p>
+<p><em>Reference:</em> Tutorial 5.1, Exercise: Drive a Triangle</p>
+<hr />
+<h3 id="answer-17">Answer 17<a class="headerlink" href="#answer-17" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>The <code>wait(200, MSEC)</code> gives the robot time to physically stop and stabilize before starting the next movement. Without it:
+- The robot might still be moving when the next command starts
+- Momentum could cause the robot to drift or overshoot
+- Turns might be inaccurate if started before the robot fully stops</p>
+<p><em>Reference:</em> Tutorial 5.1, "Why wait() Between Moves?"</p>
+<hr />
+<h3 id="answer-18">Answer 18<a class="headerlink" href="#answer-18" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Faster but may overshoot</strong></p>
+<p>Higher velocity means:
+- ✓ Faster movements (covers more distance in 15 seconds)
+- ✗ Less accurate (harder to stop precisely)
+- ✗ Higher battery usage</p>
+<p>The recommended starting point is 50% velocity for balance.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Velocity Settings" trade-off table</p>
+<hr />
+<h3 id="answer-19">Answer 19<a class="headerlink" href="#answer-19" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Missing <code>wait()</code> between movements</strong></p>
+<p>Without a <code>wait()</code> after <code>drive_for()</code>, the robot might not fully stop before <code>turn_for()</code> begins. This causes drift during the turn.</p>
+<p>Fixed code:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>  <span class="c1"># Add this!</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+</code></pre></div></p>
+<p><em>Common Mistake:</em> Blaming direction or distance when timing is the issue.</p>
+<p><em>Reference:</em> Tutorial 5.1, "Why wait() Between Moves?"</p>
+<hr />
+<h3 id="answer-20">Answer 20<a class="headerlink" href="#answer-20" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Drive backward</strong></p>
+<p>REVERSE makes the robot drive in the opposite direction from FORWARD. It doesn't turn around - the front still faces forward, but the robot moves backward.</p>
+<p><em>Reference:</em> Tutorial 5.1, "drive_for() - Move Forward/Backward"</p>
+<hr />
+<h2 id="part-2-timing-and-sequences-questions-21-40">Part 2: Timing and Sequences (Questions 21-40)<a class="headerlink" href="#part-2-timing-and-sequences-questions-21-40" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="answer-21">Answer 21<a class="headerlink" href="#answer-21" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: False</strong></p>
+<p>You have exactly 15 seconds. Every movement takes time, so you must plan carefully. An overly long routine will get cut off at 15 seconds.</p>
+<p><em>Reference:</em> Tutorial 5.2, "The 15-Second Challenge"</p>
+<hr />
+<h3 id="answer-22">Answer 22<a class="headerlink" href="#answer-22" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: 2 (or approximately 2)</strong></p>
+<p>Time = Distance ÷ Speed
+Time = 1000mm ÷ 500 mm/s = 2 seconds</p>
+<p><em>Reference:</em> Tutorial 5.2, "Calculating Movement Time"</p>
+<hr />
+<h3 id="answer-23">Answer 23<a class="headerlink" href="#answer-23" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) <code>wait(500, MSEC)</code></strong></p>
+<p>500 milliseconds = 0.5 seconds. MSEC = milliseconds (1000 MSEC = 1 second).</p>
+<p><em>Common Mistake:</em> Confusing MSEC and SECONDS units.</p>
+<p><em>Reference:</em> Tutorial 5.2, "wait() Function"</p>
+<hr />
+<h3 id="answer-24">Answer 24<a class="headerlink" href="#answer-24" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<ul>
+<li><strong>MSEC (milliseconds):</strong> 1/1000 of a second. Good for short pauses like 200ms = 0.2 seconds.</li>
+<li><strong>SECONDS:</strong> Whole seconds. Good for longer waits.</li>
+</ul>
+<p>Example: <code>wait(200, MSEC)</code> = <code>wait(0.2, SECONDS)</code> (but decimals may not work in VEX Python)</p>
+<p><em>Reference:</em> Tutorial 5.2, wait() function table</p>
+<hr />
+<h3 id="answer-25">Answer 25<a class="headerlink" href="#answer-25" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) <code>drivetrain.drive_for(FORWARD, 500, MM)</code></strong></p>
+<ul>
+<li><code>drive_for()</code> is <strong>blocking</strong> - code waits until movement completes</li>
+<li><code>motor.spin()</code> is <strong>non-blocking</strong> - returns immediately, motor keeps spinning</li>
+</ul>
+<p>This is crucial for understanding how to overlap actions!</p>
+<p><em>Reference:</em> Tutorial 5.2, "Blocking vs Non-Blocking" table</p>
+<hr />
+<h3 id="answer-26">Answer 26<a class="headerlink" href="#answer-26" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Robot drives while intake is spinning, then intake stops</strong></p>
+<p>Because <code>spin()</code> is non-blocking, the intake starts immediately, then <code>drive_for()</code> (blocking) starts. The robot drives forward WHILE the intake spins. After driving completes, the intake stops.</p>
+<p><em>Reference:</em> Tutorial 5.2, "Overlapping Actions"</p>
+<hr />
+<h3 id="answer-27">Answer 27<a class="headerlink" href="#answer-27" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Overlapping actions - running simultaneously</strong></p>
+<p>The diagram shows both intake and drive happening during the same 0-1.0 second window. This is how <code>spin()</code> (non-blocking) combined with <code>drive_for()</code> (blocking) creates parallel actions.</p>
+<p><em>Reference:</em> Tutorial 5.2, "Overlapping Actions" timeline</p>
+<hr />
+<h3 id="answer-28">Answer 28<a class="headerlink" href="#answer-28" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: True</strong></p>
+<p><code>spin_for()</code> rotates a motor a specific amount and WAITS until complete (blocking).
+<code>spin()</code> starts the motor and returns immediately (non-blocking).</p>
+<p><em>Reference:</em> Tutorial 5.2, "Blocking vs Non-Blocking" table</p>
+<hr />
+<h3 id="answer-29">Answer 29<a class="headerlink" href="#answer-29" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: <code>150</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">wait</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p>Optimized routines use shorter waits (150ms instead of 500ms) to save time while still allowing the robot to stabilize.</p>
+<p><em>Reference:</em> Tutorial 5.2, "After Optimization" code example</p>
+<hr />
+<h3 id="answer-30">Answer 30<a class="headerlink" href="#answer-30" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Wait times are too long</strong></p>
+<p>Each <code>wait(500, MSEC)</code> is half a second. That's 1 second of just waiting per cycle! Reducing to 150ms saves significant time.</p>
+<p><em>Common Mistake:</em> Not recognizing that waits accumulate and waste precious autonomous time.</p>
+<p><em>Reference:</em> Tutorial 5.2, "Before Optimization" vs "After Optimization"</p>
+<hr />
+<h3 id="answer-31">Answer 31<a class="headerlink" href="#answer-31" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>Two ways to optimize autonomous routines:</p>
+<ol>
+<li><strong>Increase velocity</strong> - Higher drive/turn velocity means less time per movement</li>
+<li>
+<p><code>set_drive_velocity(70, PERCENT)</code> instead of 30%</p>
+</li>
+<li>
+<p><strong>Reduce wait times</strong> - Shorter stabilization pauses</p>
+</li>
+<li><code>wait(150, MSEC)</code> instead of <code>wait(500, MSEC)</code></li>
+</ol>
+<p>Other valid answers: Overlap non-blocking actions, remove unnecessary movements, optimize path distance.</p>
+<p><em>Reference:</em> Tutorial 5.2, "Optimizing for Speed"</p>
+<hr />
+<h3 id="answer-32">Answer 32<a class="headerlink" href="#answer-32" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) About 2.8 seconds</strong></p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drive 500mm</td>
+<td>~1.0s</td>
+</tr>
+<tr>
+<td>Wait</td>
+<td>0.2s</td>
+</tr>
+<tr>
+<td>Turn 90°</td>
+<td>~0.8s</td>
+</tr>
+<tr>
+<td>Wait</td>
+<td>0.2s</td>
+</tr>
+<tr>
+<td>Drive 300mm</td>
+<td>~0.6s</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~2.8s</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Reference:</em> Tutorial 5.2, timeline example</p>
+<hr />
+<h3 id="answer-33">Answer 33<a class="headerlink" href="#answer-33" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Multiple actions executed in a specific order</strong></p>
+<p>A sequence is a series of commands that run one after another in a defined order. Each step must complete (or be non-blocking) before the next begins.</p>
+<p><em>Reference:</em> Tutorial 5.2, "Sequencing Multiple Actions"</p>
+<hr />
+<h3 id="answer-34">Answer 34<a class="headerlink" href="#answer-34" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: <code>MM</code> and <code>MSEC</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">drive_and_wait</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">wait</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>
+</code></pre></div>
+<p><em>Reference:</em> Tutorial 5.2, "Reusable Movement Functions"</p>
+<hr />
+<h3 id="answer-35">Answer 35<a class="headerlink" href="#answer-35" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>Helper functions like <code>drive_and_wait()</code> are useful because:</p>
+<ol>
+<li><strong>Reduce code duplication</strong> - Write wait logic once, use everywhere</li>
+<li><strong>Make code cleaner</strong> - Main routine is easier to read</li>
+<li><strong>Easier to modify</strong> - Change wait time in one place affects all movements</li>
+<li><strong>Prevent errors</strong> - Can't forget the wait() call</li>
+</ol>
+<p><em>Reference:</em> Tutorial 5.2, "Reusable Movement Functions"</p>
+<hr />
+<h3 id="answer-36">Answer 36<a class="headerlink" href="#answer-36" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: False</strong></p>
+<p>At the end of an autonomous routine, no wait() is needed because there's no next movement. The extra wait would just waste time.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># No wait needed at end</span>
+</code></pre></div>
+<p><em>Reference:</em> Tutorial 5.2, "After Optimization" comment</p>
+<hr />
+<h3 id="answer-37">Answer 37<a class="headerlink" href="#answer-37" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) 2.2 seconds</strong></p>
+<p>1.0s (drive) + 0.2s (wait) + 0.8s (turn) + 0.2s (wait) = 2.2 seconds</p>
+<p><em>Reference:</em> Tutorial 5.2, "Timing Table Template"</p>
+<hr />
+<h3 id="answer-38">Answer 38<a class="headerlink" href="#answer-38" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>Two specific changes to speed up the routine:</p>
+<ol>
+<li>
+<p><strong>Increase velocities:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>  <span class="c1"># Was 30%</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_turn_velocity</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>   <span class="c1"># Was 20%</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Reduce wait times:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">wait</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>  <span class="c1"># Was 1 second</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p><em>Reference:</em> Tutorial 5.2, "Exercise: Optimize This Routine"</p>
+<hr />
+<h3 id="answer-39">Answer 39<a class="headerlink" href="#answer-39" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Organizes code and makes it easier to debug</strong></p>
+<p>Phases help you:
+- Know where you are in the routine timeline
+- Debug specific sections (if Phase 2 fails, you know where to look)
+- Plan time allocation (each phase gets ~5 seconds)</p>
+<p><em>Reference:</em> Tutorial 5.3, "15-Second Routine Template"</p>
+<hr />
+<h3 id="answer-40">Answer 40<a class="headerlink" href="#answer-40" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<ul>
+<li>
+<p><strong><code>motor.spin()</code></strong>: Non-blocking. Starts the motor spinning and immediately continues to the next line of code. The motor keeps spinning until you call <code>stop()</code>.</p>
+</li>
+<li>
+<p><strong><code>motor.spin_for()</code></strong>: Blocking. Rotates the motor a specific amount and WAITS until that rotation is complete before continuing.</p>
+</li>
+</ul>
+<p><em>Example use case:</em>
+- Use <code>spin()</code> for continuous actions during driving (intake running while moving)
+- Use <code>spin_for()</code> when you need precise motor positioning before continuing</p>
+<p><em>Reference:</em> Tutorial 5.2, "Blocking vs Non-Blocking"</p>
+<hr />
+<h2 id="part-3-push-back-autonomous-strategy-questions-41-60">Part 3: Push Back Autonomous Strategy (Questions 41-60)<a class="headerlink" href="#part-3-push-back-autonomous-strategy-questions-41-60" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="answer-41">Answer 41<a class="headerlink" href="#answer-41" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) 7 or more</strong></p>
+<p>The Autonomous Win Point requires scoring 7+ blocks of your alliance color in goals.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Autonomous Win Point Requirements"</p>
+<hr />
+<h3 id="answer-42">Answer 42<a class="headerlink" href="#answer-42" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: 3</strong></p>
+<p>Blocks must be scored in at least 3 different goals to count toward the Autonomous Win Point.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Autonomous Win Point Checklist"</p>
+<hr />
+<h3 id="answer-43">Answer 43<a class="headerlink" href="#answer-43" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: False</strong></p>
+<p>To earn the Autonomous Win Point, NEITHER robot can be touching the park zone barrier at the end of autonomous. If either robot touches it, your alliance loses the bonus.</p>
+<p><em>Common Mistake:</em> Thinking being in park zone is okay.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Autonomous Win Point Checklist"</p>
+<hr />
+<h3 id="answer-44">Answer 44<a class="headerlink" href="#answer-44" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>All 4 requirements for the Autonomous Win Point:</p>
+<ol>
+<li><strong>7+ blocks</strong> of your color scored</li>
+<li>Blocks in at least <strong>3 different goals</strong></li>
+<li><strong>3+ blocks removed</strong> from loaders</li>
+<li><strong>Neither robot touching</strong> the park zone barrier</li>
+</ol>
+<p>Miss ANY ONE = No bonus!</p>
+<p><em>Reference:</em> Tutorial 5.3, "Autonomous Win Point Requirements"</p>
+<hr />
+<h3 id="answer-45">Answer 45<a class="headerlink" href="#answer-45" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) 12' x 12'</strong></p>
+<p>The Push Back field is 12 feet by 12 feet (144 square feet total, or about 3.66m x 3.66m).</p>
+<p><em>Reference:</em> Tutorial 5.3, "Push Back Field Layout"</p>
+<hr />
+<h3 id="answer-46">Answer 46<a class="headerlink" href="#answer-46" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (A) RED loader</strong></p>
+<p>Looking at the field diagram, the RED loader is on the left side of the field and the BLUE loader is on the right. If you're the RED alliance starting on the left, the RED loader would be closest.</p>
+<p><em>Reference:</em> Tutorial 5.3, field layout diagram</p>
+<hr />
+<h3 id="answer-47">Answer 47<a class="headerlink" href="#answer-47" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) The field layout is mirrored, so paths need to mirror too</strong></p>
+<p>When starting from the left vs right, the goals and loaders are in different relative positions. To reach the same objectives, you need to mirror your turn directions (LEFT becomes RIGHT and vice versa).</p>
+<p><em>Reference:</em> Tutorial 5.3, "Planning Your Starting Position"</p>
+<hr />
+<h3 id="answer-48">Answer 48<a class="headerlink" href="#answer-48" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Turn directions are mirrored</strong></p>
+<p>The <code>autonomous_left()</code> turns RIGHT while <code>autonomous_right()</code> turns LEFT. This mirrors the path to account for the mirrored field layout when starting from opposite sides.</p>
+<p><em>Reference:</em> Tutorial 5.3, left vs right autonomous code</p>
+<hr />
+<h3 id="answer-49">Answer 49<a class="headerlink" href="#answer-49" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: 40 (or similar low value)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+</code></pre></div>
+<p>Lower velocity (like 40%) gives better control when pushing blocks. Higher speeds might scatter the blocks.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Push Multiple Blocks" code</p>
+<hr />
+<h3 id="answer-50">Answer 50<a class="headerlink" href="#answer-50" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>Pushing groups of blocks is more efficient because:</p>
+<ol>
+<li><strong>Saves time</strong> - One movement can score multiple blocks</li>
+<li><strong>Scoring requirement</strong> - Need 7+ blocks in 15 seconds; individual grabs are too slow</li>
+<li><strong>Better strategy</strong> - Field has 88 blocks scattered; grouping maximizes points</li>
+</ol>
+<p><em>Reference:</em> Tutorial 5.3, "Strategy: Block Scoring"</p>
+<hr />
+<h3 id="answer-51">Answer 51<a class="headerlink" href="#answer-51" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Drives forward while intake grabs a block</strong></p>
+<p>The sequence:
+1. <code>spin()</code> (non-blocking) starts the intake
+2. <code>drive_for()</code> (blocking) moves toward the block while intake runs
+3. <code>wait()</code> gives extra time to secure the block
+4. <code>stop()</code> stops the intake after block is grabbed</p>
+<p><em>Reference:</em> Tutorial 5.3, "With Intake Mechanism" code</p>
+<hr />
+<h3 id="answer-52">Answer 52<a class="headerlink" href="#answer-52" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) <code>intake_motor.spin(REVERSE)</code></strong></p>
+<p>To release a grabbed block, spin the intake in REVERSE direction. This ejects the block from the mechanism.</p>
+<p><em>Reference:</em> Tutorial 5.3, "grab_and_score()" function</p>
+<hr />
+<h3 id="answer-53">Answer 53<a class="headerlink" href="#answer-53" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer (examples):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># === PHASE 1: SCORE FIRST BLOCK (0-5 sec) ===</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="c1"># === PHASE 2: SECOND GOAL (5-10 sec) ===</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="c1"># === PHASE 3: CLEAR LOADER (10-15 sec) ===</span>
+</code></pre></div>
+<p>Or similar phase descriptions like:
+- PHASE 1: APPROACH / DRIVE TO BLOCK
+- PHASE 2: TURN AND PUSH / SCORE GOAL
+- PHASE 3: POSITION / FINAL PUSH</p>
+<p><em>Reference:</em> Tutorial 5.3, "15-Second Routine Template"</p>
+<hr />
+<h3 id="answer-54">Answer 54<a class="headerlink" href="#answer-54" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (B) Area with pre-stacked blocks to remove</strong></p>
+<p>Loaders are zones on the field where blocks are pre-stacked. Removing 3+ blocks from loaders is one of the Autonomous Win Point requirements.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Strategy: Clearing Loaders"</p>
+<hr />
+<h3 id="answer-55">Answer 55<a class="headerlink" href="#answer-55" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: True</strong></p>
+<p>Removing 3 or more blocks from loaders is one of the 4 requirements for the Autonomous Win Point.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Autonomous Win Point Requirements"</p>
+<hr />
+<h3 id="answer-56">Answer 56<a class="headerlink" href="#answer-56" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>Sketching your path first helps because:</p>
+<ol>
+<li><strong>Visualize the strategy</strong> - See the whole routine before coding</li>
+<li><strong>Identify obstacles</strong> - Notice walls, other blocks, or impossible paths</li>
+<li><strong>Estimate distances</strong> - Measure on paper before measuring on field</li>
+<li><strong>Plan timing</strong> - Count movements to ensure &lt;15 seconds</li>
+<li><strong>Communicate with team</strong> - Show others your plan</li>
+</ol>
+<p><em>Reference:</em> Tutorial 5.3, "Testing Your Autonomous - Step 1"</p>
+<hr />
+<h3 id="answer-57">Answer 57<a class="headerlink" href="#answer-57" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (C) Draw your path on paper</strong></p>
+<p>The testing process starts with:
+1. <strong>Draw your path</strong> (first!)
+2. Measure distances
+3. Code and test
+4. Iterate</p>
+<p><em>Reference:</em> Tutorial 5.3, "Testing Your Autonomous"</p>
+<hr />
+<h3 id="answer-58">Answer 58<a class="headerlink" href="#answer-58" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: (D) Both A and B</strong></p>
+<p>The code has TWO problems:
+1. <strong>No <code>setup_autonomous()</code> call</strong> - Missing velocity and timeout configuration
+2. <strong>Likely takes more than 15 seconds</strong> - 2000mm + 180° + 1500mm + 90° at default speeds is too long</p>
+<p><em>Reference:</em> Tutorial 5.3 and 5.1</p>
+<hr />
+<h3 id="answer-59">Answer 59<a class="headerlink" href="#answer-59" title="Permanent link">&para;</a></h3>
+<p><strong>Correct: 500 (or any reasonable test distance)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_auto</span><span class="p">():</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>    <span class="n">setup_autonomous</span><span class="p">()</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>    <span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>    <span class="c1"># Test this first, then add more</span>
+</code></pre></div>
+<p>Start with a single movement, verify it works, then add the next step incrementally.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Step 3: Code and Test"</p>
+<hr />
+<h3 id="answer-60">Answer 60<a class="headerlink" href="#answer-60" title="Permanent link">&para;</a></h3>
+<p><strong>Correct Answer:</strong></p>
+<p>The 4-step iterative testing process:</p>
+<ol>
+<li><strong>Run the routine</strong> - Execute the current code on the field</li>
+<li><strong>Watch where the robot ends up</strong> - Observe actual vs expected position</li>
+<li><strong>Adjust distances and angles</strong> - Tune the numbers based on observations</li>
+<li><strong>Repeat!</strong> - Test again with the adjustments</li>
+</ol>
+<p>This cycle continues until the routine is reliable.</p>
+<p><em>Reference:</em> Tutorial 5.3, "Step 4: Iterate"</p>
+<hr />
+<h1 id="quick-reference-cheat-sheet">Quick Reference Cheat Sheet<a class="headerlink" href="#quick-reference-cheat-sheet" title="Permanent link">&para;</a></h1>
+<h2 id="essential-commands">Essential Commands<a class="headerlink" href="#essential-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># Setup</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">setup_autonomous</span><span class="p">()</span>  <span class="c1"># Always call first!</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c1"># Driving</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">FORWARD</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">drive_for</span><span class="p">(</span><span class="n">REVERSE</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">MM</span><span class="p">)</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="c1"># Turning</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">turn_for</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">DEGREES</span><span class="p">)</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a><span class="c1"># Configuration</span>
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_drive_velocity</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_turn_velocity</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">PERCENT</span><span class="p">)</span>
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_stopping</span><span class="p">(</span><span class="n">BRAKE</span><span class="p">)</span>  <span class="c1"># or COAST, HOLD</span>
+<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="n">drivetrain</span><span class="o">.</span><span class="n">set_timeout</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>
+<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>
+<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="c1"># Waiting</span>
+<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a><span class="n">wait</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">MSEC</span><span class="p">)</span>    <span class="c1"># 0.2 seconds</span>
+<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="n">wait</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">SECONDS</span><span class="p">)</span>   <span class="c1"># 1 second</span>
+</code></pre></div>
+<h2 id="blocking-vs-non-blocking">Blocking vs Non-Blocking<a class="headerlink" href="#blocking-vs-non-blocking" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Blocking (Waits)</th>
+<th>Non-Blocking (Returns)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>drive_for()</code></td>
+<td><code>motor.spin()</code></td>
+</tr>
+<tr>
+<td><code>turn_for()</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>spin_for()</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="time-estimates-at-50-velocity">Time Estimates (at 50% velocity)<a class="headerlink" href="#time-estimates-at-50-velocity" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Approximate Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drive 500mm</td>
+<td>~1.0 second</td>
+</tr>
+<tr>
+<td>Drive 1000mm</td>
+<td>~2.0 seconds</td>
+</tr>
+<tr>
+<td>Turn 90°</td>
+<td>~0.8 seconds</td>
+</tr>
+<tr>
+<td>Turn 180°</td>
+<td>~1.6 seconds</td>
+</tr>
+<tr>
+<td>Stabilization wait</td>
+<td>0.15-0.2 seconds</td>
+</tr>
+</tbody>
+</table>
+<h2 id="push-back-autonomous-win-point">Push Back Autonomous Win Point<a class="headerlink" href="#push-back-autonomous-win-point" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>[ ] 7+ blocks of your color scored
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>[ ] Blocks in at least 3 different goals
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>[ ] 3+ blocks removed from loaders
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>[ ] Neither robot touching park zone barrier
+</code></pre></div>
+<h2 id="pattern-formulas">Pattern Formulas<a class="headerlink" href="#pattern-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Sides</th>
+<th>Turn Angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triangle</td>
+<td>3</td>
+<td>120° (360÷3)</td>
+</tr>
+<tr>
+<td>Square</td>
+<td>4</td>
+<td>90° (360÷4)</td>
+</tr>
+<tr>
+<td>Pentagon</td>
+<td>5</td>
+<td>72° (360÷5)</td>
+</tr>
+<tr>
+<td>Hexagon</td>
+<td>6</td>
+<td>60° (360÷6)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="optimization-checklist">Optimization Checklist<a class="headerlink" href="#optimization-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] Increase velocity (50% → 70%)</li>
+<li>[ ] Reduce waits (500ms → 150ms)</li>
+<li>[ ] Overlap non-blocking actions</li>
+<li>[ ] Remove unnecessary movements</li>
+<li>[ ] Optimize path (shorter distances)</li>
+</ul>
+<hr />
+<p><strong><a href="../03-push-back-autonomous/">← Previous: Push Back Autonomous</a></strong> | <strong><a href="../../06-competition-strategy/01-game-overview/">Next: Competition Strategy →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2970 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../01-physics-foundations/01-forces-and-motion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Parents Guide - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parents-guide-to-vex-v5-robotics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parents Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-quick-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Quick Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Quick Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-your-child-will-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Your Child Will Learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-competition-vex-v5-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Competition: VEX V5 Push Back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milestones-to-celebrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones to Celebrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-questions-to-ask-your-child" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Questions to Ask Your Child
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Questions to Ask Your Child">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-1-physics-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 1: Physics Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-2-robot-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 2: Robot Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-3-python-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 3: Python Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-4-drive-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 4: Drive Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-5-autonomous-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 5: Autonomous Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-6-competition-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 6: Competition Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-7-advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 7: Advanced Topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-deep-dive-appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Deep Dive Appendix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Deep Dive Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-scoring-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Scoring Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#career-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Career Connections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequently Asked Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-physics-foundations/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-quick-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Quick Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Quick Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-your-child-will-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Your Child Will Learn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-competition-vex-v5-push-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Competition: VEX V5 Push Back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Roadmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milestones-to-celebrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones to Celebrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-questions-to-ask-your-child" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Questions to Ask Your Child
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Questions to Ask Your Child">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-1-physics-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 1: Physics Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-2-robot-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 2: Robot Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-3-python-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 3: Python Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-4-drive-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 4: Drive Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-5-autonomous-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 5: Autonomous Programming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-6-competition-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 6: Competition Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-7-advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module 7: Advanced Topics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-deep-dive-appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Deep Dive Appendix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Deep Dive Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-scoring-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Scoring Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#career-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Career Connections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequently-asked-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequently Asked Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navigation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="parents-guide-to-vex-v5-robotics">Parent's Guide to VEX V5 Robotics<a class="headerlink" href="#parents-guide-to-vex-v5-robotics" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>A comprehensive guide to understanding your child's robotics journey and asking the right questions.</p>
+</blockquote>
+<hr />
+<h2 id="part-1-quick-overview">Part 1: Quick Overview<a class="headerlink" href="#part-1-quick-overview" title="Permanent link">&para;</a></h2>
+<h3 id="what-your-child-will-learn">What Your Child Will Learn<a class="headerlink" href="#what-your-child-will-learn" title="Permanent link">&para;</a></h3>
+<p>Your child is embarking on a hands-on journey into robotics, programming, and competitive strategy through the <strong>VEX V5 Push Back</strong> competition (2025-2026 season). This curriculum is designed for 8th-grade students with zero prior coding experience and takes approximately <strong>5 hours</strong> across multiple sessions.</p>
+<p>By the end, your child will be able to:
+- Write Python code that controls a physical robot
+- Understand the physics behind robot movement (forces, gears, friction)
+- Design autonomous routines that run without human control
+- Develop strategic thinking for competitive matches
+- Work as part of an alliance team under time pressure</p>
+<h3 id="the-competition-vex-v5-push-back">The Competition: VEX V5 Push Back<a class="headerlink" href="#the-competition-vex-v5-push-back" title="Permanent link">&para;</a></h3>
+<p><strong>The basics:</strong> Two alliances (2 robots each) compete on a 12' × 12' field. The goal is to push colored blocks into scoring goals while defending your zones.</p>
+<p><strong>Match structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autonomous</td>
+<td>15 seconds</td>
+<td>Robot runs pre-programmed code (no human control)</td>
+</tr>
+<tr>
+<td>Driver Control</td>
+<td>1 min 45 sec</td>
+<td>Human driver controls the robot</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why it matters:</strong> Your child learns that robotics isn't just about building—it's about strategy, timing, coding, and teamwork.</p>
+<h3 id="learning-roadmap">Learning Roadmap<a class="headerlink" href="#learning-roadmap" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Time</th>
+<th>What They Learn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0. Welcome</td>
+<td>15 min</td>
+<td>Code structure, development setup</td>
+</tr>
+<tr>
+<td>1. Physics Foundations</td>
+<td>45 min</td>
+<td>Forces, gears, friction—why robots move</td>
+</tr>
+<tr>
+<td>2. Robot Anatomy</td>
+<td>30 min</td>
+<td>Brain, motors, sensors—what's inside</td>
+</tr>
+<tr>
+<td>3. Python Basics</td>
+<td>45 min</td>
+<td>Variables, functions, loops—how to code</td>
+</tr>
+<tr>
+<td>4. Drive Control</td>
+<td>30 min</td>
+<td>Tank/arcade drive, driver skills</td>
+</tr>
+<tr>
+<td>5. Autonomous</td>
+<td>45 min</td>
+<td>Pre-programmed movements, timing</td>
+</tr>
+<tr>
+<td>6. Competition Strategy</td>
+<td>30 min</td>
+<td>Scoring, alliance coordination</td>
+</tr>
+<tr>
+<td>7. Advanced Topics</td>
+<td>60 min</td>
+<td>PID control, sensors (optional)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="milestones-to-celebrate">Milestones to Celebrate<a class="headerlink" href="#milestones-to-celebrate" title="Permanent link">&para;</a></h3>
+<p>These are moments worth acknowledging:</p>
+<ol>
+<li><strong>First successful code run</strong> - The robot responds to their code</li>
+<li><strong>Understanding motor reversal</strong> - They can explain why right motors spin "backward"</li>
+<li><strong>Tank vs. arcade explanation</strong> - They know the trade-offs of each control scheme</li>
+<li><strong>First autonomous routine</strong> - Robot moves on its own following their code</li>
+<li><strong>Strategic thinking</strong> - They discuss parking vs. scoring decisions</li>
+<li><strong>Debugging success</strong> - They fix a problem without help</li>
+</ol>
+<hr />
+<h2 id="part-2-questions-to-ask-your-child">Part 2: Questions to Ask Your Child<a class="headerlink" href="#part-2-questions-to-ask-your-child" title="Permanent link">&para;</a></h2>
+<p>Use these questions to spark conversation and check understanding. Each includes a brief answer hint so you can follow along.</p>
+<h3 id="module-1-physics-foundations">Module 1: Physics Foundations<a class="headerlink" href="#module-1-physics-foundations" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why does a heavier robot push other robots more easily, but also move slower?</strong>
+<em>(Newton's 2nd Law: Force = Mass × Acceleration. More mass means more pushing force, but the same motor power results in less acceleration.)</em></p>
+<p><strong>2. What happens if your robot's wheels spin but it doesn't move?</strong>
+<em>(The wheels have overcome friction—they're slipping. This means traction is lost, possibly because the robot is too light or the floor is slippery.)</em></p>
+<p><strong>3. Why would you choose a red motor cartridge over a blue one?</strong>
+<em>(Red gives high torque (pushing power) but low speed. Blue gives high speed but low torque. It's a trade-off based on what the robot needs to do.)</em></p>
+<p><strong>4. If two robots are pushing each other and neither moves, what's happening?</strong>
+<em>(The forces are balanced—Newton's 3rd Law. Each robot pushes equally on the other.)</em></p>
+<p><strong>5. Why do some wheels have rollers on them?</strong>
+<em>(Omni wheels have rollers that allow sideways sliding, making turning easier. Traction wheels grip in all directions but make turns harder.)</em></p>
+<h3 id="module-2-robot-anatomy">Module 2: Robot Anatomy<a class="headerlink" href="#module-2-robot-anatomy" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why does the robot need to know which port each motor is connected to?</strong>
+<em>(The code sends commands to specific port numbers. If a motor is on port 1, the code must reference port 1 to control it.)</em></p>
+<p><strong>2. Why are the right-side motors "reversed" in the code?</strong>
+<em>(Motors on opposite sides face opposite directions. Without reversing, telling both sides to spin "forward" would make the robot turn instead of drive straight.)</em></p>
+<p><strong>3. What's the difference between the Brain and the Controller?</strong>
+<em>(The Brain is the robot's computer—it runs the code. The Controller is what the driver holds—it sends joystick and button inputs to the Brain wirelessly.)</em></p>
+<p><strong>4. What can sensors tell the robot that the driver can't see?</strong>
+<em>(Exact heading angle, precise distance to objects, whether it's the right color block. Humans estimate; sensors measure precisely.)</em></p>
+<p><strong>5. Why does the robot need to "calibrate" before using certain sensors?</strong>
+<em>(The inertial sensor needs to establish a reference point for "straight." If it calibrates while moving, all readings will be off.)</em></p>
+<h3 id="module-3-python-basics">Module 3: Python Basics<a class="headerlink" href="#module-3-python-basics" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why do programmers create functions instead of writing the same code multiple times?</strong>
+<em>(Functions are reusable. Write once, use anywhere. If you need to fix something, you fix it in one place.)</em></p>
+<p><strong>2. What's the difference between a variable that stores a number vs. one that stores True/False?</strong>
+<em>(Numbers (int/float) are for calculations like speed. Booleans (True/False) are for decisions like "is the intake running?")</em></p>
+<p><strong>3. Why would the robot do something forever using a loop?</strong>
+<em>(Driver control needs to continuously read joystick inputs. Without a loop, it would read once and stop listening.)</em></p>
+<p><strong>4. What happens if the code says "turn 90 degrees" but doesn't wait for it to finish?</strong>
+<em>(The next command might run immediately, overlapping with the turn. The robot could try to drive forward while still turning.)</em></p>
+<p><strong>5. Why would you draw a flowchart before writing code?</strong>
+<em>(Flowcharts show the logic without worrying about syntax. It's easier to spot problems in a diagram than in code.)</em></p>
+<h3 id="module-4-drive-control">Module 4: Drive Control<a class="headerlink" href="#module-4-drive-control" title="Permanent link">&para;</a></h3>
+<p><strong>1. When would tank drive be better than arcade drive?</strong>
+<em>(Tank drive gives independent control of each side, making pivot turns and defensive pushing easier. Arcade is smoother for curves but less precise.)</em></p>
+<p><strong>2. Why does the code ignore small joystick movements (deadband)?</strong>
+<em>(Real joysticks aren't perfectly centered—they drift slightly. Without deadband, the robot would creep even when nobody touches the controller.)</em></p>
+<p><strong>3. What's the advantage of using a control "curve" that makes small movements even smaller?</strong>
+<em>(Precision. When pushing blocks into a goal, you need tiny adjustments. A curve lets you have fine control at low speeds and full power at high speeds.)</em></p>
+<p><strong>4. Why practice driving in squares and figure-8s?</strong>
+<em>(These patterns develop muscle memory for common movements—straight lines, turns, and smooth curves. Competition drivers need these instinctively.)</em></p>
+<p><strong>5. What should the driver prioritize in the last 10 seconds of a match?</strong>
+<em>(Parking. Two robots parked = 30 points, which often outweighs any blocks they could score in that time.)</em></p>
+<h3 id="module-5-autonomous-programming">Module 5: Autonomous Programming<a class="headerlink" href="#module-5-autonomous-programming" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why is the 15-second autonomous period so important?</strong>
+<em>(It can earn a 10-point bonus and score blocks before the opponent. A good autonomous can determine the match outcome.)</em></p>
+<p><strong>2. What's the risk of making the robot move too fast during autonomous?</strong>
+<em>(Overshooting. The robot might drive past its target or turn too far, throwing off all subsequent movements.)</em></p>
+<p><strong>3. Why do autonomous routines include "wait" commands between movements?</strong>
+<em>(To let the robot stabilize. Momentum continues after a command ends—a brief pause prevents drift.)</em></p>
+<p><strong>4. How do you fit multiple scoring actions into just 15 seconds?</strong>
+<em>(Optimize: faster speeds where safe, shorter waits, and overlapping actions like running the intake while driving.)</em></p>
+<p><strong>5. What does "blocking vs. non-blocking" mean in robot commands?</strong>
+<em>(Blocking commands wait until finished (drive 500mm, then continue). Non-blocking commands start and return immediately (start intake, keep going). This enables multitasking.)</em></p>
+<h3 id="module-6-competition-strategy">Module 6: Competition Strategy<a class="headerlink" href="#module-6-competition-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why is parking two robots worth so much more than parking one?</strong>
+<em>(8 points for one vs. 30 for both. It's a teamwork incentive—coordinating with your alliance partner is heavily rewarded.)</em></p>
+<p><strong>2. How can removing opponent blocks from a goal be worth more than just scoring your own?</strong>
+<em>(Point swing. If they had zone control (10 points to them), removing blocks gives you control (+10 to you). That's a 20-point shift from one action.)</em></p>
+<p><strong>3. What should alliance partners decide before a match starts?</strong>
+<em>(Who covers which field area, what autonomous routines to run (avoiding collisions), and who parks first at the end.)</em></p>
+<p><strong>4. When would you stop trying to score and focus on defense?</strong>
+<em>(When you're ahead and time is short. Defending a lead by blocking opponents can be more valuable than risking a turnover.)</em></p>
+<p><strong>5. What's the difference between a match and a skills challenge?</strong>
+<em>(Match: 2 vs. 2, 2 minutes. Skills: solo robot, 60 seconds, trying to maximize points alone. Skills determines tournament rankings.)</em></p>
+<h3 id="module-7-advanced-topics">Module 7: Advanced Topics<a class="headerlink" href="#module-7-advanced-topics" title="Permanent link">&para;</a></h3>
+<p><strong>1. Why does smooth "proportional" control work better than just "on/off" control?</strong>
+<em>(On/off overshoots the target and oscillates. Proportional slows down as you approach, stopping precisely.)</em></p>
+<p><strong>2. What does the "I" in PID help solve?</strong>
+<em>(Steady-state error. If friction prevents reaching the exact target, accumulated error builds up and adds extra push to overcome it.)</em></p>
+<p><strong>3. Why would a robot use a sensor instead of just timing its movements?</strong>
+<em>(Conditions change. Battery level affects speed, wheels slip, obstacles appear. Sensors let the robot react to what's actually happening.)</em></p>
+<p><strong>4. In a 60-second skills run, why is time budgeting critical?</strong>
+<em>(You must reserve time for parking. Spending too long in one area leaves no time for others—or worse, forgetting to park costs 8+ points.)</em></p>
+<p><strong>5. What does "closed-loop control" mean?</strong>
+<em>(The robot measures its actual state (via sensors) and adjusts continuously. Open-loop just guesses based on time.)</em></p>
+<hr />
+<h2 id="part-3-deep-dive-appendix">Part 3: Deep Dive Appendix<a class="headerlink" href="#part-3-deep-dive-appendix" title="Permanent link">&para;</a></h2>
+<p><em>This section is optional reading for parents who want more detail.</em></p>
+<h3 id="complete-scoring-reference">Complete Scoring Reference<a class="headerlink" href="#complete-scoring-reference" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Points</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block scored</td>
+<td>3</td>
+<td>Each block pushed into any goal</td>
+</tr>
+<tr>
+<td>Long goal zone control</td>
+<td>10</td>
+<td>Having more blocks than opponent in left or right goal</td>
+</tr>
+<tr>
+<td>Center goal upper zone</td>
+<td>8</td>
+<td>Majority in upper section of center goal</td>
+</tr>
+<tr>
+<td>Center goal lower zone</td>
+<td>6</td>
+<td>Majority in lower section of center goal</td>
+</tr>
+<tr>
+<td>1 robot parked</td>
+<td>8</td>
+<td>Your robot in alliance park zone at end</td>
+</tr>
+<tr>
+<td>2 robots parked</td>
+<td>30</td>
+<td>Both alliance robots parked (same zone or separate)</td>
+</tr>
+<tr>
+<td>Autonomous bonus</td>
+<td>10</td>
+<td>Win the 15-second autonomous period</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Autonomous Win Point requirements</strong> (all must be met):
+1. Score 7+ blocks of your alliance color
+2. Blocks in at least 3 different goals
+3. Remove 3+ blocks from loaders
+4. Neither robot touching park zone barrier</p>
+<h3 id="career-connections">Career Connections<a class="headerlink" href="#career-connections" title="Permanent link">&para;</a></h3>
+<p>This curriculum connects directly to professional fields:</p>
+<p><strong>Mechanical Engineering</strong>
+- Physics of motion, forces, torque
+- Gear ratios and trade-offs
+- Robot design decisions</p>
+<p><strong>Software Engineering</strong>
+- Python programming fundamentals
+- Control systems (PID)
+- Debugging and testing</p>
+<p><strong>Electrical Engineering</strong>
+- Sensor integration
+- Motor control and power
+- Wiring and connections</p>
+<p><strong>Product Management</strong>
+- Trade-off analysis (speed vs. torque, scoring vs. parking)
+- Prioritization under constraints
+- User experience (driver ergonomics)</p>
+<p><strong>Program Management</strong>
+- Time budgeting (15-second autonomous, 60-second skills)
+- Coordination with partners
+- Risk management and fallback plans</p>
+<p><strong>Data Science</strong>
+- Sensor data interpretation
+- Feedback loops
+- Optimization algorithms</p>
+<h3 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Simple Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autonomous</strong></td>
+<td>The 15-second period where the robot runs pre-written code without human control</td>
+</tr>
+<tr>
+<td><strong>Alliance</strong></td>
+<td>Your team of 2 robots working together against the opposing 2</td>
+</tr>
+<tr>
+<td><strong>Deadband</strong></td>
+<td>Ignoring small joystick movements to prevent drift</td>
+</tr>
+<tr>
+<td><strong>Drivetrain</strong></td>
+<td>The motors and wheels that move the robot</td>
+</tr>
+<tr>
+<td><strong>Encoder</strong></td>
+<td>Sensor inside motors that tracks rotation precisely</td>
+</tr>
+<tr>
+<td><strong>Gear ratio</strong></td>
+<td>Relationship between motor speed and wheel speed</td>
+</tr>
+<tr>
+<td><strong>IMU (Inertial sensor)</strong></td>
+<td>Sensor that knows which direction the robot faces</td>
+</tr>
+<tr>
+<td><strong>Motor cartridge</strong></td>
+<td>Color-coded gear set (blue/green/red) that sets speed/torque</td>
+</tr>
+<tr>
+<td><strong>PID</strong></td>
+<td>Control algorithm for precise movements (Proportional-Integral-Derivative)</td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>Numbered connection point on the Brain (1-21)</td>
+</tr>
+<tr>
+<td><strong>Skills challenge</strong></td>
+<td>Solo 60-second run to score maximum points</td>
+</tr>
+<tr>
+<td><strong>Tank drive</strong></td>
+<td>Control scheme: left stick = left wheels, right stick = right wheels</td>
+</tr>
+<tr>
+<td><strong>Arcade drive</strong></td>
+<td>Control scheme: one stick controls forward/backward and turning</td>
+</tr>
+<tr>
+<td><strong>Torque</strong></td>
+<td>Rotational force (twisting power)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h3>
+<p><strong>What if my child gets stuck?</strong>
+Encourage them to re-read the tutorial section and try the review questions. Debugging is part of learning—resist solving it for them. If truly stuck, the troubleshooting appendix covers common issues.</p>
+<p><strong>How much should I help?</strong>
+Ask questions rather than giving answers. "What did you expect to happen?" and "What actually happened?" are more valuable than fixing the code yourself.</p>
+<p><strong>What equipment is needed?</strong>
+- Computer with VS Code installed
+- VEX V5 robot kit (provided by school/team)
+- The code repository (already set up)</p>
+<p><strong>Can I watch competitions?</strong>
+Absolutely! VEX competitions are open to spectators. Watching matches helps you understand what your child is working toward.</p>
+<p><strong>What if my child wants to go deeper?</strong>
+Module 7 (Advanced Topics) is optional and covers sophisticated concepts like PID control. Many students also explore custom mechanisms, vision sensors, or more complex autonomous routines.</p>
+<hr />
+<h2 id="navigation">Navigation<a class="headerlink" href="#navigation" title="Permanent link">&para;</a></h2>
+<p><strong>← Previous:</strong> <a href="../">Welcome to VEX V5 Robotics</a></p>
+<p><strong>→ Next:</strong> <a href="../../01-physics-foundations/01-forces-and-motion/">Physics Foundations: Forces and Motion</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

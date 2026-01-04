@@ -1,0 +1,3366 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn VEX V5 robotics programming for the 2025-2026 Push Back competition">
+      
+      
+        <meta name="author" content="VEX Team">
+      
+      
+      
+        <link rel="prev" href="../03-friction-and-traction/">
+      
+      
+        <link rel="next" href="../../02-robot-anatomy/01-brain-and-controller/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Review Q&A - VEX V5 Push Back Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#physics-foundations-qa-review" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-header__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VEX V5 Push Back Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Review Q&A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-welcome/" class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-forces-and-motion/" class="md-tabs__link">
+          
+  
+  
+  Physics Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-tabs__link">
+          
+  
+  
+  Robot Anatomy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-python-basics/00-flowchart/" class="md-tabs__link">
+          
+  
+  
+  Python Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-drive-control/00-controller-basics/" class="md-tabs__link">
+          
+  
+  
+  Drive Control
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-autonomous/01-basic-movements/" class="md-tabs__link">
+          
+  
+  
+  Autonomous
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-competition-strategy/01-game-overview/" class="md-tabs__link">
+          
+  
+  
+  Competition Strategy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-advanced/01-pid-control/" class="md-tabs__link">
+          
+  
+  
+  Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../appendix/quick-reference/" class="md-tabs__link">
+          
+  
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VEX V5 Push Back Tutorials" class="md-nav__button md-logo" aria-label="VEX V5 Push Back Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VEX V5 Push Back Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/anowarislam/vex-pushback" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-welcome/01-parents-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parents Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-forces-and-motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Forces and Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-gears-and-torque/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gears and Torque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-friction-and-traction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Friction and Traction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-true-or-false-15-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: True or False (15 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1: True or False (15 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forces-and-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forces and Motion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gears-and-torque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gears and Torque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friction-and-traction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friction and Traction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-multiple-choice-20-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Multiple Choice (20 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Multiple Choice (20 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forces-and-motion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forces and Motion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gears-and-torque_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gears and Torque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friction-and-traction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friction and Traction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-fill-in-the-blank-10-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Fill in the Blank (10 Questions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-calculation-problems-10-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Calculation Problems (10 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Calculation Problems (10 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#force-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#momentum-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Momentum Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gear-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gear Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speed Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-scenario-based-questions-8-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Scenario-Based Questions (8 Questions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-match-the-terms-15-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Match the Terms (15 Pairs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 6: Match the Terms (15 Pairs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-a-concepts-and-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set A: Concepts and Definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-b-analogies-and-physics-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set B: Analogies and Physics Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-c-wheel-types-and-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set C: Wheel Types and Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-d-cartridges-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set D: Cartridges and Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-diagram-labeling-3-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 7: Diagram Labeling (3 Diagrams)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 7: Diagram Labeling (3 Diagrams)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-1-forces-on-a-moving-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 1: Forces on a Moving Robot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-2-gear-ratio-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 2: Gear Ratio Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-3-wheel-type-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 3: Wheel Type Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot Anatomy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robot Anatomy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/01-brain-and-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brain and Controller
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/02-motors-and-gears/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motors and Gears
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/03-sensors-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensors Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-robot-anatomy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/00-flowchart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking with Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/01-variables-and-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables and Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/02-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/03-loops-and-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops and Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-python-basics/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drive Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Drive Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/00-controller-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/01-tank-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tank Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/02-arcade-drive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcade Drive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/03-driver-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Driver Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-drive-control/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomous
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Autonomous
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/01-basic-movements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Movements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/02-timing-and-sequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timing and Sequences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/03-push-back-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Back Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-autonomous/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competition Strategy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Competition Strategy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/01-game-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/02-scoring-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scoring Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/03-alliance-coordination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alliance Coordination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-competition-strategy/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/01-pid-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PID Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/02-sensor-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensor Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/03-skills-autonomous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Autonomous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-advanced/04-review-qa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Review Q&A
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendix
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-true-or-false-15-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 1: True or False (15 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1: True or False (15 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forces-and-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forces and Motion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gears-and-torque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gears and Torque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friction-and-traction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friction and Traction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-multiple-choice-20-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 2: Multiple Choice (20 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2: Multiple Choice (20 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forces-and-motion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forces and Motion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gears-and-torque_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gears and Torque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#friction-and-traction_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Friction and Traction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-fill-in-the-blank-10-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 3: Fill in the Blank (10 Questions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-calculation-problems-10-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 4: Calculation Problems (10 Questions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 4: Calculation Problems (10 Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#force-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#momentum-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Momentum Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gear-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gear Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Speed Calculations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-5-scenario-based-questions-8-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 5: Scenario-Based Questions (8 Questions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-6-match-the-terms-15-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 6: Match the Terms (15 Pairs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 6: Match the Terms (15 Pairs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-a-concepts-and-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set A: Concepts and Definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-b-analogies-and-physics-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set B: Analogies and Physics Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-c-wheel-types-and-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set C: Wheel Types and Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-d-cartridges-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set D: Cartridges and Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-7-diagram-labeling-3-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section 7: Diagram Labeling (3 Diagrams)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 7: Diagram Labeling (3 Diagrams)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-1-forces-on-a-moving-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 1: Forces on a Moving Robot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-2-gear-ratio-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 2: Gear Ratio Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-3-wheel-type-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram 3: Wheel Type Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="physics-foundations-qa-review">Physics Foundations: Q&amp;A Review<a class="headerlink" href="#physics-foundations-qa-review" title="Permanent link">&para;</a></h1>
+<p><strong>Use this document to test your understanding of Tutorials 1.1-1.3</strong></p>
+<p>Complete all sections, then check your answers at the end. Aim for 80% or better before moving on!</p>
+<hr />
+<h2 id="section-1-true-or-false-15-questions">Section 1: True or False (15 Questions)<a class="headerlink" href="#section-1-true-or-false-15-questions" title="Permanent link">&para;</a></h2>
+<p>Write <strong>T</strong> (True) or <strong>F</strong> (False) for each statement.</p>
+<h3 id="forces-and-motion">Forces and Motion<a class="headerlink" href="#forces-and-motion" title="Permanent link">&para;</a></h3>
+<ol>
+<li>___ An object at rest will stay at rest forever unless a force acts on it.</li>
+<li>___ A heavier robot needs more force to accelerate at the same rate as a lighter robot.</li>
+<li>___ Momentum only depends on how fast an object is moving.</li>
+<li>___ If you double the force on a robot, its acceleration doubles (assuming mass stays the same).</li>
+<li>___ A light robot is always better than a heavy robot in competition.</li>
+</ol>
+<h3 id="gears-and-torque">Gears and Torque<a class="headerlink" href="#gears-and-torque" title="Permanent link">&para;</a></h3>
+<ol>
+<li>___ The BLUE (6:1) gear cartridge provides the most torque.</li>
+<li>___ A higher gear ratio means more speed but less torque.</li>
+<li>___ The GREEN (18:1) cartridge is a good choice for drivetrains because it balances speed and torque.</li>
+<li>___ If you change the gear cartridge in code, you don't need to change it physically in the motor.</li>
+<li>___ Bigger wheels cover more distance per rotation but need more torque to accelerate.</li>
+</ol>
+<h3 id="friction-and-traction">Friction and Traction<a class="headerlink" href="#friction-and-traction" title="Permanent link">&para;</a></h3>
+<ol>
+<li>___ Static friction is weaker than kinetic (moving) friction.</li>
+<li>___ Omni wheels have rollers that allow them to slide sideways.</li>
+<li>___ Traction wheels are the best choice for easy turning.</li>
+<li>___ Keeping the center of gravity low makes a robot more stable.</li>
+<li>___ A wider track width makes a robot turn faster.</li>
+</ol>
+<hr />
+<h2 id="section-2-multiple-choice-20-questions">Section 2: Multiple Choice (20 Questions)<a class="headerlink" href="#section-2-multiple-choice-20-questions" title="Permanent link">&para;</a></h2>
+<p>Circle the best answer for each question.</p>
+<h3 id="forces-and-motion_1">Forces and Motion<a class="headerlink" href="#forces-and-motion_1" title="Permanent link">&para;</a></h3>
+<p><strong>1.</strong> Newton's First Law says that objects:
+- A) Always accelerate when force is applied
+- B) Stay at rest or keep moving unless acted on by a force
+- C) Move faster when they're heavier
+- D) Stop immediately when force is removed</p>
+<p><strong>2.</strong> A robot weighs 10 kg and accelerates at 2 m/s². What force do the motors provide?
+- A) 5 Newtons
+- B) 12 Newtons
+- C) 20 Newtons
+- D) 8 Newtons</p>
+<p><strong>3.</strong> Which has MORE momentum: a 5 kg robot at 4 m/s OR a 10 kg robot at 2 m/s?
+- A) The 5 kg robot
+- B) The 10 kg robot
+- C) They have equal momentum
+- D) Cannot determine without more information</p>
+<p><strong>4.</strong> In Push Back, why might you want a heavier robot?
+- A) It's faster
+- B) It's harder to push around
+- C) It uses less battery
+- D) It turns more easily</p>
+<p><strong>5.</strong> The <code>clamp()</code> function in code is used to:
+- A) Connect motors together
+- B) Limit values between a minimum and maximum
+- C) Calculate momentum
+- D) Measure friction</p>
+<p><strong>6.</strong> When you push an opponent robot, they push back on you. This is:
+- A) Newton's First Law
+- B) Newton's Second Law
+- C) Newton's Third Law
+- D) The Law of Friction</p>
+<p><strong>7.</strong> If you want a robot to accelerate faster, you should:
+- A) Add more weight
+- B) Reduce motor power
+- C) Increase motor force
+- D) Use smaller wheels</p>
+<h3 id="gears-and-torque_1">Gears and Torque<a class="headerlink" href="#gears-and-torque_1" title="Permanent link">&para;</a></h3>
+<p><strong>8.</strong> Torque is best described as:
+- A) Speed of rotation
+- B) Twisting or rotational force
+- C) Distance traveled per minute
+- D) The weight of a gear</p>
+<p><strong>9.</strong> Which VEX V5 cartridge should you use for a flywheel that needs to spin very fast?
+- A) RED (36:1)
+- B) GREEN (18:1)
+- C) BLUE (6:1)
+- D) Any cartridge works the same</p>
+<p><strong>10.</strong> What does a 36:1 gear ratio mean?
+- A) The motor spins 36 times for every 1 output rotation
+- B) The output is 36 times faster than the motor
+- C) The motor provides 36 Newtons of force
+- D) The wheel is 36 inches in diameter</p>
+<p><strong>11.</strong> If the GREEN cartridge gives 200 RPM, what does the RED cartridge give?
+- A) 600 RPM
+- B) 400 RPM
+- C) 100 RPM
+- D) 50 RPM</p>
+<p><strong>12.</strong> You need to lift a heavy arm. Which cartridge provides the most torque?
+- A) BLUE (6:1)
+- B) GREEN (18:1)
+- C) RED (36:1)
+- D) They all provide the same torque</p>
+<p><strong>13.</strong> Your robot uses 4-inch wheels with GREEN cartridges (200 RPM). What is the wheel circumference?
+- A) About 100 mm
+- B) About 200 mm
+- C) About 319 mm
+- D) About 400 mm</p>
+<p><strong>14.</strong> If you switch from GREEN (18:1) to BLUE (6:1) cartridges, your robot will:
+- A) Be slower with more pushing power
+- B) Be faster with less pushing power
+- C) Have the same speed and power
+- D) Use less battery</p>
+<h3 id="friction-and-traction_1">Friction and Traction<a class="headerlink" href="#friction-and-traction_1" title="Permanent link">&para;</a></h3>
+<p><strong>15.</strong> Why do omni wheels make turning easier?
+- A) They're lighter
+- B) They have rollers that slide sideways
+- C) They spin faster
+- D) They have more friction</p>
+<p><strong>16.</strong> Which wheel type provides the MOST friction/grip?
+- A) Omni wheels
+- B) Traction wheels
+- C) Mecanum wheels
+- D) All wheels have equal friction</p>
+<p><strong>17.</strong> Static friction helps your robot because:
+- A) It makes the robot slide easier
+- B) Wheels grip the floor before the robot moves
+- C) It reduces battery usage
+- D) It makes turns faster</p>
+<p><strong>18.</strong> A robot with a HIGH center of gravity is:
+- A) More stable
+- B) Less likely to tip
+- C) More likely to tip
+- D) Faster</p>
+<p><strong>19.</strong> In Push Back, a defensive robot should probably use:
+- A) All omni wheels for speed
+- B) Traction wheels for grip
+- C) Mecanum wheels for strafing
+- D) No wheels</p>
+<p><strong>20.</strong> What happens when wheels spin faster than they can grip the floor?
+- A) The robot accelerates faster
+- B) The wheels "burn out" and the robot doesn't move efficiently
+- C) The robot stops immediately
+- D) Friction increases</p>
+<hr />
+<h2 id="section-3-fill-in-the-blank-10-questions">Section 3: Fill in the Blank (10 Questions)<a class="headerlink" href="#section-3-fill-in-the-blank-10-questions" title="Permanent link">&para;</a></h2>
+<p>Complete each statement with the correct word or value.</p>
+<ol>
+<li>
+<p>Force = <strong><em>_</em></strong> × Acceleration</p>
+</li>
+<li>
+<p>Momentum = Mass × <strong><em>_</em></strong></p>
+</li>
+<li>
+<p>The BLUE gear cartridge spins at <strong><em>_</em></strong> RPM.</p>
+</li>
+<li>
+<p>The GREEN gear cartridge has a ratio of <strong><em>_</em></strong>:1.</p>
+</li>
+<li>
+<p>Higher gear ratios provide more <strong><em>_</em></strong> but less speed.</p>
+</li>
+<li>
+<p><strong><em>_</em></strong> friction is the force that prevents objects from sliding when they're not moving yet.</p>
+</li>
+<li>
+<p><strong><em>_</em></strong> wheels have small rollers around their edges.</p>
+</li>
+<li>
+<p>The center of <strong><em>_</em></strong> is the balance point of a robot.</p>
+</li>
+<li>
+<p>Your robot's track width is the distance between the <strong><em>_</em></strong> and <strong><em>_</em></strong> wheels.</p>
+</li>
+<li>
+<p>When wheels spin but the robot doesn't move, there's not enough <strong><em>_</em></strong>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="section-4-calculation-problems-10-questions">Section 4: Calculation Problems (10 Questions)<a class="headerlink" href="#section-4-calculation-problems-10-questions" title="Permanent link">&para;</a></h2>
+<p>Show your work for each problem.</p>
+<h3 id="force-calculations">Force Calculations<a class="headerlink" href="#force-calculations" title="Permanent link">&para;</a></h3>
+<p><strong>1.</strong> Robot A weighs 6 kg. What force is needed to accelerate it at 3 m/s²?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>F = m × a
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>F = ___ × ___
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>F = ___ Newtons
+</code></pre></div></p>
+<p><strong>2.</strong> Robot B weighs 12 kg and its motors provide 24 Newtons of force. What is its acceleration?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>a = F ÷ m
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>a = ___ ÷ ___
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>a = ___ m/s²
+</code></pre></div></p>
+<p><strong>3.</strong> You want Robot C (8 kg) to accelerate at 4 m/s². What force is needed?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>F = ___ × ___
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>F = ___ Newtons
+</code></pre></div></p>
+<h3 id="momentum-calculations">Momentum Calculations<a class="headerlink" href="#momentum-calculations" title="Permanent link">&para;</a></h3>
+<p><strong>4.</strong> Calculate the momentum of a 7 kg robot moving at 3 m/s.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>p = m × v
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>p = ___ × ___
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>p = ___ kg·m/s
+</code></pre></div></p>
+<p><strong>5.</strong> Robot X (4 kg, 5 m/s) vs Robot Y (10 kg, 2 m/s). Which has more momentum?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Robot X: p = ___ × ___ = ___ kg·m/s
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Robot Y: p = ___ × ___ = ___ kg·m/s
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Winner: Robot ___
+</code></pre></div></p>
+<h3 id="gear-calculations">Gear Calculations<a class="headerlink" href="#gear-calculations" title="Permanent link">&para;</a></h3>
+<p><strong>6.</strong> A motor provides 2 N·m of torque through a RED (36:1) cartridge. What is the output torque?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Output Torque = Input Torque × Gear Ratio
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Output Torque = ___ × ___
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Output Torque = ___ N·m
+</code></pre></div></p>
+<p><strong>7.</strong> With BLUE cartridges (600 RPM) and 4" wheels (319 mm circumference), how far does the robot travel in 1 minute?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Distance = RPM × Circumference
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Distance = ___ × ___ mm
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Distance = ___ mm = ___ meters
+</code></pre></div></p>
+<p><strong>8.</strong> If you have a 60-tooth wheel gear and a 12-tooth motor gear, what is the external gear ratio?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Ratio = ___ ÷ ___
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Ratio = ___:1
+</code></pre></div></p>
+<h3 id="speed-calculations">Speed Calculations<a class="headerlink" href="#speed-calculations" title="Permanent link">&para;</a></h3>
+<p><strong>9.</strong> Robot with GREEN cartridge (200 RPM), 4" wheels (319 mm). What is the speed in m/s?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Distance per minute = 200 × 319 mm = ___ mm
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Speed = ___ mm ÷ 60 seconds = ___ mm/s
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Speed = ___ m/s
+</code></pre></div></p>
+<p><strong>10.</strong> If you switch to RED cartridges (100 RPM) with the same wheels, what's the new speed?
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Speed = (100 × 319) ÷ 60 = ___ mm/s = ___ m/s
+</code></pre></div></p>
+<hr />
+<h2 id="section-5-scenario-based-questions-8-questions">Section 5: Scenario-Based Questions (8 Questions)<a class="headerlink" href="#section-5-scenario-based-questions-8-questions" title="Permanent link">&para;</a></h2>
+<p>Choose the best solution for each competition scenario.</p>
+<p><strong>1.</strong> Your robot keeps getting pushed backward by opponents. What could you change? (Select all that apply)
+- [ ] A) Switch from omni to traction wheels
+- [ ] B) Add weight to the robot
+- [ ] C) Use RED cartridges instead of GREEN
+- [ ] D) Use BLUE cartridges instead of GREEN</p>
+<p><strong>2.</strong> Your drivetrain is too slow but you have plenty of pushing power. What should you change?
+- A) Switch to RED (36:1) cartridges
+- B) Switch to BLUE (6:1) cartridges
+- C) Add more weight
+- D) Use smaller wheels</p>
+<p><strong>3.</strong> Your robot tips over when turning quickly. What's the best fix?
+- A) Move the battery higher
+- B) Move heavy components lower
+- C) Use a narrower wheel base
+- D) Increase motor speed</p>
+<p><strong>4.</strong> You need an intake mechanism that spins rollers very fast to grab blocks. Which cartridge?
+- A) RED (36:1) for maximum grip
+- B) GREEN (18:1) for balance
+- C) BLUE (6:1) for speed
+- D) It doesn't matter</p>
+<p><strong>5.</strong> Your autonomous routine needs to turn exactly 90 degrees, but the robot overshoots. What's likely the problem?
+- A) Not enough friction
+- B) Too much momentum carrying the robot past the target
+- C) The battery is low
+- D) The gear ratio is wrong</p>
+<p><strong>6.</strong> During a match, your wheels are spinning but the robot isn't moving well on a dusty floor. Why?
+- A) Too much static friction
+- B) Not enough friction between wheels and floor
+- C) The motors are too powerful
+- D) The gear ratio is too high</p>
+<p><strong>7.</strong> You're building a defensive robot that needs to block opponents. Prioritize these features (1=most important):
+- ___ Maximum speed
+- ___ Maximum pushing power (torque)
+- ___ Easy turning
+- ___ Stability (low center of gravity)</p>
+<p><strong>8.</strong> Your alliance partner has a fast scoring robot. What should YOUR robot focus on?
+- A) Also being fast at scoring
+- B) Defense and blocking opponents
+- C) Having the exact same design
+- D) Using all omni wheels</p>
+<hr />
+<h2 id="section-6-match-the-terms-15-pairs">Section 6: Match the Terms (15 Pairs)<a class="headerlink" href="#section-6-match-the-terms-15-pairs" title="Permanent link">&para;</a></h2>
+<p>Draw lines or write the matching letter.</p>
+<h3 id="set-a-concepts-and-definitions">Set A: Concepts and Definitions<a class="headerlink" href="#set-a-concepts-and-definitions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th></th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Torque</td>
+<td></td>
+<td>A. Resistance between surfaces</td>
+</tr>
+<tr>
+<td>2. Friction</td>
+<td></td>
+<td>B. Balance point of an object</td>
+</tr>
+<tr>
+<td>3. Momentum</td>
+<td></td>
+<td>C. Rotational force</td>
+</tr>
+<tr>
+<td>4. Acceleration</td>
+<td></td>
+<td>D. How much the motor is geared down</td>
+</tr>
+<tr>
+<td>5. Gear Ratio</td>
+<td></td>
+<td>E. Mass × Velocity</td>
+</tr>
+<tr>
+<td>6. Center of Gravity</td>
+<td></td>
+<td>F. Change in velocity over time</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-b-analogies-and-physics-concepts">Set B: Analogies and Physics Concepts<a class="headerlink" href="#set-b-analogies-and-physics-concepts" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Analogy</th>
+<th></th>
+<th>Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7. Bicycle gears</td>
+<td></td>
+<td>G. Newton's Third Law</td>
+</tr>
+<tr>
+<td>8. Running on ice vs grass</td>
+<td></td>
+<td>H. Gear ratios (torque vs speed)</td>
+</tr>
+<tr>
+<td>9. Shopping cart (empty vs full)</td>
+<td></td>
+<td>I. Friction</td>
+</tr>
+<tr>
+<td>10. Push opponent, they push back</td>
+<td></td>
+<td>J. Mass affects acceleration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-c-wheel-types-and-use-cases">Set C: Wheel Types and Use Cases<a class="headerlink" href="#set-c-wheel-types-and-use-cases" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Wheel Type</th>
+<th></th>
+<th>Best Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11. Traction wheels</td>
+<td></td>
+<td>K. Smooth turning on tank drive</td>
+</tr>
+<tr>
+<td>12. Omni wheels</td>
+<td></td>
+<td>L. Maximum grip for pushing</td>
+</tr>
+<tr>
+<td>13. Mecanum wheels</td>
+<td></td>
+<td>M. Moving in any direction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-d-cartridges-and-applications">Set D: Cartridges and Applications<a class="headerlink" href="#set-d-cartridges-and-applications" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cartridge</th>
+<th></th>
+<th>Best Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14. BLUE (6:1)</td>
+<td></td>
+<td>N. Drivetrain (balanced)</td>
+</tr>
+<tr>
+<td>15. RED (36:1)</td>
+<td></td>
+<td>O. Flywheel/intake (speed)</td>
+</tr>
+<tr>
+<td>16. GREEN (18:1)</td>
+<td></td>
+<td>P. Lift arm (strength)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="section-7-diagram-labeling-3-diagrams">Section 7: Diagram Labeling (3 Diagrams)<a class="headerlink" href="#section-7-diagram-labeling-3-diagrams" title="Permanent link">&para;</a></h2>
+<h3 id="diagram-1-forces-on-a-moving-robot">Diagram 1: Forces on a Moving Robot<a class="headerlink" href="#diagram-1-forces-on-a-moving-robot" title="Permanent link">&para;</a></h3>
+<p>Label the forces A, B, C, D on this diagram:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>                    [C]
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                     ↓
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>              +--------+
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>         [A]← |  ROBOT | →[B]
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>              +--[O][O]+
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>                  ↑
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>                 [D]
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>              ═══════════
+</code></pre></div>
+<p>Options: Friction, Motor Force (forward), Gravity, Normal Force (floor pushing up)</p>
+<p>A = <strong><em>_</em></strong><strong><em>_</em>_
+B = </strong><strong><em>_</em></strong><strong><em>_
+C = </em></strong><strong><em>_</em></strong><strong><em>
+D = </em></strong><strong><em>_</em></strong>___</p>
+<h3 id="diagram-2-gear-ratio-identification">Diagram 2: Gear Ratio Identification<a class="headerlink" href="#diagram-2-gear-ratio-identification" title="Permanent link">&para;</a></h3>
+<p>Which setup gives MORE TORQUE at the output?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Setup 1:                    Setup 2:
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  [Small]──[Large]            [Large]──[Small]
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  Motor    Output             Motor    Output
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>     12     36 teeth             36      12 teeth
+</code></pre></div>
+<p>Answer: Setup ___ gives more torque because <strong><em>_</em></strong><strong><em>_</em></strong>_</p>
+<h3 id="diagram-3-wheel-type-identification">Diagram 3: Wheel Type Identification<a class="headerlink" href="#diagram-3-wheel-type-identification" title="Permanent link">&para;</a></h3>
+<p>Identify each wheel type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>   Type A              Type B              Type C
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>   +====+              +----+              +----+
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>   |████|              | ⟋⟋ |              | ╲╲ |
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>   |████|              | ⟋⟋ |              | ╲╲ |
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>   +====+              +----+              +----+
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>   Rubber tread        Side rollers        Angled rollers
+</code></pre></div>
+<p>A = <strong><em>_</em></strong><strong><em>_</em>_
+B = </strong><strong><em>_</em></strong><strong><em>_
+C = </em></strong><strong><em>_</em></strong>___</p>
+<hr />
+<h1 id="answer-key">Answer Key<a class="headerlink" href="#answer-key" title="Permanent link">&para;</a></h1>
+<h2 id="section-1-true-or-false">Section 1: True or False<a class="headerlink" href="#section-1-true-or-false" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>T</strong> - Newton's First Law (objects at rest stay at rest)</li>
+<li><strong>T</strong> - F = ma, so more mass needs more force for same acceleration</li>
+<li><strong>F</strong> - Momentum = mass × velocity (depends on both)</li>
+<li><strong>T</strong> - F = ma, double F means double a (if m is constant)</li>
+<li><strong>F</strong> - Trade-off: heavy = harder to push, light = faster but easier to push</li>
+<li><strong>F</strong> - BLUE has the LEAST torque (more speed)</li>
+<li><strong>F</strong> - OPPOSITE! Higher ratio = more torque, less speed</li>
+<li><strong>T</strong> - GREEN (18:1) is balanced, commonly used for drivetrains</li>
+<li><strong>F</strong> - You MUST change both code AND physical cartridge</li>
+<li><strong>T</strong> - Bigger wheels = more distance, but need more force to accelerate</li>
+<li><strong>F</strong> - Static friction is STRONGER than kinetic</li>
+<li><strong>T</strong> - That's exactly what the rollers do</li>
+<li><strong>F</strong> - Traction wheels make turning HARDER (scrubbing)</li>
+<li><strong>T</strong> - Low center of gravity = more stable</li>
+<li><strong>F</strong> - Wider track width = slower turns, but more stable</li>
+</ol>
+<hr />
+<h2 id="section-2-multiple-choice">Section 2: Multiple Choice<a class="headerlink" href="#section-2-multiple-choice" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>B</strong> - Objects stay at rest or keep moving unless acted on</li>
+<li><strong>C</strong> - F = 10 × 2 = 20 Newtons</li>
+<li><strong>C</strong> - Both = 20 kg·m/s (5×4 = 20, 10×2 = 20)</li>
+<li><strong>B</strong> - Harder to push around (Newton's Laws)</li>
+<li><strong>B</strong> - Limits values between min and max</li>
+<li><strong>C</strong> - Newton's Third Law (action/reaction)</li>
+<li><strong>C</strong> - More force = more acceleration (F = ma)</li>
+<li><strong>B</strong> - Torque is twisting/rotational force</li>
+<li><strong>C</strong> - BLUE (6:1) = highest speed</li>
+<li><strong>A</strong> - Motor spins 36 times per 1 output rotation</li>
+<li><strong>C</strong> - RED = 100 RPM (half of GREEN's 200 RPM)</li>
+<li><strong>C</strong> - RED (36:1) provides the most torque</li>
+<li><strong>C</strong> - 4 × π × 25.4 ≈ 319 mm</li>
+<li><strong>B</strong> - BLUE = faster but less pushing power</li>
+<li><strong>B</strong> - Rollers allow sideways sliding</li>
+<li><strong>B</strong> - Traction wheels have rubber tread</li>
+<li><strong>B</strong> - Wheels grip before moving</li>
+<li><strong>C</strong> - High CG = more likely to tip</li>
+<li><strong>B</strong> - Traction for maximum grip</li>
+<li><strong>B</strong> - "Burn out" - wheels spin without moving robot</li>
+</ol>
+<hr />
+<h2 id="section-3-fill-in-the-blank">Section 3: Fill in the Blank<a class="headerlink" href="#section-3-fill-in-the-blank" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Mass</strong></li>
+<li><strong>Velocity</strong></li>
+<li><strong>600</strong></li>
+<li><strong>18</strong></li>
+<li><strong>Torque</strong></li>
+<li><strong>Static</strong></li>
+<li><strong>Omni</strong></li>
+<li><strong>Gravity</strong> (Center of Gravity)</li>
+<li><strong>Left</strong> and <strong>Right</strong></li>
+<li><strong>Friction</strong></li>
+</ol>
+<hr />
+<h2 id="section-4-calculation-problems">Section 4: Calculation Problems<a class="headerlink" href="#section-4-calculation-problems" title="Permanent link">&para;</a></h2>
+<ol>
+<li>F = 6 × 3 = <strong>18 Newtons</strong></li>
+<li>a = 24 ÷ 12 = <strong>2 m/s²</strong></li>
+<li>F = 8 × 4 = <strong>32 Newtons</strong></li>
+<li>p = 7 × 3 = <strong>21 kg·m/s</strong></li>
+<li>Robot X: 4 × 5 = 20, Robot Y: 10 × 2 = 20, <strong>Tie!</strong></li>
+<li>Output = 2 × 36 = <strong>72 N·m</strong></li>
+<li>Distance = 600 × 319 = 191,400 mm = <strong>191.4 meters</strong></li>
+<li>Ratio = 60 ÷ 12 = <strong>5:1</strong></li>
+<li>200 × 319 = 63,800 mm/min ÷ 60 = 1,063 mm/s = <strong>1.06 m/s</strong></li>
+<li>100 × 319 ÷ 60 = 532 mm/s = <strong>0.53 m/s</strong></li>
+</ol>
+<hr />
+<h2 id="section-5-scenario-based-questions">Section 5: Scenario-Based Questions<a class="headerlink" href="#section-5-scenario-based-questions" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>A, B, C</strong> - All help resist pushing (D would make it worse!)</li>
+<li><strong>B</strong> - BLUE gives more speed</li>
+<li><strong>B</strong> - Lower center of gravity = more stable</li>
+<li><strong>C</strong> - BLUE for speed</li>
+<li><strong>B</strong> - Momentum carries the robot past the target</li>
+<li><strong>B</strong> - Dust reduces friction</li>
+<li>Suggested priority: <strong>2, 1, 4, 3</strong> (Torque first for blocking, then stability, then speed, then turning)</li>
+<li><strong>B</strong> - Complement your partner with defense</li>
+</ol>
+<hr />
+<h2 id="section-6-match-the-terms">Section 6: Match the Terms<a class="headerlink" href="#section-6-match-the-terms" title="Permanent link">&para;</a></h2>
+<p><strong>Set A:</strong> 1-C, 2-A, 3-E, 4-F, 5-D, 6-B
+<strong>Set B:</strong> 7-H, 8-I, 9-J, 10-G
+<strong>Set C:</strong> 11-L, 12-K, 13-M
+<strong>Set D:</strong> 14-O, 15-P, 16-N</p>
+<hr />
+<h2 id="section-7-diagram-labeling">Section 7: Diagram Labeling<a class="headerlink" href="#section-7-diagram-labeling" title="Permanent link">&para;</a></h2>
+<h3 id="diagram-1">Diagram 1:<a class="headerlink" href="#diagram-1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A = <strong>Motor Force (forward)</strong></li>
+<li>B = <strong>Friction</strong> (from floor pushing back)</li>
+<li>C = <strong>Gravity</strong> (weight pulling down)</li>
+<li>D = <strong>Normal Force</strong> (floor pushing up)</li>
+</ul>
+<h3 id="diagram-2">Diagram 2:<a class="headerlink" href="#diagram-2" title="Permanent link">&para;</a></h3>
+<p><strong>Setup 1</strong> gives more torque because the output gear is larger than the input (3:1 ratio), which multiplies torque.</p>
+<h3 id="diagram-3">Diagram 3:<a class="headerlink" href="#diagram-3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A = <strong>Traction wheel</strong></li>
+<li>B = <strong>Omni wheel</strong></li>
+<li>C = <strong>Mecanum wheel</strong></li>
+</ul>
+<hr />
+<h2 id="score-yourself">Score Yourself<a class="headerlink" href="#score-yourself" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Your Score</th>
+<th>Possible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True/False</td>
+<td>___</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Multiple Choice</td>
+<td>___</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Fill in Blank</td>
+<td>___</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Calculations</td>
+<td>___</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Scenarios</td>
+<td>___</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Matching</td>
+<td>___</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Diagrams</td>
+<td>___</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td>___</td>
+<td><strong>89</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Percentage:</strong> ___ ÷ 89 × 100 = ___%</p>
+<ul>
+<li><strong>90-100%:</strong> Excellent! Ready for Tutorial 2.</li>
+<li><strong>80-89%:</strong> Good job! Review missed concepts.</li>
+<li><strong>70-79%:</strong> Review Tutorials 1.1-1.3 before continuing.</li>
+<li><strong>Below 70%:</strong> Re-read the tutorials and try again!</li>
+</ul>
+<hr />
+<p><strong><a href="../03-friction-and-traction/">← Previous: Friction and Traction</a></strong> | <strong><a href="../../02-robot-anatomy/01-brain-and-controller/">Next: Robot Anatomy →</a></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
