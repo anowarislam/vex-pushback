@@ -270,4 +270,4 @@ def my_autonomous():
 
 ---
 
-**[← Previous: Timing and Sequences](02-timing-and-sequences.md)** | **[Next: Tutorial 6 - Competition Strategy →](../06-competition-strategy/01-game-overview.md)**
+**[← Previous: Timing and Sequences](02-timing-and-sequences.md)** | **[Next: Tutorial 6 - Competition Strategy →](../06-competition-strategy/01-game-overview.md)** | **[📝 Revision Q&A](04-review-qa.md)**

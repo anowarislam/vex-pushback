@@ -9,16 +9,18 @@
 
 You only have 15 seconds for autonomous. Every millisecond counts!
 
+```mermaid
+timeline
+    title 15-Second Autonomous Breakdown
+    section Movement Phase
+        0-3 sec : Move 1
+        3-6 sec : Move 2
+        6-9 sec : Move 3
+        9-12 sec : Move 4
+        12-15 sec : Done!
 ```
-    AUTONOMOUS TIMELINE:
 
-    0      3      6      9     12     15 sec
-    |━━━━━━|━━━━━━|━━━━━━|━━━━━━|━━━━━━|
-     Move1  Move2  Move3  Move4  Done!
-
-    Each movement takes time!
-    Plan carefully!
-```
+Each movement takes time - plan carefully!
 
 ## Calculating Movement Time
 
@@ -90,10 +92,19 @@ def simple_sequence():
     drivetrain.drive_for(FORWARD, 300, MM)
 ```
 
-```
-    Timeline:
-    |━━━ Drive ━━━|━ wait ━|━━ Turn ━━|━ wait ━|━━ Drive ━━|
-    0           1.0      1.2       2.0      2.2        2.8 sec
+```mermaid
+timeline
+    title Sequential Actions Timeline
+    section Step 1
+        0 - 1.0 sec : Drive forward
+    section Wait
+        1.0 - 1.2 sec : Stabilize
+    section Step 2
+        1.2 - 2.0 sec : Turn right
+    section Wait
+        2.0 - 2.2 sec : Stabilize
+    section Step 3
+        2.2 - 2.8 sec : Drive forward
 ```
 
 ### Overlapping Actions
@@ -112,14 +123,23 @@ def grab_while_moving():
     intake_motor.stop()
 ```
 
-```
-    Timeline:
-    Intake:  [━━━━━━━ SPINNING ━━━━━━━][stop]
-    Drive:   [━━━━━━━ FORWARD ━━━━━━━━]
-             0                        1.0 sec
+```mermaid
+sequenceDiagram
+    participant Intake
+    participant Drive
 
-    Both happen at the same time!
+    Note over Intake,Drive: 0 sec - Start
+
+    Intake->>Intake: spin(FORWARD)
+    Drive->>Drive: drive_for(FORWARD, 500mm)
+
+    Note over Intake,Drive: Parallel execution!
+
+    Note over Intake,Drive: 1.0 sec - Complete
+    Intake->>Intake: stop()
 ```
+
+Both actions happen at the same time!
 
 ### Key Insight: Blocking vs Non-Blocking
 
@@ -163,6 +183,40 @@ def fast_routine():
     # No wait needed at end
 
     # Total: ~2.0 seconds
+```
+
+### Timing Comparison
+
+```mermaid
+timeline
+    title Before Optimization (~4.5 seconds)
+    section Drive 1
+        0 - 1.0 sec : drive_for 500mm
+    section Wait
+        1.0 - 1.5 sec : wait 500ms (too long!)
+    section Turn
+        1.5 - 2.3 sec : turn 90 degrees
+    section Wait
+        2.3 - 2.8 sec : wait 500ms (too long!)
+    section Drive 2
+        2.8 - 3.4 sec : drive_for 300mm
+    section Wait
+        3.4 - 3.9 sec : wait 500ms (too long!)
+```
+
+```mermaid
+timeline
+    title After Optimization (~2.0 seconds)
+    section Drive 1
+        0 - 0.7 sec : drive_for 500mm (70% velocity)
+    section Wait
+        0.7 - 0.85 sec : wait 150ms
+    section Turn
+        0.85 - 1.35 sec : turn 90 degrees (50% velocity)
+    section Wait
+        1.35 - 1.5 sec : wait 150ms
+    section Drive 2
+        1.5 - 2.0 sec : drive_for 300mm (no wait at end)
 ```
 
 ## Building Complex Sequences
@@ -267,4 +321,4 @@ def slow_auto():
 
 ---
 
-**[← Previous: Basic Movements](01-basic-movements.md)** | **[Next: Push Back Autonomous →](03-push-back-autonomous.md)**
+**[← Previous: Basic Movements](01-basic-movements.md)** | **[Next: Push Back Autonomous →](03-push-back-autonomous.md)** | **[📝 Review Q&A](04-review-qa.md)**

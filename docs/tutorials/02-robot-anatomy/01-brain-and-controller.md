@@ -9,22 +9,26 @@
 
 The VEX V5 Brain is like a small computer that runs your Python code and controls all the robot's motors and sensors.
 
-```
-    ┌───────────────────────────────────────────────────────────────┐
-    │                         V5 BRAIN                               │
-    │  ┌──────────────────┐                      ┌─────────────┐    │
-    │  │                  │                      │             │    │
-    │  │    TOUCHSCREEN   │    [Power]           │  BATTERY    │    │
-    │  │    480 x 272     │     [▶️]             │   SLOT      │    │
-    │  │     pixels       │                      │             │    │
-    │  │                  │                      │             │    │
-    │  └──────────────────┘                      └─────────────┘    │
-    │                                                                │
-    │   SMART PORTS (21 total for motors and sensors):              │
-    │  [1][2][3][4][5][6][7][8][9][10][11][12][13][14][15]...      │
-    │                                                                │
-    │   USB-C Port (download code)    Radio (wireless controller)   │
-    └───────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph BRAIN["V5 BRAIN"]
+        direction TB
+        subgraph TOP["Top Row"]
+            direction LR
+            SCREEN["TOUCHSCREEN<br/>480 x 272 pixels"]
+            POWER["Power Button"]
+            BATTERY["BATTERY SLOT"]
+        end
+        subgraph PORTS["SMART PORTS (21 total)"]
+            direction LR
+            P1["1"] --- P2["2"] --- P3["3"] --- P4["4"] --- P5["5"] --- P6["..."] --- P21["21"]
+        end
+        subgraph BOTTOM["Bottom Row"]
+            direction LR
+            USB["USB-C Port<br/>(download code)"]
+            RADIO["Radio<br/>(wireless controller)"]
+        end
+    end
 ```
 
 ### Key Features
@@ -42,18 +46,15 @@ The VEX V5 Brain is like a small computer that runs your Python code and control
 
 Your robot's motors are plugged into specific ports. Here's your current setup:
 
-```
-    Port Layout (Front View):
-
-    [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]...
-
-     ↓   ↓   ↓   ↓   ↓
-    LF  LB  RF  RB  --
-
-    LF = Left Front Motor
-    LB = Left Back Motor
-    RF = Right Front Motor (reversed)
-    RB = Right Back Motor (reversed)
+```mermaid
+flowchart LR
+    subgraph PORTS["Port Layout (Front View)"]
+        direction LR
+        P1["Port 1<br/>LF"] --> LF["Left Front Motor"]
+        P2["Port 2<br/>LB"] --> LB["Left Back Motor"]
+        P3["Port 3<br/>RF"] --> RF["Right Front Motor<br/>(reversed)"]
+        P4["Port 4<br/>RB"] --> RB["Right Back Motor<br/>(reversed)"]
+    end
 ```
 
 ### Code Connection: Brain Setup
@@ -250,4 +251,4 @@ while True:
 
 ---
 
-**[← Previous: Friction and Traction](../01-physics-foundations/03-friction-and-traction.md)** | **[Next: Motors and Gears →](02-motors-and-gears.md)**
+**[← Previous: Friction and Traction](../01-physics-foundations/03-friction-and-traction.md)** | **[Next: Motors and Gears →](02-motors-and-gears.md)** | **[📝 Review Q&A](04-review-qa.md)**

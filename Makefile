@@ -3,7 +3,7 @@
 # Usage: make <target>
 # Run 'make help' to see all available commands
 
-.PHONY: help setup install clean lint typecheck format venv activate info test test-cov test-watch docs
+.PHONY: help setup install clean lint typecheck format venv activate info test test-cov test-watch docs docs-install docs-serve docs-build docs-deploy
 
 # Default Python
 PYTHON := python3
@@ -149,8 +149,9 @@ dev-install: install ## Install development dependencies (linting, formatting, t
 # DOCUMENTATION
 # =============================================================================
 
-docs: ## Open tutorials in browser
+docs: ## Open tutorials (use 'docs-serve' for live preview)
 	@echo "$(CYAN)Opening tutorials...$(RESET)"
+	@echo "$(YELLOW)Tip: Run 'make docs-serve' for live preview with hot reload$(RESET)"
 	@if [ "$$(uname)" = "Darwin" ]; then \
 		open docs/tutorials/README.md; \
 	elif [ "$$(uname)" = "Linux" ]; then \
@@ -158,6 +159,26 @@ docs: ## Open tutorials in browser
 	else \
 		echo "Open docs/tutorials/README.md in your browser"; \
 	fi
+
+docs-install: ## Install MkDocs and dependencies
+	@echo "$(CYAN)Installing MkDocs dependencies...$(RESET)"
+	$(VENV_PIP) install -r requirements-docs.txt
+	@echo "$(GREEN)✓ MkDocs installed$(RESET)"
+
+docs-serve: docs-install ## Start local MkDocs dev server
+	@echo "$(CYAN)Starting MkDocs server...$(RESET)"
+	@echo "$(YELLOW)→ Open http://127.0.0.1:8000 in your browser$(RESET)"
+	$(VENV_BIN)/mkdocs serve
+
+docs-build: docs-install ## Build static documentation site
+	@echo "$(CYAN)Building documentation...$(RESET)"
+	$(VENV_BIN)/mkdocs build --strict
+	@echo "$(GREEN)✓ Site built in 'site/' directory$(RESET)"
+
+docs-deploy: docs-install ## Deploy to GitHub Pages
+	@echo "$(CYAN)Deploying to GitHub Pages...$(RESET)"
+	$(VENV_BIN)/mkdocs gh-deploy --force
+	@echo "$(GREEN)✓ Deployed to GitHub Pages$(RESET)"
 
 docs-list: ## List all tutorial files
 	@echo "$(CYAN)Tutorial Files$(RESET)"

@@ -295,7 +295,10 @@ The drivetrain uses these values for accurate autonomous movements!
    - 2 omni (front) + 2 traction (back) - good for pushing while maintaining turning
    - 6-wheel drive with dropped center wheel - always 4 wheels touching for stability
    - Mecanum for sideways movement (complex programming required)
+---
+
+**Ready to test your knowledge? Check out the [Physics Q&A Review](04-review-qa.md)!**
 
 ---
 
-**[← Previous: Gears and Torque](02-gears-and-torque.md)** | **[Next: Tutorial 2 - Robot Anatomy →](../02-robot-anatomy/01-brain-and-controller.md)**
+**[← Previous: Gears and Torque](02-gears-and-torque.md)** | **[Next: Physics Q&A Review →](04-review-qa.md)**

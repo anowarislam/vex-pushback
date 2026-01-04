@@ -9,25 +9,14 @@
 
 Imagine building a robot from scratch, then telling it exactly what to do using code you write yourself. That's VEX V5 robotics!
 
-```
-    +-------------------+
-    |    YOUR BRAIN     |  <-- You think of what the robot should do
-    +---------+---------+
-              |
-              v
-    +-------------------+
-    |   PYTHON CODE     |  <-- You write instructions in Python
-    +---------+---------+
-              |
-              v
-    +-------------------+
-    |    V5 BRAIN       |  <-- The robot's "brain" runs your code
-    +---------+---------+
-              |
-              v
-    +-------------------+
-    |   ROBOT MOVES!    |  <-- Motors, sensors, and wheels do the work
-    +-------------------+
+```mermaid
+---
+title: From Your Idea to Robot Action
+---
+flowchart TB
+    A["YOUR BRAIN<br/>You think of what the robot should do"] --> B["PYTHON CODE<br/>You write instructions in Python"]
+    B --> C["V5 BRAIN<br/>The robot's brain runs your code"]
+    C --> D["ROBOT MOVES!<br/>Motors, sensors, and wheels do the work"]
 ```
 
 **VEX V5** is a robotics system used by students worldwide in competitions. You build robots from metal parts, motors, and sensors, then program them using Python (a beginner-friendly programming language).
@@ -155,18 +144,25 @@ You'll learn to write functions like this yourself!
 
 Here's what you're working with:
 
+```mermaid
+---
+title: V5 Brain Hardware Layout
+---
+flowchart TB
+    subgraph Brain["V5 BRAIN"]
+        direction TB
+        subgraph TopRow[" "]
+            direction LR
+            Screen["SCREEN"]
+            Spacer1[" "]
+            Battery["BATTERY SLOT"]
+        end
+        Ports["PORTS: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | ... | 21<br/>(21 ports for motors and sensors!)"]
+    end
+    style Spacer1 fill:none,stroke:none
 ```
-    +--------------------------------------------------+
-    |                    V5 BRAIN                       |
-    |  +--------+                        +-----------+  |
-    |  | SCREEN |                        |  BATTERY  |  |
-    |  |        |                        |  SLOT     |  |
-    |  +--------+                        +-----------+  |
-    |                                                   |
-    |  PORTS: [1][2][3][4][5][6][7][8][9][10][11]...   |
-    |         (21 ports for motors and sensors!)        |
-    +--------------------------------------------------+
 
+```
     +--------------------------------------------------+
     |                  V5 CONTROLLER                    |
     |                                                   |

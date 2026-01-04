@@ -38,14 +38,9 @@ Sir Isaac Newton figured out the rules of motion about 400 years ago. Here's wha
 - Your robot won't move unless motors push it
 - Your robot won't stop unless you tell it to (or friction slows it)
 
-```
-    Robot at rest          Force applied           Robot moving
-
-    +--------+              +--------+              +--------+
-    |        |      →       | →→→→→→ |      →       |        |  →→→
-    +--[O][O]+              +--[O][O]+              +--[O][O]+
-
-    Stays still            Motors push             Keeps moving!
+```mermaid
+flowchart LR
+    A["Robot at rest<br/>Stays still"] -->|"Force applied<br/>Motors push"| B["Robot moving<br/>Keeps moving!"]
 ```
 
 ### Law 2: Force = Mass × Acceleration (F = m × a)
@@ -92,17 +87,11 @@ Sir Isaac Newton figured out the rules of motion about 400 years ago. Here's wha
 
 Your VEX V5 motors create **force** by spinning. That spinning force is called **torque**.
 
-```
-    Motor creates torque
-           ↓
-    +-------------+
-    |   ⟳        |  ← Spinning shaft
-    |   MOTOR    |
-    +-------------+
-           ↓
-    Wheel pushes floor
-           ↓
-    Floor pushes robot forward!
+```mermaid
+flowchart LR
+    A["Motor creates torque"] --> B["Spinning shaft"]
+    B --> C["Wheel pushes floor"]
+    C --> D["Floor pushes robot forward!"]
 ```
 
 ### The Force Equation in Practice

@@ -55,6 +55,62 @@ The best robot in the world is useless with an unpracticed driver. Driver skill 
 
 **Challenge:** Can you make the square with no gaps or overlaps?
 
+### Practice Pattern Specifications
+
+Here are the exact dimensions to set up each pattern:
+
+```
+    PATTERN 1 - THE STRAIGHT LINE:
+
+    ●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●
+    START                              END
+
+    Distance: 6 feet (1.8 meters)
+    Goal: End within 3 inches of the centerline
+    Setup: Use tape or cones to mark start and end
+
+    ────────────────────────────────────────
+
+    PATTERN 2 - THE SQUARE:
+
+    ●━━━━━━━━━━●
+    │          │   Side length: 3 feet (90 cm)
+    │          │   Total distance: 12 feet
+    │          │   Goal: End within 6 inches of start
+    ●━━━━━━━━━━●
+
+    Setup: Mark 4 corners with tape or small objects
+
+    ────────────────────────────────────────
+
+    PATTERN 3 - THE SLALOM:
+
+         ●           ●           ●
+       ╱   ╲       ╱   ╲       ╱   ╲
+    ━━●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━●━━>
+               ╲       ╱   ╲       ╱
+                ●           ●
+
+    Cone spacing: 2 feet (60 cm) apart
+    Lane width: 2 feet (60 cm) total
+    Number of cones: 5-7
+    Goal: Don't touch any cones!
+
+    ────────────────────────────────────────
+
+    PATTERN 4 - THE FIGURE-8:
+
+         ╭───╮
+        ╱     ╲      Circle radius: 18 inches (45 cm)
+       │       │     Total distance: ~9 feet
+        ╲     ╱      Goal: Smooth curves, no jerky turns
+         ╳───╳       Setup: Mark center crossover point
+        ╱     ╲
+       │       │
+        ╲     ╱
+         ╰───╯
+```
+
 ### Pattern 3: The Figure-8
 
 **Goal:** Continuous smooth curves
@@ -121,6 +177,115 @@ def curve_input(value, exponent=2.0):
     equally sensitive                     are much finer
 ```
 
+### Understanding curve_input() Math (Complete Breakdown)
+
+The formula might look intimidating, but let's break it down step by step:
+
+```python
+def curve_input(value, exponent=2.0):
+    sign = 1 if value >= 0 else -1     # Step 1: Remember direction
+    normalized = abs(value) / 100.0     # Step 2: Convert to 0-1 scale
+    curved = (normalized ** exponent) * 100.0  # Step 3: Apply curve
+    return sign * curved                # Step 4: Restore direction
+```
+
+**COMPLETE TRACE: curve_input(50, exponent=2)**
+
+```mermaid
+flowchart TD
+    A["INPUT: value = 50, exponent = 2"] --> B["STEP 1: GET THE SIGN"]
+    B --> C{"Is 50 >= 0?"}
+    C -->|YES| D["sign = 1 (positive, forward)"]
+    D --> E["STEP 2: NORMALIZE"]
+    E --> F["abs(50) = 50"]
+    F --> G["normalized = 50 / 100.0 = 0.5"]
+    G --> H["STEP 3: APPLY THE CURVE"]
+    H --> I["curved = (0.5 ** 2) * 100.0"]
+    I --> J["= 0.5 × 0.5 × 100.0 = 25.0"]
+    J --> K["STEP 4: RESTORE THE SIGN"]
+    K --> L["result = sign × curved = 1 × 25.0 = 25.0"]
+    L --> M["FINAL: 50 → 25 (50% input becomes 25% motor speed)"]
+```
+
+**Why each step matters:**
+- **Step 1:** Remember if joystick was pushed forward (+) or backward (-) before using absolute value
+- **Step 2:** Convert joystick range (-100 to +100) to 0-1 scale for easy math
+- **Step 3:** Squaring a number less than 1 makes it SMALLER (0.5 × 0.5 = 0.25) - this gives more precision at low speeds
+- **Step 4:** Restore the original direction (positive or negative)
+
+**COMPLETE TRACE: curve_input(-40, exponent=2)**
+
+```
+    INPUT: value = -40, exponent = 2
+
+    STEP 1: GET THE SIGN
+    Is -40 >= 0?  NO!
+    sign = -1  (negative, meaning "backward")
+
+    STEP 2: NORMALIZE
+    abs(-40) = 40
+    normalized = 40 / 100.0 = 0.4
+
+    STEP 3: APPLY THE CURVE
+    curved = (0.4 ** 2) * 100.0
+           = (0.4 × 0.4) * 100.0
+           = 0.16 * 100.0
+           = 16.0
+
+    STEP 4: RESTORE THE SIGN
+    result = -1 * 16.0
+           = -16.0
+
+    FINAL ANSWER: -40 → -16
+    (40% backward becomes 16% backward)
+```
+
+**WHY PRESERVING SIGN MATTERS**
+
+```
+    WITHOUT preserving sign:
+    (-40)^2 = 1600  ← WRONG! (positive and way too big)
+
+    WITH preserving sign:
+    abs(-40) = 40
+    (0.4)^2 = 0.16
+    0.16 × 100 = 16
+    -1 × 16 = -16  ← CORRECT! (negative and right size)
+```
+
+### Visual Comparison: Linear vs Curved
+
+```
+    WITHOUT CURVE (exponent = 1):
+
+    Output
+    100% │                        ●
+         │                   ●
+         │              ●
+         │         ●
+         │    ●
+       0 └────●────────────────────── Input
+              0    25   50   75  100%
+
+    Everything is proportional: 50% → 50%
+
+
+    WITH CURVE (exponent = 2):
+
+    Output
+    100% │                        ●
+         │                   ●
+         │              ●
+         │         ●
+         │    ●
+       0 └────●────────────────────── Input
+              0    25   50   75  100%
+                   ↓    ↓    ↓
+                  6%   25%  56%
+
+    Low inputs are "squished" down for finer control!
+```
+
 ### Adding Curve to Drive Code
 
 ```python
@@ -169,6 +334,117 @@ def driver_control_with_curve():
     - Stop scoring blocks
     - Get to the parking zone!
     - Two robots parked = 30 points!
+```
+
+### Push Back Driving Scenarios
+
+Let's walk through specific situations you'll face in competition:
+
+**SCENARIO 1: Approaching a Goal to Score**
+
+```
+    You're 3 feet from the goal with a block.
+
+    WRONG APPROACH:
+    ┌─────────────────────────────────────────────┐
+    │  Full speed ahead → overshoot!              │
+    │  Block falls out of robot or misses goal   │
+    └─────────────────────────────────────────────┘
+
+    RIGHT APPROACH (with curve_input):
+    ┌─────────────────────────────────────────────┐
+    │  1. Start at 50% stick → 25% motor speed    │
+    │     (smooth acceleration)                   │
+    │                                             │
+    │  2. Slow to 25% stick → 6% motor speed      │
+    │     (precision placement)                   │
+    │                                             │
+    │  3. Gently push block into goal             │
+    │                                             │
+    │  4. Back away slowly                        │
+    └─────────────────────────────────────────────┘
+
+    The curve gives you fine control when it matters most!
+```
+
+**SCENARIO 2: Defending Your Zone**
+
+```
+    Opponent is trying to descore your blocks.
+
+    TANK DRIVE ADVANTAGE:
+    ┌─────────────────────────────────────────────┐
+    │  Pivot turns are FAST with tank drive!      │
+    │                                             │
+    │  Left stick UP + Right stick DOWN:          │
+    │                                             │
+    │         ↻                                   │
+    │        ╱ ╲                                  │
+    │       │ ● │  ← You spin to block opponent  │
+    │        ╲ ╱                                  │
+    │         ↺                                   │
+    │                                             │
+    │  You can react to their movement instantly! │
+    └─────────────────────────────────────────────┘
+
+    This is why many teams use tank for defense.
+```
+
+**SCENARIO 3: Parking with 10 Seconds Left**
+
+```
+    The clock shows 0:10 remaining!
+
+    PRIORITY ORDER:
+    ┌─────────────────────────────────────────────┐
+    │  1. COMMUNICATE: Yell "PARKING NOW!" to     │
+    │     your partner                            │
+    │                                             │
+    │  2. ABANDON current task - don't finish     │
+    │     that block you were scoring             │
+    │                                             │
+    │  3. DRIVE DIRECTLY to park zone             │
+    │     (shortest path, ignore everything)      │
+    │                                             │
+    │  4. FIT BOTH ROBOTS:                        │
+    │                                             │
+    │     ┌───────────────┐                       │
+    │     │ ┌───┐  ┌───┐  │ ← Park zone           │
+    │     │ │ R1│  │ R2│  │   (18" × 16")         │
+    │     │ └───┘  └───┘  │                       │
+    │     └───────────────┘                       │
+    │                                             │
+    │  5. STOP MOVING before buzzer!              │
+    │     (movement at buzzer = NOT parked)       │
+    └─────────────────────────────────────────────┘
+
+    POINTS COMPARISON:
+    - 0 robots parked: 0 points
+    - 1 robot parked: 8 points
+    - 2 robots parked: 30 points (!!)
+
+    The 30-point bonus is HUGE - it can win matches!
+```
+
+**SCENARIO 4: Recovering from a Tip**
+
+```
+    Your robot has tipped onto its side!
+
+    DON'T PANIC:
+    ┌─────────────────────────────────────────────┐
+    │  1. Check if your wheels can touch ground   │
+    │                                             │
+    │  2. If wheels touch: Try driving to         │
+    │     flip yourself back over                 │
+    │                                             │
+    │  3. If wheels don't touch: Signal partner   │
+    │     for help (they can push you back up)    │
+    │                                             │
+    │  4. If you're stuck: Focus on PARKING       │
+    │     at match end - even a tipped robot      │
+    │     in the zone counts!                     │
+    └─────────────────────────────────────────────┘
 ```
 
 ## Controller Button Layout
@@ -243,6 +519,10 @@ Set up these challenges and time yourself:
 - Place a block on the field
 - Push it into a goal
 - Don't let it fall out!
+
+---
+
+**Ready to test your knowledge? Check out the [Drive Control Q&A Review](04-review-qa.md)!**
 
 ---
 

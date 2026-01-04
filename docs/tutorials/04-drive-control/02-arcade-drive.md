@@ -25,31 +25,137 @@ Arcade drive uses **one joystick** for everything: forward/backward AND turning.
 
 The magic is in how we **mix** the joystick values:
 
-```
-Forward = Y-axis (up/down)
-Turn = X-axis (left/right)
+```mermaid
+flowchart TD
+    subgraph Inputs["Joystick Inputs"]
+        Y["Forward = Y-axis<br/>(up/down)"]
+        X["Turn = X-axis<br/>(left/right)"]
+    end
 
-Left Motor Speed  = Forward + Turn
-Right Motor Speed = Forward - Turn
+    subgraph Mixing["Arcade Mixing Formula"]
+        L["Left Motor Speed = Forward + Turn"]
+        R["Right Motor Speed = Forward - Turn"]
+    end
+
+    Y --> L
+    Y --> R
+    X --> L
+    X --> R
 ```
 
 ### Why Does This Work?
 
+```mermaid
+flowchart TD
+    subgraph FWD["FORWARD ONLY (Y=100, X=0)"]
+        F1["Left = 100 + 0 = 100"]
+        F2["Right = 100 - 0 = 100"]
+        F3["Both motors go forward<br/>at same speed!"]
+        F1 --> F3
+        F2 --> F3
+    end
+
+    subgraph TURN["TURN RIGHT (Y=0, X=50)"]
+        T1["Left = 0 + 50 = 50"]
+        T2["Right = 0 - 50 = -50"]
+        T3["Robot pivots right!"]
+        T1 --> T3
+        T2 --> T3
+    end
+
+    subgraph ARC["FORWARD + RIGHT ARC (Y=80, X=20)"]
+        A1["Left = 80 + 20 = 100"]
+        A2["Right = 80 - 20 = 60"]
+        A3["Robot curves right<br/>while moving forward!"]
+        A1 --> A3
+        A2 --> A3
+    end
 ```
-    FORWARD ONLY (Y=100, X=0):
-    Left  = 100 + 0 = 100
-    Right = 100 - 0 = 100
-    Both motors go forward at same speed!
 
-    TURN RIGHT (Y=0, X=50):
-    Left  = 0 + 50 = 50
-    Right = 0 - 50 = -50
-    Robot pivots right!
+### Let's Do The Math Together (Step-by-Step)
 
-    FORWARD + RIGHT ARC (Y=80, X=20):
-    Left  = 80 + 20 = 100
-    Right = 80 - 20 = 60
-    Robot curves right while moving forward!
+**EXAMPLE 1: Driving Forward Only**
+
+You push the joystick straight up to 80%.
+
+```mermaid
+flowchart LR
+    subgraph Input["INPUT"]
+        Y["Y-axis (forward) = 80"]
+        X["X-axis (turn) = 0"]
+    end
+
+    subgraph Calc["CALCULATION"]
+        L["Left Motor = 80 + 0 = 80%"]
+        R["Right Motor = 80 - 0 = 80%"]
+    end
+
+    subgraph Result["RESULT"]
+        RES["Both motors at 80%<br/>Robot goes STRAIGHT FORWARD"]
+    end
+
+    Y --> L
+    Y --> R
+    X --> L
+    X --> R
+    L --> RES
+    R --> RES
+```
+
+**EXAMPLE 2: Turning While Driving**
+
+You push the joystick up AND right.
+
+```mermaid
+flowchart LR
+    subgraph Input["INPUT"]
+        Y["Y-axis (forward) = 60"]
+        X["X-axis (turn) = 30"]
+    end
+
+    subgraph Calc["CALCULATION"]
+        L["Left Motor = 60 + 30 = 90%<br/>(Faster!)"]
+        R["Right Motor = 60 - 30 = 30%<br/>(Slower!)"]
+    end
+
+    subgraph Result["RESULT"]
+        RES["Left faster than right<br/>Robot CURVES RIGHT"]
+    end
+
+    Y --> L
+    Y --> R
+    X --> L
+    X --> R
+    L --> RES
+    R --> RES
+```
+
+**EXAMPLE 3: Spin in Place**
+
+You push the joystick RIGHT only (no forward/backward).
+
+```mermaid
+flowchart LR
+    subgraph Input["INPUT"]
+        Y["Y-axis (forward) = 0"]
+        X["X-axis (turn) = 100"]
+    end
+
+    subgraph Calc["CALCULATION"]
+        L["Left Motor = 0 + 100 = 100%<br/>(Forward!)"]
+        R["Right Motor = 0 - 100 = -100%<br/>(Backward!)"]
+    end
+
+    subgraph Result["RESULT"]
+        RES["Left forward, right backward<br/>Robot SPINS RIGHT"]
+    end
+
+    Y --> L
+    Y --> R
+    X --> L
+    X --> R
+    L --> RES
+    R --> RES
 ```
 
 ## Code Walkthrough: arcade_drive_loop()
@@ -109,22 +215,89 @@ Right = 30
 
 Without clamping, motors would receive invalid values!
 
+### Clamping Visualized: Number Line Method
+
+Motors can only accept values from -100 to +100. Here's what clamping does:
+
+```
+    THE VALID RANGE:
+
+    -100 ─────────────── 0 ─────────────── +100
+      ↑                                      ↑
+      │         VALID MOTOR VALUES           │
+      └──────────────────────────────────────┘
+
+
+    WHAT HAPPENS TO 130?
+
+         100  130
+          ↓   ↓
+    ──────●═══×── → gets pulled back → ──────●──
+          │   │                              │
+          └───┘                              └── Clamped to 100!
+          Too far!
+
+
+    WHAT HAPPENS TO -150?
+
+    -150   -100
+      ↓     ↓
+    ──×═════●────── → gets pulled back → ──────●──
+      │     │                                  │
+      └─────┘                                  └── Clamped to -100!
+      Too far!
+```
+
+### Tracing the Clamp Code
+
+The code `max(-100, min(100, left_speed))` works in two steps:
+
+```mermaid
+flowchart TD
+    subgraph Example1["EXAMPLE: left_speed = 130"]
+        A1["Input: 130"] --> B1{Is value > 100?}
+        B1 -->|Yes| C1["min(100, 130) = 100"]
+        C1 --> D1{Is value < -100?}
+        D1 -->|No| E1["Result: 100"]
+    end
+
+    subgraph Example2["EXAMPLE: left_speed = -150"]
+        A2["Input: -150"] --> B2{Is value > 100?}
+        B2 -->|No| C2["min(100, -150) = -150"]
+        C2 --> D2{Is value < -100?}
+        D2 -->|Yes| E2["max(-100, -150) = -100"]
+        E2 --> F2["Result: -100"]
+    end
+
+    subgraph Example3["EXAMPLE: left_speed = 75"]
+        A3["Input: 75"] --> B3{Is value > 100?}
+        B3 -->|No| C3["min(100, 75) = 75"]
+        C3 --> D3{Is value < -100?}
+        D3 -->|No| E3["Result: 75 (unchanged)"]
+    end
+```
+
 ## Tank vs. Arcade Comparison
 
-```
-    TANK DRIVE                    ARCADE DRIVE
+```mermaid
+flowchart LR
+    subgraph Tank["TANK DRIVE"]
+        direction LR
+        LY1["Left Y-axis"] --> LM["Left Motor"]
+        RY1["Right Y-axis"] --> RM["Right Motor"]
+    end
 
-    +-----+       +-----+         +-----+       +-----+
-    | LY  |  ━━>  | LM  |         | LY  | \    +-----+
-    +-----+       +-----+         +-----+  ━━> | MIX | ━━> Motors
-    +-----+       +-----+         | LX  | /    +-----+
-    | RY  |  ━━>  | RM  |         +-----+
-    +-----+       +-----+
-
-    Direct mapping               Mixed calculation
-    2 sticks needed              1 stick needed
-    Independent control          Coordinated control
+    subgraph Arcade["ARCADE DRIVE"]
+        direction LR
+        LY2["Left Y-axis"] --> MIX["MIX"]
+        LX2["Left X-axis"] --> MIX
+        MIX --> Motors["Motors"]
+    end
 ```
+
+**Key Differences:**
+- **Tank:** Direct mapping, 2 sticks needed, independent control
+- **Arcade:** Mixed calculation, 1 stick needed, coordinated control
 
 | Feature | Tank | Arcade |
 |---------|------|--------|
@@ -134,6 +307,36 @@ Without clamping, motors would receive invalid values!
 | **Precise turns** | Excellent | Good |
 | **Smooth curves** | Harder | Easier |
 | **Best for** | Precise maneuvering | Smooth driving |
+
+### Quick Decision Guide
+
+Ask yourself these questions to choose the right drive mode:
+
+```
+    QUESTION                              ANSWER
+
+    "Do I need to push against
+     defenders?"                      →   TANK
+                                          (more precise pivot control)
+
+    "Am I scoring blocks in goals?"   →   EITHER
+                                          (depends on driver preference)
+
+    "Am I new to driving robots?"     →   ARCADE
+                                          (easier to learn)
+
+    "Do I want one hand free
+     for buttons?"                    →   ARCADE
+                                          (only uses left stick)
+
+    "Am I doing driver skills
+     (solo run)?"                     →   TANK
+                                          (maximum control authority)
+
+    "Do I need to spin quickly
+     to block opponents?"             →   TANK
+                                          (faster pivot response)
+```
 
 ## Movement Patterns
 

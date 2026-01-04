@@ -4,33 +4,27 @@ Welcome to the comprehensive tutorial series for VEX V5 robotics programming! Th
 
 ## Your Learning Journey
 
-```
-                              YOU ARE HERE
-                                   |
-                                   v
-    +------------------+     +------------------+     +------------------+
-    |   0. WELCOME     | --> |   1. PHYSICS     | --> |   2. ROBOT       |
-    |   Start here!    |     |   How things     |     |   ANATOMY        |
-    |                  |     |   move           |     |   Know your bot  |
-    +------------------+     +------------------+     +------------------+
-                                                              |
-              +-----------------------------------------------+
-              |
-              v
-    +------------------+     +------------------+     +------------------+
-    |   3. PYTHON      | --> |   4. DRIVE       | --> |   5. AUTONOMOUS  |
-    |   BASICS         |     |   CONTROL        |     |   Robot drives   |
-    |   Learn to code  |     |   You drive it   |     |   itself!        |
-    +------------------+     +------------------+     +------------------+
-                                                              |
-              +-----------------------------------------------+
-              |
-              v
-    +------------------+     +------------------+
-    |   6. COMPETITION | --> |   7. ADVANCED    |
-    |   STRATEGY       |     |   (Bonus)        |
-    |   Push Back 2026 |     |   Level up!      |
-    +------------------+     +------------------+
+```mermaid
+---
+title: Your Learning Journey
+---
+flowchart LR
+    subgraph Row1[" "]
+        direction LR
+        A["0. WELCOME<br/>Start here!"] --> B["1. PHYSICS<br/>How things move"]
+        B --> C["2. ROBOT ANATOMY<br/>Know your bot"]
+    end
+    subgraph Row2[" "]
+        direction LR
+        D["3. PYTHON BASICS<br/>Learn to code"] --> E["4. DRIVE CONTROL<br/>You drive it"]
+        E --> F["5. AUTONOMOUS<br/>Robot drives itself!"]
+    end
+    subgraph Row3[" "]
+        direction LR
+        G["6. COMPETITION STRATEGY<br/>Push Back 2026"] --> H["7. ADVANCED<br/>Level up!"]
+    end
+    C --> D
+    F --> G
 ```
 
 ## Quick Links

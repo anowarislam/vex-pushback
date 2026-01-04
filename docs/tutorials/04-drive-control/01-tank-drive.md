@@ -9,22 +9,68 @@
 
 Tank drive is the simplest way to control a robot: each joystick controls one side of the drivetrain, just like driving a tank!
 
+```mermaid
+flowchart LR
+    subgraph Controller
+        LS1["Left Stick ↑"]
+        RS1["Right Stick ↑"]
+        LS2["Left Stick ↑"]
+        RS2["Right Stick ↓"]
+        LS3["Left Stick ↓"]
+        RS3["Right Stick ↑"]
+    end
+
+    subgraph Response1["Both Forward"]
+        LW1["Left Wheels ↑ Forward"]
+        RW1["Right Wheels ↑ Forward"]
+    end
+
+    subgraph Response2["Spin Left"]
+        LW2["Left Wheels ↑ Forward"]
+        RW2["Right Wheels ↓ Backward"]
+    end
+
+    subgraph Response3["Spin Right"]
+        LW3["Left Wheels ↓ Backward"]
+        RW3["Right Wheels ↑ Forward"]
+    end
+
+    LS1 --> LW1
+    RS1 --> RW1
+    LS2 --> LW2
+    RS2 --> RW2
+    LS3 --> LW3
+    RS3 --> RW3
 ```
-    Controller:                Robot Response:
 
-    LEFT STICK    RIGHT STICK     LEFT       RIGHT
-        ↑             ↑          WHEELS     WHEELS
-                                   ↑           ↑
-                                Forward!   Forward!
+## Understanding axis3 and axis2
 
-        ↑             ↓             ↑           ↓
-                                Forward!   Backward!
-                                   = SPIN LEFT!
+These are the NAMES that VEX gave to joystick directions:
 
-        ↓             ↑             ↓           ↑
-                                Backward!  Forward!
-                                   = SPIN RIGHT!
 ```
+    LEFT JOYSTICK                RIGHT JOYSTICK
+
+         axis3                        axis2
+           ↑                            ↑
+           |                            |
+    axis4 ←●→ axis4             axis1 ←●→ axis1
+           |                            |
+           ↓                            ↓
+         axis3                        axis2
+
+
+    QUICK REFERENCE:
+    ┌──────────────────────────────────────────────────┐
+    │  axis3 = Left stick, up-down movement (Y-axis)  │
+    │  axis2 = Right stick, up-down movement (Y-axis) │
+    └──────────────────────────────────────────────────┘
+```
+
+Think of the axis numbers as addresses:
+- **axis3** = "Left stick, up-down movement"
+- **axis2** = "Right stick, up-down movement"
+
+**Memory Trick:** "3-2" reads left-to-right, just like the sticks on the controller!
 
 ## The Tank Drive Logic
 
@@ -46,6 +92,41 @@ while True:
 ```
 
 That's it! The joystick value (-100 to +100) directly becomes the motor speed.
+
+### Wait, What Does FORWARD Mean Here?
+
+Here's what might confuse you:
+
+```
+    left_motors.spin(FORWARD, left_speed, PERCENT)
+                       ↑          ↑          ↑
+                       |          |          |
+                       |          |          Unit of speed (out of 100)
+                       |          The actual speed number
+                       Direction reference point
+```
+
+**FORWARD doesn't mean "go forward"!** It means:
+- "Spin in the positive direction when speed is positive"
+- "Spin in the negative direction when speed is negative"
+
+```
+    HOW IT WORKS:
+    ┌──────────────────────────────────────────────────┐
+    │  If left_speed = +50:                           │
+    │      Motors spin FORWARD at 50% speed           │
+    │                                                 │
+    │  If left_speed = -50:                           │
+    │      Motors spin BACKWARD at 50% speed          │
+    │                                                 │
+    │  FORWARD just means "follow the number's sign"  │
+    └──────────────────────────────────────────────────┘
+```
+
+**PERCENT** tells the motor what unit the speed is in:
+- 100 PERCENT = maximum speed
+- 50 PERCENT = half speed
+- 0 PERCENT = stopped
 
 ## Code Walkthrough: driver_control.py
 
@@ -83,16 +164,45 @@ def driver_control_loop():
 
 Joysticks are never perfectly centered. There's always a tiny bit of drift:
 
+Joystick at rest ideally returns 0, but in reality returns small values like 2, 3, or -1. Without deadband, motors creep slowly! With deadband, values under the threshold become 0.
+
+### Deadband Step-by-Step
+
+Let's trace what happens with `threshold=5`:
+
+```mermaid
+flowchart TD
+    subgraph Example1["Example 1: Joystick returns 3"]
+        Input1["Input: 3"] --> Check1{"|3| < 5?"}
+        Check1 -->|"YES (3 < 5)"| Output1["Output: 0<br/>Motor stays still"]
+    end
 ```
-    Joystick at rest:
 
-    IDEAL                      REALITY
-    +-----+                    +-----+
-    |  +  | = 0                |  +  | = 2 or 3 or -1
-    +-----+                    +-----+
+```mermaid
+flowchart TD
+    subgraph Example2["Example 2: Joystick returns -50"]
+        Input2["Input: -50"] --> Check2{"|-50| < 5?"}
+        Check2 -->|"NO (50 >= 5)"| Output2["Output: -50<br/>Motor runs at 50% reverse"]
+    end
+```
 
-    Without deadband: Motors creep slowly!
-    With deadband: Values under 5 become 0
+```mermaid
+flowchart TD
+    subgraph Example3["Example 3: Joystick returns 5"]
+        Input3["Input: 5"] --> Check3{"|5| < 5?"}
+        Check3 -->|"NO (5 = 5, not less than)"| Output3["Output: 5<br/>Motor runs at 5% forward"]
+    end
+```
+
+**General Deadband Decision Flow:**
+
+```mermaid
+flowchart TD
+    Start["Joystick Value"] --> AbsCheck{"|value| < threshold?"}
+    AbsCheck -->|YES| Zero["Return 0<br/>(Ignore drift)"]
+    AbsCheck -->|NO| Original["Return original value<br/>(Real movement)"]
+    Zero --> Motor1["Motor stays still"]
+    Original --> Motor2["Motor spins at given speed"]
 ```
 
 ## Movement Patterns
@@ -131,6 +241,41 @@ Joysticks are never perfectly centered. There's always a tiny bit of drift:
     Right Stick: ↑ (+50)     Right Motors: ↑ Forward (50%)
 
     Robot arcs to the right!
+```
+
+### Practice Pattern Dimensions
+
+When practicing movement patterns, use these recommended sizes:
+
+```
+    STRAIGHT LINE TEST:
+    ●═══════════════════════════●
+    START                      END
+
+    Distance: 6 feet (~1.8 meters)
+    Goal: Drive without veering left or right
+
+    ────────────────────────────────────────
+
+    PIVOT TEST:
+
+         ↺
+        ╱ ╲
+       │ ● │    Spin 360° in place
+        ╲ ╱
+         ↻
+
+    Goal: End facing the same direction you started
+
+    ────────────────────────────────────────
+
+    ARC TURN TEST:
+
+    ●═══════════════╗
+    START           ║  Width: 3 feet (~90 cm)
+                    ╚═══════════════★ END
+
+    Goal: Smooth curve, no jerky corrections
 ```
 
 ## Tank Drive Diagram
@@ -188,4 +333,4 @@ right_speed = deadband(right_speed, threshold=5)
 
 ---
 
-**[← Previous: Loops and Conditionals](../03-python-basics/03-loops-and-conditionals.md)** | **[Next: Arcade Drive →](02-arcade-drive.md)**
+**[← Previous: Controller Basics](00-controller-basics.md)** | **[Next: Arcade Drive →](02-arcade-drive.md)**

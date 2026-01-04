@@ -9,16 +9,18 @@
 
 In VEX competitions, you're paired with another team. Success depends on coordination!
 
-```
-    YOUR ALLIANCE:
-
-    ┌─────────────┐     ┌─────────────┐
-    │   YOUR      │  +  │  PARTNER    │
-    │   TEAM      │     │   TEAM      │
-    │   [Robot]   │     │   [Robot]   │
-    └─────────────┘     └─────────────┘
-
-    Same goals, same score, same fate!
+```mermaid
+flowchart TB
+    subgraph Alliance["YOUR ALLIANCE"]
+        subgraph YT["YOUR TEAM"]
+            YR["Robot"]
+        end
+        subgraph PT["PARTNER TEAM"]
+            PR["Robot"]
+        end
+    end
+    YT --- PT
+    Alliance -.- Note["Same goals, same score, same fate!"]
 ```
 
 ## Pre-Match Communication
@@ -101,70 +103,55 @@ In VEX competitions, you're paired with another team. Success depends on coordin
 
 ## Role Strategies
 
-### Offense + Offense
-```
-    Both robots focus on scoring:
+```mermaid
+flowchart TD
+    RS["Role Strategies"] --> OO["Offense + Offense"]
+    RS --> OD["Offense + Defense"]
+    RS --> SS["Split Strategy"]
 
-    Robot A: Left goals, left blocks
-    Robot B: Right goals, right blocks
+    OO --> OOD["Both robots focus on scoring"]
+    OOD --> OOA["Robot A: Left goals, left blocks"]
+    OOD --> OOB["Robot B: Right goals, right blocks"]
+    OO -.- OOBest["Best when: Both robots are fast scorers"]
+    OO -.- OORisk["Risk: No defense, vulnerable to descoring"]
 
-    Best when: Both robots are fast scorers
-    Risk: No defense, vulnerable to descoring
-```
+    OD --> ODD["Robot A: Scores blocks<br/>Robot B: Defends goals, descores"]
+    OD -.- ODBest["Best when: One robot is better at pushing"]
+    OD -.- ODRisk["Risk: Lower total score potential"]
 
-### Offense + Defense
-```
-    Robot A: Scores blocks
-    Robot B: Defends goals, descores
-
-    Best when: One robot is better at pushing
-    Risk: Lower total score potential
-```
-
-### Split Strategy
-```
-    Phase 1 (0-1:30): Both score
-    Phase 2 (1:30-1:50): One defends, one scores
-    Phase 3 (1:50-2:00): Both park
-
-    Best when: Flexible, adaptable teams
+    SS --> SSD["Phase 1 (0-1:30): Both score<br/>Phase 2 (1:30-1:50): One defends, one scores<br/>Phase 3 (1:50-2:00): Both park"]
+    SS -.- SSBest["Best when: Flexible, adaptable teams"]
 ```
 
 ## End-Game Coordination
 
 ### The 10-Second Rule
 
-```
-    CRITICAL: With 10 seconds left...
+**CRITICAL: With 10 seconds left... STOP SCORING, START PARKING!**
 
-    ┌────────────────────────────────────┐
-    │  STOP SCORING, START PARKING!     │
-    │                                    │
-    │  1:50 → Head to park zone          │
-    │  1:55 → Both robots in position    │
-    │  2:00 → Match ends, 30 pts!        │
-    └────────────────────────────────────┘
+```mermaid
+timeline
+    title 10-Second Rule Timing
+    section 1:50
+        Head to park zone
+    section 1:55
+        Both robots in position
+    section 2:00
+        Match ends, 30 pts!
 ```
 
 ### Parking Order
 
-```
-    WHO PARKS FIRST?
+```mermaid
+flowchart TD
+    Q["WHO PARKS FIRST?"]
+    Q --> O1["Option 1: Closer robot parks first"]
+    Q --> O2["Option 2: Slower robot parks first"]
+    Q --> O3["Option 3: Pre-assigned"]
 
-    Option 1: Closer robot parks first
-    ┌──────────────────────┐
-    │  [A]     [B]        │
-    │   ↓                  │
-    │  [PARK]             │
-    │   A is closer,       │
-    │   A parks first      │
-    └──────────────────────┘
-
-    Option 2: Slower robot parks first
-    (Give slower robot more time)
-
-    Option 3: Pre-assigned
-    (Decide before match)
+    O1 --> O1D["A is closer to park zone<br/>A parks first"]
+    O2 --> O2D["Give slower robot more time"]
+    O3 --> O3D["Decide before match"]
 ```
 
 ## Scouting Other Teams
@@ -264,4 +251,4 @@ You CAN'T talk during autonomous (no human control), but you CAN plan ahead:
 
 ---
 
-**[← Previous: Scoring Strategies](02-scoring-strategies.md)** | **[Next: Tutorial 7 - Advanced Topics →](../07-advanced/01-pid-control.md)**
+**[← Previous: Scoring Strategies](02-scoring-strategies.md)** | **[Next: Review Q&A →](04-review-qa.md)**

@@ -1,0 +1,93 @@
+site_name: VEX V5 Push Back Tutorials
+site_description: Learn VEX V5 robotics programming for the 2025-2026 Push Back competition
+site_author: VEX Team
+repo_url: https://github.com/anowarislam/vex-pushback
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: red
+      accent: deep orange
+
+docs_dir: docs/tutorials
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - admonition
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+nav:
+  - Home: README.md
+  - Welcome:
+    - Getting Started: 00-welcome/index.md
+    - Parents Guide: 00-welcome/01-parents-guide.md
+  - Physics Foundations:
+    - Forces and Motion: 01-physics-foundations/01-forces-and-motion.md
+    - Gears and Torque: 01-physics-foundations/02-gears-and-torque.md
+    - Friction and Traction: 01-physics-foundations/03-friction-and-traction.md
+    - Review Q&A: 01-physics-foundations/04-review-qa.md
+  - Robot Anatomy:
+    - Brain and Controller: 02-robot-anatomy/01-brain-and-controller.md
+    - Motors and Gears: 02-robot-anatomy/02-motors-and-gears.md
+    - Sensors Overview: 02-robot-anatomy/03-sensors-overview.md
+    - Review Q&A: 02-robot-anatomy/04-review-qa.md
+  - Python Basics:
+    - Thinking with Flowcharts: 03-python-basics/00-flowchart.md
+    - Variables and Types: 03-python-basics/01-variables-and-types.md
+    - Functions: 03-python-basics/02-functions.md
+    - Loops and Conditionals: 03-python-basics/03-loops-and-conditionals.md
+    - Review Q&A: 03-python-basics/04-review-qa.md
+  - Drive Control:
+    - Controller Basics: 04-drive-control/00-controller-basics.md
+    - Tank Drive: 04-drive-control/01-tank-drive.md
+    - Arcade Drive: 04-drive-control/02-arcade-drive.md
+    - Driver Practice: 04-drive-control/03-driver-practice.md
+    - Review Q&A: 04-drive-control/04-review-qa.md
+  - Autonomous:
+    - Basic Movements: 05-autonomous/01-basic-movements.md
+    - Timing and Sequences: 05-autonomous/02-timing-and-sequences.md
+    - Push Back Autonomous: 05-autonomous/03-push-back-autonomous.md
+    - Review Q&A: 05-autonomous/04-review-qa.md
+  - Competition Strategy:
+    - Game Overview: 06-competition-strategy/01-game-overview.md
+    - Scoring Strategies: 06-competition-strategy/02-scoring-strategies.md
+    - Alliance Coordination: 06-competition-strategy/03-alliance-coordination.md
+    - Review Q&A: 06-competition-strategy/04-review-qa.md
+  - Advanced:
+    - PID Control: 07-advanced/01-pid-control.md
+    - Sensor Integration: 07-advanced/02-sensor-integration.md
+    - Skills Autonomous: 07-advanced/03-skills-autonomous.md
+    - Review Q&A: 07-advanced/04-review-qa.md
+  - Appendix:
+    - Quick Reference: appendix/quick-reference.md
+    - Glossary: appendix/glossary.md
+    - Troubleshooting: appendix/troubleshooting.md

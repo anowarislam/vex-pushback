@@ -121,16 +121,26 @@ heading = inertial_sensor.heading()  # Returns 0-359.99
 rotation = inertial_sensor.rotation()  # Can be -999999 to +999999
 ```
 
-```
-    HEADING vs ROTATION:
-
-    Heading (0-360):           Rotation (continuous):
-
-    Start: 0°                  Start: 0°
-    Turn right 45°: 45°        Turn right 45°: 45°
-    Turn right 45°: 90°        Turn right 45°: 90°
-    Turn right 290°: 20°       Turn right 290°: 380°  ← Keeps counting!
-    Turn left 30°: 350°        Turn left 30°: 350°
+```mermaid
+flowchart LR
+    subgraph HEADING["Heading (0-360)"]
+        direction TB
+        H1["Start: 0"]
+        H2["Turn right 45: 45"]
+        H3["Turn right 45: 90"]
+        H4["Turn right 290: 20"]
+        H5["Turn left 30: 350"]
+        H1 --> H2 --> H3 --> H4 --> H5
+    end
+    subgraph ROTATION["Rotation (continuous)"]
+        direction TB
+        R1["Start: 0"]
+        R2["Turn right 45: 45"]
+        R3["Turn right 45: 90"]
+        R4["Turn right 290: 380<br/>Keeps counting!"]
+        R5["Turn left 30: 350"]
+        R1 --> R2 --> R3 --> R4 --> R5
+    end
 ```
 
 ### SmartDrive: DriveTrain + Inertial
@@ -291,4 +301,8 @@ When you rotate the robot:
 
 ---
 
-**[← Previous: Motors and Gears](02-motors-and-gears.md)** | **[Next: Tutorial 3 - Python Basics →](../03-python-basics/01-variables-and-types.md)**
+**Ready to test your knowledge? Check out the [Python Q&A Review](04-review-qa.md)!**
+
+---
+
+**[← Previous: Motors and Gears](02-motors-and-gears.md)** | **[Next: Thinking with Flowcharts →](../03-python-basics/00-flowchart.md)**

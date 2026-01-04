@@ -9,15 +9,15 @@
 
 During the first 15 seconds of a VEX match, **no human control is allowed**. Your robot must execute pre-programmed movements on its own!
 
-```
-    MATCH TIMELINE:
-
-    0:00                   0:15                   2:00
-    |━━━━━━━━━━━━━━━━━━━━━━|━━━━━━━━━━━━━━━━━━━━━━|
-    ← AUTONOMOUS (15 sec) →← DRIVER CONTROL (1:45) →
-
-    Robot runs              Human driver
-    programmed code         takes over
+```mermaid
+timeline
+    title VEX Match Timeline
+    section Autonomous
+        0:00 - 0:15 : Robot runs programmed code
+                    : No human control allowed
+    section Driver Control
+        0:15 - 2:00 : Human driver takes over
+                    : Full controller access
 ```
 
 ## The DriveTrain Commands
@@ -107,16 +107,19 @@ drivetrain.set_timeout(3, SECONDS)  # Max 3 seconds per move
 drivetrain.drive_for(FORWARD, 1000, MM)  # Will stop after 3 sec if stuck
 ```
 
-```
-    Without Timeout:              With Timeout:
+```mermaid
+flowchart TD
+    subgraph without["Without Timeout"]
+        A1["drive_for(1000mm)"] --> B1["Robot stuck!"]
+        B1 --> C1["Waits forever..."]
+        C1 --> D1["NEVER CONTINUES"]
+    end
 
-    drive_for(1000mm)             drive_for(1000mm)
-         │                             │
-         │ Robot stuck!                │ Robot stuck!
-         │                             │
-         │ ... waits forever ...       ├── 3 seconds pass
-         │                             │
-         v NEVER CONTINUES             v Continues to next command!
+    subgraph with["With Timeout (3 seconds)"]
+        A2["drive_for(1000mm)"] --> B2["Robot stuck!"]
+        B2 --> C2{"3 seconds pass"}
+        C2 --> D2["Continues to next command!"]
+    end
 ```
 
 ## Stopping Modes
@@ -239,4 +242,4 @@ def drive_triangle():
 
 ---
 
-**[← Previous: Driver Practice](../04-drive-control/03-driver-practice.md)** | **[Next: Timing and Sequences →](02-timing-and-sequences.md)**
+**[← Previous: Driver Practice](../04-drive-control/03-driver-practice.md)** | **[Next: Timing and Sequences →](02-timing-and-sequences.md)** | **[📝 Review Q&A](04-review-qa.md)**

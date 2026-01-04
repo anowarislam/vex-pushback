@@ -9,25 +9,23 @@
 
 The V5 Smart Motor is the most important component of your robot. It converts electrical power into rotational motion.
 
-```
-    ┌───────────────────────────────────────────────┐
-    │            V5 SMART MOTOR                      │
-    │                                                │
-    │  ┌──────┐                     ┌──────────┐    │
-    │  │ PORT │ ← Smart cable       │  OUTPUT  │    │
-    │  │      │   connects here     │  SHAFT   │←──┐│
-    │  └──────┘                     └──────────┘   ││
-    │                                              ││
-    │  ┌──────────────────────────────────────┐   ││
-    │  │      GEAR CARTRIDGE SLOT             │   ││
-    │  │  (swap for different speeds/torque)  │   ││
-    │  └──────────────────────────────────────┘   ││
-    │                                              ││
-    │   Internal:                                  ││
-    │   - Encoder (rotation sensor)                ↓│
-    │   - Temperature sensor                       ⟳│
-    │   - Current sensor                           │
-    └───────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph MOTOR["V5 SMART MOTOR"]
+        direction TB
+        subgraph CONNECTIONS["Connections"]
+            direction LR
+            PORT["PORT<br/>Smart cable connects here"]
+            SHAFT["OUTPUT SHAFT<br/>Rotates"]
+        end
+        CARTRIDGE["GEAR CARTRIDGE SLOT<br/>(swap for different speeds/torque)"]
+        subgraph INTERNAL["Internal Sensors"]
+            direction LR
+            ENC["Encoder<br/>(rotation sensor)"]
+            TEMP["Temperature<br/>sensor"]
+            CURR["Current<br/>sensor"]
+        end
+    end
 ```
 
 ### Smart Features
@@ -290,4 +288,4 @@ else:
 
 ---
 
-**[← Previous: Brain and Controller](01-brain-and-controller.md)** | **[Next: Sensors Overview →](03-sensors-overview.md)**
+**[← Previous: Brain and Controller](01-brain-and-controller.md)** | **[Next: Sensors Overview →](03-sensors-overview.md)** | **[📝 Review Q&A](04-review-qa.md)**

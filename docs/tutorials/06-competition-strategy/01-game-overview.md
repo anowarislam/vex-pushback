@@ -45,20 +45,15 @@ Push Back is the VEX V5 Robotics Competition game for the 2025-2026 season. Here
 
 ## Match Structure
 
-```
-    ┌─────────────────────────────────────────────────────────────┐
-    │                        MATCH TIMELINE                        │
-    ├──────────────────┬──────────────────────────────────────────┤
-    │   AUTONOMOUS     │          DRIVER CONTROL                   │
-    │    15 seconds    │         1 min 45 seconds                  │
-    ├──────────────────┼──────────────────────────────────────────┤
-    │ Pre-programmed   │  Drivers control robots                   │
-    │ No human control │  Full control of robot                    │
-    │ 10 pt bonus      │  Main scoring period                      │
-    │ available        │                                           │
-    └──────────────────┴──────────────────────────────────────────┘
-
-    Total Match Time: 2 minutes
+```mermaid
+timeline
+    title Match Timeline (Total: 2 minutes)
+    section Autonomous (15 sec)
+        Pre-programmed : No human control
+        : 10 pt bonus available
+    section Driver Control (1 min 45 sec)
+        Drivers control robots : Full control of robot
+        : Main scoring period
 ```
 
 ## Scoring Summary
@@ -111,15 +106,17 @@ To earn the **Autonomous Win Point**, your alliance must:
 
 ## Alliances
 
-```
-    RED ALLIANCE              BLUE ALLIANCE
-    ┌──────────────┐          ┌──────────────┐
-    │ Team A  +    │    vs    │ Team C  +    │
-    │ Team B       │          │ Team D       │
-    └──────────────┘          └──────────────┘
-
-    2 robots                  2 robots
-    work together             work together
+```mermaid
+flowchart TB
+    subgraph RED["RED ALLIANCE"]
+        RA["Team A"] --- RB["Team B"]
+    end
+    subgraph BLUE["BLUE ALLIANCE"]
+        BC["Team C"] --- BD["Team D"]
+    end
+    RED <-- "vs" --> BLUE
+    RED -.- R2["2 robots work together"]
+    BLUE -.- B2["2 robots work together"]
 ```
 
 ## Key Game Mechanics
@@ -139,12 +136,13 @@ You can remove opponent blocks from goals:
 ### 2. Zone Control
 Majority of blocks = control the zone:
 
-```
-    Zone has 5 blocks:
-    🔴 🔴 🔴 🔵 🔵  → RED controls (3 vs 2)
+```mermaid
+flowchart TD
+    Z1["Zone has 5 blocks: 3 Red, 2 Blue"]
+    Z1 --> R1["RED controls (3 vs 2)"]
 
-    Zone has 4 blocks:
-    🔴 🔴 🔵 🔵     → NO control (tie)
+    Z2["Zone has 4 blocks: 2 Red, 2 Blue"]
+    Z2 --> N1["NO control (tie)"]
 ```
 
 ### 3. Parking Bonus

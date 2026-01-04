@@ -9,15 +9,20 @@
 
 Have you ever ridden a bicycle with gears? Think about what happens when you switch gears:
 
-```
-    LOW GEAR (for hills)          HIGH GEAR (for speed)
-
-    Pedal: ⟳ ⟳ ⟳ ⟳ ⟳             Pedal: ⟳
-    Wheel: ⟳                       Wheel: ⟳ ⟳ ⟳ ⟳ ⟳
-
-    Easy to pedal                  Hard to pedal
-    Slow movement                  Fast movement
-    Lots of pushing power          Less pushing power
+```mermaid
+flowchart LR
+    subgraph LOW["LOW GEAR (for hills)"]
+        direction TB
+        L1["Pedal: Many rotations"]
+        L2["Wheel: Few rotations"]
+        L3["Easy to pedal<br/>Slow movement<br/>Lots of pushing power"]
+    end
+    subgraph HIGH["HIGH GEAR (for speed)"]
+        direction TB
+        H1["Pedal: Few rotations"]
+        H2["Wheel: Many rotations"]
+        H3["Hard to pedal<br/>Fast movement<br/>Less pushing power"]
+    end
 ```
 
 This is exactly how robot motor gears work!
@@ -44,17 +49,11 @@ Think of torque as "twisting strength" - how hard the motor can twist.
 
 VEX V5 Smart Motors can use different **gear cartridges** that change the torque vs. speed trade-off:
 
-```
-    ┌─────────────────────────────────────────────────────────────┐
-    │                     GEAR CARTRIDGE COMPARISON                │
-    ├─────────────────┬──────────┬────────────┬───────────────────┤
-    │    Cartridge    │   RPM    │   Torque   │    Best For       │
-    ├─────────────────┼──────────┼────────────┼───────────────────┤
-    │  🔵 BLUE (6:1)  │   600    │    Low     │  Flywheel, intake │
-    │  🟢 GREEN (18:1)│   200    │   Medium   │  Drivetrain       │
-    │  🔴 RED (36:1)  │   100    │    High    │  Lifting, pushing │
-    └─────────────────┴──────────┴────────────┴───────────────────┘
-```
+| Cartridge | RPM | Torque | Best For |
+|-----------|-----|--------|----------|
+| BLUE (6:1) | 600 | Low | Flywheel, intake |
+| GREEN (18:1) | 200 | Medium | Drivetrain |
+| RED (36:1) | 100 | High | Lifting, pushing |
 
 ### Understanding the Ratios
 

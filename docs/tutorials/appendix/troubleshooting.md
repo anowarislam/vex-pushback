@@ -7,12 +7,20 @@ Common problems and how to fix them.
 ## "My Robot Won't Move!"
 
 ### Checklist
-```
-□ Is the battery charged? (Check brain screen)
-□ Is the code downloaded? (Run from brain menu)
-□ Are motors plugged in? (Check connections)
-□ Are ports correct in code? (Match robot_config.py)
-□ Is controller connected? (Check wireless link)
+
+```mermaid
+flowchart TD
+    Start["Robot Won't Move"] --> B{"Battery charged?"}
+    B -->|No| BC["Charge battery"]
+    B -->|Yes| C{"Code downloaded?"}
+    C -->|No| CD["Download code from brain menu"]
+    C -->|Yes| M{"Motors plugged in?"}
+    M -->|No| MC["Check connections"]
+    M -->|Yes| P{"Ports correct in code?"}
+    P -->|No| PC["Match robot_config.py"]
+    P -->|Yes| K{"Controller connected?"}
+    K -->|No| KC["Check wireless link"]
+    K -->|Yes| OK["All checks passed - investigate further"]
 ```
 
 ### Port Mismatch
@@ -210,24 +218,24 @@ wait(3, SECONDS)  # MUST WAIT for calibration!
 
 ## Competition Checklist
 
-```
-BEFORE MATCH:
-□ Battery charged (>70%)
-□ Controller batteries fresh
-□ Code downloaded
-□ Correct autonomous selected
-□ Motors all working
-□ Sensors calibrated
-
-AT FIELD:
-□ Controller paired
-□ Alliance color set (if needed)
-□ Starting position correct
-□ Robot in legal position
-
-AFTER AUTONOMOUS:
-□ Ready to drive immediately
-□ Know the game situation
+```mermaid
+timeline
+    title Competition Pre-Match Checklist
+    section BEFORE MATCH
+        Battery charged >70%
+        : Controller batteries fresh
+        : Code downloaded
+        : Correct autonomous selected
+        : Motors all working
+        : Sensors calibrated
+    section AT FIELD
+        Controller paired
+        : Alliance color set (if needed)
+        : Starting position correct
+        : Robot in legal position
+    section AFTER AUTONOMOUS
+        Ready to drive immediately
+        : Know the game situation
 ```
 
 ---

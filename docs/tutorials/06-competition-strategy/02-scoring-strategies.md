@@ -52,26 +52,17 @@ Focus on scoring as many blocks as possible:
 
 Focus on controlling high-value zones:
 
-```
-    ZONE CONTROL PRIORITY:
+```mermaid
+flowchart TD
+    P["ZONE CONTROL PRIORITY"]
+    P --> L["1. Long Goals (10 pts each)"]
+    L --> LD["Control with 3+ blocks = 10 points"]
 
-    1. Long Goals (10 pts each)
-       ┌──────────────┐
-       │ Control with │ = 10 points
-       │ 3+ blocks    │
-       └──────────────┘
+    P --> U["2. Center Upper (8 pts)"]
+    U --> UD["Harder to access = 8 points"]
 
-    2. Center Upper (8 pts)
-       ┌──────────────┐
-       │ Harder to    │ = 8 points
-       │ access       │
-       └──────────────┘
-
-    3. Center Lower (6 pts)
-       ┌──────────────┐
-       │ Easier to    │ = 6 points
-       │ descore      │
-       └──────────────┘
+    P --> LO["3. Center Lower (6 pts)"]
+    LO --> LOD["Easier to descore = 6 points"]
 ```
 
 **Strategy:** Put 3 blocks in a zone, then defend it!
@@ -80,15 +71,19 @@ Focus on controlling high-value zones:
 
 Remove opponent blocks to swing points:
 
-```
-    DESCORING MATH:
+```mermaid
+stateDiagram-v2
+    [*] --> Before
+    Before : Zone has 3 Blue, 2 Red
+    Before : Blue controls (+10 Blue)
 
-    Before: Zone has 🔵🔵🔵🔴🔴 (Blue controls, +10 Blue)
+    Before --> After : Descore 2 blue blocks
 
-    You descore 2 blue blocks:
-    After:  Zone has 🔵🔴🔴 (RED controls, +10 Red)
+    After : Zone has 1 Blue, 2 Red
+    After : RED controls (+10 Red)
+    After --> [*]
 
-    Point swing: 20 points! (opponent loses 10, you gain 10)
+    note right of After : Point swing: 20 points!
 ```
 
 **Best Descoring Targets:**
@@ -100,17 +95,18 @@ Remove opponent blocks to swing points:
 
 Never forget parking! It's the most efficient scoring late-game.
 
+```mermaid
+timeline
+    title End-Game Timeline
+    section 1:50
+        Start heading to park
+    section 1:55
+        Both robots in zone
+    section 2:00
+        Match ends
 ```
-    END-GAME TIMELINE:
 
-    1:50        1:55        2:00
-    |───────────|───────────|
-    Start       Both        Match
-    heading     robots      ends
-    to park     in zone
-
-    10-15 seconds before end: HEAD TO PARK ZONE!
-```
+**Note:** 10-15 seconds before end: HEAD TO PARK ZONE!
 
 **Parking Math:**
 | Situation | Points | Worth It? |
@@ -122,26 +118,25 @@ Never forget parking! It's the most efficient scoring late-game.
 
 ### Match Plan
 
-```
-    AUTONOMOUS (0-15 sec):
-    ├── Score 3+ blocks in different goals
-    ├── Clear loader (3+ blocks)
-    └── Don't touch park barrier!
-
-    DRIVER PHASE 1 (15 sec - 1:00):
-    ├── Push blocks into goals
-    ├── Focus on zone control
-    └── Communicate with partner
-
-    DRIVER PHASE 2 (1:00 - 1:50):
-    ├── Defend your zones
-    ├── Descore opponent if winning zones
-    └── Keep scoring if behind
-
-    END GAME (1:50 - 2:00):
-    ├── STOP SCORING
-    ├── Both robots head to park
-    └── 30 points for double park!
+```mermaid
+timeline
+    title Combined Strategy Match Plan
+    section AUTONOMOUS (0-15 sec)
+        Score 3+ blocks in different goals
+        : Clear loader (3+ blocks)
+        : Don't touch park barrier!
+    section DRIVER PHASE 1 (15 sec - 1:00)
+        Push blocks into goals
+        : Focus on zone control
+        : Communicate with partner
+    section DRIVER PHASE 2 (1:00 - 1:50)
+        Defend your zones
+        : Descore opponent if winning zones
+        : Keep scoring if behind
+    section END GAME (1:50 - 2:00)
+        STOP SCORING
+        : Both robots head to park
+        : 30 points for double park!
 ```
 
 ## Role Specialization
