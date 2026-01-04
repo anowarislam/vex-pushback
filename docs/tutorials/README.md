@@ -8,7 +8,7 @@ Welcome to the comprehensive tutorial series for VEX V5 robotics programming! Th
 ---
 title: Your Learning Journey
 ---
-flowchart LR
+flowchart TD
     subgraph Row1[" "]
         direction LR
         A["0. WELCOME<br/>Start here!"] --> B["1. PHYSICS<br/>How things move"]
