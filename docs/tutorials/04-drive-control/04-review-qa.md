@@ -501,4 +501,4 @@ Higher exponent = more aggressive curve = smaller outputs for small inputs.
 
 ---
 
-**[Back to Drive Control Tutorials](./01-tank-drive.md)**
+**[← Previous: Driver Practice](03-driver-practice.md)** | **[Next: Autonomous →](../05-autonomous/01-basic-movements.md)**

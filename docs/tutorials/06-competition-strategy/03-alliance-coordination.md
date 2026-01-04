@@ -76,10 +76,10 @@ flowchart TB
 ```
     SUGGESTED SIGNALS:
 
-    ✋ Open hand = "I'm going to park"
-    ☝️ Point at goal = "Score there"
-    ✊ Fist = "I'll defend"
-    🤚 Wave = "Help me!"
+    Open hand = "I'm going to park"
+    Point at goal = "Score there"
+    Fist = "I'll defend"
+    Wave = "Help me!"
 ```
 
 ### Zone Division

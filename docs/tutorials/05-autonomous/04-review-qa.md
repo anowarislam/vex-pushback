@@ -1,4 +1,4 @@
-# Module 5: Autonomous Programming - Revision Q&A
+# Module 5: Autonomous Programming - Review Q&A
 
 **Total Questions:** 60
 **Estimated Time:** 45-60 minutes
@@ -1541,4 +1541,4 @@ wait(1, SECONDS)   # 1 second
 
 ---
 
-**[← Back to Tutorial 5.1](01-basic-movements.md)** | **[Tutorial 5.2](02-timing-and-sequences.md)** | **[Tutorial 5.3](03-push-back-autonomous.md)**
+**[← Previous: Push Back Autonomous](03-push-back-autonomous.md)** | **[Next: Competition Strategy →](../06-competition-strategy/01-game-overview.md)**

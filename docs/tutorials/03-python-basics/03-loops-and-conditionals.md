@@ -758,8 +758,6 @@ def driver_control_with_modes():
 ```
 ---
 
-**Ready to test your knowledge? Check out the [Python Q&A Review](04-review-qa.md)!**
-
 ---
 
-**[← Previous: Functions](02-functions.md)** | **[Next: Tutorial 4 - Drive Control →](../04-drive-control/01-tank-drive.md)**
+**[← Previous: Functions](02-functions.md)** | **[Next: Drive Control →](../04-drive-control/01-tank-drive.md)** | **[Review Q&A](04-review-qa.md)**

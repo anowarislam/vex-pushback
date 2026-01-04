@@ -526,4 +526,4 @@ Set up these challenges and time yourself:
 
 ---
 
-**[← Previous: Arcade Drive](02-arcade-drive.md)** | **[Next: Tutorial 5 - Autonomous →](../05-autonomous/01-basic-movements.md)**
+**[← Previous: Arcade Drive](02-arcade-drive.md)** | **[Next: Autonomous →](../05-autonomous/01-basic-movements.md)** | **[Review Q&A](04-review-qa.md)**

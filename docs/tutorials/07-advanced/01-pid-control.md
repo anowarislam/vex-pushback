@@ -12,7 +12,7 @@
 
 ### Real-World Analogies
 
-#### 🌡️ The Thermostat Analogy
+#### The Thermostat Analogy
 
 Your home thermostat is a simple controller:
 
@@ -27,7 +27,7 @@ Your home thermostat is a simple controller:
 
 PID does the same thing, but smarter!
 
-#### 🎮 The Video Game Analogy
+#### The Video Game Analogy
 
 In racing games, when you approach a checkpoint:
 - **Far away:** Full speed ahead!
@@ -37,7 +37,7 @@ In racing games, when you approach a checkpoint:
 
 That's exactly what PID does for your robot!
 
-#### 🏀 The Basketball Shot Analogy
+#### The Basketball Shot Analogy
 
 When shooting free throws:
 - **Miss by 2 feet short:** Add LOTS more power next shot
@@ -47,7 +47,7 @@ When shooting free throws:
 
 PID adjusts motor power the same way you adjust your shot!
 
-#### 🚗 The Driving Analogy
+#### The Driving Analogy
 
 When approaching a stop sign:
 - **100 feet away:** Full speed
@@ -86,7 +86,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph "❌ Bang-Bang Control (Bad)"
+    subgraph "Bang-Bang Control (Bad)"
         A1["Heading: 0°"] --> A2["Motors ON\n100%"]
         A2 --> A3["Heading: 85°"]
         A3 --> A4["Motors ON\n100%"]
@@ -95,7 +95,7 @@ flowchart TB
         A6 --> A7["OVERSHOOT!\n95°"]
         A7 --> A8["Turn back..."]
         A8 --> A9["UNDERSHOOT!\n88°"]
-        A9 --> A10["Oscillates\nforever 😵"]
+        A9 --> A10["Oscillates\nforever"]
     end
 
     style A7 fill:#ffcdd2,stroke:#c62828
@@ -105,7 +105,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph "✅ PID Control (Good)"
+    subgraph "PID Control (Good)"
         B1["Heading: 0°"] --> B2["Motors at\n80%"]
         B2 --> B3["Heading: 50°"]
         B3 --> B4["Motors at\n40%"]
@@ -113,7 +113,7 @@ flowchart TB
         B5 --> B6["Motors at\n5%"]
         B6 --> B7["Heading: 90°"]
         B7 --> B8["Motors at\n0%"]
-        B8 --> B9["Smooth stop! 🎯"]
+        B8 --> B9["Smooth stop!"]
     end
 
     style B9 fill:#c8e6c9,stroke:#2e7d32
@@ -254,7 +254,7 @@ flowchart LR
     subgraph "P-Only Problem"
         A["Target: 90°\nCurrent: 88°"] --> B["Error = 2°"]
         B --> C["Correction =\n0.5 × 2 = 1%"]
-        C --> D["1% power\ncan't overcome\nfriction! 😩"]
+        C --> D["1% power\ncan't overcome\nfriction!"]
     end
 
     style D fill:#ffcdd2,stroke:#c62828
@@ -273,7 +273,7 @@ flowchart TB
         F --> G["..."]
         G --> H["Error = 2°\nCycle 10"]
         H --> I["integral = 20"]
-        I --> J["Now Ki × 20\nOVERCOMES\nfriction! ✅"]
+        I --> J["Now Ki × 20\nOVERCOMES\nfriction!"]
     end
 
     style J fill:#c8e6c9,stroke:#2e7d32
@@ -383,7 +383,7 @@ def turn_to_heading_pid(target_heading):
 
 ```mermaid
 flowchart TD
-    START["🚀 START HERE\nKp = 0.5, Ki = 0, Kd = 0\n(P-only control)"]
+    START["START HERE\nKp = 0.5, Ki = 0, Kd = 0\n(P-only control)"]
     START --> TEST1
 
     TEST1{"Does robot\nOVERSHOOT?"}
@@ -398,12 +398,12 @@ flowchart TD
 
     TEST3{"Does robot\nNOT REACH target?\n(steady-state error)"}
     TEST3 -->|"YES"| FIX3["Add small Ki\n(try 0.01)"]
-    TEST3 -->|"NO"| DONE1["✅ P-only works!\nYou're done!"]
+    TEST3 -->|"NO"| DONE1["P-only works!\nYou're done!"]
     FIX3 --> TEST4
 
     TEST4{"Does robot now\nOVERSHOOT more?"}
     TEST4 -->|"YES"| FIX4["Decrease Ki\n(try 0.005)"]
-    TEST4 -->|"NO"| DONE2["✅ PI works!\nYou're done!"]
+    TEST4 -->|"NO"| DONE2["PI works!\nYou're done!"]
     FIX4 --> TEST4
 
     style START fill:#e3f2fd,stroke:#1565c0
@@ -530,7 +530,7 @@ def pid_park():
 
 ## Progressive Exercises
 
-### 🟢 Beginner: P-Only Turn
+### Beginner: P-Only Turn
 
 **Goal:** Make the robot turn to exactly 90° using P control.
 
@@ -563,7 +563,7 @@ def turn_to_90():
 
 ---
 
-### 🟡 Intermediate: Add Wraparound Handling
+### Intermediate: Add Wraparound Handling
 
 **Goal:** Handle the 0-360° boundary problem.
 
@@ -601,7 +601,7 @@ def turn_to_heading(target):
 
 ---
 
-### 🔴 Challenge: PI Control for Accurate Parking
+### Challenge: PI Control for Accurate Parking
 
 **Goal:** Use PI control to overcome friction and park accurately.
 
@@ -750,4 +750,4 @@ flowchart LR
 
 ---
 
-**[← Previous: Alliance Coordination](../06-competition-strategy/03-alliance-coordination.md)** | **[Next: Sensor Integration →](02-sensor-integration.md)**
+**[← Previous: Alliance Coordination](../06-competition-strategy/03-alliance-coordination.md)** | **[Next: Sensor Integration →](02-sensor-integration.md)** | **[Review Q&A](04-review-qa.md)**

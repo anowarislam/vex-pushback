@@ -321,4 +321,4 @@ def slow_auto():
 
 ---
 
-**[← Previous: Basic Movements](01-basic-movements.md)** | **[Next: Push Back Autonomous →](03-push-back-autonomous.md)** | **[📝 Review Q&A](04-review-qa.md)**
+**[← Previous: Basic Movements](01-basic-movements.md)** | **[Next: Push Back Autonomous →](03-push-back-autonomous.md)** | **[Review Q&A](04-review-qa.md)**

@@ -198,11 +198,11 @@ flowchart TB
 Look in the left sidebar for the VEX icon:
 
 ```
-    [📁 Explorer]
-    [🔍 Search]
-    [🔀 Git]
-    [▶️ VEX]      <-- You should see this!
-    [🧩 Extensions]
+    [Explorer]
+    [Search]
+    [Git]
+    [VEX]        <-- You should see this!
+    [Extensions]
 ```
 
 If you don't see it, install the "VEX Robotics" extension from the Extensions tab.

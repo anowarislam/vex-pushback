@@ -34,7 +34,7 @@ flowchart LR
 
 ### Real-World Analogies
 
-#### 🍳 The Restaurant Kitchen Analogy
+#### The Restaurant Kitchen Analogy
 
 Think of Skills like a chef preparing multiple dishes:
 
@@ -47,7 +47,7 @@ Think of Skills like a chef preparing multiple dishes:
 
 A good chef **times everything** so it all comes together. You need to time your Skills routine the same way!
 
-#### 🎮 Video Game Levels Analogy
+#### Video Game Levels Analogy
 
 Skills is like speedrunning through 4 levels of a video game:
 
@@ -55,12 +55,12 @@ Skills is like speedrunning through 4 levels of a video game:
 Level 1 (0-18 sec):  ⭐⭐⭐ Easy goals, build your score
 Level 2 (18-36 sec): ⭐⭐⭐ Medium goals, keep going
 Level 3 (36-52 sec): ⭐⭐⭐ Hard goals, clean up
-Boss Level (52-60 sec): 🏆 PARK for bonus points!
+Boss Level (52-60 sec): PARK for bonus points!
 ```
 
 If you don't reach the boss level (parking), you lose major points!
 
-#### 📝 Test-Taking Strategy Analogy
+#### Test-Taking Strategy Analogy
 
 Managing 60 seconds in Skills is like managing time on a test:
 
@@ -80,7 +80,7 @@ flowchart LR
     A["Best Autonomous\nSkills Score"] --> C["+"]
     B["Best Driver\nSkills Score"] --> C
     C --> D["Combined\nSkills Ranking"]
-    D --> E["Top teams\nadvance to Worlds! 🏆"]
+    D --> E["Top teams\nadvance to Worlds!"]
 
     style E fill:#c8e6c9,stroke:#2e7d32
 ```
@@ -102,7 +102,7 @@ flowchart LR
     B1["First goal\narea"] -.-> B
     C1["Center goal\narea"] -.-> C
     D1["Far goal\narea"] -.-> D
-    E1["🅿️ PARK!"] -.-> E
+    E1["PARK!"] -.-> E
 
     style E fill:#c8e6c9,stroke:#2e7d32
     style E1 fill:#c8e6c9,stroke:#2e7d32
@@ -115,9 +115,9 @@ flowchart LR
 | **Phase 1** | 0-18 sec | 18 sec | First goal area |
 | **Phase 2** | 18-36 sec | 18 sec | Center goal area |
 | **Phase 3** | 36-52 sec | 16 sec | Far goal + cleanup |
-| **Phase 4** | 52-60 sec | 8 sec | **PARK!** 🅿️ |
+| **Phase 4** | 52-60 sec | 8 sec | **PARK!** |
 
-> ⚠️ **Critical:** Phase 4 (parking) is NON-NEGOTIABLE. Always budget 8 seconds for parking!
+> **Critical:** Phase 4 (parking) is NON-NEGOTIABLE. Always budget 8 seconds for parking!
 
 ### Field Coverage Strategy
 
@@ -183,8 +183,8 @@ flowchart TD
     CHECK3 -->|"YES"| P3["STATE_PHASE3\nFar goal area"]
     P3 --> CHECK4{"timer > 52s?"}
     CHECK4 -->|"NO"| P3
-    CHECK4 -->|"YES"| PARK["STATE_PARK\n🅿️ Drive to park!"]
-    PARK --> DONE["STATE_DONE\n✅ Complete!"]
+    CHECK4 -->|"YES"| PARK["STATE_PARK\nDrive to park!"]
+    PARK --> DONE["STATE_DONE\nComplete!"]
 
     style PARK fill:#c8e6c9,stroke:#2e7d32
     style DONE fill:#c8e6c9,stroke:#2e7d32
@@ -421,7 +421,7 @@ flowchart LR
     C --> D["Continue"]
     D --> E["Phase 3\nfails"]
     E --> F["Continue"]
-    F --> G["ALWAYS\nPARK! 🅿️"]
+    F --> G["ALWAYS\nPARK!"]
 
     style G fill:#c8e6c9,stroke:#2e7d32
 ```
@@ -638,7 +638,7 @@ flowchart TB
 
 ## Progressive Exercises
 
-### 🟢 Beginner: 2-Phase Skills with Timer
+### Beginner: 2-Phase Skills with Timer
 
 **Goal:** Create a simple skills routine with timing.
 
@@ -666,7 +666,7 @@ def beginner_skills():
 
 ---
 
-### 🟡 Intermediate: 4-Phase State Machine
+### Intermediate: 4-Phase State Machine
 
 **Goal:** Implement a full state machine with 4 phases.
 
@@ -723,7 +723,7 @@ def intermediate_skills():
 
 ---
 
-### 🔴 Challenge: Full Skills with Recovery and GPS
+### Challenge: Full Skills with Recovery and GPS
 
 **Goal:** Complete Skills autonomous with error recovery and GPS parking.
 
@@ -906,4 +906,4 @@ flowchart LR
 
 ---
 
-**[← Previous: Sensor Integration](02-sensor-integration.md)** | **[Next: Appendix - Quick Reference →](../appendix/quick-reference.md)**
+**[← Previous: Sensor Integration](02-sensor-integration.md)** | **[Next: Review Q&A →](04-review-qa.md)**

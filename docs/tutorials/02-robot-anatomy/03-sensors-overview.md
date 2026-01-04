@@ -15,7 +15,7 @@ Sensors let your robot "see" and "feel" the world around it. Without sensors, yo
     "Drive forward 1000mm"        "Drive until you see a wall"
 
     +--------+                    +--------+
-    |  BLIND |  →→→→→ CRASH!      |  👁️    |  →→→→ STOP!
+    |  BLIND |  →→→→→ CRASH!      | SENSOR |  →→→→ STOP!
     +--[O][O]+                    +--[O][O]+
                                        ↑
                                   "I see something!"
@@ -301,8 +301,6 @@ When you rotate the robot:
 
 ---
 
-**Ready to test your knowledge? Check out the [Python Q&A Review](04-review-qa.md)!**
-
 ---
 
-**[← Previous: Motors and Gears](02-motors-and-gears.md)** | **[Next: Thinking with Flowcharts →](../03-python-basics/00-flowchart.md)**
+**[← Previous: Motors and Gears](02-motors-and-gears.md)** | **[Next: Thinking with Flowcharts →](../03-python-basics/00-flowchart.md)** | **[Review Q&A](04-review-qa.md)**

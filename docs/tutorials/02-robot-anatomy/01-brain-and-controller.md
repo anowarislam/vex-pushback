@@ -179,7 +179,7 @@ The Brain and Controller talk wirelessly:
 ```
     Controller                         Brain
 
-    [🎮]  ─────radio waves─────>  [🧠]
+    [CTRL]  ─────radio waves─────>  [BRAIN]
 
     Sends:                         Receives:
     - Joystick positions           - Controller inputs
@@ -196,7 +196,7 @@ You can also connect the controller with a cable:
 ```
     WIRELESS                    WIRED
 
-    [🎮] ~~~wireless~~~> [🧠]    [🎮]===cable===[🧠]
+    [CTRL] ~~~wireless~~~> [BRAIN]    [CTRL]===cable===[BRAIN]
 
     Good for:                   Good for:
     - Matches                   - Downloading code
@@ -251,4 +251,4 @@ while True:
 
 ---
 
-**[← Previous: Friction and Traction](../01-physics-foundations/03-friction-and-traction.md)** | **[Next: Motors and Gears →](02-motors-and-gears.md)** | **[📝 Review Q&A](04-review-qa.md)**
+**[← Previous: Friction and Traction](../01-physics-foundations/03-friction-and-traction.md)** | **[Next: Motors and Gears →](02-motors-and-gears.md)** | **[Review Q&A](04-review-qa.md)**

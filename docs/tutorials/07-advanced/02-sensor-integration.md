@@ -12,7 +12,7 @@ Sensors are your robot's **eyes, ears, and sense of direction**. Without them, y
 
 ### Real-World Analogies
 
-#### 👀 Eyes and Ears for Your Robot
+#### Eyes and Ears for Your Robot
 
 Just like you use your senses to navigate:
 - **Eyes** → Distance sensor, Optical sensor (see obstacles and colors)
@@ -20,7 +20,7 @@ Just like you use your senses to navigate:
 - **Balance** → Inertial sensor (like your inner ear for orientation)
 - **GPS in phone** → GPS sensor (knows exact position)
 
-#### 🚗 Car Sensors You Already Know
+#### Car Sensors You Already Know
 
 | Car Feature | Robot Equivalent | What It Does |
 |-------------|-----------------|--------------|
@@ -29,7 +29,7 @@ Just like you use your senses to navigate:
 | Phone GPS | GPS sensor | Knows exact position on field |
 | Color-sorting machine | Optical sensor | Identifies block colors |
 
-#### 🎮 Video Game Comparison
+#### Video Game Comparison
 
 ```
 WITHOUT SENSORS (like playing blindfolded):
@@ -43,17 +43,17 @@ WITH SENSORS (like playing with eyes open):
 
 ```mermaid
 flowchart LR
-    subgraph "❌ Open-Loop (Guessing)"
+    subgraph "Open-Loop (Guessing)"
         A1["Command:\ndrive 500mm"] --> B1["Robot moves"]
-        B1 --> C1["Hope it\nworked? 🤞"]
+        B1 --> C1["Hope it\nworked?"]
     end
 
-    subgraph "✅ Closed-Loop (Sensors)"
+    subgraph "Closed-Loop (Sensors)"
         A2["Command:\ndrive until\n500mm"] --> B2["Robot moves"]
         B2 --> C2["Sensor:\n487mm..."]
         C2 --> D2["Keep going"]
         D2 --> E2["Sensor:\n500mm"]
-        E2 --> F2["STOP! ✅"]
+        E2 --> F2["STOP!"]
         C2 -.-> B2
     end
 
@@ -101,7 +101,7 @@ inertial_sensor.calibrate()
 wait(3, SECONDS)  # Wait for calibration! Robot must be STILL!
 ```
 
-> ⚠️ **Important:** If the robot moves during calibration, all readings will be wrong!
+> **Important:** If the robot moves during calibration, all readings will be wrong!
 
 ### Heading vs Rotation
 
@@ -221,7 +221,7 @@ flowchart LR
     style D fill:#c8e6c9,stroke:#2e7d32
 ```
 
-### The Parking Sensor Analogy 🚗
+### The Parking Sensor Analogy
 
 Just like your car beeps faster as you get closer to an obstacle:
 
@@ -258,7 +258,7 @@ flowchart TD
     D -->|"YES"| E["Medium speed\n(50%)"]
     D -->|"NO"| F{"dist > 100mm?"}
     F -->|"YES"| G["Slow speed\n(30%)"]
-    F -->|"NO"| H["STOP! 🛑"]
+    F -->|"NO"| H["STOP!"]
 
     C --> A
     E --> A
@@ -323,7 +323,7 @@ flowchart LR
     style D fill:#c8e6c9,stroke:#2e7d32
 ```
 
-### The M&M Sorting Analogy 🍬
+### The M&M Sorting Analogy
 
 Imagine sorting candy by color:
 1. Shine a light on the candy
@@ -363,8 +363,8 @@ flowchart TD
     A -->|"NO"| A
 
     B --> C{"color ==\nour alliance?"}
-    C -->|"YES (RED)"| D["Intake\nFORWARD 🟢"]
-    C -->|"NO (BLUE)"| E["Intake\nREVERSE ❌"]
+    C -->|"YES (RED)"| D["Intake\nFORWARD"]
+    C -->|"NO (BLUE)"| E["Intake\nREVERSE"]
 
     D --> F["Block\ncollected!"]
     E --> G["Block\nejected!"]
@@ -413,7 +413,7 @@ flowchart LR
 
 The GPS sensor uses special **field strips** around the arena. It's like reading a QR code to know exactly where you are!
 
-### The Phone GPS Analogy 📱
+### The Phone GPS Analogy
 
 | Phone GPS | VEX GPS |
 |-----------|---------|
@@ -636,8 +636,8 @@ flowchart LR
     A["Block\napproaches"] --> B{"Optical:\nWhat color?"}
     B -->|"RED"| C{"Our alliance\n= RED?"}
     B -->|"BLUE"| D{"Our alliance\n= BLUE?"}
-    C -->|"YES"| E["Grab it! 🟢"]
-    C -->|"NO"| F["Eject! ❌"]
+    C -->|"YES"| E["Grab it!"]
+    C -->|"NO"| F["Eject!"]
     D -->|"YES"| E
     D -->|"NO"| F
 
@@ -695,7 +695,7 @@ def skills_with_gps():
 
 ## Progressive Exercises
 
-### 🟢 Beginner: Stop Before Wall
+### Beginner: Stop Before Wall
 
 **Goal:** Use distance sensor to stop before hitting a wall.
 
@@ -715,7 +715,7 @@ def drive_until_wall():
 
 ---
 
-### 🟡 Intermediate: Drive Straight with Inertial Correction
+### Intermediate: Drive Straight with Inertial Correction
 
 **Goal:** Drive in a straight line using inertial sensor for heading correction.
 
@@ -754,7 +754,7 @@ def drive_straight_500mm():
 
 ---
 
-### 🔴 Challenge: Block Color Sorting
+### Challenge: Block Color Sorting
 
 **Goal:** Create a system that only picks up blocks of your alliance color.
 
@@ -880,13 +880,13 @@ flowchart LR
     subgraph "Without Sensors"
         A1["Match 1:\n45 points"] --> B1["Match 2:\n28 points"]
         B1 --> C1["Match 3:\n52 points"]
-        C1 --> D1["INCONSISTENT 😞"]
+        C1 --> D1["INCONSISTENT"]
     end
 
     subgraph "With Sensors"
         A2["Match 1:\n58 points"] --> B2["Match 2:\n55 points"]
         B2 --> C2["Match 3:\n60 points"]
-        C2 --> D2["CONSISTENT! 🏆"]
+        C2 --> D2["CONSISTENT!"]
     end
 
     style D1 fill:#ffcdd2,stroke:#c62828
@@ -897,4 +897,4 @@ flowchart LR
 
 ---
 
-**[← Previous: PID Control](01-pid-control.md)** | **[Next: Skills Autonomous →](03-skills-autonomous.md)**
+**[← Previous: PID Control](01-pid-control.md)** | **[Next: Skills Autonomous →](03-skills-autonomous.md)** | **[Review Q&A](04-review-qa.md)**

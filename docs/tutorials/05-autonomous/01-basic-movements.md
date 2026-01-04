@@ -10,14 +10,16 @@
 During the first 15 seconds of a VEX match, **no human control is allowed**. Your robot must execute pre-programmed movements on its own!
 
 ```mermaid
-timeline
-    title VEX Match Timeline
-    section Autonomous
-        0:00 - 0:15 : Robot runs programmed code
-                    : No human control allowed
-    section Driver Control
-        0:15 - 2:00 : Human driver takes over
-                    : Full controller access
+flowchart LR
+    subgraph Autonomous ["Autonomous (0-15s)"]
+        A1[Programmed code runs]
+        A2[No human control]
+    end
+    subgraph Driver ["Driver Control (15s-2min)"]
+        D1[Human driver takes over]
+        D2[Full controller access]
+    end
+    Autonomous --> Driver
 ```
 
 ## The DriveTrain Commands
@@ -36,6 +38,7 @@ drivetrain.drive_for(FORWARD, 12, INCHES)
 ```
 
 **Parameters:**
+
 | Parameter | Options | What It Does |
 |-----------|---------|--------------|
 | Direction | `FORWARD`, `REVERSE` | Which way to move |
@@ -242,4 +245,4 @@ def drive_triangle():
 
 ---
 
-**[← Previous: Driver Practice](../04-drive-control/03-driver-practice.md)** | **[Next: Timing and Sequences →](02-timing-and-sequences.md)** | **[📝 Review Q&A](04-review-qa.md)**
+**[← Previous: Driver Practice](../04-drive-control/03-driver-practice.md)** | **[Next: Timing and Sequences →](02-timing-and-sequences.md)** | **[Review Q&A](04-review-qa.md)**

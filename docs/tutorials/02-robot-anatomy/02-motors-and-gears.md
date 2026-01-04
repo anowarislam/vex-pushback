@@ -288,4 +288,4 @@ else:
 
 ---
 
-**[← Previous: Brain and Controller](01-brain-and-controller.md)** | **[Next: Sensors Overview →](03-sensors-overview.md)** | **[📝 Review Q&A](04-review-qa.md)**
+**[← Previous: Brain and Controller](01-brain-and-controller.md)** | **[Next: Sensors Overview →](03-sensors-overview.md)** | **[Review Q&A](04-review-qa.md)**

@@ -771,8 +771,8 @@ missing parking. The 8-30 point swing is huge!
 
 ---
 
-**Good luck with your VEX V5 Push Back competition!** 🤖
+**Good luck with your VEX V5 Push Back competition!**
 
 ---
 
-**[← Back to Skills Autonomous](03-skills-autonomous.md)** | **[Back to Tutorial Index →](../README.md)**
+**[← Previous: Skills Autonomous](03-skills-autonomous.md)** | **[Next: Appendix →](../appendix/quick-reference.md)**
